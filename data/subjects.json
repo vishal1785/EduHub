@@ -1,0 +1,9 @@
+[
+  { "id": "maths",   "name": "Maths",   "icon": "➗", "color": "#3E6259" },
+  { "id": "science", "name": "Science", "icon": "🔬", "color": "#2F6690" },
+  { "id": "sst",     "name": "SST",     "icon": "🌍", "color": "#8A5A44" },
+  { "id": "english", "name": "English", "icon": "📖", "color": "#6B5B95" },
+  { "id": "hindi",   "name": "Hindi",   "icon": "✒️", "color": "#B85C38" },
+  { "id": "german",  "name": "German",  "icon": "🇩🇪", "color": "#3B6E8F" },
+  { "id": "ict",     "name": "ICT",     "icon": "💻", "color": "#4A7C6F" }
+]

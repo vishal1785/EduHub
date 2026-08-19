@@ -1,0 +1,17 @@
+{
+  "weakThreshold": 60,
+  "strongThreshold": 80,
+  "quickPracticeSize": 10,
+  "midTermMock": {
+    "title": "Mid-Term Mock Test",
+    "subjectCounts": {
+      "maths": 8,
+      "science": 8,
+      "sst": 8,
+      "english": 6,
+      "hindi": 6,
+      "german": 6,
+      "ict": 5
+    }
+  }
+}

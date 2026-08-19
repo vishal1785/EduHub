@@ -1,0 +1,2834 @@
+[
+  {
+    "id": "maths-ch3-q001",
+    "subject": "Maths",
+    "chapterId": "maths-ch3",
+    "chapter": "Finding Common Grounds",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the HCF of 12 and 18?",
+    "options": [
+      "3",
+      "6",
+      "9",
+      "12"
+    ],
+    "answer": 1,
+    "explanation": "12 = 2² × 3 and 18 = 2 × 3². The common factors are 2 and 3, so HCF = 2 × 3 = 6.",
+    "tags": [
+      "hcf",
+      "factors"
+    ]
+  },
+  {
+    "id": "maths-ch3-q002",
+    "subject": "Maths",
+    "chapterId": "maths-ch3",
+    "chapter": "Finding Common Grounds",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the LCM of 4 and 6?",
+    "options": [
+      "8",
+      "12",
+      "24",
+      "48"
+    ],
+    "answer": 1,
+    "explanation": "Multiples of 4: 4, 8, 12...  Multiples of 6: 6, 12...  The smallest common multiple is 12.",
+    "tags": [
+      "lcm",
+      "multiples"
+    ]
+  },
+  {
+    "id": "maths-ch3-q003",
+    "subject": "Maths",
+    "chapterId": "maths-ch3",
+    "chapter": "Finding Common Grounds",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the LCM of 5 and 9, which have no common factors other than 1?",
+    "options": [
+      "14",
+      "45",
+      "5",
+      "9"
+    ],
+    "answer": 1,
+    "explanation": "5 and 9 are co-prime (their HCF is 1), so their LCM is simply their product: 5 × 9 = 45.",
+    "tags": [
+      "lcm",
+      "co-prime"
+    ]
+  },
+  {
+    "id": "maths-ch3-q004",
+    "subject": "Maths",
+    "chapterId": "maths-ch3",
+    "chapter": "Finding Common Grounds",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "For two numbers a and b, HCF(a,b) × LCM(a,b) always equals:",
+    "options": [
+      "a + b",
+      "a × b",
+      "a − b",
+      "a ÷ b"
+    ],
+    "answer": 1,
+    "explanation": "For any two numbers, the product of their HCF and LCM is always equal to the product of the numbers themselves.",
+    "tags": [
+      "hcf",
+      "lcm",
+      "property"
+    ]
+  },
+  {
+    "id": "maths-ch4-q001",
+    "subject": "Maths",
+    "chapterId": "maths-ch4",
+    "chapter": "Operation With Integers",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is (−8) + 13?",
+    "options": [
+      "−21",
+      "−5",
+      "5",
+      "21"
+    ],
+    "answer": 2,
+    "explanation": "13 − 8 = 5. Because the positive number has the greater absolute value, the result is positive.",
+    "tags": [
+      "integers",
+      "addition"
+    ]
+  },
+  {
+    "id": "maths-ch4-q002",
+    "subject": "Maths",
+    "chapterId": "maths-ch4",
+    "chapter": "Operation With Integers",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is (−6) − (−4)?",
+    "options": [
+      "−10",
+      "−2",
+      "2",
+      "10"
+    ],
+    "answer": 1,
+    "explanation": "Subtracting a negative number is the same as adding its positive: −6 + 4 = −2.",
+    "tags": [
+      "integers",
+      "subtraction"
+    ]
+  },
+  {
+    "id": "maths-ch4-q003",
+    "subject": "Maths",
+    "chapterId": "maths-ch4",
+    "chapter": "Operation With Integers",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is (−3) × (−7)?",
+    "options": [
+      "−21",
+      "−10",
+      "10",
+      "21"
+    ],
+    "answer": 3,
+    "explanation": "A negative number multiplied by a negative number gives a positive result: 3 × 7 = 21.",
+    "tags": [
+      "integers",
+      "multiplication"
+    ]
+  },
+  {
+    "id": "maths-ch4-q004",
+    "subject": "Maths",
+    "chapterId": "maths-ch4",
+    "chapter": "Operation With Integers",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is (−24) ÷ 6?",
+    "options": [
+      "−4",
+      "−18",
+      "4",
+      "18"
+    ],
+    "answer": 0,
+    "explanation": "A negative number divided by a positive number gives a negative result: 24 ÷ 6 = 4, so the answer is −4.",
+    "tags": [
+      "integers",
+      "division"
+    ]
+  },
+  {
+    "id": "maths-ch4-q005",
+    "subject": "Maths",
+    "chapterId": "maths-ch4",
+    "chapter": "Operation With Integers",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the additive inverse of −9?",
+    "options": [
+      "−9",
+      "0",
+      "9",
+      "1/9"
+    ],
+    "answer": 2,
+    "explanation": "The additive inverse of a number, when added to it, gives zero. −9 + 9 = 0, so the additive inverse of −9 is 9.",
+    "tags": [
+      "integers",
+      "additive inverse"
+    ]
+  },
+  {
+    "id": "maths-ch5-q001",
+    "subject": "Maths",
+    "chapterId": "maths-ch5",
+    "chapter": "Arithmetic Expression",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 12 + 3 × 2?",
+    "options": [
+      "30",
+      "18",
+      "24",
+      "15"
+    ],
+    "answer": 1,
+    "explanation": "By BODMAS, multiplication is done before addition: 3 × 2 = 6, then 12 + 6 = 18.",
+    "tags": [
+      "bodmas"
+    ]
+  },
+  {
+    "id": "maths-ch5-q002",
+    "subject": "Maths",
+    "chapterId": "maths-ch5",
+    "chapter": "Arithmetic Expression",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is (5 + 3) × 2?",
+    "options": [
+      "11",
+      "16",
+      "13",
+      "10"
+    ],
+    "answer": 1,
+    "explanation": "Brackets are solved first: 5 + 3 = 8, then 8 × 2 = 16.",
+    "tags": [
+      "bodmas",
+      "brackets"
+    ]
+  },
+  {
+    "id": "maths-ch5-q003",
+    "subject": "Maths",
+    "chapterId": "maths-ch5",
+    "chapter": "Arithmetic Expression",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 20 ÷ 4 + 3 × 2?",
+    "options": [
+      "11",
+      "7",
+      "22",
+      "2"
+    ],
+    "answer": 0,
+    "explanation": "By BODMAS: 20 ÷ 4 = 5 and 3 × 2 = 6, then 5 + 6 = 11.",
+    "tags": [
+      "bodmas"
+    ]
+  },
+  {
+    "id": "maths-ch5-q004",
+    "subject": "Maths",
+    "chapterId": "maths-ch5",
+    "chapter": "Arithmetic Expression",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 15 − (6 − 2)?",
+    "options": [
+      "11",
+      "19",
+      "9",
+      "7"
+    ],
+    "answer": 0,
+    "explanation": "Brackets first: 6 − 2 = 4, then 15 − 4 = 11.",
+    "tags": [
+      "bodmas",
+      "brackets"
+    ]
+  },
+  {
+    "id": "maths-ch6-q001",
+    "subject": "Maths",
+    "chapterId": "maths-ch6",
+    "chapter": "Working With Fractions",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 2/3 × 3/5?",
+    "options": [
+      "6/8",
+      "2/5",
+      "3/8",
+      "5/6"
+    ],
+    "answer": 1,
+    "explanation": "Multiply numerators and denominators: (2×3)/(3×5) = 6/15, which simplifies to 2/5.",
+    "tags": [
+      "fractions",
+      "multiplication"
+    ]
+  },
+  {
+    "id": "maths-ch6-q002",
+    "subject": "Maths",
+    "chapterId": "maths-ch6",
+    "chapter": "Working With Fractions",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 1/2 + 1/3?",
+    "options": [
+      "2/5",
+      "5/6",
+      "2/6",
+      "1/6"
+    ],
+    "answer": 1,
+    "explanation": "The LCD of 2 and 3 is 6. 1/2 = 3/6 and 1/3 = 2/6, so the sum is 5/6.",
+    "tags": [
+      "fractions",
+      "addition"
+    ]
+  },
+  {
+    "id": "maths-ch6-q003",
+    "subject": "Maths",
+    "chapterId": "maths-ch6",
+    "chapter": "Working With Fractions",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these fractions is the greatest?",
+    "options": [
+      "1/2",
+      "2/3",
+      "3/4",
+      "4/5"
+    ],
+    "answer": 3,
+    "explanation": "As decimals: 1/2=0.5, 2/3≈0.67, 3/4=0.75, 4/5=0.8. So 4/5 is the greatest.",
+    "tags": [
+      "fractions",
+      "comparison"
+    ]
+  },
+  {
+    "id": "maths-ch6-q004",
+    "subject": "Maths",
+    "chapterId": "maths-ch6",
+    "chapter": "Working With Fractions",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 3/4 ÷ 1/2?",
+    "options": [
+      "3/8",
+      "3/2",
+      "1/2",
+      "3/4"
+    ],
+    "answer": 1,
+    "explanation": "Dividing by a fraction means multiplying by its reciprocal: 3/4 × 2/1 = 6/4 = 3/2.",
+    "tags": [
+      "fractions",
+      "division"
+    ]
+  },
+  {
+    "id": "maths-ch7-q001",
+    "subject": "Maths",
+    "chapterId": "maths-ch7",
+    "chapter": "A Peak Beyond The Point",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 3.45 + 2.6?",
+    "options": [
+      "5.71",
+      "6.05",
+      "5.05",
+      "6.5"
+    ],
+    "answer": 1,
+    "explanation": "Line up the decimal points: 3.45 + 2.60 = 6.05.",
+    "tags": [
+      "decimals",
+      "addition"
+    ]
+  },
+  {
+    "id": "maths-ch7-q002",
+    "subject": "Maths",
+    "chapterId": "maths-ch7",
+    "chapter": "A Peak Beyond The Point",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 7.2 − 3.85?",
+    "options": [
+      "3.35",
+      "4.35",
+      "3.45",
+      "4.15"
+    ],
+    "answer": 0,
+    "explanation": "Line up the decimal points: 7.20 − 3.85 = 3.35.",
+    "tags": [
+      "decimals",
+      "subtraction"
+    ]
+  },
+  {
+    "id": "maths-ch7-q003",
+    "subject": "Maths",
+    "chapterId": "maths-ch7",
+    "chapter": "A Peak Beyond The Point",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is 0.4 × 0.2?",
+    "options": [
+      "0.8",
+      "0.08",
+      "0.008",
+      "8"
+    ],
+    "answer": 1,
+    "explanation": "Multiply as whole numbers (4 × 2 = 8), then place the decimal point so there are 2 decimal digits in total: 0.08.",
+    "tags": [
+      "decimals",
+      "multiplication"
+    ]
+  },
+  {
+    "id": "maths-ch7-q004",
+    "subject": "Maths",
+    "chapterId": "maths-ch7",
+    "chapter": "A Peak Beyond The Point",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which is greater, 0.5 or 0.45?",
+    "options": [
+      "0.5",
+      "0.45",
+      "They are equal",
+      "Cannot be compared"
+    ],
+    "answer": 0,
+    "explanation": "Comparing the tenths digit: 5 is greater than 4, so 0.5 is greater than 0.45.",
+    "tags": [
+      "decimals",
+      "comparison"
+    ]
+  },
+  {
+    "id": "maths-ch10-q001",
+    "subject": "Maths",
+    "chapterId": "maths-ch10",
+    "chapter": "Parallel and Intersecting Lines",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Two lines that never meet and always stay the same distance apart are called:",
+    "options": [
+      "Intersecting lines",
+      "Parallel lines",
+      "Perpendicular lines",
+      "Skew lines"
+    ],
+    "answer": 1,
+    "explanation": "Parallel lines lie in the same plane and never meet, no matter how far they are extended.",
+    "tags": [
+      "lines",
+      "parallel"
+    ]
+  },
+  {
+    "id": "maths-ch10-q002",
+    "subject": "Maths",
+    "chapterId": "maths-ch10",
+    "chapter": "Parallel and Intersecting Lines",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The angle formed where two lines cross at exactly 90° is called a:",
+    "options": [
+      "Acute angle",
+      "Obtuse angle",
+      "Right angle",
+      "Reflex angle"
+    ],
+    "answer": 2,
+    "explanation": "An angle of exactly 90° is called a right angle, formed by perpendicular lines.",
+    "tags": [
+      "lines",
+      "angles"
+    ]
+  },
+  {
+    "id": "maths-ch10-q003",
+    "subject": "Maths",
+    "chapterId": "maths-ch10",
+    "chapter": "Parallel and Intersecting Lines",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "When two parallel lines are cut by a transversal, the alternate interior angles are:",
+    "options": [
+      "Equal",
+      "Supplementary",
+      "Complementary",
+      "Unrelated"
+    ],
+    "answer": 0,
+    "explanation": "Alternate interior angles formed by a transversal cutting parallel lines are always equal.",
+    "tags": [
+      "lines",
+      "transversal"
+    ]
+  },
+  {
+    "id": "maths-ch10-q004",
+    "subject": "Maths",
+    "chapterId": "maths-ch10",
+    "chapter": "Parallel and Intersecting Lines",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Corresponding angles formed by a transversal cutting two parallel lines are:",
+    "options": [
+      "Equal",
+      "Always supplementary",
+      "Always 90°",
+      "Always different"
+    ],
+    "answer": 0,
+    "explanation": "Corresponding angles occupy matching positions at each intersection and are always equal when the lines are parallel.",
+    "tags": [
+      "lines",
+      "transversal"
+    ]
+  },
+  {
+    "id": "science-ch2-q001",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Lemon juice tastes sour mainly because it is:",
+    "options": [
+      "Basic",
+      "Acidic",
+      "Neutral",
+      "Alkaline"
+    ],
+    "answer": 1,
+    "explanation": "Lemon juice contains citric acid, which gives it a sour taste — a typical property of acidic substances.",
+    "tags": [
+      "acids",
+      "bases"
+    ]
+  },
+  {
+    "id": "science-ch2-q002",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A solution with a pH value of exactly 7 is:",
+    "options": [
+      "Acidic",
+      "Basic",
+      "Neutral",
+      "None of these"
+    ],
+    "answer": 2,
+    "explanation": "Pure water has a pH of 7 and is considered neutral — neither acidic nor basic.",
+    "tags": [
+      "ph",
+      "neutral"
+    ]
+  },
+  {
+    "id": "science-ch2-q003",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which indicator turns red in an acid and blue in a base?",
+    "options": [
+      "Turmeric",
+      "Litmus",
+      "Starch solution",
+      "China rose only"
+    ],
+    "answer": 1,
+    "explanation": "Litmus is a natural indicator: blue litmus turns red in acids, and red litmus turns blue in bases.",
+    "tags": [
+      "indicators",
+      "litmus"
+    ]
+  },
+  {
+    "id": "science-ch2-q004",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A baking soda (sodium bicarbonate) solution is generally:",
+    "options": [
+      "Acidic",
+      "Basic",
+      "Neutral",
+      "Cannot say"
+    ],
+    "answer": 1,
+    "explanation": "Baking soda solution is mildly basic, which is why it is often used to neutralise acids.",
+    "tags": [
+      "bases",
+      "examples"
+    ]
+  },
+  {
+    "id": "science-ch3-q001",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A device used to open or close an electric circuit is called a:",
+    "options": [
+      "Bulb",
+      "Switch",
+      "Wire",
+      "Cell"
+    ],
+    "answer": 1,
+    "explanation": "A switch is used to make (close) or break (open) an electric circuit, controlling the flow of current.",
+    "tags": [
+      "circuits",
+      "switch"
+    ]
+  },
+  {
+    "id": "science-ch3-q002",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a simple circuit, electric current flows only when the circuit is:",
+    "options": [
+      "Open",
+      "Broken",
+      "Closed",
+      "Disconnected"
+    ],
+    "answer": 2,
+    "explanation": "Current can only flow through a complete, unbroken path — this is called a closed circuit.",
+    "tags": [
+      "circuits",
+      "current"
+    ]
+  },
+  {
+    "id": "science-ch3-q003",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A material that allows electric current to pass through it easily is called a(n):",
+    "options": [
+      "Insulator",
+      "Conductor",
+      "Resistor only",
+      "Non-conductor"
+    ],
+    "answer": 1,
+    "explanation": "Materials like metals that let electric current pass through easily are called conductors.",
+    "tags": [
+      "conductors"
+    ]
+  },
+  {
+    "id": "science-ch3-q004",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Rubber and plastic are examples of:",
+    "options": [
+      "Conductors",
+      "Insulators",
+      "Semiconductors",
+      "Superconductors"
+    ],
+    "answer": 1,
+    "explanation": "Rubber and plastic do not allow current to pass through easily, so they are used as insulators.",
+    "tags": [
+      "insulators"
+    ]
+  },
+  {
+    "id": "science-ch3-q005",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The component that stores and provides electrical energy in a simple circuit is a:",
+    "options": [
+      "Switch",
+      "Wire",
+      "Cell or battery",
+      "Bulb"
+    ],
+    "answer": 2,
+    "explanation": "A cell (or battery) stores chemical energy and converts it into electrical energy to power a circuit.",
+    "tags": [
+      "circuits",
+      "cell"
+    ]
+  },
+  {
+    "id": "science-ch5-q001",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Melting of ice into water is an example of a:",
+    "options": [
+      "Chemical change",
+      "Physical change",
+      "Both physical and chemical",
+      "Neither"
+    ],
+    "answer": 1,
+    "explanation": "No new substance is formed — only the state changes from solid to liquid — so this is a physical change.",
+    "tags": [
+      "physical change"
+    ]
+  },
+  {
+    "id": "science-ch5-q002",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Burning of paper is an example of a:",
+    "options": [
+      "Physical change",
+      "Chemical change",
+      "Reversible change",
+      "No change at all"
+    ],
+    "answer": 1,
+    "explanation": "Burning produces new substances such as ash and gases, and cannot be reversed, making it a chemical change.",
+    "tags": [
+      "chemical change"
+    ]
+  },
+  {
+    "id": "science-ch5-q003",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these changes is generally reversible?",
+    "options": [
+      "Rusting of iron",
+      "Burning of wood",
+      "Melting of wax",
+      "Cooking an egg"
+    ],
+    "answer": 2,
+    "explanation": "Melted wax can be cooled back into solid wax, so this physical change can usually be reversed.",
+    "tags": [
+      "reversible"
+    ]
+  },
+  {
+    "id": "science-ch5-q004",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The formation of curd from milk is an example of a:",
+    "options": [
+      "Physical change",
+      "Chemical change",
+      "No change",
+      "Melting"
+    ],
+    "answer": 1,
+    "explanation": "New substances are formed when milk turns into curd, which makes it a chemical change.",
+    "tags": [
+      "chemical change"
+    ]
+  },
+  {
+    "id": "science-ch6-q001",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The stage of life between childhood and adulthood is called:",
+    "options": [
+      "Infancy",
+      "Adolescence",
+      "Old age",
+      "None of these"
+    ],
+    "answer": 1,
+    "explanation": "Adolescence is the transitional period of physical and psychological growth between childhood and adulthood.",
+    "tags": [
+      "adolescence"
+    ]
+  },
+  {
+    "id": "science-ch6-q002",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The physical, mental and emotional changes during adolescence are triggered mainly by:",
+    "options": [
+      "Diet changes only",
+      "Hormonal changes",
+      "Weather",
+      "School changes"
+    ],
+    "answer": 1,
+    "explanation": "Hormones released during adolescence trigger the major physical and emotional changes of this stage.",
+    "tags": [
+      "hormones"
+    ]
+  },
+  {
+    "id": "science-ch6-q003",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A balanced diet during the adolescent years is important mainly for:",
+    "options": [
+      "Healthy growth and development",
+      "Only gaining weight",
+      "Only increasing height",
+      "No real benefit"
+    ],
+    "answer": 0,
+    "explanation": "A balanced diet supports the rapid physical and mental growth that occurs during adolescence.",
+    "tags": [
+      "diet",
+      "growth"
+    ]
+  },
+  {
+    "id": "science-ch6-q004",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these is a healthy habit during the adolescent years?",
+    "options": [
+      "Skipping meals often",
+      "Regular exercise and a balanced diet",
+      "Excess screen time",
+      "Ignoring sleep"
+    ],
+    "answer": 1,
+    "explanation": "Regular exercise, good food and adequate sleep support healthy growth during adolescence.",
+    "tags": [
+      "healthy habits"
+    ]
+  },
+  {
+    "id": "science-ch8-q001",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The SI unit of time is the:",
+    "options": [
+      "Minute",
+      "Hour",
+      "Second",
+      "Day"
+    ],
+    "answer": 2,
+    "explanation": "The second is the standard (SI) unit used to measure time.",
+    "tags": [
+      "units",
+      "time"
+    ]
+  },
+  {
+    "id": "science-ch8-q002",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The time taken by a simple pendulum to complete one full swing is called its:",
+    "options": [
+      "Frequency",
+      "Amplitude",
+      "Time period",
+      "Speed"
+    ],
+    "answer": 2,
+    "explanation": "The time period of a pendulum is the time it takes to complete one full oscillation.",
+    "tags": [
+      "pendulum",
+      "time period"
+    ]
+  },
+  {
+    "id": "science-ch8-q003",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "An object is said to be in motion when its position:",
+    "options": [
+      "Stays exactly the same",
+      "Changes with time with respect to a reference point",
+      "Is always at rest",
+      "Cannot be measured"
+    ],
+    "answer": 1,
+    "explanation": "Motion is defined as a change in an object's position over time relative to a fixed reference point.",
+    "tags": [
+      "motion"
+    ]
+  },
+  {
+    "id": "science-ch8-q004",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Speed is defined as:",
+    "options": [
+      "Distance × time",
+      "Distance ÷ time",
+      "Time ÷ distance",
+      "Distance + time"
+    ],
+    "answer": 1,
+    "explanation": "Speed measures how much distance is covered per unit of time, so speed = distance ÷ time.",
+    "tags": [
+      "speed"
+    ]
+  },
+  {
+    "id": "sst-ch2-q001",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The day-to-day condition of the atmosphere at a place is called:",
+    "options": [
+      "Climate",
+      "Weather",
+      "Season",
+      "Monsoon"
+    ],
+    "answer": 1,
+    "explanation": "Weather refers to the short-term, day-to-day state of the atmosphere, unlike climate which is the average pattern over many years.",
+    "tags": [
+      "weather"
+    ]
+  },
+  {
+    "id": "sst-ch2-q002",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which instrument is used to measure atmospheric temperature?",
+    "options": [
+      "Barometer",
+      "Thermometer",
+      "Rain gauge",
+      "Anemometer"
+    ],
+    "answer": 1,
+    "explanation": "A thermometer measures temperature, an important element of weather.",
+    "tags": [
+      "instruments"
+    ]
+  },
+  {
+    "id": "sst-ch2-q003",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which instrument is used to measure rainfall?",
+    "options": [
+      "Thermometer",
+      "Rain gauge",
+      "Barometer",
+      "Wind vane"
+    ],
+    "answer": 1,
+    "explanation": "A rain gauge collects and measures the amount of rainfall at a location.",
+    "tags": [
+      "instruments"
+    ]
+  },
+  {
+    "id": "sst-ch2-q004",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these does NOT typically affect the weather of a place?",
+    "options": [
+      "Temperature",
+      "Humidity",
+      "Wind",
+      "Population of the place"
+    ],
+    "answer": 3,
+    "explanation": "Weather is influenced by natural factors like temperature, humidity and wind — not by the human population of a place.",
+    "tags": [
+      "weather factors"
+    ]
+  },
+  {
+    "id": "sst-ch3-q001",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "India's climate is best described overall as:",
+    "options": [
+      "Polar",
+      "Tropical monsoon",
+      "Desert throughout",
+      "Equatorial"
+    ],
+    "answer": 1,
+    "explanation": "India has a tropical monsoon climate, marked by seasonal reversal of winds and monsoon rains.",
+    "tags": [
+      "climate"
+    ]
+  },
+  {
+    "id": "sst-ch3-q002",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The monsoon winds that bring most of India's rainfall generally blow in from the:",
+    "options": [
+      "North",
+      "South-west (Arabian Sea)",
+      "East only",
+      "North-east only"
+    ],
+    "answer": 1,
+    "explanation": "The south-west monsoon winds from the Arabian Sea and Bay of Bengal bring the bulk of India's annual rainfall.",
+    "tags": [
+      "monsoon"
+    ]
+  },
+  {
+    "id": "sst-ch3-q003",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which region of India is known for receiving very heavy rainfall?",
+    "options": [
+      "The Rajasthan desert",
+      "The Meghalaya hills (e.g. Cherrapunji/Mawsynram)",
+      "Ladakh",
+      "Interior Gujarat"
+    ],
+    "answer": 1,
+    "explanation": "Areas in Meghalaya, such as Mawsynram and Cherrapunji, are among the wettest places on Earth.",
+    "tags": [
+      "rainfall"
+    ]
+  },
+  {
+    "id": "sst-ch3-q004",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "India's year is traditionally divided into how many broad seasons?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "answer": 1,
+    "explanation": "India's year is traditionally divided into three broad seasons: summer, monsoon (rainy) and winter.",
+    "tags": [
+      "seasons"
+    ]
+  },
+  {
+    "id": "sst-ch5-q001",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Mauryan Empire was founded by:",
+    "options": [
+      "Ashoka",
+      "Chandragupta Maurya",
+      "Bindusara",
+      "Chanakya"
+    ],
+    "answer": 1,
+    "explanation": "Chandragupta Maurya founded the Mauryan Empire around the 4th century BCE.",
+    "tags": [
+      "mauryan empire"
+    ]
+  },
+  {
+    "id": "sst-ch5-q002",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Emperor Ashoka is best remembered for adopting which policy after the Kalinga war?",
+    "options": [
+      "Expansion through more war",
+      "Buddhism and non-violence",
+      "Strict new taxation",
+      "Complete isolation"
+    ],
+    "answer": 1,
+    "explanation": "After witnessing the suffering caused by the Kalinga war, Ashoka embraced Buddhism and promoted non-violence.",
+    "tags": [
+      "ashoka"
+    ]
+  },
+  {
+    "id": "sst-ch5-q003",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "An empire is best described as:",
+    "options": [
+      "A small village",
+      "A large territory of different regions under one ruler's control",
+      "A single city",
+      "A trade route"
+    ],
+    "answer": 1,
+    "explanation": "An empire refers to a large area, often containing many regions or peoples, ruled by a single powerful authority.",
+    "tags": [
+      "empire"
+    ]
+  },
+  {
+    "id": "sst-ch5-q004",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Chanakya (Kautilya) is well known as the author of which ancient text on statecraft?",
+    "options": [
+      "Ramayana",
+      "Arthashastra",
+      "Mahabharata",
+      "Vedas"
+    ],
+    "answer": 1,
+    "explanation": "Chanakya, advisor to Chandragupta Maurya, is credited with writing the Arthashastra, a treatise on statecraft and economics.",
+    "tags": [
+      "chanakya"
+    ]
+  },
+  {
+    "id": "sst-ch7-q001",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Gupta period is often called a 'Golden Age' of ancient India mainly because of achievements in:",
+    "options": [
+      "Warfare only",
+      "Art, science and literature",
+      "Taxation",
+      "None of these"
+    ],
+    "answer": 1,
+    "explanation": "The Gupta era saw major advances in art, mathematics, astronomy and literature, earning it the title 'Golden Age'.",
+    "tags": [
+      "gupta empire"
+    ]
+  },
+  {
+    "id": "sst-ch7-q002",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The mathematician-astronomer Aryabhata lived during which period?",
+    "options": [
+      "Mauryan period",
+      "Gupta period",
+      "Mughal period",
+      "British period"
+    ],
+    "answer": 1,
+    "explanation": "Aryabhata, known for his work on zero and astronomy, lived during the Gupta period.",
+    "tags": [
+      "aryabhata"
+    ]
+  },
+  {
+    "id": "sst-ch7-q003",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Gupta Empire is generally understood to have ruled large parts of India during roughly which centuries?",
+    "options": [
+      "1st century BCE",
+      "4th to 6th century CE",
+      "10th century CE",
+      "18th century CE"
+    ],
+    "answer": 1,
+    "explanation": "Historians generally date the Gupta Empire from around the 4th to the 6th century CE.",
+    "tags": [
+      "gupta empire",
+      "timeline"
+    ]
+  },
+  {
+    "id": "sst-ch7-q004",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these is a notable feature often associated with governance during the Gupta period?",
+    "options": [
+      "No trade at all",
+      "Flourishing trade and general prosperity",
+      "Total isolation from other regions",
+      "No coinage in use"
+    ],
+    "answer": 1,
+    "explanation": "The Gupta period is associated with prosperous trade, use of coinage, and general economic well-being.",
+    "tags": [
+      "gupta empire"
+    ]
+  },
+  {
+    "id": "sst-ch9-q001",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A government in which power rests with the people, through elected representatives, is called a:",
+    "options": [
+      "Monarchy",
+      "Democracy",
+      "Dictatorship",
+      "Oligarchy"
+    ],
+    "answer": 1,
+    "explanation": "In a democracy, citizens elect representatives who exercise power on their behalf.",
+    "tags": [
+      "democracy"
+    ]
+  },
+  {
+    "id": "sst-ch9-q002",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A form of government ruled by a king or queen who usually inherits power is called a:",
+    "options": [
+      "Republic",
+      "Monarchy",
+      "Democracy",
+      "Federation"
+    ],
+    "answer": 1,
+    "explanation": "A monarchy is headed by a king or queen, with rule typically passed down within a royal family.",
+    "tags": [
+      "monarchy"
+    ]
+  },
+  {
+    "id": "sst-ch9-q003",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a dictatorship, power is usually held by:",
+    "options": [
+      "Many elected leaders",
+      "One person or a small group with near-total control",
+      "The judiciary alone",
+      "The people directly"
+    ],
+    "answer": 1,
+    "explanation": "A dictatorship concentrates power in a single ruler or a small group, without meaningful checks from elections.",
+    "tags": [
+      "dictatorship"
+    ]
+  },
+  {
+    "id": "sst-ch9-q004",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "India is best described as which type of government?",
+    "options": [
+      "A monarchy",
+      "A democratic republic",
+      "A dictatorship",
+      "A colony"
+    ],
+    "answer": 1,
+    "explanation": "India is a democratic republic, where citizens elect their government and the head of state is not hereditary.",
+    "tags": [
+      "india government"
+    ]
+  },
+  {
+    "id": "sst-ch10-q001",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Constitution of India came into effect on:",
+    "options": [
+      "15 August 1947",
+      "26 January 1950",
+      "26 November 1949",
+      "2 October 1950"
+    ],
+    "answer": 1,
+    "explanation": "The Constitution of India came into force on 26 January 1950, which is celebrated as Republic Day.",
+    "tags": [
+      "constitution"
+    ]
+  },
+  {
+    "id": "sst-ch10-q002",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The introductory statement of the Constitution that outlines its guiding values is called the:",
+    "options": [
+      "Preamble",
+      "Directive",
+      "Amendment",
+      "Ordinance"
+    ],
+    "answer": 0,
+    "explanation": "The Preamble is the opening statement of the Constitution that sets out its core values and goals.",
+    "tags": [
+      "preamble"
+    ]
+  },
+  {
+    "id": "sst-ch10-q003",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "India's Constitution describes the country as a sovereign, socialist, secular, democratic:",
+    "options": [
+      "Monarchy",
+      "Republic",
+      "Empire",
+      "Colony"
+    ],
+    "answer": 1,
+    "explanation": "The Preamble describes India as a sovereign, socialist, secular, democratic republic.",
+    "tags": [
+      "constitution"
+    ]
+  },
+  {
+    "id": "sst-ch10-q004",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Who is often called the chief architect of the Indian Constitution?",
+    "options": [
+      "Mahatma Gandhi",
+      "Dr. B.R. Ambedkar",
+      "Jawaharlal Nehru",
+      "Sardar Patel"
+    ],
+    "answer": 1,
+    "explanation": "Dr. B.R. Ambedkar chaired the Drafting Committee and is widely regarded as the chief architect of the Constitution.",
+    "tags": [
+      "ambedkar"
+    ]
+  },
+  {
+    "id": "english-grammar-q001",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Choose the correct verb: \"She ___ to school every day.\"",
+    "options": [
+      "go",
+      "goes",
+      "going",
+      "gone"
+    ],
+    "answer": 1,
+    "explanation": "With a singular subject like 'she' in the simple present tense, the verb takes an -s ending: 'goes'.",
+    "tags": [
+      "verbs",
+      "subject-verb agreement"
+    ]
+  },
+  {
+    "id": "english-grammar-q002",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the noun in the sentence: \"The dog barked loudly.\"",
+    "options": [
+      "dog",
+      "barked",
+      "loudly",
+      "the"
+    ],
+    "answer": 0,
+    "explanation": "A noun names a person, place, animal or thing. 'Dog' is the noun in this sentence.",
+    "tags": [
+      "nouns"
+    ]
+  },
+  {
+    "id": "english-grammar-q003",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these words is an adjective?",
+    "options": [
+      "run",
+      "beautiful",
+      "quickly",
+      "jump"
+    ],
+    "answer": 1,
+    "explanation": "An adjective describes a noun. 'Beautiful' describes a quality, making it an adjective.",
+    "tags": [
+      "adjectives"
+    ]
+  },
+  {
+    "id": "english-grammar-q004",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which sentence uses punctuation correctly?",
+    "options": [
+      "Wow that's amazing!",
+      "Wow, that's amazing!",
+      "Wow that's, amazing!",
+      "Wow, that's amazing,"
+    ],
+    "answer": 1,
+    "explanation": "An interjection like 'Wow' is usually followed by a comma before the rest of the sentence.",
+    "tags": [
+      "punctuation"
+    ]
+  },
+  {
+    "id": "english-grammar-q005",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these words is a conjunction?",
+    "options": [
+      "and",
+      "quickly",
+      "table",
+      "jump"
+    ],
+    "answer": 0,
+    "explanation": "A conjunction joins words, phrases or clauses together. 'And' is a common conjunction.",
+    "tags": [
+      "conjunctions"
+    ]
+  },
+  {
+    "id": "english-writing-q001",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A formal letter should generally begin with:",
+    "options": [
+      "\"Dear friend,\"",
+      "A proper salutation such as \"Dear Sir/Madam,\"",
+      "\"Hey there!\"",
+      "No greeting at all"
+    ],
+    "answer": 1,
+    "explanation": "Formal letters use a respectful, standard salutation such as 'Dear Sir/Madam,' rather than casual greetings.",
+    "tags": [
+      "letter writing"
+    ]
+  },
+  {
+    "id": "english-writing-q002",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a story, the part that introduces the characters and setting is called the:",
+    "options": [
+      "Climax",
+      "Introduction (exposition)",
+      "Resolution",
+      "Conclusion"
+    ],
+    "answer": 1,
+    "explanation": "The introduction, or exposition, sets up the characters, setting and situation at the start of a story.",
+    "tags": [
+      "story elements"
+    ]
+  },
+  {
+    "id": "english-writing-q003",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these is a good topic sentence for a paragraph about pets?",
+    "options": [
+      "\"Pets bring joy and companionship to our lives.\"",
+      "\"I had breakfast today.\"",
+      "\"The weather was cold.\"",
+      "\"Numbers are fun.\""
+    ],
+    "answer": 0,
+    "explanation": "A good topic sentence clearly introduces the main idea of the paragraph — here, that pets bring joy and companionship.",
+    "tags": [
+      "paragraph writing"
+    ]
+  },
+  {
+    "id": "english-writing-q004",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a story, the point of highest tension or drama is called the:",
+    "options": [
+      "Introduction",
+      "Climax",
+      "Ending",
+      "Title"
+    ],
+    "answer": 1,
+    "explanation": "The climax is the turning point of a story, where tension or conflict reaches its peak.",
+    "tags": [
+      "story elements"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q001",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'सुंदर' शब्द किस भेद का उदाहरण है?",
+    "options": [
+      "संज्ञा",
+      "विशेषण",
+      "क्रिया",
+      "सर्वनाम"
+    ],
+    "answer": 1,
+    "explanation": "'सुंदर' शब्द किसी व्यक्ति या वस्तु की विशेषता बताता है, इसलिए यह विशेषण है।",
+    "tags": [
+      "विशेषण"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q002",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'राम खेलता है।' वाक्य में क्रिया कौन-सी है?",
+    "options": [
+      "राम",
+      "खेलता है",
+      "है",
+      "कोई नहीं"
+    ],
+    "answer": 1,
+    "explanation": "वाक्य में किये जा रहे कार्य को बताने वाला शब्द 'क्रिया' कहलाता है; यहां 'खेलता है' क्रिया है।",
+    "tags": [
+      "क्रिया"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q003",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "व्यक्ति, वस्तु या स्थान के नाम को क्या कहते हैं?",
+    "options": [
+      "सर्वनाम",
+      "संज्ञा",
+      "विशेषण",
+      "क्रिया-विशेषण"
+    ],
+    "answer": 1,
+    "explanation": "व्यक्ति, वस्तु या स्थान के नाम को 'संज्ञा' कहते हैं।",
+    "tags": [
+      "संज्ञा"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q004",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'वह विद्यालय जाता है।' इस वाक्य में 'वह' कौन-सा शब्द है?",
+    "options": [
+      "संज्ञा",
+      "सर्वनाम",
+      "विशेषण",
+      "क्रिया"
+    ],
+    "answer": 1,
+    "explanation": "'वह' संज्ञा के स्थान पर प्रयुक्त होने वाला शब्द है, इसलिए यह सर्वनाम है।",
+    "tags": [
+      "सर्वनाम"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q005",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "संधि का अर्थ क्या है?",
+    "options": [
+      "दो शब्दों का मेल",
+      "विलोम शब्द",
+      "पर्यायवाची शब्द",
+      "वाक्य का प्रकार"
+    ],
+    "answer": 0,
+    "explanation": "संधि दो वर्णों या शब्दों के मेल से बनने वाला नया शब्द है।",
+    "tags": [
+      "संधि"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q001",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "औपचारिक पत्र में सबसे पहले क्या लिखा जाता है?",
+    "options": [
+      "विषय",
+      "दिनांक व पता",
+      "हस्ताक्षर",
+      "कहानी"
+    ],
+    "answer": 1,
+    "explanation": "औपचारिक पत्र में सबसे पहले दिनांक और प्रापक का पता लिखा जाता है।",
+    "tags": [
+      "पत्र लेखन"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q002",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "कहानी में सबसे रोचक व मुख्य मोड़ को क्या कहते हैं?",
+    "options": [
+      "भूमिका",
+      "चरम बिंदु (क्लाइमेक्स)",
+      "अंत",
+      "शीर्षक"
+    ],
+    "answer": 1,
+    "explanation": "कहानी का सबसे रोचक और महत्वपूर्ण मोड़ 'चरम बिंदु' कहलाता है।",
+    "tags": [
+      "कहानी लेखन"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q003",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "निबंध लिखते समय सबसे पहले क्या तैयार करना चाहिए?",
+    "options": [
+      "रूपरेखा (योजना)",
+      "केवल अंत",
+      "बिना सोचे लिखना",
+      "चित्र"
+    ],
+    "answer": 0,
+    "explanation": "अच्छा निबंध लिखने के लिए पहले एक रूपरेखा बना लेना चाहिए।",
+    "tags": [
+      "निबंध लेखन"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q004",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "पत्र लेखन में 'प्रिय मित्र' किस प्रकार के पत्र में प्रयोग होता है?",
+    "options": [
+      "औपचारिक पत्र",
+      "अनौपचारिक पत्र",
+      "सरकारी पत्र",
+      "आवेदन पत्र"
+    ],
+    "answer": 1,
+    "explanation": "'प्रिय मित्र' जैसा संबोधन अनौपचारिक (व्यक्तिगत) पत्रों में प्रयोग होता है।",
+    "tags": [
+      "पत्र लेखन"
+    ]
+  },
+  {
+    "id": "german-pause-q001",
+    "subject": "German",
+    "chapterId": "german-pause",
+    "chapter": "Was isst du in der Pause?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"der Apfel\" mean in English?",
+    "options": [
+      "The banana",
+      "The apple",
+      "The bread",
+      "The water"
+    ],
+    "answer": 1,
+    "explanation": "\"Der Apfel\" is German for \"the apple\".",
+    "tags": [
+      "vocabulary",
+      "food"
+    ]
+  },
+  {
+    "id": "german-pause-q002",
+    "subject": "German",
+    "chapterId": "german-pause",
+    "chapter": "Was isst du in der Pause?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"Ich esse ein Brot\" mean?",
+    "options": [
+      "I drink water",
+      "I eat bread",
+      "I like apples",
+      "I am hungry"
+    ],
+    "answer": 1,
+    "explanation": "\"Ich esse ein Brot\" translates to \"I eat a bread (roll)\".",
+    "tags": [
+      "vocabulary",
+      "food"
+    ]
+  },
+  {
+    "id": "german-pause-q003",
+    "subject": "German",
+    "chapterId": "german-pause",
+    "chapter": "Was isst du in der Pause?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is \"das Wasser\" in English?",
+    "options": [
+      "The milk",
+      "The juice",
+      "The water",
+      "The tea"
+    ],
+    "answer": 2,
+    "explanation": "\"Das Wasser\" means \"the water\" in English.",
+    "tags": [
+      "vocabulary",
+      "food"
+    ]
+  },
+  {
+    "id": "german-pause-q004",
+    "subject": "German",
+    "chapterId": "german-pause",
+    "chapter": "Was isst du in der Pause?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which German word means \"the sandwich\"?",
+    "options": [
+      "das Brot",
+      "das Butterbrot",
+      "der Saft",
+      "die Milch"
+    ],
+    "answer": 1,
+    "explanation": "\"Das Butterbrot\" is the German word for a buttered bread sandwich.",
+    "tags": [
+      "vocabulary",
+      "food"
+    ]
+  },
+  {
+    "id": "german-schulsachen-q001",
+    "subject": "German",
+    "chapterId": "german-schulsachen",
+    "chapter": "Meine Schulsachen",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"der Bleistift\" mean?",
+    "options": [
+      "The pen",
+      "The pencil",
+      "The book",
+      "The bag"
+    ],
+    "answer": 1,
+    "explanation": "\"Der Bleistift\" means \"the pencil\" in English.",
+    "tags": [
+      "vocabulary",
+      "school items"
+    ]
+  },
+  {
+    "id": "german-schulsachen-q002",
+    "subject": "German",
+    "chapterId": "german-schulsachen",
+    "chapter": "Meine Schulsachen",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"das Buch\" mean?",
+    "options": [
+      "The bag",
+      "The ruler",
+      "The book",
+      "The eraser"
+    ],
+    "answer": 2,
+    "explanation": "\"Das Buch\" means \"the book\" in English.",
+    "tags": [
+      "vocabulary",
+      "school items"
+    ]
+  },
+  {
+    "id": "german-schulsachen-q003",
+    "subject": "German",
+    "chapterId": "german-schulsachen",
+    "chapter": "Meine Schulsachen",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"die Schultasche\" mean?",
+    "options": [
+      "The school bag",
+      "The pencil case",
+      "The notebook",
+      "The chair"
+    ],
+    "answer": 0,
+    "explanation": "\"Die Schultasche\" means \"the school bag\" in English.",
+    "tags": [
+      "vocabulary",
+      "school items"
+    ]
+  },
+  {
+    "id": "german-schulsachen-q004",
+    "subject": "German",
+    "chapterId": "german-schulsachen",
+    "chapter": "Meine Schulsachen",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which word means \"the eraser\" in German?",
+    "options": [
+      "der Radiergummi",
+      "das Lineal",
+      "der Kuli",
+      "das Heft"
+    ],
+    "answer": 0,
+    "explanation": "\"Der Radiergummi\" is the German word for \"the eraser\".",
+    "tags": [
+      "vocabulary",
+      "school items"
+    ]
+  },
+  {
+    "id": "german-fernsehen-q001",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"der Fernseher\" mean?",
+    "options": [
+      "The radio",
+      "The television",
+      "The computer",
+      "The phone"
+    ],
+    "answer": 1,
+    "explanation": "\"Der Fernseher\" means \"the television\" in English.",
+    "tags": [
+      "vocabulary",
+      "tv"
+    ]
+  },
+  {
+    "id": "german-fernsehen-q002",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"Was gibt es im Fernsehen?\" mean?",
+    "options": [
+      "What's for dinner?",
+      "What's on television?",
+      "What's the weather?",
+      "What time is it?"
+    ],
+    "answer": 1,
+    "explanation": "This phrase translates to \"What's on television?\".",
+    "tags": [
+      "vocabulary",
+      "tv"
+    ]
+  },
+  {
+    "id": "german-fernsehen-q003",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"der Film\" mean?",
+    "options": [
+      "The show",
+      "The film or movie",
+      "The news",
+      "The song"
+    ],
+    "answer": 1,
+    "explanation": "\"Der Film\" means \"the film\" or \"the movie\" in English.",
+    "tags": [
+      "vocabulary",
+      "tv"
+    ]
+  },
+  {
+    "id": "german-fernsehen-q004",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"die Nachrichten\" mean?",
+    "options": [
+      "The cartoons",
+      "The news",
+      "The sports",
+      "The music"
+    ],
+    "answer": 1,
+    "explanation": "\"Die Nachrichten\" means \"the news\" in English.",
+    "tags": [
+      "vocabulary",
+      "tv"
+    ]
+  },
+  {
+    "id": "german-uhr-q001",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"Wie viel Uhr ist es?\" mean?",
+    "options": [
+      "How are you?",
+      "What time is it?",
+      "Where are you?",
+      "What is your name?"
+    ],
+    "answer": 1,
+    "explanation": "\"Wie viel Uhr ist es?\" translates to \"What time is it?\".",
+    "tags": [
+      "vocabulary",
+      "time"
+    ]
+  },
+  {
+    "id": "german-uhr-q002",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"Ich stehe um sieben Uhr auf\" mean?",
+    "options": [
+      "I sleep at seven",
+      "I get up at seven o'clock",
+      "I eat at seven",
+      "I go to school at seven"
+    ],
+    "answer": 1,
+    "explanation": "This sentence means \"I get up at seven o'clock\".",
+    "tags": [
+      "vocabulary",
+      "time"
+    ]
+  },
+  {
+    "id": "german-uhr-q003",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"die Uhr\" mean?",
+    "options": [
+      "The day",
+      "The clock or watch",
+      "The week",
+      "The year"
+    ],
+    "answer": 1,
+    "explanation": "\"Die Uhr\" means \"the clock\" or \"the watch\" in English.",
+    "tags": [
+      "vocabulary",
+      "time"
+    ]
+  },
+  {
+    "id": "german-uhr-q004",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"um wie viel Uhr\" mean?",
+    "options": [
+      "At what time",
+      "What day",
+      "How long",
+      "What date"
+    ],
+    "answer": 0,
+    "explanation": "\"Um wie viel Uhr\" means \"at what time\" in English.",
+    "tags": [
+      "vocabulary",
+      "time"
+    ]
+  },
+  {
+    "id": "german-grammar-q001",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In German, the article \"der\" is typically used before which type of noun?",
+    "options": [
+      "Feminine nouns",
+      "Masculine nouns",
+      "Neuter nouns",
+      "Plural nouns only"
+    ],
+    "answer": 1,
+    "explanation": "\"Der\" is the definite article typically used before masculine nouns in German.",
+    "tags": [
+      "grammar",
+      "articles"
+    ]
+  },
+  {
+    "id": "german-grammar-q002",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"ich bin\" mean?",
+    "options": [
+      "You are",
+      "I am",
+      "He is",
+      "We are"
+    ],
+    "answer": 1,
+    "explanation": "\"Ich bin\" means \"I am\" in English.",
+    "tags": [
+      "grammar",
+      "verbs"
+    ]
+  },
+  {
+    "id": "german-grammar-q003",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which is the correct German article for \"Kind\" (child)?",
+    "options": [
+      "der",
+      "die",
+      "das",
+      "den"
+    ],
+    "answer": 2,
+    "explanation": "\"Kind\" is a neuter noun in German, so it takes the article \"das\".",
+    "tags": [
+      "grammar",
+      "articles"
+    ]
+  },
+  {
+    "id": "german-grammar-q004",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does the German pronoun \"du\" mean?",
+    "options": [
+      "I",
+      "You (informal, singular)",
+      "He",
+      "They"
+    ],
+    "answer": 1,
+    "explanation": "\"Du\" is the informal singular form of \"you\" in German.",
+    "tags": [
+      "grammar",
+      "pronouns"
+    ]
+  },
+  {
+    "id": "german-vocab-q001",
+    "subject": "German",
+    "chapterId": "german-vocab",
+    "chapter": "Vocabulary",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"Guten Morgen\" mean?",
+    "options": [
+      "Good night",
+      "Good morning",
+      "Good afternoon",
+      "Goodbye"
+    ],
+    "answer": 1,
+    "explanation": "\"Guten Morgen\" means \"Good morning\" in English.",
+    "tags": [
+      "vocabulary",
+      "greetings"
+    ]
+  },
+  {
+    "id": "german-vocab-q002",
+    "subject": "German",
+    "chapterId": "german-vocab",
+    "chapter": "Vocabulary",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"Danke\" mean?",
+    "options": [
+      "Please",
+      "Sorry",
+      "Thank you",
+      "Hello"
+    ],
+    "answer": 2,
+    "explanation": "\"Danke\" means \"Thank you\" in English.",
+    "tags": [
+      "vocabulary",
+      "greetings"
+    ]
+  },
+  {
+    "id": "german-vocab-q003",
+    "subject": "German",
+    "chapterId": "german-vocab",
+    "chapter": "Vocabulary",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"die Familie\" mean?",
+    "options": [
+      "The friend",
+      "The family",
+      "The teacher",
+      "The class"
+    ],
+    "answer": 1,
+    "explanation": "\"Die Familie\" means \"the family\" in English.",
+    "tags": [
+      "vocabulary"
+    ]
+  },
+  {
+    "id": "german-vocab-q004",
+    "subject": "German",
+    "chapterId": "german-vocab",
+    "chapter": "Vocabulary",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"der Freund\" mean?",
+    "options": [
+      "The enemy",
+      "The friend",
+      "The father",
+      "The teacher"
+    ],
+    "answer": 1,
+    "explanation": "\"Der Freund\" means \"the friend\" in English.",
+    "tags": [
+      "vocabulary"
+    ]
+  },
+  {
+    "id": "german-reading-q001",
+    "subject": "German",
+    "chapterId": "german-reading",
+    "chapter": "Reading",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a short German text, the greeting \"Hallo\" is used to:",
+    "options": [
+      "Say goodbye",
+      "Say hello",
+      "Ask a question",
+      "Give thanks"
+    ],
+    "answer": 1,
+    "explanation": "\"Hallo\" is a common informal greeting meaning \"hello\".",
+    "tags": [
+      "reading"
+    ]
+  },
+  {
+    "id": "german-reading-q002",
+    "subject": "German",
+    "chapterId": "german-reading",
+    "chapter": "Reading",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "If a text says \"Ich heiße Anna\", it most likely tells you:",
+    "options": [
+      "Anna's age",
+      "Anna's name",
+      "Anna's address",
+      "Anna's favourite food"
+    ],
+    "answer": 1,
+    "explanation": "\"Ich heiße Anna\" means \"My name is Anna\", so it tells you the person's name.",
+    "tags": [
+      "reading"
+    ]
+  },
+  {
+    "id": "german-reading-q003",
+    "subject": "German",
+    "chapterId": "german-reading",
+    "chapter": "Reading",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The phrase \"Ich komme aus Indien\" tells the reader:",
+    "options": [
+      "What the person eats",
+      "Where the person is from",
+      "The person's age",
+      "The person's job"
+    ],
+    "answer": 1,
+    "explanation": "\"Ich komme aus Indien\" means \"I come from India\", telling the reader where the person is from.",
+    "tags": [
+      "reading"
+    ]
+  },
+  {
+    "id": "german-writing-q001",
+    "subject": "German",
+    "chapterId": "german-writing",
+    "chapter": "Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "When writing a simple German sentence about yourself, you would typically start with:",
+    "options": [
+      "Er hat",
+      "Ich habe / Ich bin",
+      "Sie ist",
+      "Wir haben"
+    ],
+    "answer": 1,
+    "explanation": "Sentences about yourself typically begin with \"Ich\" (I) followed by a verb such as \"habe\" (have) or \"bin\" (am).",
+    "tags": [
+      "writing"
+    ]
+  },
+  {
+    "id": "german-writing-q002",
+    "subject": "German",
+    "chapterId": "german-writing",
+    "chapter": "Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "To write \"My name is...\" in German, you would say:",
+    "options": [
+      "Ich habe...",
+      "Ich heiße...",
+      "Ich bin...",
+      "Ich gehe..."
+    ],
+    "answer": 1,
+    "explanation": "\"Ich heiße...\" is the standard way to say \"My name is...\" in German.",
+    "tags": [
+      "writing"
+    ]
+  },
+  {
+    "id": "german-writing-q003",
+    "subject": "German",
+    "chapterId": "german-writing",
+    "chapter": "Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A simple German statement generally follows which basic word order?",
+    "options": [
+      "The verb always comes at the very end",
+      "Subject - Verb - Object, similar to simple English sentences",
+      "Completely random order",
+      "Object - Subject - Verb"
+    ],
+    "answer": 1,
+    "explanation": "In simple present-tense statements, German typically follows a Subject-Verb-Object order, similar to English.",
+    "tags": [
+      "writing",
+      "word order"
+    ]
+  },
+  {
+    "id": "ict-ch2-q001",
+    "subject": "ICT",
+    "chapterId": "ict-ch2",
+    "chapter": "Calculations in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which symbol must every formula in Excel begin with?",
+    "options": [
+      "$",
+      "=",
+      "#",
+      "@"
+    ],
+    "answer": 1,
+    "explanation": "Every Excel formula begins with an equals sign (=) so that Excel recognises it as a formula, not plain text.",
+    "tags": [
+      "excel",
+      "formulas"
+    ]
+  },
+  {
+    "id": "ict-ch2-q002",
+    "subject": "ICT",
+    "chapterId": "ict-ch2",
+    "chapter": "Calculations in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which function adds up a range of numbers in Excel?",
+    "options": [
+      "AVERAGE",
+      "SUM",
+      "COUNT",
+      "MAX"
+    ],
+    "answer": 1,
+    "explanation": "The SUM function adds together all the numbers in a selected range of cells.",
+    "tags": [
+      "excel",
+      "sum"
+    ]
+  },
+  {
+    "id": "ict-ch2-q003",
+    "subject": "ICT",
+    "chapterId": "ict-ch2",
+    "chapter": "Calculations in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which function would you use to find the average of a range of cells?",
+    "options": [
+      "SUM",
+      "AVERAGE",
+      "MAX",
+      "MIN"
+    ],
+    "answer": 1,
+    "explanation": "The AVERAGE function calculates the mean value of a range of numbers.",
+    "tags": [
+      "excel",
+      "average"
+    ]
+  },
+  {
+    "id": "ict-ch2-q004",
+    "subject": "ICT",
+    "chapterId": "ict-ch2",
+    "chapter": "Calculations in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In the formula =A1+A2, what does \"A1\" refer to?",
+    "options": [
+      "A chart",
+      "A cell reference",
+      "A formula name",
+      "A worksheet"
+    ],
+    "answer": 1,
+    "explanation": "A1 is a cell reference, pointing to the cell in column A, row 1.",
+    "tags": [
+      "excel",
+      "cell reference"
+    ]
+  },
+  {
+    "id": "ict-ch3-q001",
+    "subject": "ICT",
+    "chapterId": "ict-ch3",
+    "chapter": "Analyse Data in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Arranging data from smallest to largest, or A to Z, is called:",
+    "options": [
+      "Filtering",
+      "Sorting",
+      "Charting",
+      "Formatting"
+    ],
+    "answer": 1,
+    "explanation": "Sorting rearranges data in a specific order, such as ascending or descending.",
+    "tags": [
+      "excel",
+      "sorting"
+    ]
+  },
+  {
+    "id": "ict-ch3-q002",
+    "subject": "ICT",
+    "chapterId": "ict-ch3",
+    "chapter": "Analyse Data in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Displaying only the rows that meet certain criteria is called:",
+    "options": [
+      "Sorting",
+      "Filtering",
+      "Formatting",
+      "Merging"
+    ],
+    "answer": 1,
+    "explanation": "Filtering hides rows that don't match chosen criteria, showing only relevant data.",
+    "tags": [
+      "excel",
+      "filtering"
+    ]
+  },
+  {
+    "id": "ict-ch3-q003",
+    "subject": "ICT",
+    "chapterId": "ict-ch3",
+    "chapter": "Analyse Data in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The MAX function in Excel is used to find the:",
+    "options": [
+      "Smallest value",
+      "Largest value",
+      "Average",
+      "Total count"
+    ],
+    "answer": 1,
+    "explanation": "The MAX function returns the largest value in a selected range of cells.",
+    "tags": [
+      "excel",
+      "max"
+    ]
+  },
+  {
+    "id": "ict-ch3-q004",
+    "subject": "ICT",
+    "chapterId": "ict-ch3",
+    "chapter": "Analyse Data in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The COUNT function in Excel is used to:",
+    "options": [
+      "Add numbers together",
+      "Count how many cells contain numbers",
+      "Find the average",
+      "Sort data"
+    ],
+    "answer": 1,
+    "explanation": "The COUNT function counts the number of cells in a range that contain numeric values.",
+    "tags": [
+      "excel",
+      "count"
+    ]
+  },
+  {
+    "id": "ict-ch4-q001",
+    "subject": "ICT",
+    "chapterId": "ict-ch4",
+    "chapter": "Representation of Data in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A visual representation of data using bars of different heights or lengths is called a:",
+    "options": [
+      "Pie chart",
+      "Bar chart",
+      "Line chart",
+      "Table"
+    ],
+    "answer": 1,
+    "explanation": "A bar chart uses bars of varying height or length to compare different categories of data.",
+    "tags": [
+      "excel",
+      "charts"
+    ]
+  },
+  {
+    "id": "ict-ch4-q002",
+    "subject": "ICT",
+    "chapterId": "ict-ch4",
+    "chapter": "Representation of Data in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which chart type is best for showing data as proportions of a whole?",
+    "options": [
+      "Bar chart",
+      "Pie chart",
+      "Line chart",
+      "Scatter chart"
+    ],
+    "answer": 1,
+    "explanation": "A pie chart divides a circle into slices to show how parts relate to a whole.",
+    "tags": [
+      "excel",
+      "pie chart"
+    ]
+  },
+  {
+    "id": "ict-ch4-q003",
+    "subject": "ICT",
+    "chapterId": "ict-ch4",
+    "chapter": "Representation of Data in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A line chart is most useful for showing:",
+    "options": [
+      "Proportions of a whole",
+      "Trends over time",
+      "A single value",
+      "Text data"
+    ],
+    "answer": 1,
+    "explanation": "Line charts connect data points to clearly show trends or changes over time.",
+    "tags": [
+      "excel",
+      "line chart"
+    ]
+  },
+  {
+    "id": "ict-ch4-q004",
+    "subject": "ICT",
+    "chapterId": "ict-ch4",
+    "chapter": "Representation of Data in Excel 2016",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Before creating a chart in Excel, you should first:",
+    "options": [
+      "Select the data range",
+      "Print the sheet",
+      "Delete the data",
+      "Close Excel"
+    ],
+    "answer": 0,
+    "explanation": "You need to select the data you want to visualise before inserting a chart.",
+    "tags": [
+      "excel",
+      "charts"
+    ]
+  },
+  {
+    "id": "ict-ch5-q001",
+    "subject": "ICT",
+    "chapterId": "ict-ch5",
+    "chapter": "Go Online",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A strong password should typically include:",
+    "options": [
+      "Only your name",
+      "A mix of letters, numbers and symbols",
+      "Only numbers",
+      "Your birth date"
+    ],
+    "answer": 1,
+    "explanation": "Strong passwords combine letters, numbers and symbols to make them harder to guess.",
+    "tags": [
+      "internet safety",
+      "passwords"
+    ]
+  },
+  {
+    "id": "ict-ch5-q002",
+    "subject": "ICT",
+    "chapterId": "ict-ch5",
+    "chapter": "Go Online",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Before clicking a link in an unknown email, you should:",
+    "options": [
+      "Click it immediately",
+      "Check whether it looks suspicious first",
+      "Share it with friends",
+      "Ignore all safety checks"
+    ],
+    "answer": 1,
+    "explanation": "It's important to check for signs of a suspicious or unsafe link before clicking, to avoid scams or malware.",
+    "tags": [
+      "internet safety"
+    ]
+  },
+  {
+    "id": "ict-ch5-q003",
+    "subject": "ICT",
+    "chapterId": "ict-ch5",
+    "chapter": "Go Online",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A web browser is mainly used to:",
+    "options": [
+      "Write documents",
+      "Access and view websites",
+      "Edit photos",
+      "Send electricity"
+    ],
+    "answer": 1,
+    "explanation": "A web browser is software used to access and display websites on the internet.",
+    "tags": [
+      "internet basics"
+    ]
+  },
+  {
+    "id": "ict-ch5-q004",
+    "subject": "ICT",
+    "chapterId": "ict-ch5",
+    "chapter": "Go Online",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Sharing personal information like your home address with strangers online is generally:",
+    "options": [
+      "Safe and recommended",
+      "Unsafe and should be avoided",
+      "Required",
+      "Irrelevant"
+    ],
+    "answer": 1,
+    "explanation": "Sharing personal details like your address with strangers online can be unsafe and should be avoided.",
+    "tags": [
+      "internet safety"
+    ]
+  },
+  {
+    "id": "ict-ch8-q001",
+    "subject": "ICT",
+    "chapterId": "ict-ch8",
+    "chapter": "Artificial Intelligence",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Artificial Intelligence (AI) refers to:",
+    "options": [
+      "Machines that can only add numbers",
+      "Computer systems designed to perform tasks that normally need human intelligence",
+      "A type of hardware only",
+      "A video game genre"
+    ],
+    "answer": 1,
+    "explanation": "AI refers to computer systems built to perform tasks, like recognising speech or images, that usually require human intelligence.",
+    "tags": [
+      "ai basics"
+    ]
+  },
+  {
+    "id": "ict-ch8-q002",
+    "subject": "ICT",
+    "chapterId": "ict-ch8",
+    "chapter": "Artificial Intelligence",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these is a common everyday example of AI?",
+    "options": [
+      "A wooden pencil",
+      "A voice assistant like Siri or Alexa",
+      "A plain calculator",
+      "A paper map"
+    ],
+    "answer": 1,
+    "explanation": "Voice assistants use AI to understand spoken language and respond helpfully.",
+    "tags": [
+      "ai examples"
+    ]
+  },
+  {
+    "id": "ict-ch8-q003",
+    "subject": "ICT",
+    "chapterId": "ict-ch8",
+    "chapter": "Artificial Intelligence",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Machine learning is best described as:",
+    "options": [
+      "A way for machines to learn from data and improve at tasks",
+      "A way to charge batteries",
+      "A type of printer",
+      "A type of chart"
+    ],
+    "answer": 0,
+    "explanation": "Machine learning is a branch of AI where systems learn patterns from data to improve their performance over time.",
+    "tags": [
+      "machine learning"
+    ]
+  },
+  {
+    "id": "ict-ch8-q004",
+    "subject": "ICT",
+    "chapterId": "ict-ch8",
+    "chapter": "Artificial Intelligence",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which is an important thing to remember when using AI tools?",
+    "options": [
+      "Always trust every answer blindly",
+      "Verify information and use AI responsibly",
+      "Share your passwords with AI tools",
+      "AI is always 100% correct"
+    ],
+    "answer": 1,
+    "explanation": "AI tools can make mistakes, so it's important to verify information and use them responsibly.",
+    "tags": [
+      "ai responsibility"
+    ]
+  }
+]

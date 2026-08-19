@@ -1,0 +1,60 @@
+{
+  "maths": [
+    { "id": "maths-ch3",  "number": 3,  "name": "Finding Common Grounds",           "description": "Factors, multiples, HCF and LCM." },
+    { "id": "maths-ch4",  "number": 4,  "name": "Operation With Integers",          "description": "Addition, subtraction, multiplication and division of integers." },
+    { "id": "maths-ch5",  "number": 5,  "name": "Arithmetic Expression",            "description": "Simplifying expressions using BODMAS." },
+    { "id": "maths-ch6",  "number": 6,  "name": "Working With Fractions",           "description": "Operations on fractions." },
+    { "id": "maths-ch7",  "number": 7,  "name": "A Peak Beyond The Point",          "description": "Working with decimal numbers." },
+    { "id": "maths-ch10", "number": 10, "name": "Parallel and Intersecting Lines",  "description": "Lines, angles and transversals." }
+  ],
+  "science": [
+    { "id": "science-ch2", "number": 2, "name": "Exploring Substances: Acidic, Basic and Neutral", "description": "Acids, bases, neutral substances and indicators." },
+    { "id": "science-ch3", "number": 3, "name": "Electricity, Circuits and their Components",       "description": "Simple circuits, conductors and insulators." },
+    { "id": "science-ch5", "number": 5, "name": "Changes Around Us: Physical and Chemical",         "description": "Physical vs chemical changes." },
+    { "id": "science-ch6", "number": 6, "name": "Adolescence: A Stage of Growth and Change",         "description": "Growth and changes during adolescence." },
+    { "id": "science-ch8", "number": 8, "name": "Measurement of Time and Motion",                   "description": "Time, motion and speed." }
+  ],
+  "sst": [
+    { "id": "sst-ch2",     "number": 2,  "name": "Understanding the Weather",                              "description": "Weather elements and instruments." },
+    { "id": "sst-ch3",     "number": 3,  "name": "Climates of India",                                      "description": "India's monsoon climate and seasons." },
+    { "id": "sst-ch5",     "number": 5,  "name": "The Rise of Empires",                                    "description": "Ancient Indian empires." },
+    { "id": "sst-ch7",     "number": 7,  "name": "The Gupta Era: An Age of Tireless Creativity",           "description": "The Gupta period and its achievements." },
+    { "id": "sst-ch9",     "number": 9,  "name": "From the Rulers to the Ruled: Types of Governments",     "description": "Forms of government." },
+    { "id": "sst-ch10",    "number": 10, "name": "The Constitution of India — An Introduction",            "description": "Basics of the Indian Constitution." },
+    { "id": "sst-mapwork", "number": null, "name": "Map Work",                                             "description": "Map-based skills." }
+  ],
+  "english": [
+    { "id": "english-u2",       "number": null, "name": "Animals, Birds and Dr Dolittle",  "description": "Unit 2 prose." },
+    { "id": "english-u2-poem",  "number": null, "name": "A Funny Man (Poem)",              "description": "Unit 2 poem." },
+    { "id": "english-u2-supp",  "number": null, "name": "Say The Right Thing",             "description": "Unit 2 supplementary reading." },
+    { "id": "english-u3",       "number": null, "name": "My Brother's Great Invention",    "description": "Unit 3 prose." },
+    { "id": "english-grammar",  "number": null, "name": "Grammar",                         "description": "Core grammar skills." },
+    { "id": "english-writing",  "number": null, "name": "Creative Writing",                "description": "Letters, stories and paragraphs." }
+  ],
+  "hindi": [
+    { "id": "hindi-maa",       "number": null, "name": "माँ, कह एक कहानी",   "description": "Chapter text." },
+    { "id": "hindi-teen",      "number": null, "name": "तीन बुद्धिमान",       "description": "Chapter text." },
+    { "id": "hindi-phool",     "number": null, "name": "फूल और काँटा",       "description": "Chapter text." },
+    { "id": "hindi-paani",     "number": null, "name": "पानी रे पानी",       "description": "Chapter text." },
+    { "id": "hindi-bimaar",    "number": null, "name": "नहीं होना बीमार",    "description": "Chapter text." },
+    { "id": "hindi-vyakaran",  "number": null, "name": "व्याकरण",            "description": "Core Hindi grammar." },
+    { "id": "hindi-lekhan",    "number": null, "name": "रचनात्मक लेखन",       "description": "Letters, essays and stories." }
+  ],
+  "german": [
+    { "id": "german-pause",        "number": null, "name": "Was isst du in der Pause?",       "description": "Food vocabulary." },
+    { "id": "german-schulsachen",  "number": null, "name": "Meine Schulsachen",               "description": "School-items vocabulary." },
+    { "id": "german-fernsehen",    "number": null, "name": "Was gibt es im Fernsehen?",        "description": "Television vocabulary." },
+    { "id": "german-uhr",          "number": null, "name": "Um wie viel Uhr stehst du auf?",   "description": "Time-related vocabulary." },
+    { "id": "german-grammar",      "number": null, "name": "Grammar",                         "description": "Articles, pronouns and basic verb forms." },
+    { "id": "german-vocab",        "number": null, "name": "Vocabulary",                      "description": "General everyday vocabulary." },
+    { "id": "german-reading",      "number": null, "name": "Reading",                         "description": "Simple reading comprehension." },
+    { "id": "german-writing",      "number": null, "name": "Writing",                         "description": "Simple sentence writing." }
+  ],
+  "ict": [
+    { "id": "ict-ch2", "number": 2, "name": "Calculations in Excel 2016",           "description": "Formulas and basic functions." },
+    { "id": "ict-ch3", "number": 3, "name": "Analyse Data in Excel 2016",           "description": "Sorting, filtering and summarising data." },
+    { "id": "ict-ch4", "number": 4, "name": "Representation of Data in Excel 2016", "description": "Charts and visual data." },
+    { "id": "ict-ch5", "number": 5, "name": "Go Online",                           "description": "Internet basics and online safety." },
+    { "id": "ict-ch8", "number": 8, "name": "Artificial Intelligence",             "description": "AI basics and responsible use." }
+  ]
+}
