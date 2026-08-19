@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Class 7 Practice</title>
+<meta name="description" content="A simple practice app for Grade 7 CBSE — Maths, Science, SST, English, Hindi, German and ICT." />
+<meta name="theme-color" content="#2f6f62" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <main id="app" role="main" aria-live="polite">
+    <div class="screen">
+      <div class="empty-state">
+        <div class="emoji">📚</div>
+        <div class="title">Loading your practice app…</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<nav class="bottom-nav" aria-label="Main navigation">
+  <div class="bottom-nav-inner" id="bottom-nav-inner">
+    <a class="nav-item" data-route="#/home" href="#/home">
+      <span class="nav-icon" aria-hidden="true">🏠</span>
+      <span class="nav-label">Home</span>
+    </a>
+    <a class="nav-item" data-route="#/practice" href="#/practice">
+      <span class="nav-icon" aria-hidden="true">📘</span>
+      <span class="nav-label">Practice</span>
+    </a>
+    <a class="nav-item" data-route="#/tests" href="#/tests">
+      <span class="nav-icon" aria-hidden="true">📝</span>
+      <span class="nav-label">Tests</span>
+    </a>
+    <a class="nav-item" data-route="#/progress" href="#/progress">
+      <span class="nav-icon" aria-hidden="true">📈</span>
+      <span class="nav-label">Progress</span>
+    </a>
+    <a class="nav-item" data-route="#/more" href="#/more">
+      <span class="nav-icon" aria-hidden="true">⚙️</span>
+      <span class="nav-label">More</span>
+    </a>
+  </div>
+</nav>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

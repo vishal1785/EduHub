@@ -1,0 +1,15 @@
+{
+  "name": "Class 7 Practice",
+  "short_name": "C7 Practice",
+  "description": "Practice app for Grade 7 CBSE — Maths, Science, SST, English, Hindi, German and ICT.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf7f1",
+  "theme_color": "#2f6f62",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
