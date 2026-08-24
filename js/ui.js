@@ -54,6 +54,59 @@ export function showToast(message) {
  * `okLabel` styling defaults to danger red; pass `okVariant: 'ok'` for a
  * non-destructive confirm (e.g. importing data).
  */
+/**
+ * A confirmDialog with a text field. Resolves to the trimmed string the
+ * student typed, or null if they cancelled or dismissed it.
+ *
+ * Used for setting the student's name, where confirmDialog's yes/no shape
+ * is not enough.
+ */
+export function promptDialog({ title, message = "", value = "", placeholder = "", okLabel = "Save", cancelLabel = "Cancel", maxLength = 24 }) {
+  return new Promise((resolve) => {
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
+    overlay.innerHTML = `
+      <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+        <h3 id="dlg-title">${escapeHtml(title)}</h3>
+        ${message ? `<p>${escapeHtml(message)}</p>` : ""}
+        <input class="text-input" type="text" id="dlg-input" maxlength="${maxLength}"
+               value="${escapeHtml(value)}" placeholder="${escapeHtml(placeholder)}"
+               autocomplete="off" autocapitalize="words" />
+        <div class="btn-row">
+          <button class="cancel" type="button">${escapeHtml(cancelLabel)}</button>
+          <button class="confirm ok" type="button">${escapeHtml(okLabel)}</button>
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+
+    const input = overlay.querySelector("#dlg-input");
+    const okBtn = overlay.querySelector(".confirm");
+    const cleanup = (result) => {
+      overlay.remove();
+      resolve(result);
+    };
+    const submit = () => {
+      const text = input.value.trim();
+      cleanup(text || null);
+    };
+
+    const syncEnabled = () => (okBtn.disabled = !input.value.trim());
+    input.addEventListener("input", syncEnabled);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && input.value.trim()) submit();
+    });
+    okBtn.addEventListener("click", submit);
+    overlay.querySelector(".cancel").addEventListener("click", () => cleanup(null));
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) cleanup(null);
+    });
+
+    syncEnabled();
+    input.focus();
+    input.select();
+  });
+}
+
 export function confirmDialog({ title, message, okLabel = "Confirm", cancelLabel = "Cancel", okVariant = "" }) {
   return new Promise((resolve) => {
     const overlay = document.createElement("div");

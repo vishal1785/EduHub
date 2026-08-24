@@ -114,7 +114,17 @@ Three object stores:
   saved to `attempts` under that id, **every completed test overwrote the
   previous one and the whole history held exactly one record**. `tests/storage.html`
   now fails if that regresses.
-- **`settings`** - small key/value flags (currently just a progress cache).
+- **`settings`** - small key/value flags: the student's name (`studentName`),
+  whether the welcome screen has been dealt with (`onboarded`), and a progress
+  cache.
+
+  On first run the app opens on a **welcome screen** asking for the student's
+  name, which is then used to greet them on Home ("Hi, Aarav! 👋"). Skipping is
+  allowed - the name is a nicety, not a login - and skipping still marks
+  onboarding done so the screen is not shown again. The name can be changed
+  any time from **More → Your Name**. Note that **Reset Progress deletes
+  attempts, not the name**: resetting progress is not the same as forgetting
+  who is using the app.
 
 Progress statistics (accuracy, streaks, weak chapters) are **derived on the fly**
 from `attempts` by `js/progress.js` rather than stored separately, so there's
@@ -341,13 +351,13 @@ It runs a static pre-flight, then starts a local server and drives headless
 Chrome (or Edge) through three browser suites, printing the results; the exit
 code is 0 only if everything passed.
 
-**Pre-flight (no browser needed).** Two static checks, both added after a real
+**Pre-flight (no browser needed).** Three static checks, added after a real
 failure. It verifies that every `storage.x()` / `quizEngine.x()` /
 `progressEngine.x()` call in `js/` resolves to something that module actually
-exports - which catches an "is not a function" crash in the source rather than
-in the browser - and that `service-worker.js` precaches every app file, since a
-module missing from that list is what let two versions drift apart in the first
-place.
+exports, that every `import { … } from "./x.js"` names a real export - both of
+which catch an "is not a function" crash in the source rather than in the
+browser - and that `service-worker.js` precaches every app file, since a module
+missing from that list is what let two versions drift apart in the first place.
 (`storage.html` and `smoke.html` need the runner's server, which holds each
 page's load event open until it reports back - without that, headless Chrome
 dumps the DOM while the app is still waiting on IndexedDB.)
@@ -383,7 +393,10 @@ that an in-progress Mid-Term Mock survives starting a Quick 10, a chapter
 practice and a weak-area quiz - keeping its answers, its id and its exact
 question order. Also covers per-type clearing and an export/import round trip.
 
-**`tests/smoke.html` - 38 checks.** Drives the actual app inside an iframe:
+**`tests/smoke.html` - 54 checks.** Drives the actual app inside an iframe:
+onboarding (a first run is sent to the welcome screen even when the URL asks
+for `#/home`, Get Started stays disabled until a name is typed, and Home then
+greets by that name), renaming from More, and:
 every screen renders, an empty chapter shows "Content coming soon" with no
 Practise button, and a full 10-question quiz on a *generated* chapter is played
 through to its result and review screens. That last one matters most - a
