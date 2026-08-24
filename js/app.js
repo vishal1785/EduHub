@@ -1047,18 +1047,52 @@ async function init() {
   // Tell the boot watchdog in index.html that we got here.
   window.__APP_READY = true;
 
-  if ("serviceWorker" in navigator) {
-    // updateViaCache:"none" stops the browser serving service-worker.js itself
-    // out of its HTTP cache, and the explicit update() asks for a fresh copy on
-    // every load. Together they mean a published fix reaches the device on the
-    // next visit rather than whenever the browser feels like revalidating.
+  registerServiceWorker();
+}
+
+/** Local dev servers, where caching an old copy of the app only gets in the way. */
+function isLocalhost() {
+  return ["localhost", "127.0.0.1", "[::1]", ""].includes(location.hostname);
+}
+
+/**
+ * Register the offline worker - but never on localhost.
+ *
+ * The app is plain ES modules, so while you are editing them a service worker
+ * is actively unhelpful: it serves the copy it saved earlier, and a browser
+ * left holding a stale module gives you a blank "Loading..." screen rather
+ * than your latest edit. Offline support matters on the deployed site, not on
+ * a dev server, so it is simply switched off here. Any worker registered by an
+ * earlier version is torn down too, so a machine that already has one recovers
+ * by itself on the next load.
+ *
+ * To exercise offline behaviour locally, run the app from your machine's LAN
+ * IP instead of localhost - that path still registers normally.
+ */
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+
+  if (isLocalhost()) {
     navigator.serviceWorker
-      .register("service-worker.js", { updateViaCache: "none" })
-      .then((reg) => reg.update())
-      .catch(() => {
-        /* offline support is a bonus, not a hard requirement */
-      });
+      .getRegistrations()
+      .then((regs) => Promise.all(regs.map((r) => r.unregister())))
+      .then((cleared) => {
+        if (cleared.length) console.info("[dev] Removed the offline worker on localhost so edits show up immediately.");
+      })
+      .catch(() => {});
+    return;
   }
+
+  // updateViaCache:"none" stops the browser serving service-worker.js itself
+  // out of its HTTP cache, and the explicit update() asks for a fresh copy on
+  // every load. Together they mean a published fix reaches the device on the
+  // next visit rather than whenever the browser feels like revalidating.
+  navigator.serviceWorker
+    .register("service-worker.js", { updateViaCache: "none" })
+    .then((reg) => reg.update())
+    .catch(() => {
+      /* offline support is a bonus, not a hard requirement */
+    });
 }
 
 // Anything that goes wrong from here on must end up on screen rather than

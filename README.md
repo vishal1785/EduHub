@@ -47,6 +47,15 @@ the same Wi-Fi - use your computer's local IP instead of `localhost`).
 Alternatives if you don't have Python: `npx serve` (needs Node.js), or the
 "Live Server" extension in VS Code.
 
+> **The offline service worker is deliberately switched off on localhost.**
+> While you are editing plain ES modules, a service worker only gets in the
+> way: it serves the copy it saved earlier, so you see a stale app - or, if it
+> hands back a module that no longer matches the others, a blank "Loading…"
+> screen instead of your edit. Any worker left over from an earlier version is
+> torn down automatically on the next localhost load. To exercise offline
+> behaviour locally, serve the app from your machine's LAN IP rather than
+> `localhost`; that path registers normally, as does GitHub Pages.
+
 > Opening `index.html` directly by double-clicking it will show a "Couldn't
 > load app data" message in most browsers - this is expected and is explained
 > on-screen. Always use a local server for local testing. **GitHub Pages
