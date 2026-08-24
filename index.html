@@ -49,6 +49,61 @@
   </div>
 </nav>
 
+<script>
+/*
+ * Boot watchdog. Deliberately a classic inline script with no imports, so it
+ * still runs when the module graph itself fails to load.
+ *
+ * If js/app.js cannot be linked - a stale cached js/ui.js missing an export
+ * that js/app.js imports, say - then NONE of the app's own error handling
+ * ever runs and this page would sit on "Loading your practice app..." for
+ * ever. That is not a hypothetical: it happened, caused by a service worker
+ * serving a mismatched set of modules. This turns that silent hang into a
+ * screen with a button that fixes it.
+ */
+(function () {
+  var GRACE_MS = 8000;
+
+  function recover(button) {
+    button.disabled = true;
+    button.textContent = "Clearing\u2026";
+    var jobs = [];
+    if ("serviceWorker" in navigator) {
+      jobs.push(
+        navigator.serviceWorker.getRegistrations().then(function (regs) {
+          return Promise.all(regs.map(function (r) { return r.unregister(); }));
+        }).catch(function () {})
+      );
+    }
+    if (window.caches) {
+      jobs.push(
+        caches.keys().then(function (keys) {
+          return Promise.all(keys.map(function (k) { return caches.delete(k); }));
+        }).catch(function () {})
+      );
+    }
+    Promise.all(jobs).then(function () {
+      location.reload(true);
+    });
+  }
+
+  setTimeout(function () {
+    if (window.__APP_READY) return;
+    var app = document.getElementById("app");
+    if (!app) return;
+    app.innerHTML =
+      '<div class="screen"><div class="empty-state">' +
+      '<div class="emoji">\uD83D\uDD04</div>' +
+      '<div class="title">The app didn\u2019t finish loading</div>' +
+      '<div class="desc">This is usually an out-of-date copy saved on this device. ' +
+      'Clearing it and reloading fixes it. Your saved progress is not affected.</div>' +
+      '<button class="btn-primary" id="boot-recover" type="button" style="margin-top:18px;">Clear cache &amp; reload</button>' +
+      '</div></div>';
+    var button = document.getElementById("boot-recover");
+    if (button) button.addEventListener("click", function () { recover(button); });
+  }, GRACE_MS);
+})();
+</script>
 <script type="module" src="js/app.js"></script>
 </body>
 </html>

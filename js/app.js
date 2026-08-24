@@ -892,7 +892,7 @@ async function renderMore() {
 
       <div class="section-title">About</div>
       <div class="card" style="font-size:0.85rem;color:var(--ink-soft);line-height:1.6;">
-        Class 7 Practice v2.0<br />
+        Class 7 Practice v3.0<br />
         All your data stays on this device — nothing is sent anywhere.<br />
         Use <strong>Export Data</strong> regularly to keep a backup, especially before clearing browser data.
       </div>
@@ -1034,6 +1034,7 @@ async function init() {
           <div class="desc">Make sure this app is running from a local server or GitHub Pages (opening index.html directly from disk can block data loading in some browsers). See the README for how to run it locally.</div>
         </div>
       </div>`;
+    window.__APP_READY = true; // a real message is on screen; no watchdog needed
     return;
   }
 
@@ -1041,7 +1042,10 @@ async function init() {
 
   if (!location.hash) location.hash = onboarded ? "#/home" : "#/welcome";
   window.addEventListener("hashchange", renderRoute);
-  renderRoute();
+  await renderRoute();
+
+  // Tell the boot watchdog in index.html that we got here.
+  window.__APP_READY = true;
 
   if ("serviceWorker" in navigator) {
     // updateViaCache:"none" stops the browser serving service-worker.js itself
@@ -1057,4 +1061,10 @@ async function init() {
   }
 }
 
-init();
+// Anything that goes wrong from here on must end up on screen rather than
+// leaving the student staring at the loading placeholder.
+init().catch((err) => {
+  console.error(err);
+  renderCrashState(err);
+  window.__APP_READY = true;
+});

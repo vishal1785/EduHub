@@ -105,6 +105,10 @@ async function run() {
 
   await until(() => doc().getElementById("student-name"), 20000, "welcome screen");
   check(true, "a first run opens on the welcome screen, even when the URL asks for #/home");
+  check(frame.contentWindow.__APP_READY === true,
+    "the app signals __APP_READY, so index.html's boot watchdog stands down");
+  check(!doc().getElementById("boot-recover"),
+    "no recovery screen is shown on a healthy boot");
   check(frame.contentWindow.location.hash === "#/welcome", `the route is #/welcome (was ${frame.contentWindow.location.hash})`);
   check(doc().body.classList.contains("no-nav"), "the bottom nav is hidden during onboarding");
 

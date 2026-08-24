@@ -325,6 +325,15 @@ If a device ever does get stuck on a stale version, **More → Update App**
 clears the offline cache, drops the service worker and reloads. It does not
 touch saved progress, which lives in IndexedDB.
 
+**The boot watchdog.** There is one failure that More → Update App cannot help
+with: if a stale cached module is missing an export that `js/app.js` imports,
+the module graph fails to *link*, so none of the app's JavaScript runs at all -
+no error screen, no working navigation, just "Loading your practice app…"
+for ever. `index.html` therefore carries a small inline classic script (no
+imports, so it always runs) that waits 8 seconds for `window.__APP_READY` and,
+if it never arrives, replaces the placeholder with a **Clear cache & reload**
+button. `tests/run.py`'s pre-flight fails if that watchdog is removed.
+
 ---
 
 ## 8. Backup & restore
@@ -351,8 +360,9 @@ It runs a static pre-flight, then starts a local server and drives headless
 Chrome (or Edge) through three browser suites, printing the results; the exit
 code is 0 only if everything passed.
 
-**Pre-flight (no browser needed).** Three static checks, added after a real
-failure. It verifies that every `storage.x()` / `quizEngine.x()` /
+**Pre-flight (no browser needed).** Four static checks, each added after a real
+failure. It verifies that the boot watchdog above is still present and wired
+up, that every `storage.x()` / `quizEngine.x()` /
 `progressEngine.x()` call in `js/` resolves to something that module actually
 exports, that every `import { … } from "./x.js"` names a real export - both of
 which catch an "is not a function" crash in the source rather than in the
@@ -393,7 +403,7 @@ that an in-progress Mid-Term Mock survives starting a Quick 10, a chapter
 practice and a weak-area quiz - keeping its answers, its id and its exact
 question order. Also covers per-type clearing and an export/import round trip.
 
-**`tests/smoke.html` - 54 checks.** Drives the actual app inside an iframe:
+**`tests/smoke.html` - 56 checks.** Drives the actual app inside an iframe:
 onboarding (a first run is sent to the welcome screen even when the URL asks
 for `#/home`, Get Started stays disabled until a name is typed, and Home then
 greets by that name), renaming from More, and:
