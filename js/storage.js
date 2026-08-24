@@ -8,7 +8,11 @@
  *
  * Object stores:
  *   attempts    - one record per completed (or in-progress-but-saved) quiz attempt
- *   activeQuiz  - at most one record, keyed "current" - the in-progress quiz
+ *   activeQuiz  - one in-progress quiz PER QUIZ TYPE, keyed "active:<type>",
+ *                 so starting a Quick 10 can never discard a half-finished
+ *                 Mid-Term Mock. Each record wraps the quiz as { id, quiz }
+ *                 rather than being the quiz itself - the store's own key
+ *                 must never overwrite the quiz's id (see saveAttempt).
  *   settings    - simple key/value app settings (e.g. onboarding flags)
  *
  * Progress and "weak areas" are intentionally NOT stored separately.
@@ -85,12 +89,24 @@ function generateId(prefix = "attempt") {
 /* ----------------------------- ATTEMPTS ----------------------------- */
 
 /**
+ * Ids that belong to the activeQuiz store and must never be used as an
+ * attempt id. An earlier version stamped the active-quiz slot key onto the
+ * quiz itself, so every finished quiz saved under the same id and silently
+ * overwrote the previous one - the whole history collapsed to one record.
+ * The wrapper in saveActiveQuiz stops that happening; this is the backstop.
+ */
+function isReservedId(id) {
+  return !id || id === "current" || String(id).startsWith(ACTIVE_PREFIX);
+}
+
+/**
  * Save a completed (or partially completed but explicitly saved) attempt.
- * If `attempt.id` is missing, one is generated. Returns the saved attempt.
+ * If `attempt.id` is missing or is a reserved store key, a fresh one is
+ * generated. Returns the saved attempt.
  */
 async function saveAttempt(attempt) {
   const db = await openDB();
-  const record = { ...attempt, id: attempt.id || generateId("attempt") };
+  const record = { ...attempt, id: isReservedId(attempt.id) ? generateId("attempt") : attempt.id };
   const store = tx(db, STORE_ATTEMPTS, "readwrite");
   await reqToPromise(store.put(record));
   return record;
@@ -131,31 +147,92 @@ async function clearAttempts() {
 }
 
 /* ---------------------------- ACTIVE QUIZ ---------------------------- */
-// Only one quiz can be "in progress" at a time. Stored under a fixed id
-// so save/get/clear are trivial and resuming always preserves the exact
-// question order and current position that was in play when the student left.
+/*
+ * One in-progress quiz is kept PER QUIZ TYPE ("practice", "quick10", "mock",
+ * "weak"), each under the key "active:<type>". Starting a Quick 10 therefore
+ * leaves a half-finished Mid-Term Mock exactly where it was, which is the
+ * whole point - a 47-question mock is far too much work to lose to a stray tap.
+ *
+ * The quiz is stored WRAPPED as { id: slotKey, quizType, savedAt, quiz }.
+ * Storing the quiz directly would mean the store's keyPath overwrote the
+ * quiz's own id, and that id is what the finished attempt is saved under.
+ * Resuming always preserves the exact question order and position the student
+ * left off at - the quiz is never rebuilt or re-shuffled.
+ */
 
-const ACTIVE_QUIZ_KEY = "current";
+const ACTIVE_PREFIX = "active:";
+
+function slotKey(quizType) {
+  return ACTIVE_PREFIX + (quizType || "practice");
+}
+
+/**
+ * Unwrap a stored record into the quiz it holds.
+ *
+ * Records written by the older single-slot version ARE the quiz, and carry
+ * the reserved id "current"; those are unwrapped too and given a real id so
+ * they cannot poison the attempt they eventually become.
+ */
+function unwrapActive(record) {
+  if (!record) return null;
+  if (record.quiz) return record.quiz;
+  const legacy = { ...record };
+  if (isReservedId(legacy.id)) legacy.id = generateId("quiz");
+  return legacy;
+}
 
 async function saveActiveQuiz(quizState) {
   const db = await openDB();
-  const record = { ...quizState, id: ACTIVE_QUIZ_KEY };
+  const record = {
+    id: slotKey(quizState.quizType),
+    quizType: quizState.quizType,
+    savedAt: new Date().toISOString(),
+    quiz: quizState,
+  };
   const store = tx(db, STORE_ACTIVE_QUIZ, "readwrite");
   await reqToPromise(store.put(record));
-  return record;
+  return quizState;
 }
 
-async function getActiveQuiz() {
+/**
+ * The in-progress quiz of a given type, or - with no type - the most recently
+ * saved one of any type. Returns null if there is nothing in progress.
+ */
+async function getActiveQuiz(quizType = null) {
+  const db = await openDB();
+  if (quizType) {
+    const store = tx(db, STORE_ACTIVE_QUIZ, "readonly");
+    return unwrapActive(await reqToPromise(store.get(slotKey(quizType))));
+  }
+  const all = await getActiveQuizzes();
+  return all.length ? all[0] : null;
+}
+
+/** Every in-progress quiz, most recently saved first. */
+async function getActiveQuizzes() {
   const db = await openDB();
   const store = tx(db, STORE_ACTIVE_QUIZ, "readonly");
-  const result = await reqToPromise(store.get(ACTIVE_QUIZ_KEY));
-  return result || null;
+  const records = await reqToPromise(store.getAll());
+  return records
+    .slice()
+    .sort((a, b) => new Date(b.savedAt || 0) - new Date(a.savedAt || 0))
+    .map(unwrapActive)
+    .filter((q) => q && q.total > 0);
 }
 
-async function clearActiveQuiz() {
+/** Discard one type's in-progress quiz, or every one of them if no type given. */
+async function clearActiveQuiz(quizType = null) {
   const db = await openDB();
   const store = tx(db, STORE_ACTIVE_QUIZ, "readwrite");
-  await reqToPromise(store.delete(ACTIVE_QUIZ_KEY));
+  if (quizType) {
+    // Both deletes go through the same transaction - awaiting in between
+    // would let it auto-commit and the second call would then throw.
+    const dropSlot = reqToPromise(store.delete(slotKey(quizType)));
+    const dropLegacy = reqToPromise(store.delete("current"));
+    await Promise.all([dropSlot, dropLegacy]);
+    return;
+  }
+  await reqToPromise(store.clear());
 }
 
 /* ----------------------------- SETTINGS ------------------------------ */
@@ -234,6 +311,7 @@ async function resetAllData() {
 
 export const storage = {
   saveAttempt,
+  getActiveQuizzes,
   getAttempts,
   getAttempt,
   deleteAttempt,

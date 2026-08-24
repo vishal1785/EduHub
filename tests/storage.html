@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Class 7 Practice — storage suite</title>
+<style>
+  body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; line-height: 1.5; }
+  .pass { color: #0a7d32; }
+  .fail { color: #b3261e; font-weight: bold; }
+  pre { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Storage suite</h1>
+<pre id="out">running…</pre>
+
+<script>
+/**
+ * tests/storage.html
+ * ---------------------------------------------------------------------
+ * Exercises js/storage.js against real IndexedDB. Two regressions this
+ * suite exists to catch, both of which shipped once:
+ *
+ *   1. ATTEMPT HISTORY COLLAPSING. saveActiveQuiz() used to stamp the
+ *      store's key ("current") onto the quiz itself. finishQuiz() then
+ *      saved that as an attempt, so every completed quiz overwrote the
+ *      previous one and the whole history held exactly one record.
+ *
+ *   2. LOSING AN IN-PROGRESS MOCK. There was a single active-quiz slot,
+ *      so starting a Quick 10 discarded a half-finished 47-question
+ *      Mid-Term Mock without warning.
+ *
+ * This is a classic <script>, not type="module": a module script is
+ * deferred until the document has parsed, which would deadlock against
+ * the parser-blocking <script src="/__block"> barrier at the end of the
+ * file. Dynamic import() gets the ES modules without that problem.
+ * Run it via tests/run.py.
+ * ---------------------------------------------------------------------
+ */
+
+const lines = [];
+let failures = 0, checks = 0;
+const log = (m) => lines.push(m);
+const check = (cond, name, detail) => {
+  checks++;
+  if (cond) log(`  <span class="pass">PASS</span> ${name}`);
+  else { failures++; log(`  <span class="fail">FAIL</span> ${name}${detail ? `\n         ${detail}` : ""}`); }
+};
+const section = (t) => log(`\n=== ${t} ===`);
+
+async function main() {
+  const [{ storage }, { quizEngine }] = await Promise.all([
+    import("../js/storage.js"),
+    import("../js/quiz.js"),
+  ]);
+
+  const [questions, syllabus, subjects, config] = await Promise.all([
+    fetch("../data/questions.json").then((r) => r.json()),
+    fetch("../data/syllabus.json").then((r) => r.json()),
+    fetch("../data/subjects.json").then((r) => r.json()),
+    fetch("../data/config.json").then((r) => r.json()),
+  ]);
+  const names = Object.fromEntries(subjects.map((s) => [s.id, s.name]));
+  const chapters = {};
+  for (const [sid, chs] of Object.entries(syllabus))
+    for (const ch of chs) chapters[ch.id] = { ...ch, subjectId: sid, subjectName: names[sid] };
+  const content = { questions, chapters };
+
+  /** Play a quiz through storage exactly the way app.js does. */
+  async function playThrough(quiz) {
+    await storage.saveActiveQuiz(quiz);                       // startXQuiz
+    const live = await storage.getActiveQuiz(quiz.quizType);   // renderQuiz
+    for (const q of quizEngine.questionsOf(live, questions)) {
+      quizEngine.answerQuestion(live, q, q.answer);
+      await storage.saveActiveQuiz(live);                      // saved per answer
+    }
+    quizEngine.finalizeQuiz(live);
+    const saved = await storage.saveAttempt(live);             // finishQuiz
+    await storage.clearActiveQuiz(live.quizType);
+    return saved;
+  }
+
+  /* ------------------- 1. history must not collapse ------------------- */
+  section("Attempt history");
+  await storage.resetAllData();
+
+  const played = [];
+  for (const chId of ["maths-ch5", "sst-ch10", "german-uhr"]) {
+    played.push(await playThrough(quizEngine.buildChapterQuiz(content, chId, 5)));
+  }
+
+  const ids = played.map((a) => a.id);
+  check(new Set(ids).size === 3, "three finished quizzes get three distinct attempt ids", ids.join(", "));
+  check(!ids.some((id) => id === "current" || String(id).startsWith("active:")),
+    "no attempt is saved under a reserved activeQuiz key", ids.join(", "));
+
+  let history = await storage.getAttempts();
+  check(history.length === 3, `all three attempts are in history (found ${history.length})`,
+    history.map((a) => `${a.id}:${a.title}`).join(", "));
+  check(history.every((a) => a.completedAt && a.total === 5),
+    "every stored attempt kept its score and completion stamp");
+
+  const titles = history.map((a) => a.title);
+  check(new Set(titles).size === 3, "each attempt kept its own chapter title", titles.join(" | "));
+
+  /* --------------- 2. the quiz keeps its own identity ---------------- */
+  section("Active quiz identity");
+  await storage.resetAllData();
+
+  const one = quizEngine.buildChapterQuiz(content, "maths-ch3", 5);
+  await storage.saveActiveQuiz(one);
+  const reloaded = await storage.getActiveQuiz("practice");
+  check(reloaded.id === one.id, "reloading an active quiz preserves its id", `${reloaded.id} != ${one.id}`);
+  check(reloaded.total === one.total && reloaded.questions.length === one.questions.length,
+    "reloading an active quiz preserves its questions");
+  check(reloaded.questions.map((q) => q.id).join("|") === one.questions.map((q) => q.id).join("|"),
+    "reloading an active quiz preserves the question ORDER");
+
+  /* ------------- 3. one in-progress quiz per quiz type -------------- */
+  section("Per-type slots — a mock survives other quizzes");
+  await storage.resetAllData();
+
+  const mock = quizEngine.buildMockTest(content, config.midTermMock || {});
+  // Answer part of the mock, then leave it.
+  for (let i = 0; i < 6; i++) quizEngine.answerQuestion(mock, mock.questions[i], mock.questions[i].answer);
+  await storage.saveActiveQuiz(mock);
+  check(mock.total > 20, `mock test is worth resuming (${mock.total} questions, 6 answered)`);
+
+  // Now start each of the other kinds of quiz.
+  await storage.saveActiveQuiz(quizEngine.buildQuickPractice(content, null, 10));
+  await storage.saveActiveQuiz(quizEngine.buildChapterQuiz(content, "science-ch3", 10));
+  await storage.saveActiveQuiz(quizEngine.buildWeakAreaQuiz(content, ["maths-ch6", "sst-ch5"], 10));
+
+  const stillThere = await storage.getActiveQuiz("mock");
+  check(!!stillThere, "the in-progress mock still exists after starting a Quick 10, a practice and a weak-area quiz");
+  check(stillThere && stillThere.answers.length === 6,
+    `the mock kept all 6 answers (found ${stillThere ? stillThere.answers.length : "nothing"})`);
+  check(stillThere && stillThere.id === mock.id, "the mock kept its id");
+  check(stillThere && stillThere.questions.map((q) => q.id).join("|") === mock.questions.map((q) => q.id).join("|"),
+    "the mock kept its exact question order, so resuming lands on the right question");
+
+  const all = await storage.getActiveQuizzes();
+  check(all.length === 4, `all four quiz types are resumable at once (found ${all.length})`,
+    all.map((q) => q.quizType).join(", "));
+  check(new Set(all.map((q) => q.quizType)).size === all.length, "one slot per quiz type, no duplicates");
+
+  /* ---------------- 4. same type does replace, and clears ------------ */
+  section("Same type replaces; clearing is per type");
+
+  const secondQuick = quizEngine.buildQuickPractice(content, "Maths", 10);
+  await storage.saveActiveQuiz(secondQuick);
+  const quickNow = await storage.getActiveQuiz("quick10");
+  check(quickNow.id === secondQuick.id, "starting a new Quick 10 replaces the previous Quick 10");
+  check((await storage.getActiveQuizzes()).length === 4, "replacing within a type does not add a slot");
+  check((await storage.getActiveQuiz("mock")).id === mock.id, "...and still leaves the mock alone");
+
+  await storage.clearActiveQuiz("quick10");
+  check((await storage.getActiveQuiz("quick10")) === null, "clearing one type removes just that type");
+  check((await storage.getActiveQuiz("mock")) !== null, "clearing the Quick 10 leaves the mock in place");
+  check((await storage.getActiveQuizzes()).length === 3, "three quizzes remain resumable");
+
+  // getActiveQuiz() with no type = most recently saved, for older "#/quiz" links.
+  const latest = await storage.getActiveQuiz();
+  check(latest !== null && typeof latest.quizType === "string",
+    `getActiveQuiz() with no type returns the most recent one (${latest && latest.quizType})`);
+
+  await storage.clearActiveQuiz();
+  check((await storage.getActiveQuizzes()).length === 0, "clearing with no type removes every in-progress quiz");
+
+  /* ------------------ 5. finishing the mock records it -------------- */
+  section("Finishing a resumed mock");
+  await storage.resetAllData();
+
+  const finished = await playThrough(quizEngine.buildMockTest(content, config.midTermMock || {}));
+  const hist = await storage.getAttempts();
+  check(hist.length === 1 && hist[0].id === finished.id, "a finished mock lands in history under its own id");
+  check(hist[0].percentage === 100, `answering every question correctly scores 100% (got ${hist[0].percentage}%)`);
+  check((await storage.getActiveQuiz("mock")) === null, "finishing the mock clears its slot");
+
+  /* ---------------- 6. export / import round trip ------------------- */
+  section("Export and import");
+  await storage.resetAllData();
+  await playThrough(quizEngine.buildChapterQuiz(content, "maths-ch4", 5));
+  await playThrough(quizEngine.buildChapterQuiz(content, "ict-ch5", 5));
+
+  const dump = await storage.exportData();
+  check(dump.attempts.length === 2, `export contains both attempts (found ${dump.attempts.length})`);
+
+  await storage.resetAllData();
+  check((await storage.getAttempts()).length === 0, "reset clears history");
+
+  await storage.importData(dump);
+  const restored = await storage.getAttempts();
+  check(restored.length === 2, `import restores both attempts (found ${restored.length})`);
+  check(new Set(restored.map((a) => a.id)).size === 2, "restored attempts keep distinct ids");
+  check(restored.every((a) => Array.isArray(a.questions) && a.questions.length === 5),
+    "restored attempts still carry their embedded questions, so Review works after a restore");
+
+  await storage.resetAllData();
+}
+
+main()
+  .catch((err) => { failures++; log(`\n<span class="fail">SUITE CRASHED</span>: ${err && err.stack ? err.stack : err}`); })
+  .finally(async () => {
+    log(`\n${checks} checks run, ${failures} failed.`);
+    log(failures === 0 ? "RESULT: PASS" : `RESULT: FAIL (${failures})`);
+    document.getElementById("out").innerHTML = lines.join("\n");
+    document.title = failures === 0 ? "PASS" : `FAIL (${failures})`;
+    try { await fetch("/__done", { method: "POST", body: lines.join("\n") }); } catch (e) {}
+  });
+</script>
+<script src="/__block"></script>
+</body>
+</html>

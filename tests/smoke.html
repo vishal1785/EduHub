@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Class 7 Practice — browser smoke test</title>
+<style>
+  body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; line-height: 1.5; }
+  .pass { color: #0a7d32; }
+  .fail { color: #b3261e; font-weight: bold; }
+  pre { white-space: pre-wrap; }
+  iframe { width: 390px; height: 780px; border: 1px solid #ccc; float: right; }
+</style>
+</head>
+<body>
+<h1>Browser smoke test</h1>
+<pre id="out">running…</pre>
+<iframe id="app-frame" title="app under test"></iframe>
+
+<script>
+/**
+ * tests/smoke.html
+ * ---------------------------------------------------------------------
+ * Drives the real app inside an iframe and checks that every screen
+ * actually renders — which the unit suite in verify.html cannot do,
+ * since that tests the modules rather than the DOM.
+ *
+ * The most important thing it proves is the end-to-end path for a
+ * DYNAMICALLY GENERATED question: start a quiz on a generated chapter,
+ * answer every question, reach the result screen, and open Review. A
+ * generated question exists only inside the saved attempt, so if the
+ * app ever went back to resolving questions by id against the static
+ * bank, the review screen here would fill with "no longer available"
+ * and this test would fail.
+ *
+ * Run it through smokeserver.py, which holds the page's load event open
+ * until the results are in — otherwise headless Chrome dumps the DOM
+ * while the app is still waiting on IndexedDB. See that file for the
+ * exact command.
+ * ---------------------------------------------------------------------
+ */
+
+const lines = [];
+let failures = 0, checks = 0;
+const log = (m) => lines.push(m);
+const check = (cond, name, detail) => {
+  checks++;
+  if (cond) log(`  <span class="pass">PASS</span> ${name}`);
+  else { failures++; log(`  <span class="fail">FAIL</span> ${name}${detail ? `\n         ${detail}` : ""}`); }
+};
+const section = (t) => log(`\n=== ${t} ===`);
+
+const frame = document.getElementById("app-frame");
+const doc = () => frame.contentDocument;
+
+/** Poll until `fn()` returns something truthy, or give up after `ms`. */
+function until(fn, ms = 15000, label = "condition") {
+  return new Promise((resolve, reject) => {
+    const started = Date.now();
+    const tick = () => {
+      let value = null;
+      try { value = fn(); } catch { value = null; }
+      if (value) return resolve(value);
+      if (Date.now() - started > ms) return reject(new Error(`timed out waiting for ${label}`));
+      setTimeout(tick, 50);
+    };
+    tick();
+  });
+}
+
+/**
+ * Navigate the app to a hash route and wait until that screen has rendered.
+ *
+ * The previous screen is still in the DOM at the moment the hash changes, so
+ * waiting on `ready` alone can match the OLD content and return immediately.
+ * We therefore wait for the app's markup to actually change first.
+ */
+async function goto(route, ready, label) {
+  // Navigating to the route we are already on is a no-op in the app, so the
+  // markup never changes and waiting for it to change would hang.
+  const alreadyThere = frame.contentWindow.location.hash === route;
+  const before = appEl() ? appEl().innerHTML : "";
+  frame.contentWindow.location.hash = route;
+  if (!alreadyThere) {
+    await until(() => appEl() && appEl().innerHTML !== before, 15000, `${label || route} to replace the previous screen`);
+  }
+  return until(ready, 15000, label || route);
+}
+
+const appEl = () => doc().getElementById("app");
+const text = () => appEl().textContent;
+/** The app is done with a screen once the loading skeleton is gone. */
+const rendered = () => appEl() && !appEl().querySelector(".skeleton") && appEl().textContent.trim().length > 20;
+
+async function run() {
+  /* ------------------------------ boot -------------------------------- */
+  section("Boot");
+  await new Promise((res) => {
+    frame.addEventListener("load", res, { once: true });
+    frame.src = "/index.html#/home";
+  });
+  await until(rendered, 20000, "home screen");
+  check(true, "app boots and renders the home screen");
+  check(!/couldn't be loaded|something went wrong/i.test(text()), "home screen shows no crash state", text().slice(0, 200));
+  check(doc().querySelectorAll(".bottom-nav .nav-item").length === 5, "bottom navigation renders all five tabs");
+
+  /* ---------------------------- navigation ---------------------------- */
+  section("Every screen renders");
+  const screens = [
+    ["#/practice", "Practice"],
+    ["#/subject/maths", "Maths subject"],
+    ["#/subject/german", "German subject"],
+    ["#/tests", "Tests"],
+    ["#/progress", "Progress"],
+    ["#/more", "More / Data"],
+  ];
+  for (const [route, name] of screens) {
+    try {
+      await goto(route, rendered, name);
+      check(!/couldn't be found|couldn't be loaded/i.test(text()), `${name} (${route}) renders`, text().slice(0, 160));
+    } catch (e) {
+      check(false, `${name} (${route}) renders`, e.message);
+    }
+  }
+
+  // The escape hatch for a device stuck on a half-updated set of files.
+  await goto("#/more", () => rendered() && doc().getElementById("btn-update"), "More screen");
+  check(!!doc().getElementById("btn-update"), "More offers an Update App action to clear the offline cache");
+  check(/progress is not affected/i.test(text()), "Update App makes clear it does not touch saved progress");
+
+  /* ------------------------- chapter screens -------------------------- */
+  section("Chapter screens");
+
+  await goto("#/chapter/maths-ch3", () => rendered() && doc().getElementById("btn-practise"), "generated chapter");
+  check(!!doc().getElementById("btn-practise"), "a generated chapter (maths-ch3) offers a Practise button");
+
+  await goto("#/chapter/german-uhr", () => rendered() && doc().getElementById("btn-practise"), "bank-backed chapter");
+  check(!!doc().getElementById("btn-practise"), "a bank-backed chapter (german-uhr) offers a Practise button");
+
+  await goto("#/chapter/hindi-maa", () => rendered(), "empty chapter");
+  check(!doc().getElementById("btn-practise") && /coming soon/i.test(text()),
+    'an empty chapter (hindi-maa) shows "Content coming soon" and no Practise button', text().slice(0, 200));
+
+  /* ----------------- full quiz run on a GENERATED chapter ------------- */
+  section("End-to-end quiz on a generated chapter");
+
+  await goto("#/chapter/maths-ch5", () => rendered() && doc().getElementById("btn-practise"), "maths-ch5");
+  doc().getElementById("btn-practise").click();
+
+  await until(() => doc().querySelector("#options-wrap .option"), 15000, "first question");
+  check(true, "Practise starts a quiz and shows the first question");
+
+  const askedQuestions = [];
+  let answered = 0;
+  for (let i = 0; i < 10; i++) {
+    const qText = doc().querySelector(".question-text");
+    if (!qText) break;
+    askedQuestions.push(qText.textContent.trim());
+    const options = doc().querySelectorAll("#options-wrap .option");
+    if (options.length !== 4) { check(false, `question ${i + 1} shows 4 options`, `saw ${options.length}`); break; }
+    options[0].click();
+    answered++;
+    const next = await until(() => doc().getElementById("btn-next"), 15000, `feedback for question ${i + 1}`);
+    // Feedback must always explain the answer, right or wrong.
+    if (!doc().querySelector(".feedback-why")) check(false, `question ${i + 1} shows an explanation`);
+    next.click();
+    if (i < 9) await until(() => doc().querySelector("#options-wrap .option"), 15000, `question ${i + 2}`);
+  }
+  check(answered === 10, `answered all 10 questions (answered ${answered})`);
+  check(new Set(askedQuestions).size === askedQuestions.length, "no question was repeated within the quiz");
+
+  const resultReady = await until(() => doc().getElementById("btn-review"), 20000, "result screen");
+  check(true, "result screen appears after the last question");
+  const pct = (text().match(/(\d+)%/) || [])[1];
+  check(pct !== undefined, `result screen shows a percentage score (${pct}%)`);
+  check(/Correct/.test(text()) && /Total/.test(text()), "result screen shows the correct / to-review / total breakdown");
+
+  /* ------------------- review of generated questions ------------------ */
+  section("Review of generated questions");
+  resultReady.click();
+  await until(() => doc().querySelectorAll(".review-q").length > 0, 15000, "review screen");
+  const reviewBlocks = doc().querySelectorAll(".review-q");
+  check(reviewBlocks.length === 10, `review lists all 10 questions (found ${reviewBlocks.length})`);
+  check(!/no longer available/i.test(text()),
+    "no review entry says the question is no longer available — generated questions survived into the attempt",
+    text().slice(0, 300));
+
+  const reviewText = [...reviewBlocks].map((b) => b.textContent);
+  check(reviewText.every((t) => /Your answer:/.test(t)), "every review entry shows the answer given");
+  check(reviewText.every((t) => /Why:/.test(t)), "every review entry shows an explanation");
+  const reviewQuestions = [...reviewBlocks].map((b) => b.querySelector(".qtext").textContent.trim());
+  check(reviewQuestions.join("|") === askedQuestions.join("|"),
+    "review shows exactly the questions that were asked, in the same order");
+
+  /* --------------------- the attempt reaches history ------------------ */
+  section("Attempt is recorded");
+  await goto("#/tests", () => rendered() && !/No tests yet/.test(text()), "tests list");
+  check(/Arithmetic Expression/.test(text()), "the finished quiz appears in Past Tests", text().slice(0, 200));
+
+  await goto("#/progress", rendered, "progress");
+  check(!/couldn't be loaded/i.test(text()) && /%/.test(text()), "progress screen shows figures after an attempt", text().slice(0, 200));
+
+  await goto("#/home", rendered, "home");
+  check(!/couldn't be loaded/i.test(text()), "home screen still renders once there is history");
+
+  /* ------- the reported bug: a mock must survive other quizzes -------- */
+  section("An in-progress mock is not lost when another quiz starts");
+
+  await goto("#/home", rendered, "home");
+  doc().getElementById("btn-mock").click();
+  await until(() => doc().querySelector("#options-wrap .option"), 20000, "mock question 1");
+
+  // Answer three questions of the mock, then walk away mid-test.
+  let mockTotal = 0;
+  for (let i = 0; i < 3; i++) {
+    const counter = doc().getElementById("q-count");
+    if (counter && !mockTotal) mockTotal = Number((counter.textContent.match(/of (\d+)/) || [])[1] || 0);
+    doc().querySelectorAll("#options-wrap .option")[0].click();
+    (await until(() => doc().getElementById("btn-next"), 15000, "feedback")).click();
+    await until(() => doc().querySelector("#options-wrap .option"), 15000, "next mock question");
+  }
+  check(mockTotal > 20, `the mock is a full-length test (${mockTotal} questions)`);
+
+  await goto("#/home", () => rendered() && /Continue Learning/.test(text()), "home with continue card");
+  check(/Mid-Term Mock/.test(text()), "Home offers to continue the Mid-Term Mock", text().slice(0, 300));
+  check(/Resume Mock/.test(text()), 'the Mid-Term Mock button now reads "Resume Mock"');
+
+  // Now start a Quick 10 - the thing that used to wipe the mock out.
+  doc().getElementById("btn-quick10").click();
+  await until(() => doc().querySelector("#options-wrap .option"), 20000, "Quick 10 question 1");
+  doc().querySelectorAll("#options-wrap .option")[0].click();
+  (await until(() => doc().getElementById("btn-next"), 15000, "feedback")).click();
+  await until(() => doc().querySelector("#options-wrap .option"), 15000, "Quick 10 question 2");
+
+  await goto("#/home", () => rendered() && /Continue Learning/.test(text()), "home after Quick 10");
+  const cards = doc().querySelectorAll(".continue-card");
+  check(cards.length === 2, `both quizzes are resumable (found ${cards.length} continue cards)`,
+    [...cards].map((c) => c.textContent.trim().slice(0, 40)).join(" | "));
+  check(/Mid-Term Mock/.test(text()), "the Mid-Term Mock is STILL resumable after starting a Quick 10", text().slice(0, 300));
+
+  // Resume the mock and confirm it picks up where it was left, not from scratch.
+  const mockCard = [...cards].find((c) => /Mid-Term Mock/.test(c.textContent));
+  check(!!mockCard && /Question 4 of/.test(mockCard.textContent),
+    "the mock resumes at question 4, with its 3 answers intact",
+    mockCard ? mockCard.textContent.replace(/\s+/g, " ").trim() : "no mock card");
+  mockCard.click();
+  await until(() => doc().querySelector("#options-wrap .option"), 20000, "resumed mock");
+  const resumedCount = doc().getElementById("q-count").textContent;
+  check(/Question 4 of/.test(resumedCount), `resuming lands on question 4 (showed "${resumedCount}")`);
+
+  // Starting a second mock while one is unfinished must ask first.
+  await goto("#/home", rendered, "home");
+  doc().getElementById("btn-mock").click();
+  const dialog = await until(() => doc().querySelector(".overlay .dialog"), 15000, "confirm dialog");
+  check(!!dialog, "starting a mock over an unfinished one asks before discarding it");
+  check(/Resume/.test(dialog.textContent) && /Start new/.test(dialog.textContent),
+    "the dialog offers both Resume and Start new", dialog.textContent.replace(/\s+/g, " ").trim());
+  doc().querySelector(".overlay .dialog .cancel").click();  // "Resume"
+  await until(() => doc().querySelector("#options-wrap .option"), 20000, "resumed mock again");
+  check(/Question 4 of/.test(doc().getElementById("q-count").textContent),
+    "choosing Resume returns to question 4 rather than restarting");
+
+  /* -------------------- a bank-backed chapter too --------------------- */
+  section("End-to-end quiz on a bank-backed chapter");
+  await goto("#/chapter/sst-ch10", () => rendered() && doc().getElementById("btn-quickquiz"), "sst-ch10");
+  doc().getElementById("btn-quickquiz").click();
+  await until(() => doc().querySelector("#options-wrap .option"), 15000, "first question");
+  let n = 0;
+  for (let i = 0; i < 5; i++) {
+    if (!doc().querySelector("#options-wrap .option")) break;
+    doc().querySelectorAll("#options-wrap .option")[1].click();
+    n++;
+    (await until(() => doc().getElementById("btn-next"), 15000, "feedback")).click();
+    if (i < 4) await until(() => doc().querySelector("#options-wrap .option"), 15000, "next question").catch(() => null);
+  }
+  check(n === 5, `Quick Quiz runs its 5 questions (ran ${n})`);
+  await until(() => doc().getElementById("btn-review"), 20000, "result screen");
+  check(true, "bank-backed quiz reaches its result screen");
+}
+
+run()
+  .catch((err) => { failures++; log(`\n<span class="fail">SMOKE TEST CRASHED</span>: ${err && err.stack ? err.stack : err}`); })
+  .finally(async () => {
+    log(`\n${checks} checks run, ${failures} failed.`);
+    log(failures === 0 ? "RESULT: PASS" : `RESULT: FAIL (${failures})`);
+    document.getElementById("out").innerHTML = lines.join("\n");
+    document.title = failures === 0 ? "PASS" : `FAIL (${failures})`;
+    // Release the server's hold on the load event so --dump-dom can fire.
+    try {
+      await fetch("/__done", { method: "POST", body: lines.join("\n") });
+    } catch {}
+  });
+</script>
+<script src="/__block"></script>
+</body>
+</html>
