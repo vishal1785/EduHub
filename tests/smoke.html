@@ -107,6 +107,21 @@ async function run() {
   check(true, "a first run opens on the welcome screen, even when the URL asks for #/home");
   check(frame.contentWindow.__APP_READY === true,
     "the app signals __APP_READY, so index.html's boot watchdog stands down");
+
+  // A stale or missing stylesheet renders the right markup with no styling at
+  // all - which looks broken but passes every text-based check. Assert against
+  // computed style so that failure cannot slip through.
+  const inner = doc().querySelector(".welcome-inner");
+  const innerStyle = inner && frame.contentWindow.getComputedStyle(inner);
+  check(!!innerStyle && innerStyle.maxWidth === "340px",
+    "css/style.css is loaded and applied (.welcome-inner is capped at 340px)",
+    innerStyle ? `max-width was ${innerStyle.maxWidth}` : "no .welcome-inner element");
+  check(!!innerStyle && innerStyle.textAlign === "center",
+    "the welcome column is centre aligned",
+    innerStyle ? `text-align was ${innerStyle.textAlign}` : "");
+  check(doc().querySelector(".bottom-nav") &&
+    frame.contentWindow.getComputedStyle(doc().querySelector(".bottom-nav")).display === "none",
+    "the bottom nav is actually hidden during onboarding, not just class-tagged");
   check(!doc().getElementById("boot-recover"),
     "no recovery screen is shown on a healthy boot");
   check(frame.contentWindow.location.hash === "#/welcome", `the route is #/welcome (was ${frame.contentWindow.location.hash})`);

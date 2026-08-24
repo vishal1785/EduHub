@@ -38,11 +38,20 @@ beyond Python (already on most machines) is needed:
 
 ```bash
 cd class7-practice
-python3 -m http.server 8000
+python serve.py
 ```
 
-Then open **http://localhost:8000** in your browser (or your phone, if it's on
-the same Wi-Fi - use your computer's local IP instead of `localhost`).
+Then open **http://localhost:8000**. `serve.py` also prints your machine's LAN
+address, which is how to open the app on a phone on the same Wi-Fi.
+
+> **Use `serve.py`, not `python -m http.server`.** `http.server` sends a
+> `Last-Modified` header but no `Cache-Control`, so the browser applies
+> "heuristic freshness" and reuses files without asking whether they changed.
+> On an app of plain ES modules that bites hard: you edit `css/style.css`,
+> reload, and get the stylesheet from ten minutes ago rendering your new
+> markup unstyled - or a mix of old and new modules, where one missing export
+> stops the whole app loading. `serve.py` sends `Cache-Control: no-store`, so
+> what you see is always what is on disk.
 
 Alternatives if you don't have Python: `npx serve` (needs Node.js), or the
 "Live Server" extension in VS Code.
@@ -68,6 +77,7 @@ Alternatives if you don't have Python: `npx serve` (needs Node.js), or the
 ```
 class7-practice/
 ├── index.html            # App shell + bottom navigation
+├── serve.py              # Local dev server with caching disabled
 ├── manifest.json         # PWA metadata (installable on phone)
 ├── service-worker.js     # Offline caching
 ├── css/
@@ -412,7 +422,10 @@ that an in-progress Mid-Term Mock survives starting a Quick 10, a chapter
 practice and a weak-area quiz - keeping its answers, its id and its exact
 question order. Also covers per-type clearing and an export/import round trip.
 
-**`tests/smoke.html` - 56 checks.** Drives the actual app inside an iframe:
+**`tests/smoke.html` - 59 checks.** Drives the actual app inside an iframe.
+Three of those checks read *computed* style rather than text, because a stale
+or missing stylesheet renders correct markup with no styling at all - which
+looks broken to a human but passes every text-based assertion. It covers
 onboarding (a first run is sent to the welcome screen even when the URL asks
 for `#/home`, Get Started stays disabled until a name is typed, and Home then
 greets by that name), renaming from More, and:

@@ -27,7 +27,7 @@
  * ---------------------------------------------------------------------
  */
 
-const CACHE_NAME = "class7-practice-v8";
+const CACHE_NAME = "class7-practice-v9";
 
 // Paths are relative to this file's location, so this works whether the
 // app is served from a domain root or a GitHub Pages project subpath.
@@ -82,7 +82,10 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.open(CACHE_NAME).then((cache) =>
-      cache.match(req).then((cached) => {
+      // ignoreSearch so "css/style.css?v=9" still matches the precached
+      // "css/style.css". Without it a versioned URL would miss the cache
+      // entirely and the app would stop working offline.
+      cache.match(req, { ignoreSearch: true }).then((cached) => {
         // Served straight from this version's snapshot. Deliberately no
         // cache.put() here - see the note at the top of this file.
         if (cached) return cached;
