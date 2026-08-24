@@ -209,7 +209,44 @@ def preflight():
                         problems.append("js/%s calls %s.%s(), which %s does not export"
                                         % (f, alias, used, modules[alias]))
 
-    # 2. The service worker must precache every app file, and nothing missing.
+    # 2. Every named import must actually be exported by the module it comes
+    #    from. `import { promptDialog } from "./ui.js"` is a runtime error only
+    #    when the page loads, so catching it here is much cheaper.
+    for root, dirs, files in os.walk(os.path.join(REPO, "js")):
+        for f in sorted(files):
+            if not f.endswith(".js"):
+                continue
+            src = io.open(os.path.join(root, f), encoding="utf-8").read()
+            for names, target in re.findall(r"import\s*\{([^}]*)\}\s*from\s*[\"']\./([\w.]+)[\"']", src):
+                target_path = os.path.join(root, target)
+                if not os.path.exists(target_path):
+                    problems.append("js/%s imports from ./%s, which does not exist" % (f, target))
+                    continue
+                target_src = io.open(target_path, encoding="utf-8").read()
+                exported = set(re.findall(r"export\s+(?:async\s+)?function\s+(\w+)", target_src))
+                exported |= set(re.findall(r"export\s+const\s+(\w+)", target_src))
+                for name in names.split(","):
+                    name = name.strip().split(" as ")[0].strip()
+                    if name and name not in exported:
+                        problems.append("js/%s imports { %s } from ./%s, which does not export it"
+                                        % (f, name, target))
+
+    # 3. The boot watchdog must survive. It is the only thing that can report a
+    #    failure to LINK the module graph - at that point none of the app's own
+    #    JavaScript has run - so losing it turns any future module mismatch back
+    #    into a permanent "Loading your practice app..." with no way out.
+    index = io.open(os.path.join(REPO, "index.html"), encoding="utf-8").read()
+    app_src = io.open(os.path.join(REPO, "js", "app.js"), encoding="utf-8").read()
+    if "__APP_READY" not in index:
+        problems.append("index.html has lost its boot watchdog (no __APP_READY check)")
+    if "boot-recover" not in index:
+        problems.append("index.html's boot watchdog no longer offers a recovery button")
+    if 'type="module"' in index and index.index("__APP_READY") > index.index('type="module"'):
+        problems.append("the boot watchdog must be registered before the module script")
+    if "window.__APP_READY = true" not in app_src:
+        problems.append("js/app.js never sets __APP_READY, so the watchdog would fire on a healthy boot")
+
+    # 4. The service worker must precache every app file, and nothing missing.
     sw = io.open(os.path.join(REPO, "service-worker.js"), encoding="utf-8").read()
     listed = set(re.findall(r'"\./([^"]*)"', sw))
     on_disk = set()
@@ -234,6 +271,8 @@ def preflight():
         print(NEWLINE + "%d problem(s)" % len(problems))
         return 1
     print("  PASS every cross-module call resolves to an exported function")
+    print("  PASS every named import resolves to a real export")
+    print("  PASS the boot watchdog is present and wired to the app")
     print("  PASS the service worker precaches every app file")
     print(NEWLINE + "RESULT: PASS")
     return 0

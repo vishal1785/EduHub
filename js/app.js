@@ -25,6 +25,19 @@ const DATA = {
   config: {},
 };
 
+/**
+ * The student's name, and whether the welcome screen has been dealt with.
+ *
+ * Both live in the `settings` store. They are cached here so every render
+ * does not have to await IndexedDB just to draw a greeting; setStudentName()
+ * is the single place that writes, so the cache cannot drift.
+ */
+let studentName = "";
+let onboarded = false;
+
+/** Longest name we will store - keeps the greeting on one line. */
+const MAX_NAME_LENGTH = 24;
+
 /** chapterId -> { id, name, description, number, subjectId, subjectName } */
 let chapterIndex = {};
 /** subjectId -> subject meta */
@@ -72,6 +85,28 @@ async function loadData() {
   }
 
   dataReady = true;
+}
+
+/** Read the stored name and onboarding flag into the module cache. */
+async function loadStudent() {
+  const [name, flag] = await Promise.all([
+    storage.getSetting("studentName", ""),
+    storage.getSetting("onboarded", false),
+  ]);
+  studentName = typeof name === "string" ? name.trim().slice(0, MAX_NAME_LENGTH) : "";
+  // Someone who already has a name from an earlier version has plainly been
+  // through onboarding, so never ask them.
+  onboarded = flag === true || !!studentName;
+}
+
+/** Persist the name (empty string clears it) and mark onboarding as done. */
+async function setStudentName(name) {
+  studentName = (name || "").trim().slice(0, MAX_NAME_LENGTH);
+  onboarded = true;
+  await Promise.all([
+    storage.setSetting("studentName", studentName),
+    storage.setSetting("onboarded", true),
+  ]);
 }
 
 /**
@@ -136,12 +171,26 @@ function updateBottomNav(routeName) {
 
 async function renderRoute() {
   if (!dataReady) return;
-  const { name, param } = currentRoute();
+  let { name, param } = currentRoute();
+
+  // Until the welcome screen has been dealt with, it is the only screen.
+  if (!onboarded && name !== "welcome") {
+    return navigate("#/welcome");
+  }
+  // ...and once it has, there is nothing to go back to.
+  if (onboarded && name === "welcome") {
+    return navigate("#/home");
+  }
+
+  // The welcome screen hides the bottom nav so it has one obvious next step.
+  document.body.classList.toggle("no-nav", name === "welcome");
+
   updateBottomNav(name);
   window.scrollTo(0, 0);
 
   try {
     switch (name) {
+      case "welcome": return renderWelcome();
       case "home": return await renderHome();
       case "practice": return await renderPractice();
       case "subject": return await renderSubject(param);
@@ -170,6 +219,59 @@ function renderCrashState(err) {
       </div>
       <a class="btn-primary" style="display:block;margin-top:18px;" href="#/home">Back Home</a>
     </div>`;
+}
+
+/* =============================== WELCOME ================================== */
+
+/**
+ * First-run screen. Asks for the student's name so the app can greet them
+ * by it. Skipping is allowed - the name is a nicety, not a login - and
+ * skipping still marks onboarding done so the screen is not shown again.
+ * Either way it can be changed later from More.
+ */
+function renderWelcome() {
+  appEl.innerHTML = `
+    <div class="welcome">
+      <div class="welcome-inner">
+        <img class="welcome-logo" src="icons/icon-192.png" alt="" width="76" height="76" />
+        <h1>Class 7 Practice</h1>
+        <p class="welcome-sub">Practise your chapters, take mock tests and track your progress. What should we call you?</p>
+
+        <label class="sr-only" for="student-name">Your name</label>
+        <input class="text-input" type="text" id="student-name" maxlength="${MAX_NAME_LENGTH}"
+               placeholder="Your name" autocomplete="given-name" autocapitalize="words"
+               enterkeyhint="go" />
+
+        <button class="btn-primary" id="btn-welcome-start" type="button" disabled>Get Started</button>
+        <button class="welcome-skip" id="btn-welcome-skip" type="button">Skip for now</button>
+
+        <p class="welcome-note">Everything stays on this device — no account needed.</p>
+      </div>
+    </div>`;
+
+  const input = document.getElementById("student-name");
+  const startBtn = document.getElementById("btn-welcome-start");
+
+  const sync = () => (startBtn.disabled = !input.value.trim());
+  const start = async () => {
+    if (!input.value.trim()) return;
+    startBtn.disabled = true;
+    await setStudentName(input.value);
+    navigate("#/home");
+  };
+
+  input.addEventListener("input", sync);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") start();
+  });
+  startBtn.addEventListener("click", start);
+  document.getElementById("btn-welcome-skip").addEventListener("click", async () => {
+    await setStudentName("");
+    navigate("#/home");
+  });
+
+  sync();
+  input.focus();
 }
 
 /* ================================ HOME ===================================== */
@@ -215,7 +317,7 @@ async function renderHome() {
 
   appEl.innerHTML = `
     <div class="screen">
-      <div class="greeting">Hi! 👋</div>
+      <div class="greeting">Hi${studentName ? ", " + escapeHtml(studentName) : ""}! 👋</div>
       <div class="greeting-sub">Ready to practise?</div>
 
       <div class="stat-row">
@@ -777,6 +879,13 @@ async function renderMore() {
         <div class="info"><div class="title">Reset Progress</div><div class="desc">Permanently delete all attempts and progress on this device</div></div>
       </button>
 
+      <div class="section-title">You</div>
+
+      <button class="settings-item" id="btn-name" style="width:100%;text-align:left;">
+        <span class="emoji">🙋</span>
+        <div class="info"><div class="title">Your Name</div><div class="desc">${studentName ? escapeHtml(studentName) : "Not set — tap to add one"}</div></div>
+      </button>
+
       <div class="section-title">App</div>
 
       <button class="settings-item" id="btn-update" style="width:100%;text-align:left;">
@@ -786,7 +895,7 @@ async function renderMore() {
 
       <div class="section-title">About</div>
       <div class="card" style="font-size:0.85rem;color:var(--ink-soft);line-height:1.6;">
-        Class 7 Practice v2.0<br />
+        Class 7 Practice v3.0<br />
         All your data stays on this device — nothing is sent anywhere.<br />
         Use <strong>Export Data</strong> regularly to keep a backup, especially before clearing browser data.
       </div>
@@ -795,6 +904,7 @@ async function renderMore() {
   document.getElementById("btn-export").addEventListener("click", exportDataFlow);
   document.getElementById("btn-reset").addEventListener("click", resetDataFlow);
   document.getElementById("btn-update").addEventListener("click", updateAppFlow);
+  document.getElementById("btn-name").addEventListener("click", changeNameFlow);
   document.getElementById("import-file").addEventListener("change", importDataFlow);
 }
 
@@ -806,6 +916,47 @@ async function renderMore() {
  * confirmation. It is the fix for a device stuck on a half-updated set of
  * files after a deploy.
  */
+/**
+ * Ask for a name, using the styled dialog when it is available.
+ *
+ * promptDialog() is the newest thing js/ui.js exports, so it is fetched with a
+ * dynamic import rather than named in this file's static import list. That
+ * distinction matters: a static import of a name the module does not provide
+ * is a LINK error, which kills the whole of app.js before a line of it runs -
+ * a device holding an older cached ui.js would get nothing but the loading
+ * placeholder. Done this way, a stale ui.js costs you the pretty dialog and
+ * nothing else.
+ */
+async function askForName(current) {
+  try {
+    const ui = await import("./ui.js");
+    if (typeof ui.promptDialog === "function") {
+      return ui.promptDialog({
+        title: "Your name",
+        message: "This is only used to greet you on the home screen.",
+        value: current,
+        placeholder: "e.g. Aarav",
+        maxLength: MAX_NAME_LENGTH,
+      });
+    }
+  } catch (err) {
+    console.warn("Falling back to a plain prompt for the name:", err);
+  }
+  const typed = window.prompt("Your name", current || "");
+  return typed === null ? null : typed.trim() || null;
+}
+
+async function changeNameFlow() {
+  const name = await askForName(studentName);
+  if (name === null) return; // cancelled - leave the current name alone
+  await setStudentName(name);
+  showToast("Name updated");
+  // Only repaint if we are still on More. Awaiting the write above gives the
+  // student time to navigate, and re-rendering then would paint the More
+  // screen over whatever they actually opened.
+  if (currentRoute().name === "more") renderMore();
+}
+
 async function updateAppFlow() {
   showToast("Updating…");
   try {
@@ -910,25 +1061,71 @@ async function init() {
           <div class="desc">Make sure this app is running from a local server or GitHub Pages (opening index.html directly from disk can block data loading in some browsers). See the README for how to run it locally.</div>
         </div>
       </div>`;
+    window.__APP_READY = true; // a real message is on screen; no watchdog needed
     return;
   }
 
-  if (!location.hash) location.hash = "#/home";
-  window.addEventListener("hashchange", renderRoute);
-  renderRoute();
+  await loadStudent();
 
-  if ("serviceWorker" in navigator) {
-    // updateViaCache:"none" stops the browser serving service-worker.js itself
-    // out of its HTTP cache, and the explicit update() asks for a fresh copy on
-    // every load. Together they mean a published fix reaches the device on the
-    // next visit rather than whenever the browser feels like revalidating.
-    navigator.serviceWorker
-      .register("service-worker.js", { updateViaCache: "none" })
-      .then((reg) => reg.update())
-      .catch(() => {
-        /* offline support is a bonus, not a hard requirement */
-      });
-  }
+  if (!location.hash) location.hash = onboarded ? "#/home" : "#/welcome";
+  window.addEventListener("hashchange", renderRoute);
+  await renderRoute();
+
+  // Tell the boot watchdog in index.html that we got here.
+  window.__APP_READY = true;
+
+  registerServiceWorker();
 }
 
-init();
+/** Local dev servers, where caching an old copy of the app only gets in the way. */
+function isLocalhost() {
+  return ["localhost", "127.0.0.1", "[::1]", ""].includes(location.hostname);
+}
+
+/**
+ * Register the offline worker - but never on localhost.
+ *
+ * The app is plain ES modules, so while you are editing them a service worker
+ * is actively unhelpful: it serves the copy it saved earlier, and a browser
+ * left holding a stale module gives you a blank "Loading..." screen rather
+ * than your latest edit. Offline support matters on the deployed site, not on
+ * a dev server, so it is simply switched off here. Any worker registered by an
+ * earlier version is torn down too, so a machine that already has one recovers
+ * by itself on the next load.
+ *
+ * To exercise offline behaviour locally, run the app from your machine's LAN
+ * IP instead of localhost - that path still registers normally.
+ */
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+
+  if (isLocalhost()) {
+    navigator.serviceWorker
+      .getRegistrations()
+      .then((regs) => Promise.all(regs.map((r) => r.unregister())))
+      .then((cleared) => {
+        if (cleared.length) console.info("[dev] Removed the offline worker on localhost so edits show up immediately.");
+      })
+      .catch(() => {});
+    return;
+  }
+
+  // updateViaCache:"none" stops the browser serving service-worker.js itself
+  // out of its HTTP cache, and the explicit update() asks for a fresh copy on
+  // every load. Together they mean a published fix reaches the device on the
+  // next visit rather than whenever the browser feels like revalidating.
+  navigator.serviceWorker
+    .register("service-worker.js", { updateViaCache: "none" })
+    .then((reg) => reg.update())
+    .catch(() => {
+      /* offline support is a bonus, not a hard requirement */
+    });
+}
+
+// Anything that goes wrong from here on must end up on screen rather than
+// leaving the student staring at the loading placeholder.
+init().catch((err) => {
+  console.error(err);
+  renderCrashState(err);
+  window.__APP_READY = true;
+});

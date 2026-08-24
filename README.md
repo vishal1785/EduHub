@@ -38,14 +38,32 @@ beyond Python (already on most machines) is needed:
 
 ```bash
 cd class7-practice
-python3 -m http.server 8000
+python serve.py
 ```
 
-Then open **http://localhost:8000** in your browser (or your phone, if it's on
-the same Wi-Fi - use your computer's local IP instead of `localhost`).
+Then open **http://localhost:8000**. `serve.py` also prints your machine's LAN
+address, which is how to open the app on a phone on the same Wi-Fi.
+
+> **Use `serve.py`, not `python -m http.server`.** `http.server` sends a
+> `Last-Modified` header but no `Cache-Control`, so the browser applies
+> "heuristic freshness" and reuses files without asking whether they changed.
+> On an app of plain ES modules that bites hard: you edit `css/style.css`,
+> reload, and get the stylesheet from ten minutes ago rendering your new
+> markup unstyled - or a mix of old and new modules, where one missing export
+> stops the whole app loading. `serve.py` sends `Cache-Control: no-store`, so
+> what you see is always what is on disk.
 
 Alternatives if you don't have Python: `npx serve` (needs Node.js), or the
 "Live Server" extension in VS Code.
+
+> **The offline service worker is deliberately switched off on localhost.**
+> While you are editing plain ES modules, a service worker only gets in the
+> way: it serves the copy it saved earlier, so you see a stale app - or, if it
+> hands back a module that no longer matches the others, a blank "Loading…"
+> screen instead of your edit. Any worker left over from an earlier version is
+> torn down automatically on the next localhost load. To exercise offline
+> behaviour locally, serve the app from your machine's LAN IP rather than
+> `localhost`; that path registers normally, as does GitHub Pages.
 
 > Opening `index.html` directly by double-clicking it will show a "Couldn't
 > load app data" message in most browsers - this is expected and is explained
@@ -59,6 +77,7 @@ Alternatives if you don't have Python: `npx serve` (needs Node.js), or the
 ```
 class7-practice/
 ├── index.html            # App shell + bottom navigation
+├── serve.py              # Local dev server with caching disabled
 ├── manifest.json         # PWA metadata (installable on phone)
 ├── service-worker.js     # Offline caching
 ├── css/
@@ -114,7 +133,17 @@ Three object stores:
   saved to `attempts` under that id, **every completed test overwrote the
   previous one and the whole history held exactly one record**. `tests/storage.html`
   now fails if that regresses.
-- **`settings`** - small key/value flags (currently just a progress cache).
+- **`settings`** - small key/value flags: the student's name (`studentName`),
+  whether the welcome screen has been dealt with (`onboarded`), and a progress
+  cache.
+
+  On first run the app opens on a **welcome screen** asking for the student's
+  name, which is then used to greet them on Home ("Hi, Aarav! 👋"). Skipping is
+  allowed - the name is a nicety, not a login - and skipping still marks
+  onboarding done so the screen is not shown again. The name can be changed
+  any time from **More → Your Name**. Note that **Reset Progress deletes
+  attempts, not the name**: resetting progress is not the same as forgetting
+  who is using the app.
 
 Progress statistics (accuracy, streaks, weak chapters) are **derived on the fly**
 from `attempts` by `js/progress.js` rather than stored separately, so there's
@@ -315,6 +344,15 @@ If a device ever does get stuck on a stale version, **More → Update App**
 clears the offline cache, drops the service worker and reloads. It does not
 touch saved progress, which lives in IndexedDB.
 
+**The boot watchdog.** There is one failure that More → Update App cannot help
+with: if a stale cached module is missing an export that `js/app.js` imports,
+the module graph fails to *link*, so none of the app's JavaScript runs at all -
+no error screen, no working navigation, just "Loading your practice app…"
+for ever. `index.html` therefore carries a small inline classic script (no
+imports, so it always runs) that waits 8 seconds for `window.__APP_READY` and,
+if it never arrives, replaces the placeholder with a **Clear cache & reload**
+button. `tests/run.py`'s pre-flight fails if that watchdog is removed.
+
 ---
 
 ## 8. Backup & restore
@@ -341,13 +379,14 @@ It runs a static pre-flight, then starts a local server and drives headless
 Chrome (or Edge) through three browser suites, printing the results; the exit
 code is 0 only if everything passed.
 
-**Pre-flight (no browser needed).** Two static checks, both added after a real
-failure. It verifies that every `storage.x()` / `quizEngine.x()` /
+**Pre-flight (no browser needed).** Four static checks, each added after a real
+failure. It verifies that the boot watchdog above is still present and wired
+up, that every `storage.x()` / `quizEngine.x()` /
 `progressEngine.x()` call in `js/` resolves to something that module actually
-exports - which catches an "is not a function" crash in the source rather than
-in the browser - and that `service-worker.js` precaches every app file, since a
-module missing from that list is what let two versions drift apart in the first
-place.
+exports, that every `import { … } from "./x.js"` names a real export - both of
+which catch an "is not a function" crash in the source rather than in the
+browser - and that `service-worker.js` precaches every app file, since a module
+missing from that list is what let two versions drift apart in the first place.
 (`storage.html` and `smoke.html` need the runner's server, which holds each
 page's load event open until it reports back - without that, headless Chrome
 dumps the DOM while the app is still waiting on IndexedDB.)
@@ -383,7 +422,13 @@ that an in-progress Mid-Term Mock survives starting a Quick 10, a chapter
 practice and a weak-area quiz - keeping its answers, its id and its exact
 question order. Also covers per-type clearing and an export/import round trip.
 
-**`tests/smoke.html` - 38 checks.** Drives the actual app inside an iframe:
+**`tests/smoke.html` - 59 checks.** Drives the actual app inside an iframe.
+Three of those checks read *computed* style rather than text, because a stale
+or missing stylesheet renders correct markup with no styling at all - which
+looks broken to a human but passes every text-based assertion. It covers
+onboarding (a first run is sent to the welcome screen even when the URL asks
+for `#/home`, Get Started stays disabled until a name is typed, and Home then
+greets by that name), renaming from More, and:
 every screen renders, an empty chapter shows "Content coming soon" with no
 Practise button, and a full 10-question quiz on a *generated* chapter is played
 through to its result and review screens. That last one matters most - a

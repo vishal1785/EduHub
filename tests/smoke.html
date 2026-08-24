@@ -91,17 +91,70 @@ const text = () => appEl().textContent;
 /** The app is done with a screen once the loading skeleton is gone. */
 const rendered = () => appEl() && !appEl().querySelector(".skeleton") && appEl().textContent.trim().length > 20;
 
+const STUDENT_NAME = "Aarav";
+
 async function run() {
-  /* ------------------------------ boot -------------------------------- */
-  section("Boot");
+  /* --------------------------- onboarding ----------------------------- */
+  section("Welcome screen (first run)");
   await new Promise((res) => {
     frame.addEventListener("load", res, { once: true });
+    // Deliberately ask for #/home: a first-time student must still be sent
+    // to the welcome screen rather than straight past it.
     frame.src = "/index.html#/home";
   });
-  await until(rendered, 20000, "home screen");
-  check(true, "app boots and renders the home screen");
+
+  await until(() => doc().getElementById("student-name"), 20000, "welcome screen");
+  check(true, "a first run opens on the welcome screen, even when the URL asks for #/home");
+  check(frame.contentWindow.__APP_READY === true,
+    "the app signals __APP_READY, so index.html's boot watchdog stands down");
+
+  // A stale or missing stylesheet renders the right markup with no styling at
+  // all - which looks broken but passes every text-based check. Assert against
+  // computed style so that failure cannot slip through.
+  const inner = doc().querySelector(".welcome-inner");
+  const innerStyle = inner && frame.contentWindow.getComputedStyle(inner);
+  check(!!innerStyle && innerStyle.maxWidth === "340px",
+    "css/style.css is loaded and applied (.welcome-inner is capped at 340px)",
+    innerStyle ? `max-width was ${innerStyle.maxWidth}` : "no .welcome-inner element");
+  check(!!innerStyle && innerStyle.textAlign === "center",
+    "the welcome column is centre aligned",
+    innerStyle ? `text-align was ${innerStyle.textAlign}` : "");
+  check(doc().querySelector(".bottom-nav") &&
+    frame.contentWindow.getComputedStyle(doc().querySelector(".bottom-nav")).display === "none",
+    "the bottom nav is actually hidden during onboarding, not just class-tagged");
+  check(!doc().getElementById("boot-recover"),
+    "no recovery screen is shown on a healthy boot");
+  check(frame.contentWindow.location.hash === "#/welcome", `the route is #/welcome (was ${frame.contentWindow.location.hash})`);
+  check(doc().body.classList.contains("no-nav"), "the bottom nav is hidden during onboarding");
+
+  const startBtn = doc().getElementById("btn-welcome-start");
+  check(!!startBtn && startBtn.disabled, "Get Started is disabled until a name is typed");
+  check(!!doc().getElementById("btn-welcome-skip"), "the welcome screen offers a Skip for now option");
+
+  const nameInput = doc().getElementById("student-name");
+  nameInput.value = STUDENT_NAME;
+  nameInput.dispatchEvent(new frame.contentWindow.Event("input"));
+  check(!startBtn.disabled, "typing a name enables Get Started");
+
+  startBtn.click();
+  await until(() => frame.contentWindow.location.hash === "#/home" && rendered(), 20000, "home after onboarding");
+
+  /* ------------------------------ boot -------------------------------- */
+  section("Boot");
+  check(true, "finishing onboarding lands on the home screen");
+  check(text().includes(`Hi, ${STUDENT_NAME}!`), `home greets the student by name ("Hi, ${STUDENT_NAME}!")`, text().slice(0, 120));
+  check(!doc().body.classList.contains("no-nav"), "the bottom nav is back after onboarding");
   check(!/couldn't be loaded|something went wrong/i.test(text()), "home screen shows no crash state", text().slice(0, 200));
   check(doc().querySelectorAll(".bottom-nav .nav-item").length === 5, "bottom navigation renders all five tabs");
+
+  // Asking for #/welcome again must not strand the student on it. goto() is
+  // no use here: the redirect lands back on Home with identical markup, so
+  // there is no DOM change to wait for - watch the route instead.
+  frame.contentWindow.location.hash = "#/welcome";
+  await until(() => frame.contentWindow.location.hash === "#/home", 15000, "redirect away from #/welcome");
+  await until(rendered, 15000, "home after redirect");
+  check(true, "revisiting #/welcome once onboarded redirects straight back to home");
+  check(!doc().getElementById("student-name"), "the welcome form is not shown again");
 
   /* ---------------------------- navigation ---------------------------- */
   section("Every screen renders");
@@ -126,6 +179,31 @@ async function run() {
   await goto("#/more", () => rendered() && doc().getElementById("btn-update"), "More screen");
   check(!!doc().getElementById("btn-update"), "More offers an Update App action to clear the offline cache");
   check(/progress is not affected/i.test(text()), "Update App makes clear it does not touch saved progress");
+  check(!!doc().getElementById("btn-name") && text().includes(STUDENT_NAME),
+    "More shows the stored name and offers to change it", text().slice(0, 200));
+
+  // Change the name and confirm the greeting follows it.
+  doc().getElementById("btn-name").click();
+  const nameDialog = await until(() => doc().querySelector(".overlay .dialog #dlg-input"), 15000, "name dialog");
+  check(nameDialog.value === STUDENT_NAME, "the dialog is pre-filled with the current name", nameDialog.value);
+  nameDialog.value = "Ishaan";
+  nameDialog.dispatchEvent(new frame.contentWindow.Event("input"));
+  doc().querySelector(".overlay .dialog .confirm").click();
+  // Wait for More itself to show the new name. Navigating the instant the
+  // dialog closes would race the re-render that follows the IndexedDB write.
+  await until(() => !doc().querySelector(".overlay") && /Ishaan/.test(text()), 15000, "More to show the new name");
+  check(true, "More updates to show the new name straight away");
+  await goto("#/home", () => rendered() && /Hi, /.test(text()), "home after rename");
+  check(text().includes("Hi, Ishaan!"), "the home greeting follows a name change", text().slice(0, 120));
+
+  // Put it back so the rest of the suite reads consistently.
+  await goto("#/more", () => rendered() && doc().getElementById("btn-name"), "More screen again");
+  doc().getElementById("btn-name").click();
+  const again = await until(() => doc().querySelector(".overlay .dialog #dlg-input"), 15000, "name dialog again");
+  again.value = STUDENT_NAME;
+  again.dispatchEvent(new frame.contentWindow.Event("input"));
+  doc().querySelector(".overlay .dialog .confirm").click();
+  await until(() => !doc().querySelector(".overlay") && text().includes(STUDENT_NAME), 15000, "name restored");
 
   /* ------------------------- chapter screens -------------------------- */
   section("Chapter screens");

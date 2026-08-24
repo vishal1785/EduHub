@@ -507,3 +507,97 @@ a { color: inherit; text-decoration: none; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
+
+/* ==========================================================================
+   Welcome / onboarding
+   A single centred column, sized and spaced like the result screen's hero so
+   it reads as part of the same app. The bottom nav is hidden here so the
+   screen has one obvious next step.
+   ========================================================================== */
+
+body.no-nav .bottom-nav { display: none; }
+
+.welcome {
+  /* dvh keeps this correct on phones, where the address bar changes vh */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px calc(32px + env(safe-area-inset-bottom));
+  animation: fadeIn 0.28s ease;
+}
+
+/* Caps the line length on wide screens; on a phone it is simply full width. */
+.welcome-inner {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.welcome-logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 22px;
+  border-radius: 22px;
+  box-shadow: var(--shadow-card);
+}
+
+.welcome h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.welcome-sub {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 26px;
+}
+
+.text-input {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 1.05rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 15px 16px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.text-input::placeholder { color: var(--muted); }
+.text-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.welcome .text-input { text-align: center; margin-bottom: 14px; }
+.dialog .text-input { margin-bottom: 18px; }
+
+.welcome .btn-primary { width: 100%; }
+.welcome .btn-primary:disabled { opacity: 0.45; }
+
+.welcome-skip {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: none;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.welcome-note {
+  margin-top: 24px;
+  margin-bottom: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
