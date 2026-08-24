@@ -510,46 +510,53 @@ a { color: inherit; text-decoration: none; }
 
 /* ==========================================================================
    Welcome / onboarding
-   Shown once, before any name is stored. The bottom nav is hidden here so
-   the screen has a single obvious next step.
+   A single centred column, sized and spaced like the result screen's hero so
+   it reads as part of the same app. The bottom nav is hidden here so the
+   screen has one obvious next step.
    ========================================================================== */
 
 body.no-nav .bottom-nav { display: none; }
 
 .welcome {
+  /* dvh keeps this correct on phones, where the address bar changes vh */
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 32px 24px calc(32px + env(safe-area-inset-bottom));
+  padding: 32px 20px calc(32px + env(safe-area-inset-bottom));
   animation: fadeIn 0.28s ease;
 }
 
-.welcome-emoji { font-size: 3.4rem; line-height: 1; margin-bottom: 18px; }
-
-.welcome h1 {
-  font-size: 1.65rem;
-  font-weight: 800;
-  color: var(--ink);
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
+/* Caps the line length on wide screens; on a phone it is simply full width. */
+.welcome-inner {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
 }
 
-.welcome p {
+.welcome-logo {
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 22px;
+  border-radius: 22px;
+  box-shadow: var(--shadow-card);
+}
+
+.welcome h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.welcome-sub {
   color: var(--ink-soft);
   font-size: 0.95rem;
   line-height: 1.55;
   margin-bottom: 26px;
-}
-
-.field-label {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--ink-soft);
-  margin-bottom: 8px;
 }
 
 .text-input {
@@ -570,26 +577,27 @@ body.no-nav .bottom-nav { display: none; }
   box-shadow: 0 0 0 3px var(--primary-light);
 }
 
+.welcome .text-input { text-align: center; margin-bottom: 14px; }
 .dialog .text-input { margin-bottom: 18px; }
 
-.welcome .btn-primary { margin-top: 22px; width: 100%; }
+.welcome .btn-primary { width: 100%; }
 .welcome .btn-primary:disabled { opacity: 0.45; }
 
 .welcome-skip {
   display: block;
   width: 100%;
-  margin-top: 14px;
-  padding: 10px;
+  margin-top: 10px;
+  padding: 12px;
   background: none;
   color: var(--muted);
   font-size: 0.88rem;
   font-weight: 600;
-  text-align: center;
 }
 
 .welcome-note {
-  margin-top: 26px;
-  font-size: 0.8rem;
+  margin-top: 24px;
+  margin-bottom: 0;
+  font-size: 0.78rem;
   color: var(--muted);
   line-height: 1.5;
 }

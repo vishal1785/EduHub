@@ -232,18 +232,21 @@ function renderCrashState(err) {
 function renderWelcome() {
   appEl.innerHTML = `
     <div class="welcome">
-      <div class="welcome-emoji" aria-hidden="true">📚</div>
-      <h1>Welcome to Class 7 Practice</h1>
-      <p>Practise your chapters, take mock tests and watch your progress build up. First, what should we call you?</p>
+      <div class="welcome-inner">
+        <img class="welcome-logo" src="icons/icon-192.png" alt="" width="76" height="76" />
+        <h1>Class 7 Practice</h1>
+        <p class="welcome-sub">Practise your chapters, take mock tests and track your progress. What should we call you?</p>
 
-      <label class="field-label" for="student-name">Your name</label>
-      <input class="text-input" type="text" id="student-name" maxlength="${MAX_NAME_LENGTH}"
-             placeholder="e.g. Aarav" autocomplete="given-name" autocapitalize="words" />
+        <label class="sr-only" for="student-name">Your name</label>
+        <input class="text-input" type="text" id="student-name" maxlength="${MAX_NAME_LENGTH}"
+               placeholder="Your name" autocomplete="given-name" autocapitalize="words"
+               enterkeyhint="go" />
 
-      <button class="btn-primary" id="btn-welcome-start" type="button" disabled>Get Started</button>
-      <button class="welcome-skip" id="btn-welcome-skip" type="button">Skip for now</button>
+        <button class="btn-primary" id="btn-welcome-start" type="button" disabled>Get Started</button>
+        <button class="welcome-skip" id="btn-welcome-skip" type="button">Skip for now</button>
 
-      <div class="welcome-note">Everything stays on this device. Nothing is sent anywhere, and there is no account to create.</div>
+        <p class="welcome-note">Everything stays on this device — no account needed.</p>
+      </div>
     </div>`;
 
   const input = document.getElementById("student-name");
