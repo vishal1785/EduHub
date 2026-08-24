@@ -12,7 +12,7 @@ import { storage } from "./storage.js";
 import { quizEngine } from "./quiz.js";
 import { hasGenerator, unknownFamilies } from "./generators.js";
 import { progressEngine } from "./progress.js";
-import { escapeHtml, ringSvg, barHtml, letterFor, showToast, confirmDialog, promptDialog, formatDateGroup, formatTime } from "./ui.js";
+import { escapeHtml, ringSvg, barHtml, letterFor, showToast, confirmDialog, formatDateGroup, formatTime } from "./ui.js";
 
 const appEl = document.getElementById("app");
 const bottomNavInner = document.getElementById("bottom-nav-inner");
@@ -913,14 +913,38 @@ async function renderMore() {
  * confirmation. It is the fix for a device stuck on a half-updated set of
  * files after a deploy.
  */
+/**
+ * Ask for a name, using the styled dialog when it is available.
+ *
+ * promptDialog() is the newest thing js/ui.js exports, so it is fetched with a
+ * dynamic import rather than named in this file's static import list. That
+ * distinction matters: a static import of a name the module does not provide
+ * is a LINK error, which kills the whole of app.js before a line of it runs -
+ * a device holding an older cached ui.js would get nothing but the loading
+ * placeholder. Done this way, a stale ui.js costs you the pretty dialog and
+ * nothing else.
+ */
+async function askForName(current) {
+  try {
+    const ui = await import("./ui.js");
+    if (typeof ui.promptDialog === "function") {
+      return ui.promptDialog({
+        title: "Your name",
+        message: "This is only used to greet you on the home screen.",
+        value: current,
+        placeholder: "e.g. Aarav",
+        maxLength: MAX_NAME_LENGTH,
+      });
+    }
+  } catch (err) {
+    console.warn("Falling back to a plain prompt for the name:", err);
+  }
+  const typed = window.prompt("Your name", current || "");
+  return typed === null ? null : typed.trim() || null;
+}
+
 async function changeNameFlow() {
-  const name = await promptDialog({
-    title: "Your name",
-    message: "This is only used to greet you on the home screen.",
-    value: studentName,
-    placeholder: "e.g. Aarav",
-    maxLength: MAX_NAME_LENGTH,
-  });
+  const name = await askForName(studentName);
   if (name === null) return; // cancelled - leave the current name alone
   await setStudentName(name);
   showToast("Name updated");

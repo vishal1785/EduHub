@@ -83,7 +83,10 @@
       );
     }
     Promise.all(jobs).then(function () {
-      location.reload(true);
+      // A plain reload can still be answered from the browser's own HTTP
+      // cache. Navigating to a URL it has never seen cannot be.
+      var base = location.pathname.replace(/[?#].*$/, "");
+      location.replace(base + "?fresh=" + Date.now() + location.hash);
     });
   }
 
