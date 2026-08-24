@@ -10,6 +10,7 @@
 
 import { storage } from "./storage.js";
 import { quizEngine } from "./quiz.js";
+import { hasGenerator, unknownFamilies } from "./generators.js";
 import { progressEngine } from "./progress.js";
 import { escapeHtml, ringSvg, barHtml, letterFor, showToast, confirmDialog, formatDateGroup, formatTime } from "./ui.js";
 
@@ -61,11 +62,38 @@ async function loadData() {
       chapterIndex[ch.id] = { ...ch, subjectId, subjectName: subject ? subject.name : subjectId };
     }
   }
+  // A mistyped "generators" entry in syllabus.json would otherwise show up
+  // only as a chapter that quietly stopped generating. Say so plainly.
+  for (const ch of Object.values(chapterIndex)) {
+    const unknown = unknownFamilies(ch);
+    if (unknown.length) {
+      console.warn(`[syllabus] chapter "${ch.id}" asks for unknown generator families: ${unknown.join(", ")}`);
+    }
+  }
+
   dataReady = true;
+}
+
+/**
+ * What the quiz engine needs: the static bank plus the chapter index built
+ * from data/syllabus.json. Passing both means the engine never has to know
+ * any chapter id itself.
+ */
+function content() {
+  return { questions: DATA.questions, chapters: chapterIndex };
 }
 
 function questionsForChapter(chapterId) {
   return DATA.questions.filter((q) => q.chapterId === chapterId);
+}
+
+/**
+ * Can this chapter be practised at all? True if it has hand-written
+ * questions in the bank, or if generators.js can mint them on demand.
+ * Everything else shows the "Content coming soon" note.
+ */
+function chapterHasContent(chapterId) {
+  return hasGenerator(chapterIndex[chapterId]) || questionsForChapter(chapterId).length > 0;
 }
 
 /* ================================ ROUTER =================================== */
@@ -118,7 +146,7 @@ async function renderRoute() {
       case "practice": return await renderPractice();
       case "subject": return await renderSubject(param);
       case "chapter": return await renderChapter(param);
-      case "quiz": return await renderQuiz();
+      case "quiz": return await renderQuiz(param);
       case "result": return await renderResult(param);
       case "review": return await renderReview(param);
       case "tests": return await renderTests();
@@ -148,7 +176,7 @@ function renderCrashState(err) {
 
 async function renderHome() {
   appEl.innerHTML = skeletonScreen();
-  const [attempts, activeQuiz] = await Promise.all([storage.getAttempts(), storage.getActiveQuiz()]);
+  const [attempts, activeQuizzes] = await Promise.all([storage.getAttempts(), storage.getActiveQuizzes()]);
   const overall = progressEngine.computeOverall(attempts);
   const streak = progressEngine.computeStreak(attempts);
 
@@ -162,19 +190,27 @@ async function renderHome() {
     )
     .join("");
 
+// One card per in-progress quiz. Each quiz type has its own slot, so a
+  // half-finished Mid-Term Mock stays here even after a Quick 10 is started.
   let continueCard = "";
-  if (activeQuiz && activeQuiz.total > 0) {
-    const done = activeQuiz.answers.length;
-    continueCard = `
-      <div class="section-title">Continue Learning</div>
-      <a class="card continue-card" href="#/quiz">
+  if (activeQuizzes.length) {
+    const cards = activeQuizzes
+      .map((q) => {
+        const done = q.answers.length;
+        return `
+      <a class="card continue-card" href="#/quiz/${encodeURIComponent(q.quizType)}">
         <div class="body">
-          <div class="title">${escapeHtml(activeQuiz.title)}</div>
-          <div class="meta">Question ${Math.min(done + 1, activeQuiz.total)} of ${activeQuiz.total}</div>
-          ${barHtml((done / activeQuiz.total) * 100)}
+          <div class="title">${escapeHtml(q.title)}${q.quizType === "mock" ? " 🏆" : ""}</div>
+          <div class="meta">Question ${Math.min(done + 1, q.total)} of ${q.total}</div>
+          ${barHtml((done / q.total) * 100)}
         </div>
         <span class="arrow" aria-hidden="true">→</span>
       </a>`;
+      })
+      .join("");
+    continueCard = `
+      <div class="section-title">Continue Learning</div>
+      ${cards}`;
   }
 
   appEl.innerHTML = `
@@ -205,7 +241,7 @@ async function renderHome() {
       <div class="section-title">Quick Practice</div>
       <div class="quick-actions">
         <button class="action-btn primary" id="btn-quick10"><span class="emoji">⚡</span> Quick 10</button>
-        <button class="action-btn accent" id="btn-mock"><span class="emoji">🏆</span> Mid-Term Mock</button>
+        <button class="action-btn accent" id="btn-mock"><span class="emoji">🏆</span> ${activeQuizzes.some((q) => q.quizType === "mock") ? "Resume Mock" : "Mid-Term Mock"}</button>
       </div>
     </div>`;
 
@@ -262,13 +298,13 @@ async function renderSubject(subjectId) {
 
   const rows = chapters
     .map((ch) => {
-      const qCount = questionsForChapter(ch.id).length;
+      const hasContent = chapterHasContent(ch.id);
       const stat = chapterAcc[ch.id];
       const attempted = !!stat && stat.total > 0;
       const label = progressEngine.performanceLabel(stat ? stat.accuracy : 0, attempted, weakThreshold, strongThreshold);
       const rowClass = !attempted ? "" : label === "Needs Practice" ? "weak" : label === "Strong" ? "strong" : "";
-      const dot = attempted ? `${stat.accuracy}%` : qCount === 0 ? "–" : "○";
-      const meta = qCount === 0 ? "Content coming soon" : attempted ? `${stat.accuracy}% accuracy` : "Not attempted";
+      const dot = attempted ? `${stat.accuracy}%` : hasContent ? "○" : "–";
+      const meta = !hasContent ? "Content coming soon" : attempted ? `${stat.accuracy}% accuracy` : "Not attempted";
       const badge =
         attempted && label !== "Improving" ? `<span class="badge ${label === "Strong" ? "strong" : "weak"}">${label}</span>` : "";
       return `
@@ -307,14 +343,13 @@ async function renderChapter(chapterId) {
   const ch = chapterIndex[chapterId];
   if (!ch) return renderCrashState(new Error("That chapter couldn't be found."));
 
-  const questions = questionsForChapter(chapterId);
   const attempts = await storage.getAttempts();
   const chapterAcc = progressEngine.computeChapterAccuracy(attempts)[chapterId];
   const attempted = !!chapterAcc && chapterAcc.total > 0;
 
   const lastPracticed = attempted && chapterAcc.lastPracticed ? new Date(chapterAcc.lastPracticed).toLocaleDateString(undefined, { day: "numeric", month: "short" }) : "—";
 
-  const hasQuestions = questions.length > 0;
+  const hasQuestions = chapterHasContent(chapterId);
 
   appEl.innerHTML = `
     <div class="screen">
@@ -333,8 +368,8 @@ async function renderChapter(chapterId) {
       ${
         hasQuestions
           ? `<div class="btn-stack">
-              <button class="btn-primary" id="btn-practise">Practise</button>
-              <button class="btn-secondary" id="btn-quickquiz">Quick Quiz</button>
+              <button class="btn-primary" id="btn-practise">Practise · 10 questions</button>
+              <button class="btn-secondary" id="btn-quickquiz">Quick Quiz · 5 questions</button>
             </div>`
           : `<div class="empty-note">📚 Content coming soon for this chapter. Check back once questions have been added.</div>`
       }
@@ -348,49 +383,79 @@ async function renderChapter(chapterId) {
 
 /* ================================== QUIZ START HELPERS ============================ */
 
-async function startChapterQuiz(ch, count) {
-  const quiz = quizEngine.buildChapterQuiz(DATA.questions, ch.subjectName, ch.id, ch.name, count);
-  if (quiz.total === 0) return showToast("No questions available yet for this chapter.");
+/**
+ * Each quiz type has its own in-progress slot, so starting a quiz only ever
+ * risks the unfinished quiz OF THE SAME TYPE. When there is one, offer to
+ * resume it rather than throwing the work away without asking.
+ *
+ * Returns true if the caller should stop (we resumed, or the student backed
+ * out), false if it is fine to start something new.
+ */
+async function offerResume(quizType, label) {
+  const existing = await storage.getActiveQuiz(quizType);
+  if (!existing || !existing.total || !existing.answers.length) return false;
+
+  const done = existing.answers.length;
+  // "Start new" is the destructive choice, so it is the confirm button (styled
+  // red) and "Resume" is the cancel. Dismissing the dialog by tapping outside
+  // therefore resumes rather than quietly binning the student's work.
+  const startNew = await confirmDialog({
+    title: `${label} is unfinished`,
+    message: `You are on question ${Math.min(done + 1, existing.total)} of ${existing.total}. Starting a new one will discard that progress.`,
+    okLabel: "Start new",
+    cancelLabel: "Resume",
+  });
+  if (!startNew) {
+    navigate(`#/quiz/${encodeURIComponent(quizType)}`);
+    return true;
+  }
+  return false;
+}
+
+async function startQuiz(quiz, emptyMessage) {
+  if (quiz.total === 0) return showToast(emptyMessage);
   await storage.saveActiveQuiz(quiz);
-  navigate("#/quiz");
+  navigate(`#/quiz/${encodeURIComponent(quiz.quizType)}`);
+}
+
+async function startChapterQuiz(ch, count) {
+  if (await offerResume("practice", "Your last practice quiz")) return;
+  return startQuiz(quizEngine.buildChapterQuiz(content(), ch.id, count), "No questions available yet for this chapter.");
 }
 
 async function startQuick10(subjectName) {
-  const quiz = quizEngine.buildQuickPractice(DATA.questions, subjectName, DATA.config.quickPracticeSize || 10);
-  if (quiz.total === 0) return showToast("No questions available yet.");
-  await storage.saveActiveQuiz(quiz);
-  navigate("#/quiz");
+  if (await offerResume("quick10", "Your Quick 10")) return;
+  return startQuiz(quizEngine.buildQuickPractice(content(), subjectName, DATA.config.quickPracticeSize || 10), "No questions available yet.");
 }
 
 async function startMock() {
-  const quiz = quizEngine.buildMockTest(DATA.questions, DATA.config.midTermMock || {});
-  if (quiz.total === 0) return showToast("No questions available yet for the mock test.");
-  await storage.saveActiveQuiz(quiz);
-  navigate("#/quiz");
+  if (await offerResume("mock", "The Mid-Term Mock")) return;
+  return startQuiz(quizEngine.buildMockTest(content(), DATA.config.midTermMock || {}), "No questions available yet for the mock test.");
 }
 
 async function startWeakPractice(weakChapterIds) {
-  const quiz = quizEngine.buildWeakAreaQuiz(DATA.questions, weakChapterIds, DATA.config.quickPracticeSize || 10);
-  if (quiz.total === 0) return showToast("No questions available for these chapters yet.");
-  await storage.saveActiveQuiz(quiz);
-  navigate("#/quiz");
+  if (await offerResume("weak", "Your Needs Practice quiz")) return;
+  return startQuiz(quizEngine.buildWeakAreaQuiz(content(), weakChapterIds, DATA.config.quickPracticeSize || 10), "No questions available for these chapters yet.");
 }
 
 /* ==================================== QUIZ SCREEN =================================== */
 
-async function renderQuiz() {
-  const activeQuiz = await storage.getActiveQuiz();
+async function renderQuiz(quizType) {
+  // With no type in the route, fall back to the most recently saved quiz -
+  // which keeps older "#/quiz" links (and the back button) working.
+  const activeQuiz = await storage.getActiveQuiz(quizType || null);
   if (!activeQuiz || !activeQuiz.total) {
     showToast("No active quiz right now.");
     return navigate("#/home");
   }
 
-  const questionMap = new Map(DATA.questions.map((q) => [q.id, q]));
-  const orderedQuestions = activeQuiz.questionIds.map((id) => questionMap.get(id)).filter(Boolean);
+  // Fresh quizzes embed their questions; older saved quizzes only stored
+  // ids, so questionsOf() resolves those against the static bank.
+  const orderedQuestions = quizEngine.questionsOf(activeQuiz, DATA.questions);
 
   if (orderedQuestions.length !== activeQuiz.total) {
     // Content changed since the quiz was started - fail gracefully.
-    await storage.clearActiveQuiz();
+    await storage.clearActiveQuiz(activeQuiz.quizType);
     showToast("This quiz's questions changed. Please start a new one.");
     return navigate("#/home");
   }
@@ -479,7 +544,7 @@ async function renderQuiz() {
   async function finishQuiz() {
     quizEngine.finalizeQuiz(activeQuiz);
     const saved = await storage.saveAttempt(activeQuiz);
-    await storage.clearActiveQuiz();
+    await storage.clearActiveQuiz(activeQuiz.quizType);
     navigate(`#/result/${encodeURIComponent(saved.id)}`);
   }
 
@@ -544,7 +609,10 @@ async function renderReview(attemptId) {
     appEl.innerHTML = emptyState("🔍", "Result not found", "This test result may have been removed.");
     return;
   }
+  // Generated questions live only inside the attempt that created them,
+  // so the attempt's own copies take priority over the static bank.
   const questionMap = new Map(DATA.questions.map((q) => [q.id, q]));
+  for (const q of quizEngine.questionsOf(attempt)) questionMap.set(q.id, q);
 
   const rows = attempt.answers
     .map((ans, i) => {
@@ -709,9 +777,16 @@ async function renderMore() {
         <div class="info"><div class="title">Reset Progress</div><div class="desc">Permanently delete all attempts and progress on this device</div></div>
       </button>
 
+      <div class="section-title">App</div>
+
+      <button class="settings-item" id="btn-update" style="width:100%;text-align:left;">
+        <span class="emoji">🔄</span>
+        <div class="info"><div class="title">Update App</div><div class="desc">Clear the offline cache and reload the latest version. Your progress is not affected.</div></div>
+      </button>
+
       <div class="section-title">About</div>
       <div class="card" style="font-size:0.85rem;color:var(--ink-soft);line-height:1.6;">
-        Class 7 Practice v1.0<br />
+        Class 7 Practice v2.0<br />
         All your data stays on this device — nothing is sent anywhere.<br />
         Use <strong>Export Data</strong> regularly to keep a backup, especially before clearing browser data.
       </div>
@@ -719,7 +794,34 @@ async function renderMore() {
 
   document.getElementById("btn-export").addEventListener("click", exportDataFlow);
   document.getElementById("btn-reset").addEventListener("click", resetDataFlow);
+  document.getElementById("btn-update").addEventListener("click", updateAppFlow);
   document.getElementById("import-file").addEventListener("change", importDataFlow);
+}
+
+/**
+ * Force a clean reinstall of the cached app files.
+ *
+ * This only touches the offline cache - attempts and settings live in
+ * IndexedDB and are left completely alone, which is why it needs no scary
+ * confirmation. It is the fix for a device stuck on a half-updated set of
+ * files after a deploy.
+ */
+async function updateAppFlow() {
+  showToast("Updating…");
+  try {
+    if ("serviceWorker" in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map((r) => r.unregister()));
+    }
+    if (window.caches) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((k) => caches.delete(k)));
+    }
+  } catch {
+    /* If any of it fails, the reload below still gets us a fresh start. */
+  }
+  // Reload past the HTTP cache too, so nothing stale survives.
+  location.reload(true);
 }
 
 async function exportDataFlow() {
@@ -816,9 +918,16 @@ async function init() {
   renderRoute();
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js").catch(() => {
-      /* offline support is a bonus, not a hard requirement */
-    });
+    // updateViaCache:"none" stops the browser serving service-worker.js itself
+    // out of its HTTP cache, and the explicit update() asks for a fresh copy on
+    // every load. Together they mean a published fix reaches the device on the
+    // next visit rather than whenever the browser feels like revalidating.
+    navigator.serviceWorker
+      .register("service-worker.js", { updateViaCache: "none" })
+      .then((reg) => reg.update())
+      .catch(() => {
+        /* offline support is a bonus, not a hard requirement */
+      });
   }
 }
 

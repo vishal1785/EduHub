@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Class 7 Practice — verification suite</title>
+<style>
+  body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; line-height: 1.5; }
+  .pass { color: #0a7d32; }
+  .fail { color: #b3261e; font-weight: bold; }
+  pre { white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<h1>Verification suite</h1>
+<pre id="out">running…</pre>
+
+<script type="module">
+/**
+ * tests/verify.html
+ * ---------------------------------------------------------------------
+ * The project has no build step and no Node runtime, so the test suite
+ * runs in a real browser against the real ES modules — the same code
+ * path the app itself uses. Open this page in a browser, or run it
+ * headlessly:
+ *
+ *   python -m http.server 8000
+ *   chrome --headless --disable-gpu --virtual-time-budget=20000 \
+ *          --dump-dom http://localhost:8000/tests/verify.html
+ *
+ * The final line of output is "RESULT: PASS" or "RESULT: FAIL (n)",
+ * which is what CI (or a human) should look at.
+ *
+ * The generator tests do NOT trust the generators' own arithmetic. Where
+ * a question can be re-derived from its printed text — every arithmetic,
+ * fraction, decimal, angle and spreadsheet question — the suite parses
+ * the question back out and recomputes the answer independently, using
+ * exact rational arithmetic. A generator that quietly starts producing
+ * wrong answers fails here rather than in front of a student.
+ * ---------------------------------------------------------------------
+ */
+
+import { quizEngine } from "../js/quiz.js";
+import { generateForChapter, familyNames, unknownFamilies, hasGenerator } from "../js/generators.js";
+import { progressEngine } from "../js/progress.js";
+
+const lines = [];
+let failures = 0;
+let checks = 0;
+
+function log(msg) { lines.push(msg); }
+function ok(name) { checks++; log(`  <span class="pass">PASS</span> ${name}`); }
+function bad(name, detail) {
+  checks++; failures++;
+  log(`  <span class="fail">FAIL</span> ${name}${detail ? `\n         ${detail}` : ""}`);
+}
+function check(cond, name, detail) { cond ? ok(name) : bad(name, detail); }
+function section(title) { log(`\n=== ${title} ===`); }
+
+/* ===================== exact rational arithmetic ======================= */
+/* Used by the independent verifiers so no floating-point noise can make a
+   correct generated answer look wrong, or a wrong one look right.        */
+
+function g(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) [a, b] = [b, a % b]; return a; }
+function R(n, d = 1) {
+  if (d === 0) throw new Error("divide by zero");
+  if (d < 0) { n = -n; d = -d; }
+  const k = g(n, d) || 1;
+  return { n: n / k, d: d / k };
+}
+const rAdd = (x, y) => R(x.n * y.d + y.n * x.d, x.d * y.d);
+const rSub = (x, y) => R(x.n * y.d - y.n * x.d, x.d * y.d);
+const rMul = (x, y) => R(x.n * y.n, x.d * y.d);
+const rDiv = (x, y) => R(x.n * y.d, x.d * y.n);
+const rEq = (x, y) => x.n === y.n && x.d === y.d;
+
+/** Parse "12", "−3.4", "3/8" (and "3" as 3/1) into an exact rational. */
+function parseRational(text) {
+  const t = String(text).trim().replace(/−/g, "-").replace(/\s+/g, "");
+  let m = t.match(/^(-?\d+)\/(-?\d+)$/);
+  if (m) return R(Number(m[1]), Number(m[2]));
+  m = t.match(/^(-?)(\d+)\.(\d+)$/);
+  if (m) {
+    const scale = Math.pow(10, m[3].length);
+    const val = Number(m[2]) * scale + Number(m[3]);
+    return R(m[1] === "-" ? -val : val, scale);
+  }
+  m = t.match(/^-?\d+$/);
+  if (m) return R(Number(t));
+  return null;
+}
+
+/**
+ * Evaluate an arithmetic expression with correct BODMAS precedence.
+ * Understands + − × ÷ (and the ASCII - / for negatives), brackets, and
+ * decimal literals. Returns an exact rational, or null if unparseable.
+ */
+function evalExpression(src) {
+  const s = String(src).replace(/−/g, "-").replace(/×/g, "*").replace(/÷/g, "/");
+  let i = 0;
+  const ws = () => { while (i < s.length && s[i] === " ") i++; };
+
+  function primary() {
+    ws();
+    if (s[i] === "(") { i++; const v = expr(); ws(); if (s[i] !== ")") throw 0; i++; return v; }
+    if (s[i] === "-") { i++; const v = primary(); return R(-v.n, v.d); }
+    const start = i;
+    while (i < s.length && /[0-9.]/.test(s[i])) i++;
+    if (i === start) throw 0;
+    const lit = parseRational(s.slice(start, i));
+    if (!lit) throw 0;
+    return lit;
+  }
+  function term() {
+    let v = primary();
+    for (;;) {
+      ws();
+      if (s[i] === "*") { i++; v = rMul(v, primary()); }
+      else if (s[i] === "/") { i++; v = rDiv(v, primary()); }
+      else return v;
+    }
+  }
+  function expr() {
+    let v = term();
+    for (;;) {
+      ws();
+      if (s[i] === "+") { i++; v = rAdd(v, term()); }
+      else if (s[i] === "-") { i++; v = rSub(v, term()); }
+      else return v;
+    }
+  }
+  try {
+    const v = expr();
+    ws();
+    return i === s.length ? v : null;
+  } catch { return null; }
+}
+
+function gcdN(a, b) { return g(a, b); }
+function lcmN(a, b) { return Math.abs(a * b) / gcdN(a, b); }
+function divisorsOf(n) { const o = []; for (let k = 1; k <= n; k++) if (n % k === 0) o.push(k); return o; }
+
+/* ==================== independent answer verifiers ===================== */
+/*
+ * Each verifier takes a generated question and returns:
+ *   true  - independently recomputed and the marked answer is correct
+ *   false - independently recomputed and the marked answer is WRONG
+ *   null  - this verifier does not apply / could not re-derive it
+ */
+
+const NUM = "(-?\\d+(?:\\.\\d+)?)";
+
+function verifyArithmetic(q) {
+  // "Calculate: (-13) + 7", "Simplify: 3 + 4 × 5", "Add: 1.2 + 3.4", ...
+  const m = q.question.match(/^(?:Calculate|Simplify|Add|Subtract|Multiply|Divide):\s*(.+)$/);
+  if (!m) return null;
+  let exprText = m[1];
+
+  // Fraction division is written a/b ÷ c/d, where plain left-to-right
+  // precedence would misread it. Rewrite it into explicit brackets first.
+  const fd = exprText.match(/^(\d+)\/(\d+)\s*÷\s*(\d+)\/(\d+)$/);
+  if (fd) exprText = `(${fd[1]}/${fd[2]}) ÷ (${fd[3]}/${fd[4]})`;
+
+  const value = evalExpression(exprText);
+  if (!value) return null;
+  const marked = parseRational(q.options[q.answer]);
+  if (!marked) return null;
+  return rEq(value, marked);
+}
+
+function verifyHcfLcm(q) {
+  let m = q.question.match(/^What is the HCF of (\d+), (\d+) and (\d+)\?$/);
+  if (m) return Number(q.options[q.answer]) === gcdN(gcdN(+m[1], +m[2]), +m[3]);
+
+  m = q.question.match(/^What is the HCF of (\d+) and (\d+)\?$/);
+  if (m) return Number(q.options[q.answer]) === gcdN(+m[1], +m[2]);
+
+  m = q.question.match(/^What is the LCM of (\d+) and (\d+)\?$/);
+  if (m) return Number(q.options[q.answer]) === lcmN(+m[1], +m[2]);
+
+  m = q.question.match(/^What is the smallest number that is divisible by both (\d+) and (\d+)\?$/);
+  if (m) return Number(q.options[q.answer]) === lcmN(+m[1], +m[2]);
+
+  m = q.question.match(/^How many factors does (\d+) have altogether\?$/);
+  if (m) return Number(q.options[q.answer]) === divisorsOf(+m[1]).length;
+
+  m = q.question.match(/^Which of these numbers is a factor of (\d+)\?$/);
+  if (m) {
+    const n = +m[1];
+    // The marked option must divide n, and no other option may.
+    return q.options.every((opt, i) => (n % Number(opt) === 0) === (i === q.answer));
+  }
+  return null;
+}
+
+function verifyNumberLine(q) {
+  const m = q.question.match(/^What is the (predecessor|successor) of (-?\d+) on the number line\?$/);
+  if (!m) return null;
+  const want = m[1] === "successor" ? +m[2] + 1 : +m[2] - 1;
+  return Number(q.options[q.answer]) === want;
+}
+
+function verifyFractionOfQuantity(q) {
+  const m = q.question.match(/^What is (\d+)\/(\d+) of (\d+)\?$/);
+  if (!m) return null;
+  const want = rMul(R(+m[1], +m[2]), R(+m[3]));
+  return rEq(parseRational(q.options[q.answer]) || R(0), want);
+}
+
+function verifyCompare(q) {
+  let m = q.question.match(/^Which fraction is greater: (\d+)\/(\d+) or (\d+)\/(\d+)\?$/);
+  if (m) {
+    const a = R(+m[1], +m[2]), b = R(+m[3], +m[4]);
+    const want = a.n * b.d > b.n * a.d ? `${m[1]}/${m[2]}` : `${m[3]}/${m[4]}`;
+    return q.options[q.answer] === want;
+  }
+  m = q.question.match(new RegExp(`^Which decimal is greater: ${NUM} or ${NUM}\\?$`));
+  if (m) {
+    const a = parseRational(m[1]), b = parseRational(m[2]);
+    const want = a.n * b.d > b.n * a.d ? m[1] : m[2];
+    return q.options[q.answer] === want;
+  }
+  return null;
+}
+
+function verifyPlaceValue(q) {
+  const m = q.question.match(/^In the number (\d+\.\d+), which digit is in the (tenths|hundredths|thousandths) place\?$/);
+  if (!m) return null;
+  const frac = m[1].split(".")[1];
+  const idx = { tenths: 0, hundredths: 1, thousandths: 2 }[m[2]];
+  return q.options[q.answer] === frac[idx];
+}
+
+function verifyAngles(q) {
+  let m = q.question.match(/^What is the (supplement|complement) of an angle of (\d+)°\?$/);
+  if (m) return Number(q.options[q.answer]) === (m[1] === "supplement" ? 180 : 90) - +m[2];
+
+  m = q.question.match(/angles formed measures (\d+)°\. What is the measure of the angle vertically opposite it\?$/);
+  if (m) return Number(q.options[q.answer]) === +m[1];
+
+  m = q.question.match(/^Two angles form a linear pair on a straight line\. If one of them is (\d+)°, what is the other\?$/);
+  if (m) return Number(q.options[q.answer]) === 180 - +m[1];
+
+  m = q.question.match(/One angle measures (\d+)°\. What is the measure of its (corresponding|alternate interior|alternate exterior) angle\?$/);
+  if (m) return Number(q.options[q.answer]) === +m[1];
+
+  m = q.question.match(/One co-interior \(allied\) angle measures (\d+)°\. What is the other co-interior angle\?$/);
+  if (m) return Number(q.options[q.answer]) === 180 - +m[1];
+
+  m = q.question.match(/Two of them measure (\d+)° and (\d+)°\. What is the third angle\?$/);
+  if (m) return Number(q.options[q.answer]) === 180 - +m[1] - +m[2];
+
+  m = q.question.match(/Three of them measure (\d+)°, (\d+)° and (\d+)°\. What is the fourth angle\?$/);
+  if (m) return Number(q.options[q.answer]) === 360 - +m[1] - +m[2] - +m[3];
+
+  return null;
+}
+
+function verifyExcel(q) {
+  const m = q.question.match(/^A worksheet contains (.+?)\. What does =(SUM|AVERAGE|MAX|MIN|COUNT)\(A1:A(\d+)\) return\?$/);
+  if (!m) return null;
+  const cells = m[1].split(", ").map((pair) => pair.split("=")[1]);
+  if (cells.length !== Number(m[3])) return false; // range must match the data shown
+  const nums = cells.filter((c) => /^-?\d+(\.\d+)?$/.test(c)).map(Number);
+  const marked = Number(q.options[q.answer]);
+  switch (m[2]) {
+    case "SUM": return marked === nums.reduce((s, v) => s + v, 0);
+    case "AVERAGE": return marked === nums.reduce((s, v) => s + v, 0) / nums.length;
+    case "MAX": return marked === Math.max(...nums);
+    case "MIN": return marked === Math.min(...nums);
+    case "COUNT": return marked === nums.length;
+  }
+  return null;
+}
+
+function verifyExpressionChoice(q) {
+  const m = q.question.match(/^Which expression has the value (-?\d+)\?$/);
+  if (!m) return null;
+  const target = Number(m[1]);
+  // Exactly one option may evaluate to the target, and it must be the marked one.
+  return q.options.every((opt, i) => {
+    const v = evalExpression(opt);
+    if (!v) return false;
+    const hits = v.d === 1 && v.n === target;
+    return hits === (i === q.answer);
+  });
+}
+
+function verifyExcelFormulaChoice(q) {
+  const m = q.question.match(/^Which formula would you type to (.+?) in cells A1 to A(\d+)\?$/);
+  if (!m) return null;
+  const want = { "add up all the values": "SUM", "find the mean of the values": "AVERAGE", "find the highest value": "MAX", "find the lowest value": "MIN" }[m[1]];
+  if (!want) return null;
+  return q.options[q.answer] === `=${want}(A1:A${m[2]})`;
+}
+
+function verifyCellReference(q) {
+  const m = q.question.match(/^In Excel, what kind of cell reference is (\$?)([A-Z])(\$?)(\d+)\?$/);
+  if (!m) return null;
+  const want = m[1] && m[3] ? "absolute" : !m[1] && !m[3] ? "relative" : "mixed";
+  return q.options[q.answer] === want;
+}
+
+const VERIFIERS = [
+  verifyArithmetic, verifyHcfLcm, verifyNumberLine, verifyFractionOfQuantity,
+  verifyCompare, verifyPlaceValue, verifyAngles, verifyExcel,
+  verifyExpressionChoice, verifyExcelFormulaChoice, verifyCellReference,
+];
+
+/** Run every verifier; returns true / false / null (nothing applied). */
+function independentlyVerify(q) {
+  for (const v of VERIFIERS) {
+    let r = null;
+    try { r = v(q); } catch { r = false; }
+    if (r !== null) return r;
+  }
+  return null;
+}
+
+/* ============================ shared checks ============================ */
+
+/** Structural validity that every question, static or generated, must meet. */
+function structuralProblem(q) {
+  if (!q || typeof q !== "object") return "not an object";
+  if (typeof q.id !== "string" || !q.id) return "missing id";
+  if (typeof q.question !== "string" || !q.question.trim()) return "empty question text";
+  if (q.type !== "mcq") return `unsupported type "${q.type}"`;
+  if (!Array.isArray(q.options) || q.options.length !== 4) return `expected 4 options, got ${q.options && q.options.length}`;
+  if (q.options.some((o) => typeof o !== "string" || !o.trim())) return "blank option";
+  if (new Set(q.options).size !== 4) return `duplicate options: ${JSON.stringify(q.options)}`;
+  if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer > 3) return `answer index out of range: ${q.answer}`;
+  if (typeof q.explanation !== "string" || !q.explanation.trim()) return "empty explanation";
+  if (typeof q.subject !== "string" || !q.subject) return "missing subject";
+  if (typeof q.chapterId !== "string" || !q.chapterId) return "missing chapterId";
+  const text = `${q.question} ${q.explanation} ${q.options.join(" ")}`;
+  if (/\b(undefined|NaN|null|Infinity)\b/.test(text)) return `leaked a bad value: ${text.slice(0, 160)}`;
+  return null;
+}
+
+/* ================================ suite ================================ */
+
+async function run() {
+  const [subjects, syllabus, questions, config] = await Promise.all([
+    fetch("../data/subjects.json").then((r) => r.json()),
+    fetch("../data/syllabus.json").then((r) => r.json()),
+    fetch("../data/questions.json").then((r) => r.json()),
+    fetch("../data/config.json").then((r) => r.json()),
+  ]);
+
+  const chapterIndex = {};
+  for (const [subjectId, chapters] of Object.entries(syllabus)) {
+    const subject = subjects.find((s) => s.id === subjectId);
+    for (const ch of chapters) chapterIndex[ch.id] = { ...ch, subjectId, subjectName: subject ? subject.name : subjectId };
+  }
+  const allChapters = Object.values(chapterIndex);
+  const content = { questions, chapters: chapterIndex };
+  const generatedChapters = allChapters.filter(hasGenerator);
+
+  /* ---------------------- 1. static question bank --------------------- */
+  section(`Static bank — data/questions.json (${questions.length} questions)`);
+
+  const ids = new Map();
+  const dupes = [];
+  for (const q of questions) {
+    if (ids.has(q.id)) dupes.push(q.id);
+    ids.set(q.id, true);
+  }
+  check(dupes.length === 0, "every question id is unique", dupes.length ? `duplicates: ${[...new Set(dupes)].join(", ")}` : "");
+
+  const structural = questions.map((q) => [q.id, structuralProblem(q)]).filter(([, p]) => p);
+  check(structural.length === 0, "every question is structurally valid",
+    structural.slice(0, 8).map(([id, p]) => `${id}: ${p}`).join("\n         "));
+
+  const orphans = questions.filter((q) => !chapterIndex[q.chapterId]);
+  check(orphans.length === 0, "every question points at a real chapter",
+    orphans.slice(0, 8).map((q) => `${q.id} -> ${q.chapterId}`).join(", "));
+
+  const mismatched = questions.filter((q) => chapterIndex[q.chapterId] && q.subject !== chapterIndex[q.chapterId].subjectName);
+  check(mismatched.length === 0, "each question's subject matches its chapter's subject",
+    mismatched.slice(0, 8).map((q) => `${q.id}: ${q.subject} != ${chapterIndex[q.chapterId].subjectName}`).join(", "));
+
+  const chapterMismatch = questions.filter((q) => chapterIndex[q.chapterId] && q.chapter !== chapterIndex[q.chapterId].name);
+  check(chapterMismatch.length === 0, "each question's chapter name matches the syllabus",
+    chapterMismatch.slice(0, 8).map((q) => `${q.id}: "${q.chapter}" != "${chapterIndex[q.chapterId].name}"`).join("\n         "));
+
+  // A student must not be able to score by always picking the same letter.
+  const spread = [0, 0, 0, 0];
+  for (const q of questions) spread[q.answer]++;
+  const worst = Math.max(...spread) / questions.length;
+  check(worst <= 0.32, `correct answers are spread across all four positions (A=${spread[0]} B=${spread[1]} C=${spread[2]} D=${spread[3]})`,
+    `position ${"ABCD"[spread.indexOf(Math.max(...spread))]} holds ${Math.round(worst * 100)}% of answers`);
+
+  // Generated chapters keep only a small static fallback; every chapter that
+  // actually relies on the bank needs enough entries that a 10-question quiz
+  // is not simply the whole bank replayed in a different order.
+  const thin = [...new Set(questions.map((q) => q.chapterId))]
+    .filter((id) => !hasGenerator(chapterIndex[id]))
+    .map((id) => [id, questions.filter((q) => q.chapterId === id).length])
+    .filter(([, n]) => n < 12);
+  check(thin.length === 0, "every bank-backed chapter has at least 12 questions, so a 10-question quiz is not the whole bank",
+    thin.map(([id, n]) => `${id}: ${n}`).join(", "));
+
+  /* ------------------------ 2. content coverage ----------------------- */
+  section("Content coverage");
+
+  const withStatic = new Set(questions.map((q) => q.chapterId));
+  const playable = allChapters.filter((ch) => withStatic.has(ch.id) || hasGenerator(ch));
+  const empty = allChapters.filter((ch) => !withStatic.has(ch.id) && !hasGenerator(ch));
+  log(`  ${playable.length} of ${allChapters.length} chapters are practisable.`);
+  log(`  "Content coming soon" (${empty.length}): ${empty.map((c) => c.id).join(", ") || "none"}`);
+  check(playable.length + empty.length === allChapters.length, "every chapter is either practisable or explicitly empty");
+
+  /* --------------------- 3. generator wiring sanity ------------------- */
+  section("Generator wiring is data-driven");
+
+  log(`  families available in js/generators.js: ${familyNames().join(", ")}`);
+  log(`  chapters opted in via data/syllabus.json: ${generatedChapters.map((c) => c.id).join(", ")}`);
+
+  const typos = allChapters.filter((ch) => unknownFamilies(ch).length);
+  check(typos.length === 0, "no chapter names a generator family that does not exist",
+    typos.map((ch) => `${ch.id} -> ${unknownFamilies(ch).join(", ")}`).join(", "));
+
+  check(generatedChapters.length > 0, `${generatedChapters.length} chapters generate questions`);
+
+  // Generated questions must take their subject and name from the syllabus,
+  // not from anything duplicated inside js/ - that is what lets the syllabus
+  // be edited without touching code.
+  for (const ch of generatedChapters) {
+    const sample = generateForChapter(ch, 3);
+    const wrong = sample.filter((q) => q.subject !== ch.subjectName || q.chapter !== ch.name || q.chapterId !== ch.id);
+    check(sample.length === 3 && wrong.length === 0,
+      `${ch.id}: generated questions take subject/name straight from the syllabus`,
+      wrong.map((q) => `${q.subject}/${q.chapter}`).join(", "));
+  }
+
+  // The real proof: invent a chapter that exists only inside this test, give
+  // it a family, and it must generate - with no entry anywhere in js/.
+  const invented = { id: "test-invented-ch", name: "An Invented Chapter", subjectName: "Maths", generators: ["fractions"] };
+  const inventedQs = generateForChapter(invented, 5);
+  check(inventedQs.length === 5 && inventedQs.every((q) => q.chapterId === "test-invented-ch" && q.chapter === "An Invented Chapter"),
+    "a chapter unknown to js/ generates from its syllabus entry alone (adding a chapter needs no code change)",
+    `got ${inventedQs.length} questions`);
+  check(!hasGenerator({ id: "x", name: "x", subjectName: "x" }), "a chapter with no generators field does not generate");
+
+  /* ---------------- 4. generator stress + answer accuracy ------------- */
+  section("Generator stress test");
+
+  const BATCHES = 250;      // batches per chapter
+  const PER_BATCH = 8;      // questions per batch
+  let totalGenerated = 0, verified = 0, unverified = 0;
+
+  for (const chapter of generatedChapters) {
+    const chapterId = chapter.id;
+    let structuralFails = [];
+    let wrongAnswers = [];
+    let chapterVerified = 0, chapterUnverified = 0, chapterCount = 0;
+    const seenIds = new Set();
+    let idCollisions = 0;
+
+    for (let b = 0; b < BATCHES; b++) {
+      const batch = generateForChapter(chapter, PER_BATCH);
+      if (batch.length !== PER_BATCH) {
+        structuralFails.push(`batch ${b} returned ${batch.length}/${PER_BATCH} questions`);
+        break;
+      }
+      const textsInBatch = new Set(batch.map((q) => q.question));
+      if (textsInBatch.size !== batch.length) structuralFails.push(`batch ${b} repeated a question within one quiz`);
+
+      for (const q of batch) {
+        chapterCount++;
+        if (seenIds.has(q.id)) idCollisions++;
+        seenIds.add(q.id);
+        const problem = structuralProblem(q);
+        if (problem) { if (structuralFails.length < 5) structuralFails.push(`${q.question} — ${problem}`); continue; }
+        if (q.chapterId !== chapterId) structuralFails.push(`${q.id} has wrong chapterId ${q.chapterId}`);
+
+        const v = independentlyVerify(q);
+        if (v === true) chapterVerified++;
+        else if (v === false && wrongAnswers.length < 5) {
+          wrongAnswers.push(`"${q.question}" -> marked "${q.options[q.answer]}"`);
+        } else if (v === null) chapterUnverified++;
+      }
+    }
+    totalGenerated += chapterCount;
+    verified += chapterVerified;
+    unverified += chapterUnverified;
+
+    check(structuralFails.length === 0, `${chapterId}: ${chapterCount} generated questions are all well-formed`, structuralFails.join("\n         "));
+    check(idCollisions === 0, `${chapterId}: no generated id collided`, `${idCollisions} collisions`);
+    check(wrongAnswers.length === 0, `${chapterId}: every re-derivable answer is correct (${chapterVerified} recomputed)`, wrongAnswers.join("\n         "));
+    if (chapterUnverified) log(`         note: ${chapterUnverified} of ${chapterCount} could not be re-derived by the test's parsers`);
+  }
+
+  const coverage = totalGenerated ? Math.round((verified / totalGenerated) * 100) : 0;
+  log(`  ${totalGenerated} questions generated, ${verified} independently recomputed (${coverage}%), ${unverified} not re-derivable.`);
+  check(coverage >= 90, `independent verification covers at least 90% of generated questions (got ${coverage}%)`);
+
+  /* ------------------------- 5. variety / freshness -------------------- */
+  section("Freshness — repeated builds must not repeat questions");
+
+  for (const chapter of generatedChapters) {
+    const chapterId = chapter.id;
+    const a = quizEngine.buildChapterQuiz(content, chapterId, 10);
+    const b = quizEngine.buildChapterQuiz(content, chapterId, 10);
+    const textsA = new Set(a.questions.map((q) => q.question));
+    const overlap = b.questions.filter((q) => textsA.has(q.question)).length;
+    check(overlap <= 3, `${chapterId}: back-to-back quizzes share at most 3 of 10 questions (shared ${overlap})`);
+  }
+
+  // Over many rebuilds a generated chapter should produce far more distinct
+  // questions than the static bank ever held — that is the whole point.
+  for (const chapter of generatedChapters) {
+    const seen = new Set();
+    for (let i = 0; i < 40; i++) for (const q of generateForChapter(chapter, 10)) seen.add(q.question);
+    check(seen.size >= 200, `${chapter.id}: 40 rebuilds yield ${seen.size} distinct questions (want >= 200)`);
+  }
+
+  /* -------------------------- 6. quiz building ------------------------- */
+  section("Quiz building — every chapter");
+
+  for (const ch of allChapters) {
+    const practisable = withStatic.has(ch.id) || hasGenerator(ch);
+    const quiz = quizEngine.buildChapterQuiz(content, ch.id, 10);
+
+    if (!practisable) {
+      check(quiz.total === 0, `${ch.id}: empty chapter builds an empty quiz`);
+      continue;
+    }
+
+    const problems = [];
+    if (quiz.total === 0) problems.push("built zero questions");
+    if (quiz.questions.length !== quiz.total) problems.push("questions[] length != total");
+    if (quiz.questionIds.length !== quiz.total) problems.push("questionIds length != total");
+    if (new Set(quiz.questions.map((q) => q.id)).size !== quiz.total) problems.push("a question id repeated inside one quiz");
+    if (new Set(quiz.questions.map((q) => q.question)).size !== quiz.total) problems.push("a question text repeated inside one quiz");
+    for (const q of quiz.questions) {
+      const p = structuralProblem(q);
+      if (p) { problems.push(`${q.id}: ${p}`); break; }
+      if (q.chapterId !== ch.id) { problems.push(`${q.id} belongs to ${q.chapterId}, not ${ch.id}`); break; }
+    }
+    // A generated chapter must fill the full 10; a static one is capped by its bank.
+    const expected = hasGenerator(ch) ? 10 : Math.min(10, questions.filter((q) => q.chapterId === ch.id).length);
+    if (quiz.total !== expected) problems.push(`expected ${expected} questions, got ${quiz.total}`);
+
+    check(problems.length === 0, `${ch.id}: chapter quiz (${quiz.total} q)`, problems.join("\n         "));
+  }
+
+  /* ----------------------- 7. mixed quiz builders ---------------------- */
+  section("Quick 10, Mock and weak-area builders");
+
+  for (const s of subjects) {
+    const quiz = quizEngine.buildQuickPractice(content, s.name, config.quickPracticeSize || 10);
+    const wrongSubject = quiz.questions.filter((q) => q.subject !== s.name);
+    check(quiz.total > 0 && wrongSubject.length === 0,
+      `Quick 10 · ${s.name} builds ${quiz.total} questions, all from ${s.name}`,
+      wrongSubject.map((q) => `${q.id} is ${q.subject}`).join(", "));
+    check(new Set(quiz.questions.map((q) => q.id)).size === quiz.total, `Quick 10 · ${s.name} has no repeated question`);
+  }
+
+  const mixed = quizEngine.buildQuickPractice(content, null, 10);
+  check(mixed.total === 10, `Quick 10 · Mixed builds 10 questions (got ${mixed.total})`);
+
+  const mock = quizEngine.buildMockTest(content, config.midTermMock || {});
+  const wanted = Object.entries(config.midTermMock.subjectCounts);
+  const mockProblems = [];
+  for (const [subjectId, want] of wanted) {
+    const name = subjects.find((s) => s.id === subjectId).name;
+    const got = mock.questions.filter((q) => q.subject === name).length;
+    if (got !== want) mockProblems.push(`${name}: wanted ${want}, got ${got}`);
+  }
+  check(mockProblems.length === 0, `mock test honours every per-subject count (${mock.total} questions)`, mockProblems.join("\n         "));
+  check(new Set(mock.questions.map((q) => q.id)).size === mock.total, "mock test has no repeated question");
+  check(mock.questions.every((q) => !structuralProblem(q)), "every mock question is structurally valid");
+
+  const weakIds = ["maths-ch6", "science-ch3", "sst-ch5"];
+  const weak = quizEngine.buildWeakAreaQuiz(content, weakIds, 10);
+  check(weak.total > 0 && weak.questions.every((q) => weakIds.includes(q.chapterId)),
+    `weak-area quiz builds ${weak.total} questions, all from the requested chapters`);
+
+  /* ------------------------ 8. scoring and review ---------------------- */
+  section("Scoring, review pairing and resume");
+
+  function play(quiz, strategy) {
+    for (const q of quiz.questions) {
+      quizEngine.answerQuestion(quiz, q, strategy(q));
+    }
+    return quizEngine.finalizeQuiz(quiz);
+  }
+
+  const allRight = play(quizEngine.buildChapterQuiz(content, "maths-ch5", 10), (q) => q.answer);
+  check(allRight.score === 10 && allRight.percentage === 100, `all-correct run scores 10/10 = 100% (got ${allRight.score}/${allRight.total} = ${allRight.percentage}%)`);
+  check(!!allRight.completedAt, "finalizeQuiz stamps completedAt");
+  check(quizEngine.isComplete(allRight), "isComplete() is true once every question is answered");
+
+  const allWrong = play(quizEngine.buildChapterQuiz(content, "maths-ch4", 10), (q) => (q.answer + 1) % 4);
+  check(allWrong.score === 0 && allWrong.percentage === 0, `all-wrong run scores 0/10 = 0% (got ${allWrong.score}, ${allWrong.percentage}%)`);
+
+  const half = quizEngine.buildChapterQuiz(content, "maths-ch7", 10);
+  play(half, (q) => (half.questions.indexOf(q) % 2 === 0 ? q.answer : (q.answer + 2) % 4));
+  check(half.score === 5 && half.percentage === 50, `alternating run scores 5/10 = 50% (got ${half.score}, ${half.percentage}%)`);
+
+  // Review pairs answers to questions positionally AND by id.
+  const reviewQuiz = quizEngine.buildMockTest(content, config.midTermMock || {});
+  play(reviewQuiz, (q) => q.answer);
+  const paired = reviewQuiz.answers.every((ans, i) => ans.questionId === reviewQuiz.questions[i].id);
+  check(paired, "review pairing: answers[i].questionId === questions[i].id for every question");
+
+  const byId = new Map(quizEngine.questionsOf(reviewQuiz).map((q) => [q.id, q]));
+  const resolvable = reviewQuiz.answers.every((a) => byId.has(a.questionId));
+  check(resolvable, "review can resolve every answered question from the saved attempt alone");
+
+  const generatedInReview = quizEngine.questionsOf(reviewQuiz).filter((q) => q.generated);
+  const bankIds = new Set(questions.map((q) => q.id));
+  check(generatedInReview.length > 0, `the attempt carries generated questions (${generatedInReview.length}) that are not in the static bank`);
+  check(generatedInReview.every((q) => !bankIds.has(q.id)),
+    "generated questions would be unresolvable from the bank — proving embedding is required");
+
+  // Legacy attempts (ids only, no embedded questions) must still resolve.
+  const legacy = { questionIds: questions.slice(0, 3).map((q) => q.id) };
+  check(quizEngine.questionsOf(legacy, questions).length === 3, "questionsOf() still resolves old id-only attempts against the bank");
+
+  // Resume: a partly-answered quiz keeps its questions in the same order.
+  const resumeQuiz = quizEngine.buildChapterQuiz(content, "maths-ch3", 10);
+  const orderBefore = resumeQuiz.questions.map((q) => q.id).join("|");
+  for (let i = 0; i < 4; i++) quizEngine.answerQuestion(resumeQuiz, resumeQuiz.questions[i], resumeQuiz.questions[i].answer);
+  const roundTripped = JSON.parse(JSON.stringify(resumeQuiz)); // what IndexedDB gives back
+  const orderAfter = quizEngine.questionsOf(roundTripped, questions).map((q) => q.id).join("|");
+  check(orderBefore === orderAfter, "resume: question order survives a save/load round trip");
+  check(roundTripped.answers.length === 4, "resume: the 4 answers already given are preserved");
+  check(quizEngine.questionsOf(roundTripped, questions).length === roundTripped.total, "resume: every question is still resolvable after reload");
+
+  /* --------------------------- 9. progress math ------------------------ */
+  section("Progress derivation");
+
+  const attempts = [allRight, allWrong, half].map((a) => ({ ...a, id: a.id }));
+  const chapterAcc = progressEngine.computeChapterAccuracy(attempts);
+  check(chapterAcc["maths-ch5"] && chapterAcc["maths-ch5"].accuracy === 100, "progress: maths-ch5 reads 100% accuracy");
+  check(chapterAcc["maths-ch4"] && chapterAcc["maths-ch4"].accuracy === 0, "progress: maths-ch4 reads 0% accuracy");
+  check(chapterAcc["maths-ch7"] && chapterAcc["maths-ch7"].accuracy === 50, "progress: maths-ch7 reads 50% accuracy");
+
+  /* ------------------------------ verdict ------------------------------ */
+  log(`\n${checks} checks run, ${failures} failed.`);
+  log(failures === 0 ? "RESULT: PASS" : `RESULT: FAIL (${failures})`);
+}
+
+run()
+  .catch((err) => {
+    failures++;
+    log(`\n<span class="fail">SUITE CRASHED</span>: ${err && err.stack ? err.stack : err}`);
+    log("RESULT: FAIL (crash)");
+  })
+  .finally(() => {
+    document.getElementById("out").innerHTML = lines.join("\n");
+    document.title = failures === 0 ? "PASS" : `FAIL (${failures})`;
+  });
+</script>
+</body>
+</html>

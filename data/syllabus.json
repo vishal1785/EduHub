@@ -1,11 +1,11 @@
 {
   "maths": [
-    { "id": "maths-ch3",  "number": 3,  "name": "Finding Common Grounds",           "description": "Factors, multiples, HCF and LCM." },
-    { "id": "maths-ch4",  "number": 4,  "name": "Operation With Integers",          "description": "Addition, subtraction, multiplication and division of integers." },
-    { "id": "maths-ch5",  "number": 5,  "name": "Arithmetic Expression",            "description": "Simplifying expressions using BODMAS." },
-    { "id": "maths-ch6",  "number": 6,  "name": "Working With Fractions",           "description": "Operations on fractions." },
-    { "id": "maths-ch7",  "number": 7,  "name": "A Peak Beyond The Point",          "description": "Working with decimal numbers." },
-    { "id": "maths-ch10", "number": 10, "name": "Parallel and Intersecting Lines",  "description": "Lines, angles and transversals." }
+    { "id": "maths-ch3",  "number": 3,  "name": "Finding Common Grounds",           "description": "Factors, multiples, HCF and LCM.", "generators": ["hcf-lcm-factors"] },
+    { "id": "maths-ch4",  "number": 4,  "name": "Operation With Integers",          "description": "Addition, subtraction, multiplication and division of integers.", "generators": ["integer-operations"] },
+    { "id": "maths-ch5",  "number": 5,  "name": "Arithmetic Expression",            "description": "Simplifying expressions using BODMAS.", "generators": ["arithmetic-expressions"] },
+    { "id": "maths-ch6",  "number": 6,  "name": "Working With Fractions",           "description": "Operations on fractions.", "generators": ["fractions"] },
+    { "id": "maths-ch7",  "number": 7,  "name": "A Peak Beyond The Point",          "description": "Working with decimal numbers.", "generators": ["decimals"] },
+    { "id": "maths-ch10", "number": 10, "name": "Parallel and Intersecting Lines",  "description": "Lines, angles and transversals.", "generators": ["lines-and-angles"] }
   ],
   "science": [
     { "id": "science-ch2", "number": 2, "name": "Exploring Substances: Acidic, Basic and Neutral", "description": "Acids, bases, neutral substances and indicators." },
@@ -51,7 +51,7 @@
     { "id": "german-writing",      "number": null, "name": "Writing",                         "description": "Simple sentence writing." }
   ],
   "ict": [
-    { "id": "ict-ch2", "number": 2, "name": "Calculations in Excel 2016",           "description": "Formulas and basic functions." },
+    { "id": "ict-ch2", "number": 2, "name": "Calculations in Excel 2016",           "description": "Formulas and basic functions.", "generators": ["excel-formulas"] },
     { "id": "ict-ch3", "number": 3, "name": "Analyse Data in Excel 2016",           "description": "Sorting, filtering and summarising data." },
     { "id": "ict-ch4", "number": 4, "name": "Representation of Data in Excel 2016", "description": "Charts and visual data." },
     { "id": "ict-ch5", "number": 5, "name": "Go Online",                           "description": "Internet basics and online safety." },
