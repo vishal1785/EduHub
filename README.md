@@ -283,7 +283,7 @@ inventing one would be worse than having no question at all.
 
 ### 6b. The hand-written bank
 
-`data/questions.json` holds **551 questions**. 522 of them back the 35 chapters
+`data/questions.json` holds **575 questions**. 546 of them back the 37 chapters
 that have no generator; the remaining 29 sit in generated chapters as a fallback
 that is only used if generation ever fails. Every bank-backed chapter has at
 least 12 questions, so a 10-question quiz is never simply the whole bank in a
@@ -292,29 +292,26 @@ different order.
 These are original questions written for practice - **not** copied from any
 textbook.
 
-### 6c. The two chapters that are still empty
+### 6c. Every chapter now has content
 
-Seven of the original nine gaps were filled once the ONE-MENTOR Class 7
-question banks for English, Hindi and Maths became available: they gave enough
-of each chapter's actual content — characters, plot, poet, key terms — to write
-grounded questions. Those questions are original MCQs derived from that
-content, not copies of the banks' own (short-answer) questions.
+All 44 chapters are practisable. The last two gaps — *Say the Right Thing* and
+*My Brother's Great Invention* — were filled once photographs of those pages of
+*Poorvi* were available.
 
-Two English chapters remain **"Content coming soon"**, because the question
-bank hedges on them ("the family pets (dog/cat)", "burnt dish or inappropriate
-item", "laboratory or workshop"), which shows its author did not have the text
-either. Inventing chapter-specific "facts" for them would
-produce questions that look right and teach the wrong thing:
+That wait was worth it. The third-party question bank had hedged on both
+chapters ("the family pets (dog/cat)", "burnt dish or inappropriate item",
+"laboratory or workshop"), and the actual texts show why: its author had not
+read them. *Say the Right Thing* is not a prose story about a dinner party at
+all — it is a **play** by G.C. Thornley in which a girl called Mary greets her
+mother's guests and insults every one of them by accident. *My Brother's Great
+Invention* is not about a machine exploding in a garage — it is Anita Rau
+Badami's story of a burglar alarm that soaks the wrong person and a time
+machine that a thief may or may not have vanished into. Questions written from
+the bank's guesses would have been confidently wrong.
 
-- English: *Say The Right Thing*, *My Brother's Great Invention*
-
-SST **Map Work** was previously on this list and has now been filled in: it is a
-*skill* chapter (scale, direction, symbols, latitude and longitude, contours,
-map types) rather than a set text, so it needs no textbook to write accurately.
-
-Share the actual textbook pages or PDFs for the nine remaining chapters and they
-can be filled in accurately and dropped straight into `questions.json` - no other
-change needed.
+The app still supports empty chapters: any chapter with no questions and no
+generators shows "Content coming soon" automatically, so adding one to
+`data/syllabus.json` before its content exists is safe.
 
 ---
 

@@ -5088,6 +5088,510 @@
     ]
   },
   {
+    "id": "english-u2-supp-q001",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "'Say the Right Thing' is written as a:",
+    "options": [
+      "diary entry",
+      "newspaper article",
+      "long narrative poem",
+      "play, with characters and scenes"
+    ],
+    "answer": 3,
+    "explanation": "The lesson is a humorous play. It is set out as dialogue between named speakers, divided into Scene I and Scene II, with stage directions in brackets.",
+    "tags": [
+      "say-the-right-thing",
+      "genre"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q002",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Who wrote 'Say the Right Thing'?",
+    "options": [
+      "G.C. Thornley",
+      "Natalie Joan",
+      "Hugh Lofting",
+      "Anita Rau Badami"
+    ],
+    "answer": 0,
+    "explanation": "The play is credited to G.C. Thornley at the end of the text.",
+    "tags": [
+      "say-the-right-thing",
+      "author"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q003",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "How are Mrs. Harding and Mrs. Lee related?",
+    "options": [
+      "They are neighbours who have never met",
+      "Mrs. Lee is Mr. Harding's sister",
+      "Mrs. Lee is Mrs. Harding's daughter",
+      "Mrs. Lee is Mrs. Harding's mother"
+    ],
+    "answer": 1,
+    "explanation": "Mrs. Shaw explains that Mrs. Lee is Mr. Harding's married sister, and that she has been staying with the Hardings for a while.",
+    "tags": [
+      "say-the-right-thing",
+      "characters"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q004",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Why is Mrs. Shaw so anxious that the visit should go well?",
+    "options": [
+      "She wants to sell her house to the Hardings",
+      "She wants Mary to be given a job",
+      "She wants to make friends in Lanfield and be invited to the Hardings' house",
+      "She is being paid to entertain them"
+    ],
+    "answer": 2,
+    "explanation": "Mrs. Shaw says there isn't much to do in Lanfield, she wants to know more people and make more friends, and she would like Mrs. Harding to invite her over.",
+    "tags": [
+      "say-the-right-thing",
+      "motive"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q005",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What did Mrs. Shaw tell Mary to say when the guests wanted to leave?",
+    "options": [
+      "\"Please come again next week.\"",
+      "\"Thank you for the lovely afternoon.\"",
+      "\"I hope you found your way easily.\"",
+      "\"Must you go? Can't you stay?\""
+    ],
+    "answer": 3,
+    "explanation": "Mrs. Shaw coached her to sound sorry that they were going, and gave her those exact words to use.",
+    "tags": [
+      "say-the-right-thing",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q006",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Mary tells Mrs. Harding she has often seen her beautiful children. Why is this a blunder?",
+    "options": [
+      "Mrs. Harding has no children at all",
+      "Mrs. Harding thinks her children are badly behaved",
+      "Mary was describing Mrs. Lee's children",
+      "The children were away at boarding school"
+    ],
+    "answer": 0,
+    "explanation": "Mrs. Harding replies twice that she has no children, the second time \"not very pleased\". Mary had seen someone else's children on the road.",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q007",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Mary laughs at Mr. Best, saying he only reads newspapers and that \"bankers can't think\". Why does this fall flat?",
+    "options": [
+      "Mr. Best is Mrs. Shaw's employer",
+      "Mrs. Lee's brother is a banker who travels and reads newspapers exactly like that",
+      "Mr. Best had died the previous year",
+      "Mrs. Harding had never heard of Mr. Best"
+    ],
+    "answer": 1,
+    "explanation": "Mrs. Lee immediately says her own brother is a banker who goes to London by train, comes back each night, and reads two newspapers on the way — the very habits Mary had just mocked.",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q008",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Mary jokes about a woman who wears \"a blue dress with a red coat over it\". What happens next?",
+    "options": [
+      "Mrs. Shaw agrees with Mary",
+      "Mrs. Lee says the same thing is fashionable in London",
+      "Mrs. Harding says she has a blue dress and often wears her red coat with it",
+      "Everyone laughs at the joke"
+    ],
+    "answer": 2,
+    "explanation": "Mrs. Harding quietly says she does exactly that. Mrs. Shaw tries to rescue the moment with \"I like blue dresses and red coats\", and again no one says anything.",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q009",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Mary complains about a dirty dog that is always near their house. Whose dog is it?",
+    "options": [
+      "Mrs. Lee's dog, Rex",
+      "Mr. Best's dog",
+      "A stray dog with no owner",
+      "The Hardings' dog, Towzer"
+    ],
+    "answer": 3,
+    "explanation": "Mrs. Harding looks out of the window and says, \"Yes, I've seen it. That's Towzer. It's our dog.\"",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q010",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The stage direction \"No one speaks\" appears again and again. What does it show?",
+    "options": [
+      "The awkward silence that follows each of Mary's remarks",
+      "That the guests cannot hear Mary",
+      "That Mary is speaking too quietly",
+      "That the characters have left the room"
+    ],
+    "answer": 0,
+    "explanation": "Each time Mary offends someone the conversation dies. The repeated silence is how the playwright shows the growing embarrassment without anyone having to say so.",
+    "tags": [
+      "say-the-right-thing",
+      "technique"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q011",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Mary criticises Mrs. Cotter for staying in bed in the morning and always calling the doctor. What is the awkward reply?",
+    "options": [
+      "The doctor is Mr. Harding's friend",
+      "Mrs. Harding stays in bed in the mornings and Mrs. Lee often goes to the doctor",
+      "Mrs. Cotter had just recovered from an illness",
+      "Mrs. Cotter is Mrs. Shaw's sister"
+    ],
+    "answer": 1,
+    "explanation": "Mrs. Harding says, \"I stay in bed in the morning myself,\" and Mrs. Lee adds, \"I often go to the doctor.\" Mary manages to insult both guests in one remark.",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q012",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What does Mary say at the very end, when the guests announce they must leave?",
+    "options": [
+      "She says nothing at all",
+      "\"Please do come again soon.\"",
+      "\"Oh, must you stay? Can't you go?\"",
+      "\"Must you go? Can't you stay?\""
+    ],
+    "answer": 2,
+    "explanation": "She muddles the two halves of the sentence her mother taught her, and manages to say the exact opposite. It is the play's final and funniest blunder.",
+    "tags": [
+      "say-the-right-thing",
+      "climax"
+    ]
+  },
+  {
+    "id": "english-u3-q001",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Who wrote 'My Brother's Great Invention'?",
+    "options": [
+      "G.C. Thornley",
+      "Hugh Lofting",
+      "Ruskin Bond",
+      "Anita Rau Badami"
+    ],
+    "answer": 3,
+    "explanation": "The story is credited to Anita Rau Badami at the end of the text.",
+    "tags": [
+      "great-invention",
+      "author"
+    ]
+  },
+  {
+    "id": "english-u3-q002",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Who tells the story, and what is her age?",
+    "options": [
+      "Anita, who is fourteen",
+      "Anand, who is fourteen",
+      "Sharma Aunty, the neighbour",
+      "Ma, the mother"
+    ],
+    "answer": 0,
+    "explanation": "The narrator introduces herself: \"I am Anita, fourteen years old. My brother Anand, one year younger than me…\"",
+    "tags": [
+      "great-invention",
+      "characters"
+    ]
+  },
+  {
+    "id": "english-u3-q003",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What was Anand's first invention in the story?",
+    "options": [
+      "A telephone to outer space",
+      "A burglar alarm with a water bag over the door",
+      "An electric fan",
+      "A time machine"
+    ],
+    "answer": 1,
+    "explanation": "After a rush of thefts in the colony, Anand rigged up a burglar alarm: the door would set off a clanging sound and loosen a water bag onto the thief's head.",
+    "tags": [
+      "great-invention",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u3-q004",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Why did the burglar alarm soak Papa instead of a thief?",
+    "options": [
+      "The water bag had a hole in it",
+      "Papa forgot to switch it off",
+      "It was rigged to work only when the door was opened gently, and Papa always opened it softly",
+      "Anand set it off deliberately"
+    ],
+    "answer": 2,
+    "explanation": "Anand's clever idea was that a thief would open the door stealthily. Unluckily, Papa opened doors softly too — so it was Papa who came home sopping wet.",
+    "tags": [
+      "great-invention",
+      "irony"
+    ]
+  },
+  {
+    "id": "english-u3-q005",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What gave Anand the idea of building a time machine?",
+    "options": [
+      "A programme on the radio",
+      "A book Anita was reading",
+      "A science lesson at school",
+      "The film 'Back to the Future'"
+    ],
+    "answer": 3,
+    "explanation": "The story says that after they saw the film 'Back to the Future', that was \"the end of peace and quiet in the house\".",
+    "tags": [
+      "great-invention",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u3-q006",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "How did Papa and Ma try to protect their belongings once Anand started inventing?",
+    "options": [
+      "Papa locked up his tool box and hid the key, and Ma watched her oven and mixer",
+      "They locked his bedroom door",
+      "They took away his books",
+      "They sent Anand to stay with Sharma Aunty"
+    ],
+    "answer": 0,
+    "explanation": "When Anand is on an inventing binge he takes apart the gadgets in the house for parts, so both parents guarded their things.",
+    "tags": [
+      "great-invention",
+      "humour"
+    ]
+  },
+  {
+    "id": "english-u3-q007",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Where had Papa and Ma gone on the night of the break-in?",
+    "options": [
+      "To Calcutta to buy tools",
+      "To Kharagpur for a wedding",
+      "To London on work",
+      "To Sharma Aunty's house"
+    ],
+    "answer": 1,
+    "explanation": "They left by the afternoon train for a wedding at Kharagpur, a few hours from Calcutta (now Kolkata), and were to return the following evening.",
+    "tags": [
+      "great-invention",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u3-q008",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Who turned out to be the intruder?",
+    "options": [
+      "A stranger from another town",
+      "Dr. Mohan's driver",
+      "Boppa, who had recently begun sweeping the compounds in their row of houses",
+      "Mr. Sharma's servant"
+    ],
+    "answer": 2,
+    "explanation": "Anita recognised him at once. Because he swept the compounds, he knew exactly when each house was empty and the coast was clear.",
+    "tags": [
+      "great-invention",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u3-q009",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What did Anand do that showed real presence of mind?",
+    "options": [
+      "He climbed out of the window for help",
+      "He telephoned the police",
+      "He switched off all the lights",
+      "He sent the intruder into his own room, where the time machine stood, instead of upstairs"
+    ],
+    "answer": 3,
+    "explanation": "When the man demanded to know where their father's room was, Anand quickly said \"The one next to this one\" — sending him straight to the time machine.",
+    "tags": [
+      "great-invention",
+      "climax"
+    ]
+  },
+  {
+    "id": "english-u3-q010",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What did they find near the panel of switches after the noises stopped?",
+    "options": [
+      "The intruder's green scarf",
+      "A pair of shoes",
+      "A broken cudgel",
+      "Anand's blueprint"
+    ],
+    "answer": 0,
+    "explanation": "The time machine was still humming softly, the room was empty, and the green scarf the man had been wearing lay near the switches.",
+    "tags": [
+      "great-invention",
+      "climax"
+    ]
+  },
+  {
+    "id": "english-u3-q011",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What happened to the time machine at the end of the story?",
+    "options": [
+      "It was sold to Dr. Mohan",
+      "Papa had it dismantled because he thought it wasn't safe",
+      "It was given to the police as evidence",
+      "Anand improved it and tried it again"
+    ],
+    "answer": 1,
+    "explanation": "Papa thought it unsafe — and, the narrator hints, may also have had \"a niggling suspicion that it worked\". So they never got to test it.",
+    "tags": [
+      "great-invention",
+      "ending"
+    ]
+  },
+  {
+    "id": "english-u3-q012",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What new project has Anand started by the end of the story?",
+    "options": [
+      "A better burglar alarm",
+      "A machine to do homework",
+      "A telephone to contact creatures in outer space",
+      "A second, larger time machine"
+    ],
+    "answer": 2,
+    "explanation": "Anand remains convinced he is a genius. The story closes with Anita promising to tell us about his outer-space telephone next time.",
+    "tags": [
+      "great-invention",
+      "ending"
+    ]
+  },
+  {
     "id": "english-grammar-q001",
     "subject": "English",
     "chapterId": "english-grammar",
