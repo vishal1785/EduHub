@@ -27,7 +27,7 @@
  * ---------------------------------------------------------------------
  */
 
-const CACHE_NAME = "learn-splash-v10";
+const CACHE_NAME = "learn-splash-v11";
 
 // Paths are relative to this file's location, so this works whether the
 // app is served from a domain root or a GitHub Pages project subpath.

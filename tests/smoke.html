@@ -214,9 +214,24 @@ async function run() {
   await goto("#/chapter/german-uhr", () => rendered() && doc().getElementById("btn-practise"), "bank-backed chapter");
   check(!!doc().getElementById("btn-practise"), "a bank-backed chapter (german-uhr) offers a Practise button");
 
-  await goto("#/chapter/hindi-maa", () => rendered(), "empty chapter");
-  check(!doc().getElementById("btn-practise") && /coming soon/i.test(text()),
-    'an empty chapter (hindi-maa) shows "Content coming soon" and no Practise button', text().slice(0, 200));
+  // Which chapters are empty changes as content is written, so find one from
+  // the data rather than naming it here - otherwise this check breaks every
+  // time a chapter is filled in.
+  const [bank, syllabus] = await Promise.all([
+    fetch("/data/questions.json").then((r) => r.json()),
+    fetch("/data/syllabus.json").then((r) => r.json()),
+  ]);
+  const withQuestions = new Set(bank.map((q) => q.chapterId));
+  const emptyChapter = Object.values(syllabus).flat()
+    .find((ch) => !withQuestions.has(ch.id) && !(ch.generators || []).length);
+
+  if (emptyChapter) {
+    await goto(`#/chapter/${emptyChapter.id}`, () => rendered(), "empty chapter");
+    check(!doc().getElementById("btn-practise") && /coming soon/i.test(text()),
+      `an empty chapter (${emptyChapter.id}) shows "Content coming soon" and no Practise button`, text().slice(0, 200));
+  } else {
+    check(true, "no chapter is empty any more, so there is nothing to show as coming soon");
+  }
 
   /* ----------------- full quiz run on a GENERATED chapter ------------- */
   section("End-to-end quiz on a generated chapter");

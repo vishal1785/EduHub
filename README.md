@@ -273,7 +273,7 @@ inventing one would be worse than having no question at all.
 
 ### 6b. The hand-written bank
 
-`data/questions.json` holds **467 questions**. 438 of them back the 28 chapters
+`data/questions.json` holds **551 questions**. 522 of them back the 35 chapters
 that have no generator; the remaining 29 sit in generated chapters as a fallback
 that is only used if generation ever fails. Every bank-backed chapter has at
 least 12 questions, so a 10-question quiz is never simply the whole bank in a
@@ -282,17 +282,21 @@ different order.
 These are original questions written for practice - **not** copied from any
 textbook.
 
-### 6c. The nine chapters that are still empty
+### 6c. The two chapters that are still empty
 
-Nine chapters are intentionally left as **"Content coming soon"**, because they
-turn on specific stories and units in *Poorvi* and *Malhar* whose exact text
-could not be verified. Inventing chapter-specific "facts" for them would
+Seven of the original nine gaps were filled once the ONE-MENTOR Class 7
+question banks for English, Hindi and Maths became available: they gave enough
+of each chapter's actual content — characters, plot, poet, key terms — to write
+grounded questions. Those questions are original MCQs derived from that
+content, not copies of the banks' own (short-answer) questions.
+
+Two English chapters remain **"Content coming soon"**, because the question
+bank hedges on them ("the family pets (dog/cat)", "burnt dish or inappropriate
+item", "laboratory or workshop"), which shows its author did not have the text
+either. Inventing chapter-specific "facts" for them would
 produce questions that look right and teach the wrong thing:
 
-- English: *Animals, Birds and Dr Dolittle*, *A Funny Man* (poem), *Say The
-  Right Thing*, *My Brother's Great Invention*
-- Hindi: *माँ, कह एक कहानी*, *तीन बुद्धिमान*, *फूल और काँटा*, *पानी रे पानी*,
-  *नहीं होना बीमार*
+- English: *Say The Right Thing*, *My Brother's Great Invention*
 
 SST **Map Work** was previously on this list and has now been filled in: it is a
 *skill* chapter (scale, direction, symbols, latitude and longitude, contours,
