@@ -4584,6 +4584,1014 @@
     ]
   },
   {
+    "id": "english-u2-q001",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Who wrote the Doctor Dolittle stories?",
+    "options": [
+      "Rudyard Kipling",
+      "Roald Dahl",
+      "Lewis Carroll",
+      "Hugh Lofting"
+    ],
+    "answer": 3,
+    "explanation": "The Doctor Dolittle books were written by Hugh Lofting, who first invented the character in letters he sent home to his children.",
+    "tags": [
+      "dolittle",
+      "author"
+    ]
+  },
+  {
+    "id": "english-u2-q002",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In which town does Doctor Dolittle live?",
+    "options": [
+      "Puddleby-on-the-Marsh",
+      "Doverby-on-the-Hill",
+      "Marshfield-on-Sea",
+      "Puddleton-by-the-Moor"
+    ],
+    "answer": 0,
+    "explanation": "Doctor John Dolittle lives in the little town of Puddleby-on-the-Marsh, where he keeps his house full of animals.",
+    "tags": [
+      "dolittle",
+      "setting"
+    ]
+  },
+  {
+    "id": "english-u2-q003",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which animal teaches Doctor Dolittle to understand animal language?",
+    "options": [
+      "Dab-Dab the duck",
+      "Polynesia the parrot",
+      "Gub-Gub the pig",
+      "Jip the dog"
+    ],
+    "answer": 1,
+    "explanation": "Polynesia the parrot already speaks human language, and she is the one who realises the Doctor could learn to speak with animals, and teaches him.",
+    "tags": [
+      "dolittle",
+      "polynesia"
+    ]
+  },
+  {
+    "id": "english-u2-q004",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Jip, one of the Doctor's household, is a:",
+    "options": [
+      "duck",
+      "monkey",
+      "dog",
+      "parrot"
+    ],
+    "answer": 2,
+    "explanation": "Jip is the Doctor's dog, and his remarkable sense of smell makes him one of the most useful members of the household.",
+    "tags": [
+      "dolittle",
+      "characters"
+    ]
+  },
+  {
+    "id": "english-u2-q005",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Why did Doctor Dolittle's human patients stop coming to him?",
+    "options": [
+      "He raised his fees",
+      "He was no longer a qualified doctor",
+      "He moved to another town",
+      "His house had filled up with animals"
+    ],
+    "answer": 3,
+    "explanation": "People were put off by finding the waiting room full of animals, so his human practice dwindled away — which is what led him to treat animals instead.",
+    "tags": [
+      "dolittle",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u2-q006",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Sarah Dolittle, who objects to the animals in the house, is the Doctor's:",
+    "options": [
+      "sister",
+      "neighbour",
+      "housekeeper",
+      "patient"
+    ],
+    "answer": 0,
+    "explanation": "Sarah is Doctor Dolittle's sister. She keeps house for him and is dismayed by the growing number of animals living there.",
+    "tags": [
+      "dolittle",
+      "characters"
+    ]
+  },
+  {
+    "id": "english-u2-q007",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What did the old plough horse come to Doctor Dolittle for?",
+    "options": [
+      "A new shoe",
+      "A pair of spectacles",
+      "A tooth to be pulled",
+      "A bandage for its leg"
+    ],
+    "answer": 1,
+    "explanation": "The old plough horse had been going blind and simply needed spectacles — something no one had thought to ask it about, because no one could understand it.",
+    "tags": [
+      "dolittle",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u2-q008",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Polynesia says, \"Animals don't always speak with their mouths.\" She means that animals:",
+    "options": [
+      "Never communicate with one another",
+      "Only understand written words",
+      "Communicate through movements, ears, tails and expressions",
+      "Are unable to feel any pain"
+    ],
+    "answer": 2,
+    "explanation": "Much of animal language is not sound at all. A twitch of the nose, the set of the ears or the movement of a tail all carry meaning, and the Doctor had to learn to read them.",
+    "tags": [
+      "dolittle",
+      "theme"
+    ]
+  },
+  {
+    "id": "english-u2-q009",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What made Doctor Dolittle such a good animal doctor?",
+    "options": [
+      "He charged the lowest fees in the county",
+      "He owned the most expensive equipment",
+      "He had studied at the most famous university",
+      "He could understand what his patients told him"
+    ],
+    "answer": 3,
+    "explanation": "Once he could understand animal language, his patients could describe their own symptoms — an advantage no other doctor had.",
+    "tags": [
+      "dolittle",
+      "theme"
+    ]
+  },
+  {
+    "id": "english-u2-q010",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Word of Doctor Dolittle's skill spread among the animals mainly because:",
+    "options": [
+      "The animals told one another about him",
+      "The town council recommended him",
+      "He put up notices in the market",
+      "He advertised in the newspapers"
+    ],
+    "answer": 0,
+    "explanation": "The animals themselves passed the news along, so creatures came from further and further away to be treated.",
+    "tags": [
+      "dolittle",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u2-q011",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Doctor Dolittle's story gently pokes fun at:",
+    "options": [
+      "Children who ask too many questions",
+      "Doctors who never really listen to their patients",
+      "Villagers who live near a marsh",
+      "People who keep pets at home"
+    ],
+    "answer": 1,
+    "explanation": "The humour turns on the idea that the finest doctor in the story is the one who bothers to listen — even to a horse.",
+    "tags": [
+      "dolittle",
+      "satire"
+    ]
+  },
+  {
+    "id": "english-u2-q012",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What is the main message of the chapter?",
+    "options": [
+      "Wild animals should be kept in cages",
+      "Money is the best measure of success",
+      "Animals deserve understanding and kindness",
+      "Only humans are capable of feelings"
+    ],
+    "answer": 2,
+    "explanation": "The Doctor gives up a comfortable human practice because he cares more about the creatures nobody else will listen to. Empathy matters more than profit.",
+    "tags": [
+      "dolittle",
+      "theme"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q001",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "\"A Funny Man\" is best described as an example of:",
+    "options": [
+      "An epic poem",
+      "A war poem",
+      "A sonnet",
+      "Nonsense verse"
+    ],
+    "answer": 3,
+    "explanation": "Nonsense verse uses playful, absurd images purely for delight rather than to make logical sense. \"A Funny Man\" belongs to that tradition.",
+    "tags": [
+      "poem",
+      "genre"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q002",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "\"He wore his hat upon his feet, and walked upon his head.\" This line is funny because it:",
+    "options": [
+      "Reverses the ordinary way things are done",
+      "Describes a real accident",
+      "Explains how to wear a hat",
+      "Gives a serious warning"
+    ],
+    "answer": 0,
+    "explanation": "The comedy comes from inversion — everything is done the wrong way round, which is the poem's central joke.",
+    "tags": [
+      "poem",
+      "imagery"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q003",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "The overall tone of the poem is:",
+    "options": [
+      "Frightening and tense",
+      "Light-hearted and playful",
+      "Solemn and mournful",
+      "Angry and bitter"
+    ],
+    "answer": 1,
+    "explanation": "The poem is written to amuse. Nothing in it is cruel or serious; the funny man is enjoyed rather than laughed at.",
+    "tags": [
+      "poem",
+      "tone"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q004",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The poet presents the funny man as:",
+    "options": [
+      "Sad and lonely",
+      "Lazy and dishonest",
+      "Delightful rather than foolish",
+      "Dangerous and to be avoided"
+    ],
+    "answer": 2,
+    "explanation": "The poem never mocks him. His oddness is treated with affection, which is why children in the poem are drawn to him.",
+    "tags": [
+      "poem",
+      "character"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q005",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The strong, regular rhythm and rhyme of the poem make it feel like:",
+    "options": [
+      "A newspaper report",
+      "A prose story",
+      "A formal speech",
+      "A nursery rhyme"
+    ],
+    "answer": 3,
+    "explanation": "The bouncing beat and neat rhymes are what give nonsense verse its sing-song, nursery-rhyme quality and make it easy to remember.",
+    "tags": [
+      "poem",
+      "rhythm"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q006",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Two words that rhyme are words that:",
+    "options": [
+      "End with the same sound",
+      "Begin with the same letter",
+      "Have the same number of letters",
+      "Mean the same thing"
+    ],
+    "answer": 0,
+    "explanation": "Rhyme is a matching of end sounds, such as \"head\" and \"bed\". Matching beginning sounds is alliteration instead.",
+    "tags": [
+      "poem",
+      "rhyme"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q007",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Alliteration means the repetition of:",
+    "options": [
+      "Sounds at the ends of lines",
+      "The same consonant sound at the start of nearby words",
+      "A whole line at the end of each stanza",
+      "The same word in every line"
+    ],
+    "answer": 1,
+    "explanation": "Alliteration repeats an initial sound — for example \"funny fellow\" — which adds to the musical, comic effect.",
+    "tags": [
+      "poem",
+      "devices"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q008",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A stanza in a poem is:",
+    "options": [
+      "The title of the poem",
+      "The poet's signature",
+      "A group of lines set apart from the others",
+      "A single rhyming word"
+    ],
+    "answer": 2,
+    "explanation": "A stanza is a block of lines separated by a space, roughly what a paragraph is in prose.",
+    "tags": [
+      "poem",
+      "form"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q009",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The upside-down world of the poem invites the reader to:",
+    "options": [
+      "Learn a set of strict rules",
+      "Copy the funny man's behaviour exactly",
+      "Feel sorry for the funny man",
+      "Look at ordinary things in a new way"
+    ],
+    "answer": 3,
+    "explanation": "Turning familiar things on their head is the poem's way of showing that the ordinary is only ordinary because we are used to it.",
+    "tags": [
+      "poem",
+      "theme"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q010",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Imagery in a poem means language that:",
+    "options": [
+      "Creates a picture in the reader's mind",
+      "Rhymes at the end of each line",
+      "Tells a true story",
+      "Repeats the same idea twice"
+    ],
+    "answer": 0,
+    "explanation": "Imagery appeals to the senses. In this poem the pictures are deliberately impossible, which is exactly what makes them funny.",
+    "tags": [
+      "poem",
+      "devices"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q011",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Personification means giving human qualities to:",
+    "options": [
+      "The title of the poem",
+      "Objects, animals or ideas",
+      "The poet himself",
+      "Only to people in the poem"
+    ],
+    "answer": 1,
+    "explanation": "Personification lets a poet write about a hat or a street as though it could act or feel, which suits the playful world of nonsense verse.",
+    "tags": [
+      "poem",
+      "devices"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q012",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The charm of \"A Funny Man\" lies mainly in the way it:",
+    "options": [
+      "Warns children about strangers",
+      "Describes a historical event",
+      "Reminds us not to take life too seriously",
+      "Teaches a difficult scientific fact"
+    ],
+    "answer": 2,
+    "explanation": "The poem's whole purpose is cheerfulness — a reminder that a little absurdity brightens an ordinary day.",
+    "tags": [
+      "poem",
+      "theme"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q001",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "'Say the Right Thing' is written as a:",
+    "options": [
+      "diary entry",
+      "newspaper article",
+      "long narrative poem",
+      "play, with characters and scenes"
+    ],
+    "answer": 3,
+    "explanation": "The lesson is a humorous play. It is set out as dialogue between named speakers, divided into Scene I and Scene II, with stage directions in brackets.",
+    "tags": [
+      "say-the-right-thing",
+      "genre"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q002",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Who wrote 'Say the Right Thing'?",
+    "options": [
+      "G.C. Thornley",
+      "Natalie Joan",
+      "Hugh Lofting",
+      "Anita Rau Badami"
+    ],
+    "answer": 0,
+    "explanation": "The play is credited to G.C. Thornley at the end of the text.",
+    "tags": [
+      "say-the-right-thing",
+      "author"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q003",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "How are Mrs. Harding and Mrs. Lee related?",
+    "options": [
+      "They are neighbours who have never met",
+      "Mrs. Lee is Mr. Harding's sister",
+      "Mrs. Lee is Mrs. Harding's daughter",
+      "Mrs. Lee is Mrs. Harding's mother"
+    ],
+    "answer": 1,
+    "explanation": "Mrs. Shaw explains that Mrs. Lee is Mr. Harding's married sister, and that she has been staying with the Hardings for a while.",
+    "tags": [
+      "say-the-right-thing",
+      "characters"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q004",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Why is Mrs. Shaw so anxious that the visit should go well?",
+    "options": [
+      "She wants to sell her house to the Hardings",
+      "She wants Mary to be given a job",
+      "She wants to make friends in Lanfield and be invited to the Hardings' house",
+      "She is being paid to entertain them"
+    ],
+    "answer": 2,
+    "explanation": "Mrs. Shaw says there isn't much to do in Lanfield, she wants to know more people and make more friends, and she would like Mrs. Harding to invite her over.",
+    "tags": [
+      "say-the-right-thing",
+      "motive"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q005",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What did Mrs. Shaw tell Mary to say when the guests wanted to leave?",
+    "options": [
+      "\"Please come again next week.\"",
+      "\"Thank you for the lovely afternoon.\"",
+      "\"I hope you found your way easily.\"",
+      "\"Must you go? Can't you stay?\""
+    ],
+    "answer": 3,
+    "explanation": "Mrs. Shaw coached her to sound sorry that they were going, and gave her those exact words to use.",
+    "tags": [
+      "say-the-right-thing",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q006",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Mary tells Mrs. Harding she has often seen her beautiful children. Why is this a blunder?",
+    "options": [
+      "Mrs. Harding has no children at all",
+      "Mrs. Harding thinks her children are badly behaved",
+      "Mary was describing Mrs. Lee's children",
+      "The children were away at boarding school"
+    ],
+    "answer": 0,
+    "explanation": "Mrs. Harding replies twice that she has no children, the second time \"not very pleased\". Mary had seen someone else's children on the road.",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q007",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Mary laughs at Mr. Best, saying he only reads newspapers and that \"bankers can't think\". Why does this fall flat?",
+    "options": [
+      "Mr. Best is Mrs. Shaw's employer",
+      "Mrs. Lee's brother is a banker who travels and reads newspapers exactly like that",
+      "Mr. Best had died the previous year",
+      "Mrs. Harding had never heard of Mr. Best"
+    ],
+    "answer": 1,
+    "explanation": "Mrs. Lee immediately says her own brother is a banker who goes to London by train, comes back each night, and reads two newspapers on the way — the very habits Mary had just mocked.",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q008",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Mary jokes about a woman who wears \"a blue dress with a red coat over it\". What happens next?",
+    "options": [
+      "Mrs. Shaw agrees with Mary",
+      "Mrs. Lee says the same thing is fashionable in London",
+      "Mrs. Harding says she has a blue dress and often wears her red coat with it",
+      "Everyone laughs at the joke"
+    ],
+    "answer": 2,
+    "explanation": "Mrs. Harding quietly says she does exactly that. Mrs. Shaw tries to rescue the moment with \"I like blue dresses and red coats\", and again no one says anything.",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q009",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Mary complains about a dirty dog that is always near their house. Whose dog is it?",
+    "options": [
+      "Mrs. Lee's dog, Rex",
+      "Mr. Best's dog",
+      "A stray dog with no owner",
+      "The Hardings' dog, Towzer"
+    ],
+    "answer": 3,
+    "explanation": "Mrs. Harding looks out of the window and says, \"Yes, I've seen it. That's Towzer. It's our dog.\"",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q010",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The stage direction \"No one speaks\" appears again and again. What does it show?",
+    "options": [
+      "The awkward silence that follows each of Mary's remarks",
+      "That the guests cannot hear Mary",
+      "That Mary is speaking too quietly",
+      "That the characters have left the room"
+    ],
+    "answer": 0,
+    "explanation": "Each time Mary offends someone the conversation dies. The repeated silence is how the playwright shows the growing embarrassment without anyone having to say so.",
+    "tags": [
+      "say-the-right-thing",
+      "technique"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q011",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Mary criticises Mrs. Cotter for staying in bed in the morning and always calling the doctor. What is the awkward reply?",
+    "options": [
+      "The doctor is Mr. Harding's friend",
+      "Mrs. Harding stays in bed in the mornings and Mrs. Lee often goes to the doctor",
+      "Mrs. Cotter had just recovered from an illness",
+      "Mrs. Cotter is Mrs. Shaw's sister"
+    ],
+    "answer": 1,
+    "explanation": "Mrs. Harding says, \"I stay in bed in the morning myself,\" and Mrs. Lee adds, \"I often go to the doctor.\" Mary manages to insult both guests in one remark.",
+    "tags": [
+      "say-the-right-thing",
+      "blunders"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q012",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What does Mary say at the very end, when the guests announce they must leave?",
+    "options": [
+      "She says nothing at all",
+      "\"Please do come again soon.\"",
+      "\"Oh, must you stay? Can't you go?\"",
+      "\"Must you go? Can't you stay?\""
+    ],
+    "answer": 2,
+    "explanation": "She muddles the two halves of the sentence her mother taught her, and manages to say the exact opposite. It is the play's final and funniest blunder.",
+    "tags": [
+      "say-the-right-thing",
+      "climax"
+    ]
+  },
+  {
+    "id": "english-u3-q001",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Who wrote 'My Brother's Great Invention'?",
+    "options": [
+      "G.C. Thornley",
+      "Hugh Lofting",
+      "Ruskin Bond",
+      "Anita Rau Badami"
+    ],
+    "answer": 3,
+    "explanation": "The story is credited to Anita Rau Badami at the end of the text.",
+    "tags": [
+      "great-invention",
+      "author"
+    ]
+  },
+  {
+    "id": "english-u3-q002",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Who tells the story, and what is her age?",
+    "options": [
+      "Anita, who is fourteen",
+      "Anand, who is fourteen",
+      "Sharma Aunty, the neighbour",
+      "Ma, the mother"
+    ],
+    "answer": 0,
+    "explanation": "The narrator introduces herself: \"I am Anita, fourteen years old. My brother Anand, one year younger than me…\"",
+    "tags": [
+      "great-invention",
+      "characters"
+    ]
+  },
+  {
+    "id": "english-u3-q003",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What was Anand's first invention in the story?",
+    "options": [
+      "A telephone to outer space",
+      "A burglar alarm with a water bag over the door",
+      "An electric fan",
+      "A time machine"
+    ],
+    "answer": 1,
+    "explanation": "After a rush of thefts in the colony, Anand rigged up a burglar alarm: the door would set off a clanging sound and loosen a water bag onto the thief's head.",
+    "tags": [
+      "great-invention",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u3-q004",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Why did the burglar alarm soak Papa instead of a thief?",
+    "options": [
+      "The water bag had a hole in it",
+      "Papa forgot to switch it off",
+      "It was rigged to work only when the door was opened gently, and Papa always opened it softly",
+      "Anand set it off deliberately"
+    ],
+    "answer": 2,
+    "explanation": "Anand's clever idea was that a thief would open the door stealthily. Unluckily, Papa opened doors softly too — so it was Papa who came home sopping wet.",
+    "tags": [
+      "great-invention",
+      "irony"
+    ]
+  },
+  {
+    "id": "english-u3-q005",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What gave Anand the idea of building a time machine?",
+    "options": [
+      "A programme on the radio",
+      "A book Anita was reading",
+      "A science lesson at school",
+      "The film 'Back to the Future'"
+    ],
+    "answer": 3,
+    "explanation": "The story says that after they saw the film 'Back to the Future', that was \"the end of peace and quiet in the house\".",
+    "tags": [
+      "great-invention",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u3-q006",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "How did Papa and Ma try to protect their belongings once Anand started inventing?",
+    "options": [
+      "Papa locked up his tool box and hid the key, and Ma watched her oven and mixer",
+      "They locked his bedroom door",
+      "They took away his books",
+      "They sent Anand to stay with Sharma Aunty"
+    ],
+    "answer": 0,
+    "explanation": "When Anand is on an inventing binge he takes apart the gadgets in the house for parts, so both parents guarded their things.",
+    "tags": [
+      "great-invention",
+      "humour"
+    ]
+  },
+  {
+    "id": "english-u3-q007",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Where had Papa and Ma gone on the night of the break-in?",
+    "options": [
+      "To Calcutta to buy tools",
+      "To Kharagpur for a wedding",
+      "To London on work",
+      "To Sharma Aunty's house"
+    ],
+    "answer": 1,
+    "explanation": "They left by the afternoon train for a wedding at Kharagpur, a few hours from Calcutta (now Kolkata), and were to return the following evening.",
+    "tags": [
+      "great-invention",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u3-q008",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Who turned out to be the intruder?",
+    "options": [
+      "A stranger from another town",
+      "Dr. Mohan's driver",
+      "Boppa, who had recently begun sweeping the compounds in their row of houses",
+      "Mr. Sharma's servant"
+    ],
+    "answer": 2,
+    "explanation": "Anita recognised him at once. Because he swept the compounds, he knew exactly when each house was empty and the coast was clear.",
+    "tags": [
+      "great-invention",
+      "plot"
+    ]
+  },
+  {
+    "id": "english-u3-q009",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What did Anand do that showed real presence of mind?",
+    "options": [
+      "He climbed out of the window for help",
+      "He telephoned the police",
+      "He switched off all the lights",
+      "He sent the intruder into his own room, where the time machine stood, instead of upstairs"
+    ],
+    "answer": 3,
+    "explanation": "When the man demanded to know where their father's room was, Anand quickly said \"The one next to this one\" — sending him straight to the time machine.",
+    "tags": [
+      "great-invention",
+      "climax"
+    ]
+  },
+  {
+    "id": "english-u3-q010",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What did they find near the panel of switches after the noises stopped?",
+    "options": [
+      "The intruder's green scarf",
+      "A pair of shoes",
+      "A broken cudgel",
+      "Anand's blueprint"
+    ],
+    "answer": 0,
+    "explanation": "The time machine was still humming softly, the room was empty, and the green scarf the man had been wearing lay near the switches.",
+    "tags": [
+      "great-invention",
+      "climax"
+    ]
+  },
+  {
+    "id": "english-u3-q011",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What happened to the time machine at the end of the story?",
+    "options": [
+      "It was sold to Dr. Mohan",
+      "Papa had it dismantled because he thought it wasn't safe",
+      "It was given to the police as evidence",
+      "Anand improved it and tried it again"
+    ],
+    "answer": 1,
+    "explanation": "Papa thought it unsafe — and, the narrator hints, may also have had \"a niggling suspicion that it worked\". So they never got to test it.",
+    "tags": [
+      "great-invention",
+      "ending"
+    ]
+  },
+  {
+    "id": "english-u3-q012",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What new project has Anand started by the end of the story?",
+    "options": [
+      "A better burglar alarm",
+      "A machine to do homework",
+      "A telephone to contact creatures in outer space",
+      "A second, larger time machine"
+    ],
+    "answer": 2,
+    "explanation": "Anand remains convinced he is a genius. The story closes with Anita promising to tell us about his outer-space telephone next time.",
+    "tags": [
+      "great-invention",
+      "ending"
+    ]
+  },
+  {
     "id": "english-grammar-q001",
     "subject": "English",
     "chapterId": "english-grammar",
@@ -5271,6 +6279,1223 @@
     "tags": [
       "essay-writing",
       "planning"
+    ]
+  },
+  {
+    "id": "hindi-maa-q001",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'माँ, कह एक कहानी' कविता के रचयिता कौन हैं?",
+    "options": [
+      "सूर्यकांत त्रिपाठी 'निराला'",
+      "जयशंकर प्रसाद",
+      "सुमित्रानंदन पंत",
+      "मैथिलीशरण गुप्त"
+    ],
+    "answer": 3,
+    "explanation": "यह कविता राष्ट्रकवि मैथिलीशरण गुप्त की रचना है, जो उनके प्रसिद्ध काव्य 'यशोधरा' से ली गई है।",
+    "tags": [
+      "कवि",
+      "साहित्य"
+    ]
+  },
+  {
+    "id": "hindi-maa-q002",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "बालक राहुल किससे कहानी सुनाने का हठ करता है?",
+    "options": [
+      "अपनी माँ यशोधरा से",
+      "अपने गुरु से",
+      "अपने मित्र से",
+      "अपने पिता सिद्धार्थ से"
+    ],
+    "answer": 0,
+    "explanation": "कविता का आरंभ ही बालक राहुल के इस हठ से होता है कि माँ यशोधरा उसे एक कहानी सुनाएँ।",
+    "tags": [
+      "पात्र",
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-maa-q003",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "कविता में उपवन के ऊपर घायल होकर कौन-सा पक्षी गिरा?",
+    "options": [
+      "मोर",
+      "हंस",
+      "कबूतर",
+      "तोता"
+    ],
+    "answer": 1,
+    "explanation": "आकाश में उड़ता हुआ एक हंस बाण लगने से घायल होकर उपवन में आ गिरा। यही घटना पूरी कथा का आधार बनती है।",
+    "tags": [
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-maa-q004",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "घायल हंस की सेवा और उपचार किसने किया?",
+    "options": [
+      "यशोधरा ने",
+      "आखेटक ने",
+      "सिद्धार्थ ने",
+      "राहुल ने"
+    ],
+    "answer": 2,
+    "explanation": "करुणा से भरे सिद्धार्थ ने घायल हंस को उठाकर उसका बाण निकाला और स्नेहपूर्वक उसकी सेवा की।",
+    "tags": [
+      "पात्र",
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-maa-q005",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'आखेटक' शब्द का अर्थ क्या है?",
+    "options": [
+      "राजा",
+      "यात्री",
+      "माली",
+      "शिकारी"
+    ],
+    "answer": 3,
+    "explanation": "'आखेटक' का अर्थ है शिकारी, अर्थात् आखेट (शिकार) करने वाला।",
+    "tags": [
+      "शब्दार्थ"
+    ]
+  },
+  {
+    "id": "hindi-maa-q006",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "आखेटक ने हंस पर अपना अधिकार किस आधार पर जताया?",
+    "options": [
+      "उसने हंस को बाण से मारा था",
+      "हंस उसके घर में पला था",
+      "हंस उसे उपहार में मिला था",
+      "उसने हंस को पहले देखा था"
+    ],
+    "answer": 0,
+    "explanation": "आखेटक का तर्क था कि जिस पक्षी को उसने अपने बाण से गिराया, वह उसी का है।",
+    "tags": [
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-maa-q007",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "सिद्धार्थ और आखेटक के विवाद का निर्णय कविता में कौन सुनाता है?",
+    "options": [
+      "राजा शुद्धोदन",
+      "बालक राहुल",
+      "नगर का पुरोहित",
+      "माँ यशोधरा"
+    ],
+    "answer": 1,
+    "explanation": "माँ के कहने पर बालक राहुल ही इस विवाद पर अपना न्याय सुनाता है, और यही कविता का चरम बिंदु है।",
+    "tags": [
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-maa-q008",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "राहुल के न्याय का मूल आशय क्या था?",
+    "options": [
+      "जो पहले देखे, वही स्वामी है",
+      "राजा का निर्णय ही अंतिम है",
+      "रक्षक का अधिकार भक्षक से बड़ा होता है",
+      "पक्षी किसी का नहीं होता"
+    ],
+    "answer": 2,
+    "explanation": "राहुल ने कहा कि प्राण लेने वाले से प्राण बचाने वाले का अधिकार बड़ा है — इसलिए हंस सिद्धार्थ का हुआ।",
+    "tags": [
+      "कथावस्तु",
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-maa-q009",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'विहग' शब्द का अर्थ है:",
+    "options": [
+      "पर्वत",
+      "बादल",
+      "वृक्ष",
+      "पक्षी"
+    ],
+    "answer": 3,
+    "explanation": "'विहग' का अर्थ पक्षी है। 'विहंग', 'खग' और 'पंछी' इसके पर्यायवाची शब्द हैं।",
+    "tags": [
+      "शब्दार्थ",
+      "पर्यायवाची"
+    ]
+  },
+  {
+    "id": "hindi-maa-q010",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "कविता में 'तात' संबोधन किसके लिए प्रयुक्त हुआ है?",
+    "options": [
+      "बालक राहुल के लिए",
+      "आखेटक के लिए",
+      "सिद्धार्थ के लिए",
+      "हंस के लिए"
+    ],
+    "answer": 0,
+    "explanation": "माँ यशोधरा अपने पुत्र राहुल को स्नेह से 'तात' कहकर संबोधित करती हैं।",
+    "tags": [
+      "शब्दार्थ"
+    ]
+  },
+  {
+    "id": "hindi-maa-q011",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "उपवन का जो दृश्य कविता में वर्णित है, वह किस समय का है?",
+    "options": [
+      "संध्या का",
+      "प्रातःकाल का",
+      "दोपहर का",
+      "मध्यरात्रि का"
+    ],
+    "answer": 1,
+    "explanation": "कवि ने प्रातःकाल के उपवन का चित्रण किया है — फूलों पर ओस की बूँदें और मंद-मंद बहती हवा।",
+    "tags": [
+      "वर्णन"
+    ]
+  },
+  {
+    "id": "hindi-maa-q012",
+    "subject": "Hindi",
+    "chapterId": "hindi-maa",
+    "chapter": "माँ, कह एक कहानी",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "इस कविता से मिलने वाली मुख्य प्रेरणा क्या है?",
+    "options": [
+      "धन-संग्रह",
+      "वीरता और युद्ध",
+      "जीव-दया और अहिंसा",
+      "प्रतिशोध"
+    ],
+    "answer": 2,
+    "explanation": "कविता का केंद्रीय संदेश यही है कि हर प्राणी के प्रति दया रखनी चाहिए, और रक्षा करना मारने से श्रेष्ठ है।",
+    "tags": [
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-teen-q001",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'तीन बुद्धिमान' किस प्रकार की रचना है?",
+    "options": [
+      "आत्मकथा",
+      "एकांकी",
+      "यात्रा-वृत्तांत",
+      "लोककथा"
+    ],
+    "answer": 3,
+    "explanation": "यह एक लोककथा है, जो पीढ़ी-दर-पीढ़ी सुनाई जाती रही है और तर्कशक्ति का महत्व बताती है।",
+    "tags": [
+      "विधा"
+    ]
+  },
+  {
+    "id": "hindi-teen-q002",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "तीनों यात्रियों ने रेतीली भूमि पर किसके पद-चिह्न देखे?",
+    "options": [
+      "ऊँट के",
+      "बैल के",
+      "घोड़े के",
+      "हाथी के"
+    ],
+    "answer": 0,
+    "explanation": "मार्ग में रेत पर बने ऊँट के पद-चिह्न देखकर ही तीनों ने अपने-अपने अनुमान लगाए।",
+    "tags": [
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-teen-q003",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "पहले बुद्धिमान ने ऊँट के विषय में क्या निष्कर्ष निकाला?",
+    "options": [
+      "वह सफ़ेद रंग का था",
+      "वह एक ही आँख से देख सकता था",
+      "वह बहुत तेज़ दौड़ता था",
+      "वह बहुत बूढ़ा था"
+    ],
+    "answer": 1,
+    "explanation": "मार्ग के केवल एक ओर की घास चरी हुई थी, इससे उसने समझा कि ऊँट दूसरी ओर देख ही नहीं सकता था।",
+    "tags": [
+      "कथावस्तु",
+      "तर्क"
+    ]
+  },
+  {
+    "id": "hindi-teen-q004",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "दूसरे बुद्धिमान के अनुसार ऊँट पर क्या लदा हुआ था?",
+    "options": [
+      "दोनों ओर केवल गेहूँ",
+      "एक ओर नमक और दूसरी ओर तेल",
+      "एक ओर गेहूँ और दूसरी ओर गुड़",
+      "दोनों ओर कपड़े"
+    ],
+    "answer": 2,
+    "explanation": "मार्ग के एक ओर बिखरे दानों पर चींटियाँ थीं और दूसरी ओर मक्खियाँ भिनभिना रही थीं — इसी से उसने गेहूँ और गुड़ का अनुमान लगाया।",
+    "tags": [
+      "कथावस्तु",
+      "तर्क"
+    ]
+  },
+  {
+    "id": "hindi-teen-q005",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "तीसरे बुद्धिमान ने ऊँट की चाल के बारे में क्या बताया?",
+    "options": [
+      "वह रुक-रुककर बैठ जाता था",
+      "वह बहुत तेज़ चलता था",
+      "वह पीछे की ओर चलता था",
+      "वह लँगड़ाकर चलता था"
+    ],
+    "answer": 3,
+    "explanation": "पद-चिह्नों में एक पैर की छाप हल्की और अधूरी थी, जिससे उसने समझा कि ऊँट लँगड़ाकर चल रहा था।",
+    "tags": [
+      "कथावस्तु",
+      "तर्क"
+    ]
+  },
+  {
+    "id": "hindi-teen-q006",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "व्यापारी ने तीनों यात्रियों पर क्या आरोप लगाया?",
+    "options": [
+      "उसका ऊँट चुराने का",
+      "उसे मार्ग भटकाने का",
+      "उसके खेत उजाड़ने का",
+      "उसका धन लूटने का"
+    ],
+    "answer": 0,
+    "explanation": "ऊँट का इतना सटीक हुलिया सुनकर व्यापारी को लगा कि इन्होंने अवश्य ही ऊँट देखा है और छिपा रखा है — इसलिए उसने चोरी का आरोप लगा दिया।",
+    "tags": [
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-teen-q007",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "व्यापारी तीनों बुद्धिमानों को किसके पास ले गया?",
+    "options": [
+      "पंचायत में",
+      "राजा के दरबार में",
+      "पुलिस चौकी में",
+      "गाँव के मुखिया के पास"
+    ],
+    "answer": 1,
+    "explanation": "अपने आरोप का निपटारा कराने के लिए व्यापारी तीनों को राजा के दरबार में ले गया।",
+    "tags": [
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-teen-q008",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "तीनों के तर्क सुनकर राजा ने क्या किया?",
+    "options": [
+      "उन्हें दंड दिया",
+      "उन्हें नगर से निकाल दिया",
+      "उनकी बुद्धि का सम्मान किया",
+      "उनसे जुर्माना वसूला"
+    ],
+    "answer": 2,
+    "explanation": "जब तीनों ने अपने-अपने अनुमान का आधार बताया, तो राजा उनकी सूक्ष्म बुद्धि से प्रभावित हुआ और उसने उनका सम्मान किया।",
+    "tags": [
+      "कथावस्तु"
+    ]
+  },
+  {
+    "id": "hindi-teen-q009",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "तीनों यात्रियों में सबसे प्रमुख गुण कौन-सा था?",
+    "options": [
+      "धन-संपत्ति",
+      "शारीरिक बल",
+      "ऊँचा पद",
+      "सूक्ष्म निरीक्षण शक्ति"
+    ],
+    "answer": 3,
+    "explanation": "उन्होंने ऊँट देखा तक नहीं था; केवल छोटे-छोटे चिह्नों को ध्यान से देखकर सही निष्कर्ष निकाल लिया।",
+    "tags": [
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-teen-q010",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'साक्ष्य' शब्द का अर्थ है:",
+    "options": [
+      "प्रमाण",
+      "दंड",
+      "यात्रा",
+      "संदेह"
+    ],
+    "answer": 0,
+    "explanation": "'साक्ष्य' का अर्थ है प्रमाण या गवाही, जिसके आधार पर किसी बात को सिद्ध किया जाता है।",
+    "tags": [
+      "शब्दार्थ"
+    ]
+  },
+  {
+    "id": "hindi-teen-q011",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "व्यापारी को अंत में लज्जित क्यों होना पड़ा?",
+    "options": [
+      "उसने यात्रियों से धन माँगा था",
+      "उसने बिना प्रमाण के आरोप लगा दिया था",
+      "उसने राजा से झूठ बोला था",
+      "उसने ऊँट बेच दिया था"
+    ],
+    "answer": 1,
+    "explanation": "जल्दबाज़ी में उसने निर्दोष लोगों पर चोरी का आरोप लगा दिया, जबकि उनके पास केवल तर्क था, ऊँट नहीं।",
+    "tags": [
+      "कथावस्तु",
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-teen-q012",
+    "subject": "Hindi",
+    "chapterId": "hindi-teen",
+    "chapter": "तीन बुद्धिमान",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "इस कहानी से मिलने वाली मुख्य नैतिक शिक्षा क्या है?",
+    "options": [
+      "यात्रा सदा समूह में करनी चाहिए",
+      "राजा की आज्ञा सर्वोपरि है",
+      "बिना प्रमाण के किसी पर आरोप नहीं लगाना चाहिए",
+      "व्यापार में सावधानी रखनी चाहिए"
+    ],
+    "answer": 2,
+    "explanation": "कहानी दो बातें सिखाती है — ध्यान से देखने की आदत, और यह कि आरोप लगाने से पहले प्रमाण होना चाहिए।",
+    "tags": [
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-phool-q001",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'फूल और काँटा' कविता के रचयिता कौन हैं?",
+    "options": [
+      "महादेवी वर्मा",
+      "मैथिलीशरण गुप्त",
+      "रामधारी सिंह 'दिनकर'",
+      "अयोध्यासिंह उपाध्याय 'हरिऔध'"
+    ],
+    "answer": 3,
+    "explanation": "यह कविता अयोध्यासिंह उपाध्याय 'हरिऔध' की प्रसिद्ध रचना है।",
+    "tags": [
+      "कवि"
+    ]
+  },
+  {
+    "id": "hindi-phool-q002",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "कविता के अनुसार फूल और काँटा कहाँ जन्म लेते हैं?",
+    "options": [
+      "एक ही स्थान पर, एक ही पौधे पर",
+      "अलग-अलग ऋतुओं में",
+      "अलग-अलग वनों में",
+      "अलग-अलग पौधों पर"
+    ],
+    "answer": 0,
+    "explanation": "कवि यही विरोधाभास सामने रखता है कि दोनों का जन्म एक ही जगह होता है, फिर भी दोनों का स्वभाव बिलकुल अलग है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-phool-q003",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "चाँद, हवा और बादल फूल तथा काँटे के साथ कैसा व्यवहार करते हैं?",
+    "options": [
+      "केवल काँटे का पक्ष लेते हैं",
+      "दोनों के साथ समान व्यवहार करते हैं",
+      "दोनों की उपेक्षा करते हैं",
+      "केवल फूल का पक्ष लेते हैं"
+    ],
+    "answer": 1,
+    "explanation": "प्रकृति निष्पक्ष है — वही चाँदनी, वही वर्षा और वही हवा दोनों को समान रूप से मिलती है। अंतर केवल उनके अपने स्वभाव का है।",
+    "tags": [
+      "कथ्य",
+      "भाव"
+    ]
+  },
+  {
+    "id": "hindi-phool-q004",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "काँटा पास आने वालों के साथ क्या करता है?",
+    "options": [
+      "उन्हें सुगंध देता है",
+      "उन्हें मधुर रस पिलाता है",
+      "उनके वस्त्र और उँगलियाँ चुभोकर घायल करता है",
+      "उन्हें छाया देता है"
+    ],
+    "answer": 2,
+    "explanation": "काँटे का स्वभाव ही कष्ट देना है — वह राहगीरों के कपड़े फाड़ता है और उँगलियों में चुभता है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-phool-q005",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "काँटा तितलियों और भँवरों के साथ क्या करता है?",
+    "options": [
+      "उन्हें अपनी गोद में बिठाता है",
+      "उनकी रक्षा करता है",
+      "उन्हें रस पिलाता है",
+      "उनके पंख और शरीर बींध डालता है"
+    ],
+    "answer": 3,
+    "explanation": "कवि बताता है कि काँटा कोमल तितलियों के पंख फाड़ देता है और भँवरों के श्यामल शरीर को बींध डालता है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-phool-q006",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "फूल भँवरे को क्या देता है?",
+    "options": [
+      "अपना मधुर रस",
+      "अपने काँटे",
+      "अपनी छाया",
+      "अपनी जड़ें"
+    ],
+    "answer": 0,
+    "explanation": "फूल अपना संचित मधुर रस भँवरे को पिलाता है और तितलियों को अपनी गोद में बिठाता है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-phool-q007",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "फूल को कहाँ चढ़ाकर सम्मान दिया जाता है?",
+    "options": [
+      "नदी के जल में",
+      "देवताओं के शीश पर",
+      "राजा के सिंहासन पर",
+      "वृक्ष की जड़ में"
+    ],
+    "answer": 1,
+    "explanation": "अपने सुगंध और परोपकारी स्वभाव के कारण फूल देवताओं के मस्तक पर चढ़ने का सम्मान पाता है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-phool-q008",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'शीश' शब्द का पर्यायवाची है:",
+    "options": [
+      "हृदय",
+      "नयन",
+      "मस्तक",
+      "चरण"
+    ],
+    "answer": 2,
+    "explanation": "'शीश' का अर्थ सिर है; 'मस्तक' और 'सिर' इसके पर्यायवाची शब्द हैं।",
+    "tags": [
+      "पर्यायवाची"
+    ]
+  },
+  {
+    "id": "hindi-phool-q009",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "'बड़प्पन की कसर' कहकर कवि क्या समझाना चाहता है?",
+    "options": [
+      "बड़प्पन आयु से आता है",
+      "बड़प्पन धन से आता है",
+      "बड़े लोगों में कोई कमी नहीं होती",
+      "केवल ऊँचे कुल में जन्म लेने से कोई बड़ा नहीं हो जाता"
+    ],
+    "answer": 3,
+    "explanation": "कवि का आशय है कि ऊँचे कुल का दंभ व्यर्थ है; बड़प्पन जन्म से नहीं, कर्म और स्वभाव से आता है।",
+    "tags": [
+      "भाव"
+    ]
+  },
+  {
+    "id": "hindi-phool-q010",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "समान पालन-पोषण मिलने पर भी फूल और काँटे का स्वभाव भिन्न क्यों है?",
+    "options": [
+      "क्योंकि स्वभाव और कर्म अपने-अपने होते हैं",
+      "क्योंकि उन्हें अलग-अलग जल मिलता है",
+      "क्योंकि वे अलग ऋतुओं में उगते हैं",
+      "क्योंकि माली उनमें भेद करता है"
+    ],
+    "answer": 0,
+    "explanation": "यही कविता का केंद्रीय तर्क है — परिस्थिति समान होने पर भी व्यक्ति अपने कर्मों से ही अच्छा या बुरा बनता है।",
+    "tags": [
+      "भाव"
+    ]
+  },
+  {
+    "id": "hindi-phool-q011",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "समाज में 'फूल' जैसे स्वभाव वाले व्यक्ति की पहचान क्या होती है?",
+    "options": [
+      "वह सबसे धनी होता है",
+      "वह दूसरों को सुख और सहायता पहुँचाता है",
+      "वह सबसे बलवान होता है",
+      "वह सबसे अधिक बोलता है"
+    ],
+    "answer": 1,
+    "explanation": "फूल जैसा व्यक्ति अपने व्यवहार से दूसरों का जीवन सुगंधित करता है, और इसी से समाज में सम्मान पाता है।",
+    "tags": [
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-phool-q012",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "कविता का मूल संदेश क्या है?",
+    "options": [
+      "प्रकृति पक्षपात करती है",
+      "फूल काँटे से अधिक सुंदर होता है",
+      "मनुष्य की महत्ता उसके जन्म से नहीं, कर्म से होती है",
+      "काँटों वाले पौधे नहीं लगाने चाहिए"
+    ],
+    "answer": 2,
+    "explanation": "कवि यही सिद्ध करता है कि आदर कुल या जन्म का नहीं, अच्छे कर्मों और विनम्र स्वभाव का होता है।",
+    "tags": [
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-paani-q001",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'पानी रे पानी' निबंध के लेखक कौन हैं?",
+    "options": [
+      "प्रेमचंद",
+      "हजारी प्रसाद द्विवेदी",
+      "रामवृक्ष बेनीपुरी",
+      "अनुपम मिश्र"
+    ],
+    "answer": 3,
+    "explanation": "अनुपम मिश्र पर्यावरण और जल-संरक्षण पर लिखने वाले प्रसिद्ध लेखक थे, जिन्होंने पारंपरिक जल-प्रबंधन को फिर से चर्चा में लाया।",
+    "tags": [
+      "लेखक"
+    ]
+  },
+  {
+    "id": "hindi-paani-q002",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "पाठ में धरती के नीचे संचित जल-भंडार को क्या कहा गया है?",
+    "options": [
+      "पानी का गुल्लक",
+      "पानी की नदी",
+      "पानी का बादल",
+      "पानी का सागर"
+    ],
+    "answer": 0,
+    "explanation": "भू-जल को 'पानी का गुल्लक' कहा गया है — जैसे गुल्लक में जमा धन, वैसे ही यह संचित पूँजी है, जिसे सोच-समझकर ही निकालना चाहिए।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-paani-q003",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "भू-जल स्तर लगातार नीचे गिरने का मुख्य कारण क्या है?",
+    "options": [
+      "तालाबों में मछली पालन",
+      "आवश्यकता से कहीं अधिक जल-दोहन",
+      "नदियों का सूख जाना",
+      "वर्षा का पूरी तरह बंद हो जाना"
+    ],
+    "answer": 1,
+    "explanation": "जितना जल भूमि में वापस पहुँचता है, उससे कहीं अधिक निकाला जा रहा है, इसलिए गुल्लक खाली होता जा रहा है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-paani-q004",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "कंक्रीट की पक्की सड़कों और इमारतों से वर्षा जल पर क्या प्रभाव पड़ा है?",
+    "options": [
+      "जल भूमि में तेज़ी से रिसने लगा है",
+      "जल अधिक शुद्ध हो गया है",
+      "जल भूमि में रिस नहीं पाता और बह जाता है",
+      "वर्षा अधिक होने लगी है"
+    ],
+    "answer": 2,
+    "explanation": "पक्की सतहें वर्षा जल को भूमि में उतरने ही नहीं देतीं, इसलिए वह नालियों से बहकर व्यर्थ चला जाता है और भू-जल की भरपाई नहीं होती।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-paani-q005",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "पुराने समय में जल-संरक्षण के लिए किन पारंपरिक साधनों का उपयोग होता था?",
+    "options": [
+      "बाँध और नहरें",
+      "बोरवेल और मोटर",
+      "पाइपलाइन और नल",
+      "तालाब, कुएँ और बावड़ियाँ"
+    ],
+    "answer": 3,
+    "explanation": "हमारे पूर्वजों ने हर क्षेत्र की ज़रूरत के अनुसार तालाब, कुएँ और बावड़ियाँ बनाईं, जिनसे वर्षा जल इकट्ठा होकर भूमि में उतरता था।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-paani-q006",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "वर्षा जल संचयन (रेनवाटर हार्वेस्टिंग) का अर्थ है:",
+    "options": [
+      "वर्षा के जल को इकट्ठा कर भूमि में पहुँचाना या संग्रह करना",
+      "समुद्र के जल को मीठा बनाना",
+      "नलों में जल की आपूर्ति बढ़ाना",
+      "नदियों से जल खींचकर लाना"
+    ],
+    "answer": 0,
+    "explanation": "छतों और आँगन पर गिरने वाले वर्षा जल को नालियों से जोड़कर कुएँ या गड्ढे तक पहुँचाया जाता है, जिससे भू-जल फिर से भरता है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-paani-q007",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "बाढ़ और सूखा को 'एक ही सिक्के के दो पहलू' क्यों कहा गया है?",
+    "options": [
+      "दोनों समुद्र के कारण होते हैं",
+      "दोनों ही जल के कुप्रबंधन का परिणाम हैं",
+      "दोनों एक ही ऋतु में आते हैं",
+      "दोनों का कोई उपाय नहीं है"
+    ],
+    "answer": 1,
+    "explanation": "वर्षा का जल यदि सँभाला नहीं जाता तो वही बहकर बाढ़ बन जाता है, और बाद में वही जल न होने पर सूखा पड़ता है। जड़ में एक ही चूक है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-paani-q008",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "नदियों के जल-प्रदूषण का एक प्रमुख कारण है:",
+    "options": [
+      "नदियों में नावें चलाना",
+      "नदियों के किनारे वृक्ष लगाना",
+      "कल-कारखानों का रासायनिक कचरा नदियों में डालना",
+      "वर्षा का जल नदी में मिलना"
+    ],
+    "answer": 2,
+    "explanation": "कारखानों का बिना शोधन किया रासायनिक कचरा नदियों में जाकर जल को पीने योग्य नहीं रहने देता और अनेक रोग फैलाता है।",
+    "tags": [
+      "कथ्य"
+    ]
+  },
+  {
+    "id": "hindi-paani-q009",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "टपक सिंचाई (ड्रिप इरिगेशन) का मुख्य लाभ क्या है?",
+    "options": [
+      "खेत की जुताई नहीं करनी पड़ती",
+      "खाद की आवश्यकता नहीं पड़ती",
+      "फ़सल जल्दी पक जाती है",
+      "बहुत कम जल में सिंचाई हो जाती है"
+    ],
+    "answer": 3,
+    "explanation": "इसमें जल बूँद-बूँद करके सीधे पौधे की जड़ तक पहुँचता है, इसलिए बहाव में होने वाली बर्बादी बच जाती है।",
+    "tags": [
+      "कथ्य",
+      "कृषि"
+    ]
+  },
+  {
+    "id": "hindi-paani-q010",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "जल-चक्र को सुचारु बनाए रखने में वनों की क्या भूमिका है?",
+    "options": [
+      "वे वर्षा में सहायक होते हैं और जल को भूमि में रिसने देते हैं",
+      "वे वर्षा को रोक देते हैं",
+      "वे भू-जल सोखकर समाप्त कर देते हैं",
+      "उनका जल-चक्र से कोई संबंध नहीं"
+    ],
+    "answer": 0,
+    "explanation": "वनों की जड़ें मिट्टी को बाँधे रखती हैं और वर्षा जल को धीरे-धीरे भूमि में उतरने देती हैं, जिससे भू-जल भरता है।",
+    "tags": [
+      "कथ्य",
+      "पर्यावरण"
+    ]
+  },
+  {
+    "id": "hindi-paani-q011",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'निर्जल' शब्द का अर्थ है:",
+    "options": [
+      "गहरा जल",
+      "जल रहित",
+      "जल से भरा",
+      "बहता जल"
+    ],
+    "answer": 1,
+    "explanation": "'निर्जल' का अर्थ है जिसमें जल न हो। इसका विलोम 'सजल' है, अर्थात् जल से युक्त।",
+    "tags": [
+      "शब्दार्थ",
+      "विलोम"
+    ]
+  },
+  {
+    "id": "hindi-paani-q012",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "निबंध का मुख्य संदेश क्या है?",
+    "options": [
+      "जल की समस्या केवल सरकार की है",
+      "नए बोरवेल अधिक खोदने चाहिए",
+      "जल को बचाना और सोच-समझकर उपयोग करना आवश्यक है",
+      "वर्षा पर ही निर्भर रहना चाहिए"
+    ],
+    "answer": 2,
+    "explanation": "लेखक यही समझाता है कि जल सीमित है; उसे बचाना, संचित करना और मितव्ययिता से बरतना हम सबकी ज़िम्मेदारी है।",
+    "tags": [
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q001",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "संतुलित आहार किसे कहते हैं?",
+    "options": [
+      "जिसमें केवल प्रोटीन अधिक हो",
+      "जो सबसे महँगा हो",
+      "जो केवल स्वादिष्ट हो",
+      "जिसमें सभी आवश्यक पोषक तत्व उचित मात्रा में हों"
+    ],
+    "answer": 3,
+    "explanation": "संतुलित आहार में कार्बोहाइड्रेट, प्रोटीन, वसा, विटामिन और खनिज लवण उचित अनुपात में होते हैं, जो शरीर की सभी आवश्यकताएँ पूरी करते हैं।",
+    "tags": [
+      "आहार",
+      "स्वास्थ्य"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q002",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "संक्रामक रोगों से बचने का सबसे सरल और प्रभावी उपाय क्या है?",
+    "options": [
+      "भोजन से पहले साबुन से हाथ धोना",
+      "ठंडा जल पीना",
+      "अधिक दवाइयाँ लेना",
+      "दिन में अधिक सोना"
+    ],
+    "answer": 0,
+    "explanation": "अधिकांश रोगाणु हाथों के द्वारा मुँह तक पहुँचते हैं। साबुन से हाथ धोना इसीलिए सबसे सस्ता और सबसे कारगर बचाव है।",
+    "tags": [
+      "स्वच्छता"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q003",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'रोकथाम इलाज से बेहतर है' का अर्थ क्या है?",
+    "options": [
+      "दवा घर पर ही बना लेनी चाहिए",
+      "रोग हो जाने के बाद उपचार करने से अच्छा है कि रोग होने ही न दिया जाए",
+      "रोग अपने आप ठीक हो जाता है",
+      "इलाज कभी नहीं कराना चाहिए"
+    ],
+    "answer": 1,
+    "explanation": "अच्छी आदतें अपनाकर रोग को आने से रोकना सरल, सस्ता और कम कष्टकर होता है — इलाज उसके बाद की मजबूरी है।",
+    "tags": [
+      "स्वास्थ्य",
+      "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q004",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "नियमित व्यायाम का प्रमुख लाभ क्या है?",
+    "options": [
+      "नींद की आवश्यकता नहीं रहती",
+      "शरीर का विकास रुक जाता है",
+      "शरीर स्वस्थ, फुर्तीला और रोगों से लड़ने योग्य बनता है",
+      "भूख समाप्त हो जाती है"
+    ],
+    "answer": 2,
+    "explanation": "व्यायाम से माँसपेशियाँ और हड्डियाँ मज़बूत होती हैं, रक्त-संचार सुधरता है और रोग-प्रतिरोधक क्षमता बढ़ती है।",
+    "tags": [
+      "व्यायाम"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q005",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "किशोरावस्था में पर्याप्त नींद क्यों आवश्यक है?",
+    "options": [
+      "नींद से भूख बढ़ती है",
+      "नींद का स्वास्थ्य से कोई संबंध नहीं",
+      "नींद से लंबाई घट जाती है",
+      "नींद में ही शरीर की वृद्धि और मरम्मत होती है"
+    ],
+    "answer": 3,
+    "explanation": "सोते समय शरीर स्वयं की मरम्मत करता है और वृद्धि से जुड़े हार्मोन सक्रिय रहते हैं, इसलिए बढ़ती आयु में पूरी नींद आवश्यक है।",
+    "tags": [
+      "नींद",
+      "स्वास्थ्य"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q006",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "पीने का जल सुरक्षित बनाने का सरल घरेलू उपाय क्या है?",
+    "options": [
+      "उबालकर और छानकर पीना",
+      "उसमें चीनी मिलाना",
+      "उसे धूप में रखना",
+      "उसे बर्तन में खुला छोड़ देना"
+    ],
+    "answer": 0,
+    "explanation": "जल को उबालने से अधिकांश रोगाणु नष्ट हो जाते हैं, और छानने से मिट्टी तथा कचरा अलग हो जाता है।",
+    "tags": [
+      "स्वच्छता",
+      "जल"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q007",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "जंक फ़ूड अधिक खाने से क्या हानि होती है?",
+    "options": [
+      "हड्डियाँ मज़बूत होती हैं",
+      "वसा और चीनी अधिक तथा पोषक तत्व कम मिलते हैं",
+      "शरीर को सभी विटामिन मिल जाते हैं",
+      "पाचन शक्ति बढ़ जाती है"
+    ],
+    "answer": 1,
+    "explanation": "जंक फ़ूड में कैलोरी तो बहुत होती है पर पोषण बहुत कम, जिससे मोटापा और कमज़ोरी दोनों साथ आ सकते हैं।",
+    "tags": [
+      "आहार"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q008",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "मौसमी फल और सब्ज़ियाँ खाने की सलाह क्यों दी जाती है?",
+    "options": [
+      "वे देर तक खराब नहीं होतीं",
+      "उनका स्वाद फीका होता है",
+      "वे ताज़ी, सस्ती और अधिक पोषक होती हैं",
+      "उन्हें पकाने की आवश्यकता नहीं होती"
+    ],
+    "answer": 2,
+    "explanation": "मौसम में उगी उपज ताज़ी मिलती है, उसमें पोषक तत्व अधिक बचे रहते हैं और वह सस्ती भी पड़ती है।",
+    "tags": [
+      "आहार"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q009",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "टीकाकरण (वैक्सीनेशन) से क्या होता है?",
+    "options": [
+      "रोग तुरंत ठीक हो जाता है",
+      "शरीर की वृद्धि रुक जाती है",
+      "भूख बढ़ जाती है",
+      "शरीर में रोग से लड़ने की क्षमता पहले ही तैयार हो जाती है"
+    ],
+    "answer": 3,
+    "explanation": "टीका शरीर को पहले ही सिखा देता है कि किसी विशेष रोगाणु से कैसे लड़ना है, जिससे बाद में वह रोग होता ही नहीं या हलका रहता है।",
+    "tags": [
+      "रोग-प्रतिरोध"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q010",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'आरोग्य' शब्द का अर्थ है:",
+    "options": [
+      "नीरोग होना, स्वस्थ रहना",
+      "चिकित्सालय जाना",
+      "औषधि लेना",
+      "रोगी हो जाना"
+    ],
+    "answer": 0,
+    "explanation": "'आरोग्य' का अर्थ है रोगों से मुक्त अवस्था, अर्थात् उत्तम स्वास्थ्य।",
+    "tags": [
+      "शब्दार्थ"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q011",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "व्यक्तिगत स्वच्छता में क्या-क्या सम्मिलित है?",
+    "options": [
+      "केवल महँगे साबुन का प्रयोग",
+      "प्रतिदिन स्नान, स्वच्छ वस्त्र, कटे नाखून और साफ़ दाँत",
+      "केवल बाहर जाते समय तैयार होना",
+      "केवल सप्ताह में एक बार स्नान"
+    ],
+    "answer": 1,
+    "explanation": "व्यक्तिगत स्वच्छता रोज़ की छोटी-छोटी आदतों से बनती है — नहाना, साफ़ कपड़े पहनना, नाखून काटना और दाँत साफ़ रखना।",
+    "tags": [
+      "स्वच्छता"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q012",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "इस पाठ का मुख्य संदेश क्या है?",
+    "options": [
+      "स्वास्थ्य केवल भाग्य पर निर्भर है",
+      "रोग होने पर ही ध्यान देना चाहिए",
+      "अच्छी दिनचर्या और आदतें ही सबसे बड़ी औषधि हैं",
+      "दवा ही स्वास्थ्य का एकमात्र आधार है"
+    ],
+    "answer": 2,
+    "explanation": "पाठ यही समझाता है कि संतुलित आहार, व्यायाम, स्वच्छता और पर्याप्त नींद — ये चार आदतें ही बीमार न पड़ने का सबसे भरोसेमंद उपाय हैं।",
+    "tags": [
+      "संदेश"
     ]
   },
   {

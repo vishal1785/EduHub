@@ -27,7 +27,7 @@
  * ---------------------------------------------------------------------
  */
 
-const CACHE_NAME = "class7-practice-v9";
+const CACHE_NAME = "learn-splash-v13";
 
 // Paths are relative to this file's location, so this works whether the
 // app is served from a domain root or a GitHub Pages project subpath.
@@ -48,6 +48,7 @@ const PRECACHE_PATHS = [
   "./data/syllabus.json",
   "./data/questions.json",
   "./data/config.json",
+  "./icons/icon.svg",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
 ];

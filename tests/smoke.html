@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Class 7 Practice — browser smoke test</title>
+<title>Learn Splash — browser smoke test</title>
 <style>
   body { font-family: ui-monospace, Menlo, Consolas, monospace; margin: 24px; line-height: 1.5; }
   .pass { color: #0a7d32; }
@@ -182,6 +182,10 @@ async function run() {
   check(!!doc().getElementById("btn-name") && text().includes(STUDENT_NAME),
     "More shows the stored name and offers to change it", text().slice(0, 200));
 
+  const version = await fetch("/data/config.json").then((r) => r.json()).then((c) => c.appVersion);
+  check(!!version && text().includes(`Learn Splash v${version}`),
+    `More shows the app version from config.json (v${version})`, text().slice(0, 240));
+
   // Change the name and confirm the greeting follows it.
   doc().getElementById("btn-name").click();
   const nameDialog = await until(() => doc().querySelector(".overlay .dialog #dlg-input"), 15000, "name dialog");
@@ -214,9 +218,24 @@ async function run() {
   await goto("#/chapter/german-uhr", () => rendered() && doc().getElementById("btn-practise"), "bank-backed chapter");
   check(!!doc().getElementById("btn-practise"), "a bank-backed chapter (german-uhr) offers a Practise button");
 
-  await goto("#/chapter/hindi-maa", () => rendered(), "empty chapter");
-  check(!doc().getElementById("btn-practise") && /coming soon/i.test(text()),
-    'an empty chapter (hindi-maa) shows "Content coming soon" and no Practise button', text().slice(0, 200));
+  // Which chapters are empty changes as content is written, so find one from
+  // the data rather than naming it here - otherwise this check breaks every
+  // time a chapter is filled in.
+  const [bank, syllabus] = await Promise.all([
+    fetch("/data/questions.json").then((r) => r.json()),
+    fetch("/data/syllabus.json").then((r) => r.json()),
+  ]);
+  const withQuestions = new Set(bank.map((q) => q.chapterId));
+  const emptyChapter = Object.values(syllabus).flat()
+    .find((ch) => !withQuestions.has(ch.id) && !(ch.generators || []).length);
+
+  if (emptyChapter) {
+    await goto(`#/chapter/${emptyChapter.id}`, () => rendered(), "empty chapter");
+    check(!doc().getElementById("btn-practise") && /coming soon/i.test(text()),
+      `an empty chapter (${emptyChapter.id}) shows "Content coming soon" and no Practise button`, text().slice(0, 200));
+  } else {
+    check(true, "no chapter is empty any more, so there is nothing to show as coming soon");
+  }
 
   /* ----------------- full quiz run on a GENERATED chapter ------------- */
   section("End-to-end quiz on a generated chapter");
@@ -336,6 +355,44 @@ async function run() {
   await until(() => doc().querySelector("#options-wrap .option"), 20000, "resumed mock again");
   check(/Question 4 of/.test(doc().getElementById("q-count").textContent),
     "choosing Resume returns to question 4 rather than restarting");
+
+  /* ---------- simpler steps appear only after a wrong answer ---------- */
+  section("Worked steps on a wrong answer");
+
+  let correctWithSteps = 0;
+  let wrongWithSteps = 0;
+  let wrongTotal = 0;
+
+  // Two rounds of a word-problem-heavy chapter. Always picking option A means
+  // most answers are wrong, which is what we want to observe here.
+  for (let round = 0; round < 2; round++) {
+    await goto("#/chapter/maths-ch6", () => rendered() && doc().getElementById("btn-practise"), "maths-ch6");
+    doc().getElementById("btn-practise").click();
+    await until(() => doc().querySelector("#options-wrap .option"), 20000, "first question");
+
+    for (let i = 0; i < 10; i++) {
+      if (!doc().querySelector("#options-wrap .option")) break;
+      doc().querySelectorAll("#options-wrap .option")[0].click();
+      const next = await until(() => doc().getElementById("btn-next"), 15000, "feedback");
+      const panel = doc().querySelector(".feedback-panel");
+      const hasSteps = !!doc().querySelector(".feedback-steps");
+      if (panel && panel.classList.contains("incorrect")) {
+        wrongTotal++;
+        if (hasSteps) wrongWithSteps++;
+      } else if (hasSteps) {
+        correctWithSteps++;
+      }
+      next.click();
+      if (i < 9) await until(() => doc().querySelector("#options-wrap .option"), 15000, "next question").catch(() => null);
+    }
+    await until(() => doc().getElementById("btn-review"), 20000, "result screen");
+  }
+
+  check(wrongTotal > 0, `the run produced wrong answers to inspect (${wrongTotal} of 20)`);
+  check(correctWithSteps === 0,
+    "a CORRECT answer never shows the worked steps", `${correctWithSteps} correct answers showed them`);
+  check(wrongWithSteps > 0,
+    `a wrong answer on a word problem shows the worked steps (${wrongWithSteps} of ${wrongTotal} wrong answers had them)`);
 
   /* -------------------- a bank-backed chapter too --------------------- */
   section("End-to-end quiz on a bank-backed chapter");

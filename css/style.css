@@ -601,3 +601,22 @@ body.no-nav .bottom-nav { display: none; }
   color: var(--muted);
   line-height: 1.5;
 }
+
+/* Worked steps, shown under the explanation after a wrong answer. */
+.feedback-steps {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+}
+.feedback-steps ol {
+  margin: 6px 0 0;
+  padding-left: 20px;
+}
+.feedback-steps li {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 7px;
+}
+.feedback-steps li:last-child { margin-bottom: 0; }
+.review-q .feedback-steps { border-top-color: var(--border); }

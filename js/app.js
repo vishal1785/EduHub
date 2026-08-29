@@ -234,7 +234,7 @@ function renderWelcome() {
     <div class="welcome">
       <div class="welcome-inner">
         <img class="welcome-logo" src="icons/icon-192.png" alt="" width="76" height="76" />
-        <h1>Class 7 Practice</h1>
+        <h1>Learn Splash</h1>
         <p class="welcome-sub">Practise your chapters, take mock tests and track your progress. What should we call you?</p>
 
         <label class="sr-only" for="student-name">Your name</label>
@@ -623,6 +623,17 @@ async function renderQuiz(quizType) {
       if (i === selectedIndex && i !== question.answer) btn.classList.add("selected");
     });
 
+    // A wrong answer also gets the worked steps, in plainer language. Someone
+    // who answered correctly does not need the scaffolding; someone who did
+    // not needs more than being told the right letter.
+    const stepsHtml =
+      !correct && Array.isArray(question.simpler) && question.simpler.length
+        ? `<div class="feedback-steps">
+            <div class="feedback-why-label">Let's break it down</div>
+            <ol>${question.simpler.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ol>
+          </div>`
+        : "";
+
     document.getElementById("quiz-body").insertAdjacentHTML(
       "beforeend",
       `<div class="feedback-panel ${correct ? "correct" : "incorrect"}">
@@ -630,6 +641,7 @@ async function renderQuiz(quizType) {
         ${!correct ? `<div class="feedback-correct-answer">Correct answer: <strong>${letterFor(question.answer)}. ${escapeHtml(question.options[question.answer])}</strong></div>` : ""}
         <div class="feedback-why-label">Why?</div>
         <div class="feedback-why">${escapeHtml(question.explanation)}</div>
+        ${stepsHtml}
       </div>`
     );
 
@@ -730,6 +742,9 @@ async function renderReview(attemptId) {
         <div class="review-line your ${ans.correct ? "right" : "wrong"}"><span class="lbl">Your answer:</span> ${escapeHtml(yourText)} ${ans.correct ? "✓" : "✕"}</div>
         ${!ans.correct ? `<div class="review-line correct"><span class="lbl">Correct:</span> ${letterFor(question.answer)}. ${escapeHtml(question.options[question.answer])} ✓</div>` : ""}
         <div class="review-why"><strong>Why:</strong> ${escapeHtml(question.explanation)}</div>
+        ${!ans.correct && Array.isArray(question.simpler) && question.simpler.length
+          ? `<div class="feedback-steps"><div class="feedback-why-label">Step by step</div><ol>${question.simpler.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ol></div>`
+          : ""}
       </div>`;
     })
     .join("");
@@ -895,7 +910,7 @@ async function renderMore() {
 
       <div class="section-title">About</div>
       <div class="card" style="font-size:0.85rem;color:var(--ink-soft);line-height:1.6;">
-        Class 7 Practice v3.0<br />
+        Learn Splash v${escapeHtml(String(DATA.config.appVersion || "3.0"))}<br />
         All your data stays on this device — nothing is sent anywhere.<br />
         Use <strong>Export Data</strong> regularly to keep a backup, especially before clearing browser data.
       </div>
@@ -983,7 +998,7 @@ async function exportDataFlow() {
     const a = document.createElement("a");
     const stamp = new Date().toISOString().slice(0, 10);
     a.href = url;
-    a.download = `class7-practice-backup-${stamp}.json`;
+    a.download = `learn-splash-backup-${stamp}.json`;
     document.body.appendChild(a);
     a.click();
     a.remove();

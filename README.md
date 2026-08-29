@@ -1,4 +1,6 @@
-# Class 7 Practice
+# Learn Splash
+
+**Version 3.0**
 
 A mobile-first, offline-capable practice app for Grade 7 CBSE - Maths, Science, SST,
 English, Hindi, German and ICT. Vanilla HTML/CSS/JS, no build step, no backend, no
@@ -37,7 +39,7 @@ from disk (`file://...`), so run a tiny local server instead - no installation
 beyond Python (already on most machines) is needed:
 
 ```bash
-cd class7-practice
+cd learn-splash
 python serve.py
 ```
 
@@ -75,7 +77,7 @@ Alternatives if you don't have Python: `npx serve` (needs Node.js), or the
 ## 2. Project structure
 
 ```
-class7-practice/
+learn-splash/
 ├── index.html            # App shell + bottom navigation
 ├── serve.py              # Local dev server with caching disabled
 ├── manifest.json         # PWA metadata (installable on phone)
@@ -94,7 +96,11 @@ class7-practice/
 │   ├── syllabus.json       # Chapter list per subject - edit this to add/remove chapters
 │   ├── questions.json      # The question bank - edit this to add questions
 │   └── config.json         # Tunable thresholds & mock-test question counts
-├── icons/                  # PWA icons
+├── vercel.json           # Static hosting + cache headers for Vercel
+├── icons/
+│   ├── icon.svg            # Source of truth for the app icon
+│   ├── icon-192.png        # Rasterised from icon.svg - do not edit directly
+│   └── icon-512.png
 ├── tests/
 │   ├── run.py              # Runs every suite in headless Chrome - `python tests/run.py`
 │   ├── verify.html         # Unit suite: bank, generators, quiz engine
@@ -164,7 +170,9 @@ never a risk of the two going out of sync.
 - **Streak** - consecutive days (including today) with at least one completed test.
 
 Change `weakThreshold` / `strongThreshold` in `data/config.json` any time -
-no code changes needed.
+no code changes needed. `appVersion` lives there too and is what the About
+panel under **More** displays, so cutting a release is a one-line data edit
+rather than a hunt through `js/`.
 
 ---
 
@@ -252,6 +260,16 @@ be *computed*, so it can be guaranteed correct without a textbook:
 | Maths 10 - Parallel and Intersecting Lines | `lines-and-angles` | complements, linear pairs, transversal angles |
 | ICT 2 - Calculations in Excel 2016 | `excel-formulas` | SUM / AVERAGE / MAX / MIN / COUNT, cell references |
 
+Each Maths chapter also opts into a **word-problem** family
+(`word-problems-hcf-lcm`, `word-problems-integers`, `word-problems-bodmas`,
+`word-problems-fractions`, `word-problems-decimals`, `word-problems-angles`).
+These use the contexts a Grade 7 paper actually uses - bells ringing together,
+stacking library books, submarine depths, litres per kilometre, a salary spent
+in fractions, angles on a straight line given as (4x + 7)° - with fresh numbers
+every time. Because they are separate families, the mix can be changed from
+`data/syllabus.json`: drop a name to remove word problems from a chapter, or
+list one twice-over on a chapter that needs more of them.
+
 Which chapters appear in this table is decided entirely by
 `data/syllabus.json`, not by any list inside `js/`.
 
@@ -269,7 +287,7 @@ inventing one would be worse than having no question at all.
 
 ### 6b. The hand-written bank
 
-`data/questions.json` holds **467 questions**. 438 of them back the 28 chapters
+`data/questions.json` holds **575 questions**. 546 of them back the 37 chapters
 that have no generator; the remaining 29 sit in generated chapters as a fallback
 that is only used if generation ever fails. Every bank-backed chapter has at
 least 12 questions, so a 10-question quiz is never simply the whole bank in a
@@ -278,44 +296,75 @@ different order.
 These are original questions written for practice - **not** copied from any
 textbook.
 
-### 6c. The nine chapters that are still empty
+### 6c. Every chapter now has content
 
-Nine chapters are intentionally left as **"Content coming soon"**, because they
-turn on specific stories and units in *Poorvi* and *Malhar* whose exact text
-could not be verified. Inventing chapter-specific "facts" for them would
-produce questions that look right and teach the wrong thing:
+All 44 chapters are practisable. The last two gaps — *Say the Right Thing* and
+*My Brother's Great Invention* — were filled once photographs of those pages of
+*Poorvi* were available.
 
-- English: *Animals, Birds and Dr Dolittle*, *A Funny Man* (poem), *Say The
-  Right Thing*, *My Brother's Great Invention*
-- Hindi: *माँ, कह एक कहानी*, *तीन बुद्धिमान*, *फूल और काँटा*, *पानी रे पानी*,
-  *नहीं होना बीमार*
+That wait was worth it. The third-party question bank had hedged on both
+chapters ("the family pets (dog/cat)", "burnt dish or inappropriate item",
+"laboratory or workshop"), and the actual texts show why: its author had not
+read them. *Say the Right Thing* is not a prose story about a dinner party at
+all — it is a **play** by G.C. Thornley in which a girl called Mary greets her
+mother's guests and insults every one of them by accident. *My Brother's Great
+Invention* is not about a machine exploding in a garage — it is Anita Rau
+Badami's story of a burglar alarm that soaks the wrong person and a time
+machine that a thief may or may not have vanished into. Questions written from
+the bank's guesses would have been confidently wrong.
 
-SST **Map Work** was previously on this list and has now been filled in: it is a
-*skill* chapter (scale, direction, symbols, latitude and longitude, contours,
-map types) rather than a set text, so it needs no textbook to write accurately.
-
-Share the actual textbook pages or PDFs for the nine remaining chapters and they
-can be filled in accurately and dropped straight into `questions.json` - no other
-change needed.
+The app still supports empty chapters: any chapter with no questions and no
+generators shows "Content coming soon" automatically, so adding one to
+`data/syllabus.json` before its content exists is safe.
 
 ---
 
-## 7. Deploying to GitHub Pages
+## 7. Deploying
 
-1. Create a new **public** GitHub repository, e.g. `class7-practice`.
+### Vercel (primary)
+
+The repo is a plain static site with no build step, so Vercel serves it as-is.
+`vercel.json` sets the cache headers that matter: `js/`, `css/`, `data/`,
+`index.html`, `manifest.json` and `service-worker.js` are all sent with
+`max-age=0, must-revalidate`.
+
+That is deliberate rather than fussy. The app is plain ES modules, so if a
+browser is allowed to reuse an old `js/ui.js` next to a new `js/app.js` the
+module graph fails to link and the app does not start at all. Revalidating
+means the browser always gets one consistent set; the service worker still
+provides offline support from its own atomic snapshot.
+
+Pushing to the connected branch deploys automatically.
+
+**To rename the Vercel project** (the app is now Learn Splash, so the old
+`eduhub` deployment name no longer fits):
+
+1. Vercel dashboard → the project → **Settings → General**.
+2. Change **Project Name** to `learn-splash` and save.
+3. The production URL becomes `https://learn-splash.vercel.app`. Vercel keeps
+   serving the previous domain for a short while, but update any bookmark or
+   home-screen shortcut, since a renamed project's old URL is eventually
+   released and could be claimed by someone else.
+4. If the phone already has the app installed, remove the shortcut and re-add
+   it from the new URL - an installed PWA is tied to the origin it came from,
+   so it will not follow the rename.
+
+### GitHub Pages (alternative)
+
+1. Create a new **public** GitHub repository, e.g. `learn-splash`.
 2. From inside the `class7-practice` folder:
    ```bash
    git init
    git add .
-   git commit -m "Initial version of Class 7 Practice app"
+   git commit -m "Initial version of Learn Splash"
    git branch -M main
-   git remote add origin https://github.com/<your-username>/class7-practice.git
+   git remote add origin https://github.com/<your-username>/learn-splash.git
    git push -u origin main
    ```
 3. On GitHub: go to **Settings → Pages**.
 4. Under **Source**, choose **Deploy from a branch**, branch `main`, folder `/ (root)`. Save.
 5. After a minute, your app will be live at:
-   `https://<your-username>.github.io/class7-practice/`
+   `https://<your-username>.github.io/learn-splash/`
 
 Any time you edit `data/questions.json` or `data/syllabus.json`, just commit
 and push - GitHub Pages redeploys automatically within a minute or two.
@@ -328,7 +377,10 @@ Chrome/Safari, then use "Add to Home Screen" (this works because of
 
 `service-worker.js` caches the app so it works offline. **Bump `CACHE_NAME`
 whenever any cached file changes** - that is what tells installed devices to
-fetch the new set.
+fetch the new set - **and move `index.html`'s `css/style.css?v=` to the same
+number**. They are two halves of one idea, and when they drift a browser can
+pair new markup with an old stylesheet and render the app unstyled. That has
+happened once here, so `tests/run.py`'s pre-flight fails if the two disagree.
 
 The cache is only ever written as a whole, by `cache.addAll()` during install,
 and never per request. That matters more than it sounds: the app is plain ES
@@ -355,7 +407,37 @@ button. `tests/run.py`'s pre-flight fails if that watchdog is removed.
 
 ---
 
-## 8. Backup & restore
+## 8. Explaining a wrong answer
+
+Every word problem carries a `simpler` field: the same solution broken into
+short, plain-language steps. The app shows it **only when the answer was
+wrong**, under a "Let's break it down" heading, and repeats it in Review for
+the questions that were missed. A student who answered correctly does not need
+the scaffolding; one who did not needs more than being told the right letter.
+
+The steps aim at the misconception rather than the arithmetic — that "greatest
+number per stack" means HCF and not LCM, that the question asked for girls when
+you worked out boys, that "complete shirts" means rounding down. They are
+generated alongside the numbers, so they always match the question in front of
+the student.
+
+To add steps to a hand-written question in `data/questions.json`, give it a
+`"simpler": ["step one", "step two"]` array. It is optional; questions without
+one simply show the usual explanation.
+
+## 9. The app icon
+
+`icons/icon.svg` is the source of truth: a droplet for the *splash*, an open
+book cut into it for the *learn*, and the app's own palette - deep forest-teal
+ground, paper-cream mark, coral accent - so the icon and the UI read as one
+thing. Everything sits inside the central 80% of the canvas so it survives
+being cropped to a circle or squircle as a maskable icon.
+
+`icon-192.png` and `icon-512.png` are rasterised from it. **Edit the SVG and
+re-render; never edit the PNGs directly.** To re-render, open the SVG in a
+browser and export at 192 and 512, or use any SVG-to-PNG tool.
+
+## 10. Backup & restore
 
 Since there's no server/database, **all progress lives only in the browser
 that was used**. Use **More → Export Data** regularly (especially before
@@ -365,7 +447,7 @@ confirmation prompt, since it overwrites what's currently stored.
 
 ---
 
-## 9. Tests
+## 11. Tests
 
 There is no build step and no Node runtime in this project, so the tests run
 **in a real browser against the real ES modules** - the same code path the app
@@ -379,7 +461,7 @@ It runs a static pre-flight, then starts a local server and drives headless
 Chrome (or Edge) through three browser suites, printing the results; the exit
 code is 0 only if everything passed.
 
-**Pre-flight (no browser needed).** Four static checks, each added after a real
+**Pre-flight (no browser needed).** Five static checks, each added after a real
 failure. It verifies that the boot watchdog above is still present and wired
 up, that every `storage.x()` / `quizEngine.x()` /
 `progressEngine.x()` call in `js/` resolves to something that module actually
@@ -391,7 +473,7 @@ missing from that list is what let two versions drift apart in the first place.
 page's load event open until it reports back - without that, headless Chrome
 dumps the DOM while the app is still waiting on IndexedDB.)
 
-**`tests/verify.html` - 134 checks.**
+**`tests/verify.html` - 141 checks.**
 
 - `data/questions.json` is valid JSON with unique ids, four distinct options
   per question, an in-range answer index, a non-empty explanation, and a
@@ -422,7 +504,7 @@ that an in-progress Mid-Term Mock survives starting a Quick 10, a chapter
 practice and a weak-area quiz - keeping its answers, its id and its exact
 question order. Also covers per-type clearing and an export/import round trip.
 
-**`tests/smoke.html` - 59 checks.** Drives the actual app inside an iframe.
+**`tests/smoke.html` - 63 checks.** Drives the actual app inside an iframe.
 Three of those checks read *computed* style rather than text, because a stale
 or missing stylesheet renders correct markup with no styling at all - which
 looks broken to a human but passes every text-based assertion. It covers

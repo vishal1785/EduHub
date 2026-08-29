@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Local dev server for Class 7 Practice.
+Local dev server for Learn Splash.
 
     python serve.py            # http://localhost:8000
     python serve.py 8080       # a different port
@@ -77,7 +77,7 @@ def main():
 
     lan = lan_address()
     print("")
-    print("  Class 7 Practice - dev server (caching disabled)")
+    print("  Learn Splash - dev server (caching disabled)")
     print("  ------------------------------------------------")
     print("  On this computer:  http://localhost:%d" % port)
     if lan:
