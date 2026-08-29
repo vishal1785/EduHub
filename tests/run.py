@@ -246,7 +246,22 @@ def preflight():
     if "window.__APP_READY = true" not in app_src:
         problems.append("js/app.js never sets __APP_READY, so the watchdog would fire on a healthy boot")
 
-    # 4. The service worker must precache every app file, and nothing missing.
+    # 4. The stylesheet's ?v= must track CACHE_NAME. They are two halves of one
+    #    idea - "this is a new generation of assets" - and when they drift a
+    #    browser can pair new markup with an old stylesheet, which renders the
+    #    app unstyled. That happened once and is easy to miss by hand.
+    sw_src = io.open(os.path.join(REPO, "service-worker.js"), encoding="utf-8").read()
+    cache_m = re.search(r'CACHE_NAME\s*=\s*"[^"]*?v(\d+)"', sw_src)
+    css_m = re.search(r'style\.css\?v=(\d+)', index)
+    if not cache_m:
+        problems.append("could not read the cache generation from service-worker.js")
+    elif not css_m:
+        problems.append("index.html does not request css/style.css with a ?v= generation")
+    elif cache_m.group(1) != css_m.group(1):
+        problems.append("stylesheet ?v=%s does not match the service worker cache v%s"
+                        % (css_m.group(1), cache_m.group(1)))
+
+    # 5. The service worker must precache every app file, and nothing missing.
     sw = io.open(os.path.join(REPO, "service-worker.js"), encoding="utf-8").read()
     listed = set(re.findall(r'"\./([^"]*)"', sw))
     on_disk = set()
@@ -273,6 +288,7 @@ def preflight():
     print("  PASS every cross-module call resolves to an exported function")
     print("  PASS every named import resolves to a real export")
     print("  PASS the boot watchdog is present and wired to the app")
+    print("  PASS the stylesheet ?v= matches the service worker cache generation")
     print("  PASS the service worker precaches every app file")
     print(NEWLINE + "RESULT: PASS")
     return 0

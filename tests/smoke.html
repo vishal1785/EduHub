@@ -182,6 +182,10 @@ async function run() {
   check(!!doc().getElementById("btn-name") && text().includes(STUDENT_NAME),
     "More shows the stored name and offers to change it", text().slice(0, 200));
 
+  const version = await fetch("/data/config.json").then((r) => r.json()).then((c) => c.appVersion);
+  check(!!version && text().includes(`Learn Splash v${version}`),
+    `More shows the app version from config.json (v${version})`, text().slice(0, 240));
+
   // Change the name and confirm the greeting follows it.
   doc().getElementById("btn-name").click();
   const nameDialog = await until(() => doc().querySelector(".overlay .dialog #dlg-input"), 15000, "name dialog");

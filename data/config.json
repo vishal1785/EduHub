@@ -1,4 +1,5 @@
 {
+  "appVersion": "3.0",
   "weakThreshold": 60,
   "strongThreshold": 80,
   "quickPracticeSize": 10,
