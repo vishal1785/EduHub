@@ -21,6 +21,9 @@
  * ---------------------------------------------------------------------
  */
 
+// Deliberately NOT renamed with the app. The database name is the address
+// of everything already saved on a device; changing it would orphan every
+// attempt the student has built up and look exactly like data loss.
 const DB_NAME = "class7PracticeDB";
 const DB_VERSION = 1;
 const STORE_ATTEMPTS = "attempts";
@@ -272,7 +275,7 @@ async function exportData() {
     getSetting("streak", null),
   ]);
   return {
-    appName: "Class 7 Practice",
+    appName: "Learn Splash",
     exportedAt: new Date().toISOString(),
     version: DB_VERSION,
     attempts,
@@ -286,7 +289,7 @@ async function exportData() {
  */
 async function importData(data) {
   if (!data || !Array.isArray(data.attempts)) {
-    throw new Error("This backup file doesn't look like a valid Class 7 Practice export.");
+    throw new Error("This backup file doesn't look like a valid Learn Splash export.");
   }
   await clearAttempts();
   const db = await openDB();

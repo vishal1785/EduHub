@@ -1,4 +1,4 @@
-# Class 7 Practice
+# Learn Splash
 
 A mobile-first, offline-capable practice app for Grade 7 CBSE - Maths, Science, SST,
 English, Hindi, German and ICT. Vanilla HTML/CSS/JS, no build step, no backend, no
@@ -37,7 +37,7 @@ from disk (`file://...`), so run a tiny local server instead - no installation
 beyond Python (already on most machines) is needed:
 
 ```bash
-cd class7-practice
+cd learn-splash
 python serve.py
 ```
 
@@ -75,7 +75,7 @@ Alternatives if you don't have Python: `npx serve` (needs Node.js), or the
 ## 2. Project structure
 
 ```
-class7-practice/
+learn-splash/
 ├── index.html            # App shell + bottom navigation
 ├── serve.py              # Local dev server with caching disabled
 ├── manifest.json         # PWA metadata (installable on phone)
@@ -94,7 +94,11 @@ class7-practice/
 │   ├── syllabus.json       # Chapter list per subject - edit this to add/remove chapters
 │   ├── questions.json      # The question bank - edit this to add questions
 │   └── config.json         # Tunable thresholds & mock-test question counts
-├── icons/                  # PWA icons
+├── vercel.json           # Static hosting + cache headers for Vercel
+├── icons/
+│   ├── icon.svg            # Source of truth for the app icon
+│   ├── icon-192.png        # Rasterised from icon.svg - do not edit directly
+│   └── icon-512.png
 ├── tests/
 │   ├── run.py              # Runs every suite in headless Chrome - `python tests/run.py`
 │   ├── verify.html         # Unit suite: bank, generators, quiz engine
@@ -300,22 +304,52 @@ change needed.
 
 ---
 
-## 7. Deploying to GitHub Pages
+## 7. Deploying
 
-1. Create a new **public** GitHub repository, e.g. `class7-practice`.
+### Vercel (primary)
+
+The repo is a plain static site with no build step, so Vercel serves it as-is.
+`vercel.json` sets the cache headers that matter: `js/`, `css/`, `data/`,
+`index.html`, `manifest.json` and `service-worker.js` are all sent with
+`max-age=0, must-revalidate`.
+
+That is deliberate rather than fussy. The app is plain ES modules, so if a
+browser is allowed to reuse an old `js/ui.js` next to a new `js/app.js` the
+module graph fails to link and the app does not start at all. Revalidating
+means the browser always gets one consistent set; the service worker still
+provides offline support from its own atomic snapshot.
+
+Pushing to the connected branch deploys automatically.
+
+**To rename the Vercel project** (the app is now Learn Splash, so the old
+`eduhub` deployment name no longer fits):
+
+1. Vercel dashboard → the project → **Settings → General**.
+2. Change **Project Name** to `learn-splash` and save.
+3. The production URL becomes `https://learn-splash.vercel.app`. Vercel keeps
+   serving the previous domain for a short while, but update any bookmark or
+   home-screen shortcut, since a renamed project's old URL is eventually
+   released and could be claimed by someone else.
+4. If the phone already has the app installed, remove the shortcut and re-add
+   it from the new URL - an installed PWA is tied to the origin it came from,
+   so it will not follow the rename.
+
+### GitHub Pages (alternative)
+
+1. Create a new **public** GitHub repository, e.g. `learn-splash`.
 2. From inside the `class7-practice` folder:
    ```bash
    git init
    git add .
-   git commit -m "Initial version of Class 7 Practice app"
+   git commit -m "Initial version of Learn Splash"
    git branch -M main
-   git remote add origin https://github.com/<your-username>/class7-practice.git
+   git remote add origin https://github.com/<your-username>/learn-splash.git
    git push -u origin main
    ```
 3. On GitHub: go to **Settings → Pages**.
 4. Under **Source**, choose **Deploy from a branch**, branch `main`, folder `/ (root)`. Save.
 5. After a minute, your app will be live at:
-   `https://<your-username>.github.io/class7-practice/`
+   `https://<your-username>.github.io/learn-splash/`
 
 Any time you edit `data/questions.json` or `data/syllabus.json`, just commit
 and push - GitHub Pages redeploys automatically within a minute or two.
@@ -355,7 +389,19 @@ button. `tests/run.py`'s pre-flight fails if that watchdog is removed.
 
 ---
 
-## 8. Backup & restore
+## 8. The app icon
+
+`icons/icon.svg` is the source of truth: a droplet for the *splash*, an open
+book cut into it for the *learn*, and the app's own palette - deep forest-teal
+ground, paper-cream mark, coral accent - so the icon and the UI read as one
+thing. Everything sits inside the central 80% of the canvas so it survives
+being cropped to a circle or squircle as a maskable icon.
+
+`icon-192.png` and `icon-512.png` are rasterised from it. **Edit the SVG and
+re-render; never edit the PNGs directly.** To re-render, open the SVG in a
+browser and export at 192 and 512, or use any SVG-to-PNG tool.
+
+## 9. Backup & restore
 
 Since there's no server/database, **all progress lives only in the browser
 that was used**. Use **More → Export Data** regularly (especially before
@@ -365,7 +411,7 @@ confirmation prompt, since it overwrites what's currently stored.
 
 ---
 
-## 9. Tests
+## 10. Tests
 
 There is no build step and no Node runtime in this project, so the tests run
 **in a real browser against the real ES modules** - the same code path the app

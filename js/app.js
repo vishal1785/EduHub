@@ -234,7 +234,7 @@ function renderWelcome() {
     <div class="welcome">
       <div class="welcome-inner">
         <img class="welcome-logo" src="icons/icon-192.png" alt="" width="76" height="76" />
-        <h1>Class 7 Practice</h1>
+        <h1>Learn Splash</h1>
         <p class="welcome-sub">Practise your chapters, take mock tests and track your progress. What should we call you?</p>
 
         <label class="sr-only" for="student-name">Your name</label>
@@ -895,7 +895,7 @@ async function renderMore() {
 
       <div class="section-title">About</div>
       <div class="card" style="font-size:0.85rem;color:var(--ink-soft);line-height:1.6;">
-        Class 7 Practice v3.0<br />
+        Learn Splash v3.1<br />
         All your data stays on this device — nothing is sent anywhere.<br />
         Use <strong>Export Data</strong> regularly to keep a backup, especially before clearing browser data.
       </div>
@@ -983,7 +983,7 @@ async function exportDataFlow() {
     const a = document.createElement("a");
     const stamp = new Date().toISOString().slice(0, 10);
     a.href = url;
-    a.download = `class7-practice-backup-${stamp}.json`;
+    a.download = `learn-splash-backup-${stamp}.json`;
     document.body.appendChild(a);
     a.click();
     a.remove();

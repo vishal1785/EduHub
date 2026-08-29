@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Learn Splash">
+  <title>Learn Splash</title>
+  <!--
+    Source of truth for the app icon. icons/icon-192.png and icon-512.png are
+    rasterised from this file; edit here and re-render, never edit the PNGs.
+
+    "Learn Splash": a droplet for the splash, with an open book inside it for
+    the learning. Colours are the app's own - deep forest-teal ground, paper
+    cream mark, coral accent - so the icon, the welcome screen and the UI all
+    read as one thing.
+
+    Everything sits inside the central 80% so the icon also works as a
+    maskable icon, where Android may crop to a circle or a squircle.
+  -->
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#37806f" />
+      <stop offset="1" stop-color="#28604f" />
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="114" fill="url(#ground)" />
+
+  <!-- Ripple the droplet has landed in. Faint: it should read as depth at
+       512px and simply disappear at 48px rather than turning into noise. -->
+  <ellipse cx="256" cy="404" rx="128" ry="26" fill="none" stroke="#faf7f1" stroke-width="9" opacity="0.22" />
+  <ellipse cx="256" cy="404" rx="76" ry="15" fill="none" stroke="#faf7f1" stroke-width="8" opacity="0.3" />
+
+  <!-- The droplet. Apex at the top, circular base. -->
+  <path d="M256 118 C 296 196, 348 258, 348 310 A 92 92 0 0 1 164 310 C 164 258, 216 196, 256 118 Z" fill="#faf7f1" />
+
+  <!-- An open book cut into the droplet, in the ground colour so it reads as
+       a hole rather than a third colour competing for attention. -->
+  <path d="M256 288 C 240 277, 217 272, 199 274 L199 342 C217 340, 240 345, 256 356 Z" fill="#28604f" />
+  <path d="M256 288 C 272 277, 295 272, 313 274 L313 342 C295 340, 272 345, 256 356 Z" fill="#28604f" />
+
+  <!-- Coral splash droplet, carried over from the previous icon so the change
+       still feels like the same family. -->
+  <path d="M372 150 C 388 178, 400 198, 400 214 A 28 28 0 0 1 344 214 C 344 198, 356 178, 372 150 Z" fill="#e2725b" />
+</svg>

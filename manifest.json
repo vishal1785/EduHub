@@ -1,6 +1,6 @@
 {
-  "name": "Class 7 Practice",
-  "short_name": "C7 Practice",
+  "name": "Learn Splash",
+  "short_name": "Learn Splash",
   "description": "Practice app for Grade 7 CBSE — Maths, Science, SST, English, Hindi, German and ICT.",
   "start_url": "./index.html",
   "scope": "./",
