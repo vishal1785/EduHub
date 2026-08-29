@@ -256,6 +256,16 @@ be *computed*, so it can be guaranteed correct without a textbook:
 | Maths 10 - Parallel and Intersecting Lines | `lines-and-angles` | complements, linear pairs, transversal angles |
 | ICT 2 - Calculations in Excel 2016 | `excel-formulas` | SUM / AVERAGE / MAX / MIN / COUNT, cell references |
 
+Each Maths chapter also opts into a **word-problem** family
+(`word-problems-hcf-lcm`, `word-problems-integers`, `word-problems-bodmas`,
+`word-problems-fractions`, `word-problems-decimals`, `word-problems-angles`).
+These use the contexts a Grade 7 paper actually uses - bells ringing together,
+stacking library books, submarine depths, litres per kilometre, a salary spent
+in fractions, angles on a straight line given as (4x + 7)° - with fresh numbers
+every time. Because they are separate families, the mix can be changed from
+`data/syllabus.json`: drop a name to remove word problems from a chapter, or
+list one twice-over on a chapter that needs more of them.
+
 Which chapters appear in this table is decided entirely by
 `data/syllabus.json`, not by any list inside `js/`.
 
@@ -393,7 +403,25 @@ button. `tests/run.py`'s pre-flight fails if that watchdog is removed.
 
 ---
 
-## 8. The app icon
+## 8. Explaining a wrong answer
+
+Every word problem carries a `simpler` field: the same solution broken into
+short, plain-language steps. The app shows it **only when the answer was
+wrong**, under a "Let's break it down" heading, and repeats it in Review for
+the questions that were missed. A student who answered correctly does not need
+the scaffolding; one who did not needs more than being told the right letter.
+
+The steps aim at the misconception rather than the arithmetic — that "greatest
+number per stack" means HCF and not LCM, that the question asked for girls when
+you worked out boys, that "complete shirts" means rounding down. They are
+generated alongside the numbers, so they always match the question in front of
+the student.
+
+To add steps to a hand-written question in `data/questions.json`, give it a
+`"simpler": ["step one", "step two"]` array. It is optional; questions without
+one simply show the usual explanation.
+
+## 9. The app icon
 
 `icons/icon.svg` is the source of truth: a droplet for the *splash*, an open
 book cut into it for the *learn*, and the app's own palette - deep forest-teal
@@ -405,7 +433,7 @@ being cropped to a circle or squircle as a maskable icon.
 re-render; never edit the PNGs directly.** To re-render, open the SVG in a
 browser and export at 192 and 512, or use any SVG-to-PNG tool.
 
-## 9. Backup & restore
+## 10. Backup & restore
 
 Since there's no server/database, **all progress lives only in the browser
 that was used**. Use **More → Export Data** regularly (especially before
@@ -415,7 +443,7 @@ confirmation prompt, since it overwrites what's currently stored.
 
 ---
 
-## 10. Tests
+## 11. Tests
 
 There is no build step and no Node runtime in this project, so the tests run
 **in a real browser against the real ES modules** - the same code path the app
@@ -441,7 +469,7 @@ missing from that list is what let two versions drift apart in the first place.
 page's load event open until it reports back - without that, headless Chrome
 dumps the DOM while the app is still waiting on IndexedDB.)
 
-**`tests/verify.html` - 134 checks.**
+**`tests/verify.html` - 141 checks.**
 
 - `data/questions.json` is valid JSON with unique ids, four distinct options
   per question, an in-range answer index, a non-empty explanation, and a
@@ -472,7 +500,7 @@ that an in-progress Mid-Term Mock survives starting a Quick 10, a chapter
 practice and a weak-area quiz - keeping its answers, its id and its exact
 question order. Also covers per-type clearing and an export/import round trip.
 
-**`tests/smoke.html` - 59 checks.** Drives the actual app inside an iframe.
+**`tests/smoke.html` - 62 checks.** Drives the actual app inside an iframe.
 Three of those checks read *computed* style rather than text, because a stale
 or missing stylesheet renders correct markup with no styling at all - which
 looks broken to a human but passes every text-based assertion. It covers

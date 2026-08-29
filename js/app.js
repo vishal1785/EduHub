@@ -623,6 +623,17 @@ async function renderQuiz(quizType) {
       if (i === selectedIndex && i !== question.answer) btn.classList.add("selected");
     });
 
+    // A wrong answer also gets the worked steps, in plainer language. Someone
+    // who answered correctly does not need the scaffolding; someone who did
+    // not needs more than being told the right letter.
+    const stepsHtml =
+      !correct && Array.isArray(question.simpler) && question.simpler.length
+        ? `<div class="feedback-steps">
+            <div class="feedback-why-label">Let's break it down</div>
+            <ol>${question.simpler.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ol>
+          </div>`
+        : "";
+
     document.getElementById("quiz-body").insertAdjacentHTML(
       "beforeend",
       `<div class="feedback-panel ${correct ? "correct" : "incorrect"}">
@@ -630,6 +641,7 @@ async function renderQuiz(quizType) {
         ${!correct ? `<div class="feedback-correct-answer">Correct answer: <strong>${letterFor(question.answer)}. ${escapeHtml(question.options[question.answer])}</strong></div>` : ""}
         <div class="feedback-why-label">Why?</div>
         <div class="feedback-why">${escapeHtml(question.explanation)}</div>
+        ${stepsHtml}
       </div>`
     );
 
@@ -730,6 +742,9 @@ async function renderReview(attemptId) {
         <div class="review-line your ${ans.correct ? "right" : "wrong"}"><span class="lbl">Your answer:</span> ${escapeHtml(yourText)} ${ans.correct ? "✓" : "✕"}</div>
         ${!ans.correct ? `<div class="review-line correct"><span class="lbl">Correct:</span> ${letterFor(question.answer)}. ${escapeHtml(question.options[question.answer])} ✓</div>` : ""}
         <div class="review-why"><strong>Why:</strong> ${escapeHtml(question.explanation)}</div>
+        ${!ans.correct && Array.isArray(question.simpler) && question.simpler.length
+          ? `<div class="feedback-steps"><div class="feedback-why-label">Step by step</div><ol>${question.simpler.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ol></div>`
+          : ""}
       </div>`;
     })
     .join("");

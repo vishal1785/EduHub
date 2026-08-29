@@ -300,10 +300,150 @@ function verifyCellReference(q) {
   return q.options[q.answer] === want;
 }
 
+/* ------------------- word-problem verifiers ---------------------------- */
+/*
+ * Same discipline as above: parse the numbers back out of the prose and
+ * recompute the answer with a formula written here, independently of
+ * js/generators.js. A generator whose wording and arithmetic drift apart
+ * fails here.
+ */
+
+/** "₹1,234.50" -> exact rational. */
+function parseMoney(text) {
+  const m = String(text).trim().match(/^₹\s*([\d,]+(?:\.\d+)?)$/);
+  return m ? parseRational(m[1].replace(/,/g, "")) : null;
+}
+
+function marked(q) {
+  return q.options[q.answer];
+}
+
+function verifyWordHcfLcm(q) {
+  let m = q.question.match(/^Three bells ring together at intervals of (\d+), (\d+) and (\d+) minutes/);
+  if (m) return Number(marked(q)) === lcmN(lcmN(+m[1], +m[2]), +m[3]);
+
+  m = q.question.match(/^A library has (\d+) Science books, (\d+) English books and (\d+) Maths books/);
+  if (m) return Number(marked(q)) === gcdN(gcdN(+m[1], +m[2]), +m[3]);
+
+  m = q.question.match(/completes a lap in (\d+) seconds and the other in (\d+) seconds/);
+  if (m) return Number(marked(q)) === lcmN(+m[1], +m[2]);
+
+  m = q.question.match(/^Two tanks hold (\d+) litres and (\d+) litres of oil.*largest container/);
+  if (m) return Number(marked(q)) === gcdN(+m[1], +m[2]);
+  return null;
+}
+
+function verifyWordIntegers(q) {
+  let m = q.question.match(/hill station is (-?\d+)°C\. It falls at a steady (\d+)°C every hour\. What is the temperature after (\d+) hours/);
+  if (m) return Number(marked(q)) === +m[1] - +m[2] * +m[3];
+
+  m = q.question.match(/submarine is (\d+) m below sea level\. It rises (\d+) m/);
+  if (m) return Number(marked(q)) === -+m[1] + +m[2];
+
+  m = q.question.match(/test of (\d+) questions, (\d+) marks are given .*? (\d+) marks? is deducted .*? gets (\d+) right/);
+  if (m) {
+    const [total, plus, minus, right] = [+m[1], +m[2], +m[3], +m[4]];
+    return Number(marked(q)) === right * plus - (total - right) * minus;
+  }
+
+  m = q.question.match(/down at a steady (\d+) m every second\. Where is the diver after (\d+) seconds/);
+  if (m) return Number(marked(q)) === -(+m[1] * +m[2]);
+  return null;
+}
+
+function verifyWordBodmas(q) {
+  let m = q.question.match(/buys (\d+) pens costing ₹(\d+) each and (\d+) notebooks costing ₹(\d+) each/);
+  if (m) return Number(marked(q)) === +m[1] * +m[2] + +m[3] * +m[4];
+
+  m = q.question.match(/pays with a ₹(\d+) note for (\d+) packets of biscuits costing ₹(\d+) each/);
+  if (m) return Number(marked(q)) === +m[1] - +m[2] * +m[3];
+
+  m = q.question.match(/has (\d+) boxes with (\d+) sweets in each box\. He gives away (\d+) sweets/);
+  if (m) return Number(marked(q)) === +m[1] * +m[2] - +m[3];
+  return null;
+}
+
+function verifyWordFractions(q) {
+  let m = q.question.match(/^In a class of (\d+) students, (\d+)\/(\d+) are boys\. How many girls/);
+  if (m) {
+    const total = +m[1];
+    const boys = rMul(R(total), R(+m[2], +m[3]));
+    return rEq(parseRational(marked(q)) || R(-1), rSub(R(total), boys));
+  }
+
+  m = q.question.match(/^A jug holds (\S+) litres of juice\. Glasses of (\d+)\/(\d+) litre each/);
+  if (m) {
+    const jug = parseRational(m[1]);
+    if (!jug) return null;
+    return rEq(parseRational(marked(q)) || R(-1), rDiv(jug, R(+m[2], +m[3])));
+  }
+
+  m = q.question.match(/monthly income of ₹(\d+), a family spends 1\/(\d+) on food, 1\/(\d+) on rent and 1\/(\d+) on travel/);
+  if (m) {
+    const s = +m[1];
+    const left = s - s / +m[2] - s / +m[3] - s / +m[4];
+    return Number(marked(q)) === left;
+  }
+  return null;
+}
+
+function verifyWordDecimals(q) {
+  let m = q.question.match(/^A car travels (\S+) km using (\S+) litres of petrol\./);
+  if (m) {
+    const d = parseRational(m[1]), l = parseRational(m[2]);
+    if (!d || !l) return null;
+    return rEq(parseRational(marked(q)) || R(-1), rDiv(d, l));
+  }
+
+  m = q.question.match(/^(\d+) identical notebooks cost (₹[\d.]+) altogether/);
+  if (m) {
+    const total = parseMoney(m[2]);
+    const one = parseMoney(marked(q));
+    if (!total || !one) return null;
+    return rEq(rDiv(total, R(+m[1])), one);
+  }
+
+  m = q.question.match(/needs (\S+) m of cloth for one shirt\. How many complete shirts can be cut from a roll of (\S+) m/);
+  if (m) {
+    const per = parseRational(m[1]), roll = parseRational(m[2]);
+    if (!per || !roll) return null;
+    const q2 = rDiv(roll, per);
+    return Number(marked(q)) === Math.floor(q2.n / q2.d);
+  }
+
+  m = q.question.match(/^From (₹[\d.]+), Ankit spends (₹[\d.]+) on books, (₹[\d.]+) on a bag and (₹[\d.]+) on snacks/);
+  if (m) {
+    const [note, a, b, c] = [parseMoney(m[1]), parseMoney(m[2]), parseMoney(m[3]), parseMoney(m[4])];
+    const left = parseMoney(marked(q));
+    if (!note || !a || !b || !c || !left) return null;
+    return rEq(rSub(rSub(rSub(note, a), b), c), left);
+  }
+  return null;
+}
+
+function verifyWordAngles(q) {
+  let m = q.question.match(/^Two angles on a straight line are \((\d+)x \+ (\d+)\)° and \((\d+)x ([+−-]) (\d+)\)°/);
+  if (m) {
+    const [a, b, c, sign, d] = [+m[1], +m[2], +m[3], m[4], +m[5]];
+    const constant = b + (sign === "+" ? d : -d);
+    const x = (180 - constant) / (a + c);
+    return Number(marked(q)) === x;
+  }
+
+  m = q.question.match(/^In a parallelogram ABCD, ∠A = (\d+)°\. What is ∠B\?$/);
+  if (m) return Number(marked(q)) === 180 - +m[1];
+
+  m = q.question.match(/exterior angle ∠PRS = (\d+)° and ∠P = (\d+)°, what is ∠Q/);
+  if (m) return Number(marked(q)) === +m[1] - +m[2];
+  return null;
+}
+
 const VERIFIERS = [
   verifyArithmetic, verifyHcfLcm, verifyNumberLine, verifyFractionOfQuantity,
   verifyCompare, verifyPlaceValue, verifyAngles, verifyExcel,
   verifyExpressionChoice, verifyExcelFormulaChoice, verifyCellReference,
+  verifyWordHcfLcm, verifyWordIntegers, verifyWordBodmas,
+  verifyWordFractions, verifyWordDecimals, verifyWordAngles,
 ];
 
 /** Run every verifier; returns true / false / null (nothing applied). */
@@ -452,6 +592,7 @@ async function run() {
     const chapterId = chapter.id;
     let structuralFails = [];
     let wrongAnswers = [];
+    let missingSteps = [];
     let chapterVerified = 0, chapterUnverified = 0, chapterCount = 0;
     const seenIds = new Set();
     let idCollisions = 0;
@@ -473,6 +614,12 @@ async function run() {
         if (problem) { if (structuralFails.length < 5) structuralFails.push(`${q.question} — ${problem}`); continue; }
         if (q.chapterId !== chapterId) structuralFails.push(`${q.id} has wrong chapterId ${q.chapterId}`);
 
+        // Word problems must ship the plain-language steps the app shows after
+        // a wrong answer - that is the whole point of adding them.
+        if ((q.tags || []).includes("word-problem") && !(Array.isArray(q.simpler) && q.simpler.length)) {
+          if (missingSteps.length < 3) missingSteps.push(`${q.question} — no simpler[] steps`);
+        }
+
         const v = independentlyVerify(q);
         if (v === true) chapterVerified++;
         else if (v === false && wrongAnswers.length < 5) {
@@ -485,6 +632,7 @@ async function run() {
     unverified += chapterUnverified;
 
     check(structuralFails.length === 0, `${chapterId}: ${chapterCount} generated questions are all well-formed`, structuralFails.join("\n         "));
+    check(missingSteps.length === 0, `${chapterId}: every word problem carries its worked steps`, missingSteps.slice(0, 3).join("\n         "));
     check(idCollisions === 0, `${chapterId}: no generated id collided`, `${idCollisions} collisions`);
     check(wrongAnswers.length === 0, `${chapterId}: every re-derivable answer is correct (${chapterVerified} recomputed)`, wrongAnswers.join("\n         "));
     if (chapterUnverified) log(`         note: ${chapterUnverified} of ${chapterCount} could not be re-derived by the test's parsers`);

@@ -352,6 +352,44 @@ async function run() {
   check(/Question 4 of/.test(doc().getElementById("q-count").textContent),
     "choosing Resume returns to question 4 rather than restarting");
 
+  /* ---------- simpler steps appear only after a wrong answer ---------- */
+  section("Worked steps on a wrong answer");
+
+  let correctWithSteps = 0;
+  let wrongWithSteps = 0;
+  let wrongTotal = 0;
+
+  // Two rounds of a word-problem-heavy chapter. Always picking option A means
+  // most answers are wrong, which is what we want to observe here.
+  for (let round = 0; round < 2; round++) {
+    await goto("#/chapter/maths-ch6", () => rendered() && doc().getElementById("btn-practise"), "maths-ch6");
+    doc().getElementById("btn-practise").click();
+    await until(() => doc().querySelector("#options-wrap .option"), 20000, "first question");
+
+    for (let i = 0; i < 10; i++) {
+      if (!doc().querySelector("#options-wrap .option")) break;
+      doc().querySelectorAll("#options-wrap .option")[0].click();
+      const next = await until(() => doc().getElementById("btn-next"), 15000, "feedback");
+      const panel = doc().querySelector(".feedback-panel");
+      const hasSteps = !!doc().querySelector(".feedback-steps");
+      if (panel && panel.classList.contains("incorrect")) {
+        wrongTotal++;
+        if (hasSteps) wrongWithSteps++;
+      } else if (hasSteps) {
+        correctWithSteps++;
+      }
+      next.click();
+      if (i < 9) await until(() => doc().querySelector("#options-wrap .option"), 15000, "next question").catch(() => null);
+    }
+    await until(() => doc().getElementById("btn-review"), 20000, "result screen");
+  }
+
+  check(wrongTotal > 0, `the run produced wrong answers to inspect (${wrongTotal} of 20)`);
+  check(correctWithSteps === 0,
+    "a CORRECT answer never shows the worked steps", `${correctWithSteps} correct answers showed them`);
+  check(wrongWithSteps > 0,
+    `a wrong answer on a word problem shows the worked steps (${wrongWithSteps} of ${wrongTotal} wrong answers had them)`);
+
   /* -------------------- a bank-backed chapter too --------------------- */
   section("End-to-end quiz on a bank-backed chapter");
   await goto("#/chapter/sst-ch10", () => rendered() && doc().getElementById("btn-quickquiz"), "sst-ch10");

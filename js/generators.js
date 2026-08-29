@@ -184,6 +184,12 @@ function genSmallestDivisibleBy() {
     question: `What is the smallest number that is divisible by both ${a} and ${b}?`,
     ...opts,
     explanation: `The smallest number divisible by both is their LCM. LCM(${a}, ${b}) = ${correct}, and indeed ${correct} ÷ ${a} = ${correct / a} and ${correct} ÷ ${b} = ${correct / b}.`,
+    simpler: [
+      `"Divisible by both" means it must be in the times table of ${a} AND of ${b}.`,
+      `"Smallest" such number is the LCM — the lowest common multiple.`,
+      `LCM(${a}, ${b}) = ${correct}.`,
+      `Check: ${correct} ÷ ${a} = ${correct / a} and ${correct} ÷ ${b} = ${correct / b}, both exact.`,
+    ],
     difficulty: "medium",
     tags: ["lcm", "word-problem"],
   };
@@ -597,6 +603,11 @@ function genFractionOfQuantity() {
     question: `What is ${a}/${b} of ${total}?`,
     ...opts,
     explanation: `Split ${total} into ${b} equal parts: ${total} ÷ ${b} = ${onePart}. Then take ${a} of those parts: ${onePart} × ${a} = ${correct}.`,
+    simpler: [
+      `"Of" means multiply, but it is easier to divide first.`,
+      `The bottom number ${b} says how many equal parts: ${total} ÷ ${b} = ${onePart}.`,
+      `The top number ${a} says how many of those parts to take: ${onePart} × ${a} = ${correct}.`,
+    ],
     difficulty: "medium",
     tags: ["fractions", "word-problem"],
   };
@@ -1014,6 +1025,528 @@ function genExcelReference() {
   };
 }
 
+/* ==================== word problems ====================================== */
+/*
+ * Word problems get their own generator families so a chapter can dial them
+ * up or down from data/syllabus.json without touching this file.
+ *
+ * Every one of these also returns `simpler`: the same solution broken into
+ * short, plain steps. The app shows it ONLY when the answer was wrong, on the
+ * principle that the student who got it right does not need the scaffolding
+ * and the student who did not needs more than "here is the answer".
+ *
+ * Contexts (bells tolling, stacking books, submarine depths, litres per
+ * kilometre, salary spent in fractions) follow the shapes a Grade 7 paper
+ * actually uses; only the numbers are fresh each time.
+ */
+
+/** Money in rupees, always to two decimals when it is not a whole number. */
+function money(paise) {
+  const whole = Math.floor(paise / 100);
+  const rest = paise % 100;
+  return rest === 0 ? `₹${whole}` : `₹${whole}.${String(rest).padStart(2, "0")}`;
+}
+
+/* ---------------- family: word-problems-hcf-lcm -------------------------- */
+
+function genWpBells() {
+  const a = pick([6, 8, 9, 10, 12]);
+  const b = pick([12, 15, 16, 18, 20]);
+  const c = pick([20, 24, 25, 30, 36]);
+  if (a === b || b === c || a === c) return null;
+  const correct = lcm(lcm(a, b), c);
+  if (correct > 900) return null;
+  const opts = makeOptions(correct, shuffled([a + b + c, lcm(a, b), gcd(gcd(a, b), c), correct * 2, a * b * c]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Three bells ring together at intervals of ${a}, ${b} and ${c} minutes. If they ring together now, after how many minutes will they next ring together?`,
+    ...opts,
+    explanation: `They ring together again after a time that is a multiple of all three intervals, so take the LCM. LCM(${a}, ${b}, ${c}) = ${correct} minutes.`,
+    simpler: [
+      `Each bell rings on its own timetable: every ${a}, every ${b}, every ${c} minutes.`,
+      `They can only ring together at a time that fits ALL THREE timetables — that is the LCM, not the sum.`,
+      `LCM(${a}, ${b}) = ${lcm(a, b)}, then LCM(${lcm(a, b)}, ${c}) = ${correct}.`,
+      `So the answer is ${correct} minutes.`,
+    ],
+    difficulty: "hard",
+    tags: ["lcm", "word-problem"],
+  };
+}
+
+function genWpStacks() {
+  const g = pick([6, 8, 12, 14, 16, 18, 24]);
+  const a = g * randInt(3, 9);
+  const b = g * randInt(10, 22);
+  const c = g * randInt(23, 34);
+  const correct = gcd(gcd(a, b), c);
+  if (correct !== g) return null; // keep the intended answer the true HCF
+  const opts = makeOptions(correct, shuffled([lcm(a, b), correct * 2, Math.floor(correct / 2), a - b === 0 ? null : Math.abs(b - a)]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A library has ${a} Science books, ${b} English books and ${c} Maths books. They are stacked so that every stack has the same number of books and each stack holds only one subject. What is the greatest number of books that can be put in a stack?`,
+    ...opts,
+    explanation: `Each stack size must divide all three totals exactly, and we want the largest such number — that is the HCF. HCF(${a}, ${b}, ${c}) = ${correct}.`,
+    simpler: [
+      `Every stack must be the same size and must divide each pile exactly, with nothing left over.`,
+      `So the stack size has to be a common factor of ${a}, ${b} and ${c}.`,
+      `"Greatest" tells you to take the HIGHEST common factor, not the lowest common multiple.`,
+      `HCF(${a}, ${b}, ${c}) = ${correct}, so ${correct} books per stack.`,
+    ],
+    difficulty: "hard",
+    tags: ["hcf", "word-problem"],
+  };
+}
+
+function genWpTrack() {
+  const a = pick([40, 45, 60, 72, 90]);
+  const b = pick([50, 60, 75, 80, 120]);
+  if (a === b) return null;
+  const correct = lcm(a, b);
+  if (correct > 720) return null;
+  const opts = makeOptions(correct, shuffled([a + b, gcd(a, b), a * b, correct * 2]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Two runners start together on a circular track. One completes a lap in ${a} seconds and the other in ${b} seconds. After how many seconds will they next be at the starting point together?`,
+    ...opts,
+    explanation: `Each runner is back at the start after a multiple of their own lap time, so they meet at the LCM. LCM(${a}, ${b}) = ${correct} seconds.`,
+    simpler: [
+      `Runner 1 is at the start at ${a}s, ${2 * a}s, ${3 * a}s, …`,
+      `Runner 2 is at the start at ${b}s, ${2 * b}s, ${3 * b}s, …`,
+      `The first time that appears in BOTH lists is the LCM.`,
+      `LCM(${a}, ${b}) = ${correct} seconds.`,
+    ],
+    difficulty: "medium",
+    tags: ["lcm", "word-problem"],
+  };
+}
+
+function genWpContainer() {
+  const g = pick([10, 15, 20, 25, 30]);
+  const a = g * randInt(4, 9);
+  const b = g * randInt(10, 16);
+  const correct = gcd(a, b);
+  if (correct !== g) return null;
+  const opts = makeOptions(correct, shuffled([lcm(a, b), correct * 2, a - b === 0 ? null : Math.abs(a - b), Math.floor(correct / 2)]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Two tanks hold ${a} litres and ${b} litres of oil. What is the largest container that can measure the oil in either tank an exact number of times?`,
+    ...opts,
+    explanation: `The container must divide both amounts exactly, and we want the largest one — the HCF. HCF(${a}, ${b}) = ${correct} litres.`,
+    simpler: [
+      `"Measures exactly" means it divides the amount with no oil left over.`,
+      `So the container size must be a common factor of ${a} and ${b}.`,
+      `"Largest" means HCF. HCF(${a}, ${b}) = ${correct}.`,
+      `Check: ${a} ÷ ${correct} = ${a / correct} and ${b} ÷ ${correct} = ${b / correct}, both whole numbers.`,
+    ],
+    difficulty: "medium",
+    tags: ["hcf", "word-problem"],
+  };
+}
+
+/* --------------- family: word-problems-integers -------------------------- */
+
+function genWpTemperature() {
+  const start = randInt(-5, 25);
+  const rate = randInt(2, 6);
+  const hours = randInt(3, 8);
+  const correct = start - rate * hours;
+  const opts = makeOptions(correct, shuffled([start + rate * hours, start - rate, -correct, start - hours]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `The temperature at a hill station is ${start}°C. It falls at a steady ${rate}°C every hour. What is the temperature after ${hours} hours?`,
+    ...opts,
+    explanation: `Total fall = ${rate} × ${hours} = ${rate * hours}°C. Starting at ${start}°C, the temperature becomes ${start} − ${rate * hours} = ${correct}°C.`,
+    simpler: [
+      `Falling means subtracting, so this is a subtraction problem.`,
+      `In ${hours} hours it falls ${rate} × ${hours} = ${rate * hours} degrees altogether.`,
+      `Start at ${start} and take away ${rate * hours}: ${start} − ${rate * hours} = ${correct}.`,
+      `A temperature below zero is negative — that is normal here, not a mistake.`,
+    ],
+    difficulty: "medium",
+    tags: ["integers", "word-problem"],
+  };
+}
+
+function genWpSubmarine() {
+  const depth = randInt(200, 800);
+  const rise = randInt(50, 300);
+  const correct = -depth + rise;
+  const opts = makeOptions(correct, shuffled([-depth - rise, depth - rise, -correct, depth + rise]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A submarine is ${depth} m below sea level. It rises ${rise} m. What is its new position relative to sea level?`,
+    ...opts,
+    explanation: `Below sea level is negative, so the submarine starts at −${depth} m. Rising adds: −${depth} + ${rise} = ${correct} m.`,
+    simpler: [
+      `Sea level is 0. Below it counts as negative, so the start is −${depth}.`,
+      `Rising moves the number UP towards zero, so you add.`,
+      `−${depth} + ${rise} = ${correct}.`,
+      correct < 0 ? `The answer is still negative, so it is still ${Math.abs(correct)} m below the surface.` : `The answer is positive, so it has reached above the surface.`,
+    ],
+    difficulty: "medium",
+    tags: ["integers", "word-problem"],
+  };
+}
+
+function genWpExamScore() {
+  const total = pick([20, 25, 30]);
+  const right = randInt(8, total - 3);
+  const plus = pick([3, 4, 5]);
+  const minus = pick([1, 2]);
+  const wrong = total - right;
+  const correct = right * plus - wrong * minus;
+  const opts = makeOptions(correct, shuffled([right * plus, right * plus + wrong * minus, total * plus - wrong, -correct]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `In a test of ${total} questions, ${plus} marks are given for each correct answer and ${minus} mark${minus === 1 ? "" : "s"} is deducted for each wrong one. A student attempts every question and gets ${right} right. What is the total score?`,
+    ...opts,
+    explanation: `Correct: ${right} × ${plus} = ${right * plus}. Wrong: ${wrong} × ${minus} = ${wrong * minus} deducted. Score = ${right * plus} − ${wrong * minus} = ${correct}.`,
+    simpler: [
+      `Every question was attempted, so wrong answers = ${total} − ${right} = ${wrong}.`,
+      `Marks gained: ${right} × ${plus} = ${right * plus}.`,
+      `Marks lost: ${wrong} × ${minus} = ${wrong * minus}.`,
+      `Score = gained − lost = ${right * plus} − ${wrong * minus} = ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["integers", "word-problem"],
+  };
+}
+
+function genWpDiver() {
+  const rate = randInt(2, 8);
+  const secs = randInt(10, 40);
+  const correct = -(rate * secs);
+  const opts = makeOptions(correct, shuffled([rate * secs, -(rate + secs), correct + rate, -Math.floor(secs / rate)]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A diver starts at the surface and goes down at a steady ${rate} m every second. Where is the diver after ${secs} seconds, relative to the surface?`,
+    ...opts,
+    explanation: `Distance travelled = ${rate} × ${secs} = ${rate * secs} m downwards. Downwards is negative, so the position is ${correct} m.`,
+    simpler: [
+      `Speed × time gives the distance: ${rate} × ${secs} = ${rate * secs} m.`,
+      `The diver went DOWN from the surface, and down is the negative direction.`,
+      `So the position is ${correct} m, meaning ${rate * secs} m below the surface.`,
+    ],
+    difficulty: "medium",
+    tags: ["integers", "word-problem"],
+  };
+}
+
+/* ---------------- family: word-problems-bodmas --------------------------- */
+
+function genWpShopping() {
+  const pens = randInt(3, 9);
+  const penCost = randInt(6, 25);
+  const books = randInt(2, 6);
+  const bookCost = randInt(30, 90);
+  const correct = pens * penCost + books * bookCost;
+  const opts = makeOptions(correct, shuffled([(pens + books) * (penCost + bookCost), pens * bookCost + books * penCost, correct - penCost, pens + penCost + books + bookCost]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Riya buys ${pens} pens costing ₹${penCost} each and ${books} notebooks costing ₹${bookCost} each. What is the total cost?`,
+    ...opts,
+    explanation: `Pens: ${pens} × ${penCost} = ₹${pens * penCost}. Notebooks: ${books} × ${bookCost} = ₹${books * bookCost}. Total = ₹${correct}.`,
+    simpler: [
+      `Work out each kind of item separately, then add. Multiplication comes before addition.`,
+      `Pens: ${pens} × ${penCost} = ${pens * penCost}.`,
+      `Notebooks: ${books} × ${bookCost} = ${books * bookCost}.`,
+      `Total: ${pens * penCost} + ${books * bookCost} = ${correct}.`,
+    ],
+    difficulty: "easy",
+    tags: ["bodmas", "word-problem"],
+  };
+}
+
+function genWpChange() {
+  const note = pick([200, 500, 1000, 2000]);
+  const items = randInt(3, 8);
+  const cost = randInt(15, 60);
+  const spent = items * cost;
+  if (spent >= note) return null;
+  const correct = note - spent;
+  const opts = makeOptions(correct, shuffled([note + spent, spent, note - cost, correct - cost]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Aman pays with a ₹${note} note for ${items} packets of biscuits costing ₹${cost} each. How much change does he get?`,
+    ...opts,
+    explanation: `Cost = ${items} × ${cost} = ₹${spent}. Change = ${note} − ${spent} = ₹${correct}.`,
+    simpler: [
+      `Two steps: first find what he spent, then take it off the note.`,
+      `Spent: ${items} × ${cost} = ${spent}.`,
+      `Change: ${note} − ${spent} = ${correct}.`,
+      `Doing the subtraction first would be wrong — BODMAS puts × before −.`,
+    ],
+    difficulty: "easy",
+    tags: ["bodmas", "word-problem"],
+  };
+}
+
+function genWpBoxes() {
+  const boxes = randInt(4, 12);
+  const per = randInt(6, 24);
+  const given = randInt(5, 40);
+  const total = boxes * per;
+  if (given >= total) return null;
+  const correct = total - given;
+  const opts = makeOptions(correct, shuffled([total + given, boxes * (per - given), total, given]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A shopkeeper has ${boxes} boxes with ${per} sweets in each box. He gives away ${given} sweets. How many sweets are left?`,
+    ...opts,
+    explanation: `Total sweets = ${boxes} × ${per} = ${total}. Left = ${total} − ${given} = ${correct}.`,
+    simpler: [
+      `First find how many sweets there are altogether: ${boxes} × ${per} = ${total}.`,
+      `Then take away the ones given: ${total} − ${given} = ${correct}.`,
+      `Multiply before you subtract — that is the BODMAS order.`,
+    ],
+    difficulty: "easy",
+    tags: ["bodmas", "word-problem"],
+  };
+}
+
+/* --------------- family: word-problems-fractions ------------------------- */
+
+function genWpClassFraction() {
+  const den = pick([3, 4, 5, 6, 8]);
+  const num = randInt(1, den - 1);
+  const groups = randInt(4, 10);
+  const total = den * groups;
+  const boys = (total / den) * num;
+  const correct = total - boys;
+  const opts = makeOptions(correct, shuffled([boys, total, total / den, correct + num]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `In a class of ${total} students, ${num}/${den} are boys. How many girls are there?`,
+    ...opts,
+    explanation: `Boys = ${num}/${den} of ${total} = ${boys}. Girls = ${total} − ${boys} = ${correct}.`,
+    simpler: [
+      `Split the class into ${den} equal parts: ${total} ÷ ${den} = ${total / den} students in each part.`,
+      `Boys are ${num} of those parts: ${total / den} × ${num} = ${boys}.`,
+      `The question asks for GIRLS, so subtract: ${total} − ${boys} = ${correct}.`,
+      `Stopping at ${boys} is the usual slip — read what is being asked for.`,
+    ],
+    difficulty: "medium",
+    tags: ["fractions", "word-problem"],
+  };
+}
+
+function genWpCups() {
+  const cupDen = pick([2, 3, 4, 5]);
+  const cupNum = randInt(1, cupDen - 1);
+  const cups = randInt(6, 20);
+  const litresNum = cupNum * cups;
+  const correct = cups;
+  const opts = makeOptions(correct, shuffled([cups * cupDen, Math.round(cups / 2), cups + cupDen, litresNum]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A jug holds ${fracText(litresNum, cupDen)} litres of juice. Glasses of ${cupNum}/${cupDen} litre each are filled from it. How many full glasses can be poured?`,
+    ...opts,
+    explanation: `Number of glasses = ${fracText(litresNum, cupDen)} ÷ ${cupNum}/${cupDen} = ${litresNum}/${cupDen} × ${cupDen}/${cupNum} = ${correct}.`,
+    simpler: [
+      `"How many glasses fit into the jug" is a division question.`,
+      `Dividing by a fraction means multiplying by it upside down.`,
+      `${litresNum}/${cupDen} ÷ ${cupNum}/${cupDen} = ${litresNum}/${cupDen} × ${cupDen}/${cupNum} = ${correct}.`,
+      `So ${correct} full glasses.`,
+    ],
+    difficulty: "hard",
+    tags: ["fractions", "word-problem"],
+  };
+}
+
+function genWpSalary() {
+  const parts = pick([[2, 4, 8], [2, 3, 6], [3, 4, 6], [2, 5, 10]]);
+  const [a, b, c] = parts;
+  const base = a * b * c;
+  const salary = base * randInt(2, 12) * 10;
+  const spent = salary / a + salary / b + salary / c;
+  const correct = salary - spent;
+  if (correct <= 0 || !Number.isInteger(correct)) return null;
+  const opts = makeOptions(correct, shuffled([spent, salary, salary / a, correct + salary / c]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Out of a monthly income of ₹${salary}, a family spends 1/${a} on food, 1/${b} on rent and 1/${c} on travel. How much is saved?`,
+    ...opts,
+    explanation: `Food = ₹${salary / a}, rent = ₹${salary / b}, travel = ₹${salary / c}. Spent = ₹${spent}. Saved = ${salary} − ${spent} = ₹${correct}.`,
+    simpler: [
+      `Work out each amount spent, one at a time.`,
+      `Food: ${salary} ÷ ${a} = ${salary / a}. Rent: ${salary} ÷ ${b} = ${salary / b}. Travel: ${salary} ÷ ${c} = ${salary / c}.`,
+      `Add them up: ${salary / a} + ${salary / b} + ${salary / c} = ${spent}.`,
+      `Saved is what is left: ${salary} − ${spent} = ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["fractions", "word-problem"],
+  };
+}
+
+/* --------------- family: word-problems-decimals -------------------------- */
+
+function genWpMileage() {
+  const perLitre = randInt(80, 220); // tenths of a km
+  const litres = randInt(20, 60); // tenths of a litre
+  const totalTenths = perLitre * litres; // hundredths of a km
+  const correct = decText(perLitre, 1);
+  const opts = makeOptions(
+    correct,
+    shuffled([decText(totalTenths, 2), decText(perLitre * 2, 1), decText(perLitre + 10, 1), decText(litres, 1)]),
+    decNudge(perLitre, 1)
+  );
+  if (!opts) return null;
+  return {
+    question: `A car travels ${decText(totalTenths, 2)} km using ${decText(litres, 1)} litres of petrol. How far does it travel on 1 litre?`,
+    ...opts,
+    explanation: `Distance per litre = ${decText(totalTenths, 2)} ÷ ${decText(litres, 1)} = ${correct} km.`,
+    simpler: [
+      `"On 1 litre" means share the distance equally between the litres — so divide.`,
+      `${decText(totalTenths, 2)} ÷ ${decText(litres, 1)} = ${correct}.`,
+      `A quick check: ${correct} × ${decText(litres, 1)} = ${decText(totalTenths, 2)}, which matches the distance given.`,
+    ],
+    difficulty: "medium",
+    tags: ["decimals", "word-problem"],
+  };
+}
+
+function genWpUnitCost() {
+  const items = randInt(6, 25);
+  const each = randInt(150, 4000); // paise
+  const total = items * each;
+  const correct = money(each);
+  const opts = makeOptions(correct, shuffled([money(total), money(each * 2), money(each + 100), money(Math.round(total / (items + 1)))]), () => []);
+  if (!opts) return null;
+  return {
+    question: `${items} identical notebooks cost ${money(total)} altogether. What does one notebook cost?`,
+    ...opts,
+    explanation: `Cost of one = ${money(total)} ÷ ${items} = ${correct}.`,
+    simpler: [
+      `The total is shared between ${items} notebooks, so this is a division.`,
+      `${money(total)} ÷ ${items} = ${correct}.`,
+      `Check by multiplying back: ${correct} × ${items} = ${money(total)}.`,
+    ],
+    difficulty: "medium",
+    tags: ["decimals", "money", "word-problem"],
+  };
+}
+
+function genWpCloth() {
+  const perShirt = randInt(120, 250); // hundredths of a metre
+  const shirts = randInt(8, 25);
+  const extra = randInt(1, perShirt - 1);
+  const roll = perShirt * shirts + extra;
+  const correct = shirts;
+  const opts = makeOptions(correct, shuffled([shirts + 1, shirts - 1, Math.round(roll / 100), perShirt]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A tailor needs ${decText(perShirt, 2)} m of cloth for one shirt. How many complete shirts can be cut from a roll of ${decText(roll, 2)} m?`,
+    ...opts,
+    explanation: `${decText(roll, 2)} ÷ ${decText(perShirt, 2)} = ${shirts} shirts with ${decText(extra, 2)} m left over, so ${correct} complete shirts.`,
+    simpler: [
+      `Divide the roll by the cloth needed for one shirt.`,
+      `${decText(roll, 2)} ÷ ${decText(perShirt, 2)} gives ${shirts} and a bit left over.`,
+      `The leftover ${decText(extra, 2)} m is not enough for another shirt, so it does not count.`,
+      `The word "complete" tells you to round DOWN, never up: ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["decimals", "word-problem"],
+  };
+}
+
+function genWpBill() {
+  const note = pick([50000, 100000, 200000]); // paise
+  const a = randInt(1000, 20000);
+  const b = randInt(1000, 20000);
+  const c = randInt(500, 12000);
+  const spent = a + b + c;
+  if (spent >= note) return null;
+  const correct = money(note - spent);
+  const opts = makeOptions(correct, shuffled([money(spent), money(note + spent), money(note - a), money(note - spent - 100)]), () => []);
+  if (!opts) return null;
+  return {
+    question: `From ${money(note)}, Ankit spends ${money(a)} on books, ${money(b)} on a bag and ${money(c)} on snacks. How much is left?`,
+    ...opts,
+    explanation: `Total spent = ${money(a)} + ${money(b)} + ${money(c)} = ${money(spent)}. Left = ${money(note)} − ${money(spent)} = ${correct}.`,
+    simpler: [
+      `Add up everything he spent first.`,
+      `${money(a)} + ${money(b)} + ${money(c)} = ${money(spent)}.`,
+      `Then subtract from what he started with: ${money(note)} − ${money(spent)} = ${correct}.`,
+      `Line the decimal points up when adding money — that is where most slips happen.`,
+    ],
+    difficulty: "medium",
+    tags: ["decimals", "money", "word-problem"],
+  };
+}
+
+/* ---------------- family: word-problems-angles --------------------------- */
+
+function genWpLinearPairAlgebra() {
+  const x = randInt(8, 25);
+  const a = randInt(2, 9);
+  const b = randInt(1, 30);
+  const c = randInt(2, 9);
+  const first = a * x + b;
+  const second = 180 - first;
+  const d = second - c * x;
+  if (first <= 0 || second <= 0 || Math.abs(d) > 60) return null;
+  const sign = d < 0 ? "−" : "+";
+  const correct = x;
+  const opts = makeOptions(correct, shuffled([180 - x, x + 10, Math.round(180 / (a + c)), x * 2]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Two angles on a straight line are (${a}x + ${b})° and (${c}x ${sign} ${Math.abs(d)})°. What is the value of x?`,
+    ...opts,
+    explanation: `Angles on a straight line add to 180°, so (${a}x + ${b}) + (${c}x ${sign} ${Math.abs(d)}) = 180. That gives ${a + c}x ${b + d < 0 ? "−" : "+"} ${Math.abs(b + d)} = 180, so x = ${correct}.`,
+    simpler: [
+      `The two angles sit on a straight line, so together they make 180°.`,
+      `Write that as an equation: (${a}x + ${b}) + (${c}x ${sign} ${Math.abs(d)}) = 180.`,
+      `Collect the x terms and the numbers: ${a + c}x ${b + d < 0 ? "−" : "+"} ${Math.abs(b + d)} = 180.`,
+      `Solve it: x = ${correct}. (Checking: ${first}° + ${second}° = 180°.)`,
+    ],
+    difficulty: "hard",
+    tags: ["angles", "algebra", "word-problem"],
+  };
+}
+
+function genWpParallelogram() {
+  const a = randInt(35, 145);
+  if (a === 90) return null;
+  const correct = 180 - a;
+  const opts = makeOptions(correct, shuffled([a, 360 - a, 90, correct + 10]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `In a parallelogram ABCD, ∠A = ${a}°. What is ∠B?`,
+    ...opts,
+    explanation: `∠A and ∠B are co-interior angles between the parallel sides AD and BC, so they add to 180°. ∠B = 180° − ${a}° = ${correct}°.`,
+    simpler: [
+      `In a parallelogram the opposite sides are parallel.`,
+      `∠A and ∠B are next to each other between a pair of parallel sides, so they are co-interior — they add to 180°.`,
+      `∠B = 180° − ${a}° = ${correct}°.`,
+      `Opposite angles (∠A and ∠C) would be EQUAL instead; neighbouring ones add to 180°.`,
+    ],
+    difficulty: "medium",
+    tags: ["angles", "parallelogram", "word-problem"],
+  };
+}
+
+function genWpTriangleExterior() {
+  const p = randInt(35, 85);
+  const ext = randInt(p + 25, 155);
+  const correct = ext - p;
+  if (correct <= 10) return null;
+  const opts = makeOptions(correct, shuffled([180 - ext, ext + p, 180 - ext - p, correct + 15]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `In triangle PQR, side QR is extended to S. If the exterior angle ∠PRS = ${ext}° and ∠P = ${p}°, what is ∠Q?`,
+    ...opts,
+    explanation: `An exterior angle equals the sum of the two opposite interior angles: ${ext}° = ∠P + ∠Q. So ∠Q = ${ext}° − ${p}° = ${correct}°.`,
+    simpler: [
+      `There is a rule for this: an exterior angle of a triangle equals the two interior angles FAR from it, added together.`,
+      `So ${ext}° = ∠P + ∠Q.`,
+      `Put in ∠P: ${ext} = ${p} + ∠Q.`,
+      `∠Q = ${ext} − ${p} = ${correct}°.`,
+    ],
+    difficulty: "hard",
+    tags: ["angles", "triangle", "word-problem"],
+  };
+}
+
 /* ------------------------------- registry -------------------------------- */
 
 /**
@@ -1037,6 +1570,15 @@ const FAMILIES = {
   "decimals": [genDecimalAdd, genDecimalSubtract, genDecimalTimesWhole, genDecimalDivideWhole, genDecimalTimesDecimal, genDecimalCompare, genDecimalPlaceValue],
   "lines-and-angles": [genComplementSupplement, genVerticallyOpposite, genLinearPair, genParallelEqualAngles, genCoInterior, genAnglesOnStraightLine, genAnglesAtAPoint],
   "excel-formulas": [genExcelSum, genExcelAverage, genExcelMaxMin, genExcelCount, genExcelFormulaChoice, genExcelReference],
+
+  // Word problems. Separate families so a chapter can ask for more or fewer of
+  // them from data/syllabus.json without any code change.
+  "word-problems-hcf-lcm": [genWpBells, genWpStacks, genWpTrack, genWpContainer],
+  "word-problems-integers": [genWpTemperature, genWpSubmarine, genWpExamScore, genWpDiver],
+  "word-problems-bodmas": [genWpShopping, genWpChange, genWpBoxes],
+  "word-problems-fractions": [genWpClassFraction, genWpCups, genWpSalary],
+  "word-problems-decimals": [genWpMileage, genWpUnitCost, genWpCloth, genWpBill],
+  "word-problems-angles": [genWpLinearPairAlgebra, genWpParallelogram, genWpTriangleExterior],
 };
 
 let idCounter = 0;
@@ -1054,6 +1596,10 @@ function validDraft(d) {
   if (new Set(d.options).size !== 4) return false;
   if (!Number.isInteger(d.answer) || d.answer < 0 || d.answer > 3) return false;
   if (typeof d.explanation !== "string" || !d.explanation.trim()) return false;
+  if (d.simpler !== undefined && d.simpler !== null) {
+    if (!Array.isArray(d.simpler) || !d.simpler.length) return false;
+    if (d.simpler.some((s) => typeof s !== "string" || !s.trim())) return false;
+  }
   return true;
 }
 
@@ -1139,6 +1685,8 @@ export function generateForChapter(chapter, count) {
       options: draft.options,
       answer: draft.answer,
       explanation: draft.explanation,
+      // Shown only after a wrong answer - see renderQuiz in js/app.js.
+      simpler: Array.isArray(draft.simpler) && draft.simpler.length ? draft.simpler : null,
       tags: draft.tags || [],
       generated: true,
     });
