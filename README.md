@@ -1,5 +1,7 @@
 # Learn Splash
 
+**Version 3.0**
+
 A mobile-first, offline-capable practice app for Grade 7 CBSE - Maths, Science, SST,
 English, Hindi, German and ICT. Vanilla HTML/CSS/JS, no build step, no backend, no
 login. All progress is stored locally in the browser (IndexedDB).
@@ -168,7 +170,9 @@ never a risk of the two going out of sync.
 - **Streak** - consecutive days (including today) with at least one completed test.
 
 Change `weakThreshold` / `strongThreshold` in `data/config.json` any time -
-no code changes needed.
+no code changes needed. `appVersion` lives there too and is what the About
+panel under **More** displays, so cutting a release is a one-line data edit
+rather than a hunt through `js/`.
 
 ---
 
@@ -373,7 +377,10 @@ Chrome/Safari, then use "Add to Home Screen" (this works because of
 
 `service-worker.js` caches the app so it works offline. **Bump `CACHE_NAME`
 whenever any cached file changes** - that is what tells installed devices to
-fetch the new set.
+fetch the new set - **and move `index.html`'s `css/style.css?v=` to the same
+number**. They are two halves of one idea, and when they drift a browser can
+pair new markup with an old stylesheet and render the app unstyled. That has
+happened once here, so `tests/run.py`'s pre-flight fails if the two disagree.
 
 The cache is only ever written as a whole, by `cache.addAll()` during install,
 and never per request. That matters more than it sounds: the app is plain ES
@@ -454,7 +461,7 @@ It runs a static pre-flight, then starts a local server and drives headless
 Chrome (or Edge) through three browser suites, printing the results; the exit
 code is 0 only if everything passed.
 
-**Pre-flight (no browser needed).** Four static checks, each added after a real
+**Pre-flight (no browser needed).** Five static checks, each added after a real
 failure. It verifies that the boot watchdog above is still present and wired
 up, that every `storage.x()` / `quizEngine.x()` /
 `progressEngine.x()` call in `js/` resolves to something that module actually
@@ -497,7 +504,7 @@ that an in-progress Mid-Term Mock survives starting a Quick 10, a chapter
 practice and a weak-area quiz - keeping its answers, its id and its exact
 question order. Also covers per-type clearing and an export/import round trip.
 
-**`tests/smoke.html` - 62 checks.** Drives the actual app inside an iframe.
+**`tests/smoke.html` - 63 checks.** Drives the actual app inside an iframe.
 Three of those checks read *computed* style rather than text, because a stale
 or missing stylesheet renders correct markup with no styling at all - which
 looks broken to a human but passes every text-based assertion. It covers
