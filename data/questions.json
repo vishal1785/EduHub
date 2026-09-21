@@ -4836,6 +4836,72 @@
     ]
   },
   {
+    "id": "english-u2-q013",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If Doctor Dolittle had ignored the advice and needs of animals, which of the following would most likely have happened?",
+    "options": [
+      "He would have remained equally successful as a doctor",
+      "The animals would have learned to speak like humans",
+      "He would have continued to receive more human patients",
+      "He would have lost the special understanding that made his work successful"
+    ],
+    "answer": 3,
+    "explanation": "The whole basis of his success as an animal doctor was listening to what animals told him. Ignoring them would have cost him the very skill that made his new career work.",
+    "tags": [
+      "dolittle",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-q014",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does the animals' trust in Doctor Dolittle suggest about the way he treated them?",
+    "options": [
+      "He listened to them patiently and cared about their needs",
+      "He was afraid that the animals might cause trouble if he ignored them",
+      "He treated them only when other doctors could not help them",
+      "He treated them mainly because they brought more patients to his clinic"
+    ],
+    "answer": 0,
+    "explanation": "Animals trusted him and word of his skill spread among them because he genuinely listened and cared, not because of any selfish motive.",
+    "tags": [
+      "dolittle",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-q015",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Doctor Dolittle's decision to change his profession can best be understood as an example of:",
+    "options": [
+      "Giving up whenever a difficulty arises",
+      "Recognising one's strengths and using them to help others",
+      "Avoiding people because animals are easier to understand",
+      "Choosing personal comfort over responsibility"
+    ],
+    "answer": 1,
+    "explanation": "He did not give up on medicine — he redirected it towards where his particular gift (understanding animals) could do the most good.",
+    "tags": [
+      "dolittle",
+      "inference",
+      "school"
+    ]
+  },
+  {
     "id": "english-u2-poem-q001",
     "subject": "English",
     "chapterId": "english-u2-poem",
@@ -4863,7 +4929,7 @@
     "chapter": "A Funny Man (Poem)",
     "type": "mcq",
     "difficulty": "easy",
-    "question": "\"He wore his hat upon his feet, and walked upon his head.\" This line is funny because it:",
+    "question": "\"He wore a shoe upon his head, and hats upon his feet.\" This line is funny because it:",
     "options": [
       "Reverses the ordinary way things are done",
       "Describes a real accident",
@@ -4871,7 +4937,7 @@
       "Gives a serious warning"
     ],
     "answer": 0,
-    "explanation": "The comedy comes from inversion — everything is done the wrong way round, which is the poem's central joke.",
+    "explanation": "This is the poem's opening description of the funny man. The comedy comes from inversion — he wears a shoe where a hat should go and hats where shoes should go, everything the wrong way round.",
     "tags": [
       "poem",
       "imagery"
@@ -5085,6 +5151,72 @@
     "tags": [
       "poem",
       "theme"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q013",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What can the reader infer about the poet's attitude towards the funny man?",
+    "options": [
+      "The poet considers him troublesome and irritating",
+      "The poet believes his behaviour should be corrected",
+      "The poet views him with amusement and affection",
+      "The poet feels frightened by his behaviour"
+    ],
+    "answer": 2,
+    "explanation": "The poem's light, playful tone throughout shows the poet enjoys the funny man's oddness rather than disapproving of it.",
+    "tags": [
+      "poem",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q014",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of the following situations would best match the spirit of the poem?",
+    "options": [
+      "Someone becomes upset whenever others laugh",
+      "Someone refuses to speak to anyone around them",
+      "Someone follows every rule without questioning it",
+      "Someone reacts to an ordinary situation in an unexpected and amusing way"
+    ],
+    "answer": 3,
+    "explanation": "The poem celebrates delightful unpredictability — doing ordinary things in a topsy-turvy, amusing way is exactly its spirit.",
+    "tags": [
+      "poem",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q015",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If the funny man behaved exactly like everyone else, what would most likely happen to the mood created in the poem?",
+    "options": [
+      "It would become more serious and ordinary",
+      "It would remain exactly the same",
+      "It would become more mysterious",
+      "It would become more dramatic"
+    ],
+    "answer": 0,
+    "explanation": "The poem's playful, comic mood depends entirely on the funny man doing everything the wrong way round. Take that away and there is nothing left to smile at.",
+    "tags": [
+      "poem",
+      "inference",
+      "school"
     ]
   },
   {
@@ -5340,6 +5472,72 @@
     ]
   },
   {
+    "id": "english-u2-supp-q013",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What does Mary's way of speaking during the conversation mainly reveal about her?",
+    "options": [
+      "She is deliberately trying to embarrass Mrs. Harding and Mrs. Lee",
+      "She speaks honestly without always considering how her words may affect others",
+      "She is afraid of expressing her real opinions in front of adults",
+      "She carefully chooses every word to make the visitors comfortable"
+    ],
+    "answer": 1,
+    "explanation": "Mary is not malicious — she simply blurts out whatever she thinks, without pausing to consider how it will land. That is exactly what her mother tried to coach her out of.",
+    "tags": [
+      "say-the-right-thing",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q014",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What does Mrs. Shaw's behaviour suggest about her understanding of social situations?",
+    "options": [
+      "She wants Mary to avoid speaking honestly whenever guests are present",
+      "She feels that Mary should never participate in conversations with adults",
+      "She knows that being truthful is not enough; one must also consider how and when something is said",
+      "She believes that people should always hide their real opinions"
+    ],
+    "answer": 2,
+    "explanation": "Mrs. Shaw's coaching is about tact, not dishonesty — she wants Mary to think before speaking, not to lie.",
+    "tags": [
+      "say-the-right-thing",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q015",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which idea is best supported by the events in the story?",
+    "options": [
+      "Being polite always means agreeing with whatever others say",
+      "Speaking less is the best way to avoid uncomfortable situations",
+      "People are offended whenever someone expresses an honest opinion",
+      "Speaking honestly requires good judgement about the words and manner we use"
+    ],
+    "answer": 3,
+    "explanation": "Every blunder in the play comes from Mary saying something true but tactless. The play's lesson is about judgement in speech, not about staying silent or being dishonest.",
+    "tags": [
+      "say-the-right-thing",
+      "inference",
+      "school"
+    ]
+  },
+  {
     "id": "english-u3-q001",
     "subject": "English",
     "chapterId": "english-u3",
@@ -5589,6 +5787,72 @@
     "tags": [
       "great-invention",
       "ending"
+    ]
+  },
+  {
+    "id": "english-u3-q013",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Boppa's disappearance after entering the time machine creates an unexpected situation. What does this incident mainly show about Anand's invention?",
+    "options": [
+      "An invention can have consequences that its creator may not have anticipated",
+      "Scientific inventions are useful only when they are tested by adults",
+      "Anand deliberately designed the machine to make Boppa disappear",
+      "Every invention works exactly as its creator plans"
+    ],
+    "answer": 0,
+    "explanation": "Anand built the time machine for fun, with no intention of ever testing it on an intruder — its effect on Boppa was entirely unplanned.",
+    "tags": [
+      "great-invention",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u3-q014",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Why is Anita's presence important to the development of the story?",
+    "options": [
+      "She encourages Anand to invent the time machine",
+      "She helps Anand deal with the unexpected events that occur at home",
+      "She discovers how to operate the time machine before Anand does",
+      "She warns the parents about Anand's inventions before they leave"
+    ],
+    "answer": 1,
+    "explanation": "As narrator, Anita is right there through the break-in, working with Anand to handle the crisis as it unfolds — that is her role in driving the story forward.",
+    "tags": [
+      "great-invention",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u3-q015",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What can the reader infer from the parents leaving Anand and Anita alone for the night?",
+    "options": [
+      "They expected Anita to take complete responsibility for Anand",
+      "They knew that something unusual was going to happen at home",
+      "They believed the children could manage responsibly on their own",
+      "They wanted the children to experiment with Anand's inventions"
+    ],
+    "answer": 2,
+    "explanation": "Ma and Papa trust the children enough to leave them for one night, believing they are old enough to look after themselves and the house.",
+    "tags": [
+      "great-invention",
+      "inference",
+      "school"
     ]
   },
   {
@@ -5959,6 +6223,492 @@
     ]
   },
   {
+    "id": "english-grammar-q019",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Identify the type of pronoun: 'Neither of the two explanations was convincing.'",
+    "options": [
+      "Indefinite pronoun",
+      "Reciprocal pronoun",
+      "Relative pronoun",
+      "Distributive pronoun"
+    ],
+    "answer": 3,
+    "explanation": "'Neither' refers to the two explanations taken one at a time (not together), which is what a distributive pronoun does.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q020",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Identify the type of pronoun: 'The two scientists respected one another despite their different opinions.'",
+    "options": [
+      "Reciprocal pronoun",
+      "Emphatic pronoun",
+      "Indefinite pronoun",
+      "Distributive pronoun"
+    ],
+    "answer": 0,
+    "explanation": "'One another' shows a mutual action between two people, which is exactly what a reciprocal pronoun expresses.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q021",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the type of pronoun: 'Someone has left their umbrella in the laboratory.'",
+    "options": [
+      "Relative pronoun",
+      "Indefinite pronoun",
+      "Reciprocal pronoun",
+      "Distributive pronoun"
+    ],
+    "answer": 1,
+    "explanation": "'Someone' does not refer to any specific, named person, which makes it an indefinite pronoun.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q022",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the type of pronoun: 'The artist who painted this portrait lives in Jaipur.'",
+    "options": [
+      "Dummy pronoun",
+      "Reciprocal pronoun",
+      "Relative pronoun",
+      "Distributive pronoun"
+    ],
+    "answer": 2,
+    "explanation": "'Who' connects the describing clause back to 'the artist', which is the job of a relative pronoun.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q023",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In 'The little boy hurt himself while climbing the tree,' what is 'himself'?",
+    "options": [
+      "Emphatic pronoun",
+      "Dummy pronoun",
+      "Distributive pronoun",
+      "Reflexive pronoun"
+    ],
+    "answer": 3,
+    "explanation": "'Himself' shows the action of the verb falling back on the subject - the boy hurt his own self - which is a reflexive pronoun.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q024",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In 'The little boy himself carried the heavy box upstairs,' what is 'himself'?",
+    "options": [
+      "Emphatic pronoun",
+      "Dummy pronoun",
+      "Indefinite pronoun",
+      "Reflexive pronoun"
+    ],
+    "answer": 0,
+    "explanation": "Here 'himself' simply adds emphasis - it stresses that the boy, and no one else, carried the box. That makes it an emphatic pronoun rather than a reflexive one.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q025",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In 'It is getting dark outside,' what kind of pronoun is 'It'?",
+    "options": [
+      "Emphatic pronoun",
+      "Dummy pronoun",
+      "Reflexive pronoun",
+      "Reciprocal pronoun"
+    ],
+    "answer": 1,
+    "explanation": "This 'it' does not stand for any actual thing - it just fills the subject slot the sentence needs. That empty, placeholder use is called a dummy pronoun.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q026",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which sentence uses 'those' as a demonstrative pronoun rather than a demonstrative adjective?",
+    "options": [
+      "I have read those books already.",
+      "Those students have all submitted their projects.",
+      "Those students submitted their projects, but those have not.",
+      "Give me those papers on the desk."
+    ],
+    "answer": 2,
+    "explanation": "In the first sentence the second 'those' stands alone in place of a noun ('those [students]'), which makes it a pronoun. When 'those' sits directly before a noun, as in the other options, it is a demonstrative adjective instead.",
+    "tags": [
+      "pronouns",
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q027",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "'The courageous firefighter rescued the trapped family.' What type of adjective is 'courageous'?",
+    "options": [
+      "Adjective of number",
+      "Adjective of quantity",
+      "Distributive adjective",
+      "Adjective of quality"
+    ],
+    "answer": 3,
+    "explanation": "'Courageous' describes what kind of firefighter he is - a quality he has - so it is an adjective of quality.",
+    "tags": [
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q028",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'We have enough food for all the guests.' What type of adjective is 'enough'?",
+    "options": [
+      "Adjective of quantity",
+      "Adjective of quality",
+      "Adjective of number",
+      "Demonstrative adjective"
+    ],
+    "answer": 0,
+    "explanation": "'Enough' tells us how much food there is without giving an exact count, which makes it an adjective of quantity.",
+    "tags": [
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q029",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'Every participant received a certificate.' What type of adjective is 'Every'?",
+    "options": [
+      "Adjective of quality",
+      "Distributive adjective",
+      "Possessive adjective",
+      "Adjective of number"
+    ],
+    "answer": 1,
+    "explanation": "'Every' refers to each participant taken separately, one at a time - that is what makes it a distributive adjective.",
+    "tags": [
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q030",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "'She bought three reference books for her research.' What type of adjective is 'three'?",
+    "options": [
+      "Distributive adjective",
+      "Adjective of quality",
+      "Adjective of number",
+      "Adjective of quantity"
+    ],
+    "answer": 2,
+    "explanation": "'Three' gives an exact, countable number of books, which makes it an adjective of number (quantity adjectives are used for uncountable amounts instead).",
+    "tags": [
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q031",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which sentence puts the adjectives in the correct order?",
+    "options": [
+      "She bought an Indian red beautiful silk scarf.",
+      "She bought a red silk beautiful Indian scarf.",
+      "She bought a silk beautiful red Indian scarf.",
+      "She bought a beautiful red Indian silk scarf."
+    ],
+    "answer": 3,
+    "explanation": "English adjectives follow a set order: opinion/quality, then colour, then origin, then material - 'beautiful' (opinion) before 'red' (colour) before 'Indian' (origin) before 'silk' (material).",
+    "tags": [
+      "adjectives",
+      "word-order",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q032",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which order of adjectives is correct?",
+    "options": [
+      "A small old wooden table",
+      "A wooden old small table",
+      "A wooden small old table",
+      "An old wooden small table"
+    ],
+    "answer": 0,
+    "explanation": "The standard order runs size before age before material: 'small' (size), then 'old' (age), then 'wooden' (material).",
+    "tags": [
+      "adjectives",
+      "word-order",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q033",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which sentence is correctly punctuated to show possession by one girl?",
+    "options": [
+      "The girls' bicycle is new for one girl.",
+      "The girl's bicycle is new.",
+      "The girls bicycle is new.",
+      "The girl's bicycle's is new."
+    ],
+    "answer": 1,
+    "explanation": "An apostrophe followed by 's' shows singular possession - the bicycle belongs to one girl.",
+    "tags": [
+      "punctuation",
+      "apostrophe"
+    ]
+  },
+  {
+    "id": "english-grammar-q034",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Identify the tense: 'I have discovered a new way to solve this.'",
+    "options": [
+      "Past Perfect Tense",
+      "Future Perfect Tense",
+      "Present Perfect Tense",
+      "Present Continuous Tense"
+    ],
+    "answer": 2,
+    "explanation": "'have discovered' uses 'have' + past participle, the standard form of the Present Perfect Tense.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q035",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the tense: 'By next Friday, the students will have completed their science models.'",
+    "options": [
+      "Future Continuous Tense",
+      "Present Perfect Tense",
+      "Past Perfect Tense",
+      "Future Perfect Tense"
+    ],
+    "answer": 3,
+    "explanation": "'will have completed' describes an action that will be finished before a stated point in the future - the Future Perfect Tense.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q036",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the tense: 'By the time we arrived, the speaker had already left the auditorium.'",
+    "options": [
+      "Past Perfect Tense",
+      "Past Continuous Tense",
+      "Present Perfect Tense",
+      "Simple Past Tense"
+    ],
+    "answer": 0,
+    "explanation": "The speaker's leaving happened before another past event (our arriving), which is exactly when the Past Perfect Tense is used.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q037",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Choose the correct sentence.",
+    "options": [
+      "When we arrived, the film already started.",
+      "When we arrived, the film had already started.",
+      "When we arrived, the film will have already started.",
+      "When we arrived, the film has already started."
+    ],
+    "answer": 1,
+    "explanation": "One past action (the film starting) happened before another past action (our arriving), so the earlier one needs the Past Perfect Tense: 'had already started'.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q038",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Present Perfect and Past Perfect both describe completed actions. What is the key difference between them?",
+    "options": [
+      "Past Perfect is used only for future events",
+      "There is no real difference between them",
+      "Past Perfect places one past action before another past action; Present Perfect links a past action to the present",
+      "Present Perfect always needs a specific past date"
+    ],
+    "answer": 2,
+    "explanation": "'I have visited Delhi' links a past experience to now, with no fixed reference point. 'I had visited Delhi before I moved to Mumbai' places the visit before another past event - moving to Mumbai.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q039",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the tense: 'The farmers have been working in the fields since sunrise.'",
+    "options": [
+      "Past Perfect Continuous Tense",
+      "Present Continuous Tense",
+      "Present Perfect Tense",
+      "Present Perfect Continuous Tense"
+    ],
+    "answer": 3,
+    "explanation": "'have been working' - 'have been' + verb-ing - shows an action that started in the past and is still continuing now, the Present Perfect Continuous Tense.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q040",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Identify the tense: 'The family had been walking along the beach for nearly an hour when it suddenly began to rain.'",
+    "options": [
+      "Past Perfect Continuous Tense",
+      "Future Perfect Continuous Tense",
+      "Past Continuous Tense",
+      "Present Perfect Continuous Tense"
+    ],
+    "answer": 0,
+    "explanation": "The walking had been going on for a while before another past event (the rain starting) - that combination of duration-before-a-past-point is the Past Perfect Continuous Tense.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q041",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Choose the correctly completed sentence: 'By the time the train arrives, we ___ at the station for three hours.'",
+    "options": [
+      "had been waiting",
+      "will have been waiting",
+      "have been waiting",
+      "were waiting"
+    ],
+    "answer": 1,
+    "explanation": "The waiting will have gone on for a duration right up to a future point (the train's arrival), which needs the Future Perfect Continuous Tense: 'will have been waiting'.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
     "id": "english-writing-q001",
     "subject": "English",
     "chapterId": "english-writing",
@@ -6279,6 +7029,204 @@
     "tags": [
       "essay-writing",
       "planning"
+    ]
+  },
+  {
+    "id": "english-writing-q017",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "When writing a formal application letter, what comes right after the receiver's address and date?",
+    "options": [
+      "The body of the letter",
+      "The sender's details",
+      "The subject line",
+      "The complimentary close"
+    ],
+    "answer": 2,
+    "explanation": "The taught format runs: receiver's address, date, subject, salutation, then the body. The subject line comes before the salutation and the body, straight after the date.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q018",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "In a formal application, what should the introduction part of the body do?",
+    "options": [
+      "Thank the reader for reading the whole letter",
+      "Describe an unrelated personal story",
+      "List every rule of the school",
+      "Introduce yourself and clearly state the purpose of writing"
+    ],
+    "answer": 3,
+    "explanation": "The introduction's job is simple: say who you are and why you are writing, so the reader immediately knows the purpose of the letter.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q019",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a formal application, what should the main content of the body include?",
+    "options": [
+      "The necessary details of the request, with reasons and relevant information",
+      "A joke to make the letter memorable",
+      "A list of unrelated complaints",
+      "Only a single sentence with no explanation"
+    ],
+    "answer": 0,
+    "explanation": "The main paragraph is where the actual request is explained fully - what is being asked for, why, and any details the reader needs to decide.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q020",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What should the conclusion of a formal application do?",
+    "options": [
+      "Introduce a completely new request",
+      "Make a polite request for approval and thank the reader",
+      "Demand an immediate response",
+      "Repeat the entire letter word for word"
+    ],
+    "answer": 1,
+    "explanation": "The conclusion politely asks for the approval or action wanted, and closes with a note of thanks - it should not introduce new information.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q021",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "An application to a school Principal should open with which salutation?",
+    "options": [
+      "Hi there,",
+      "Dear friend,",
+      "Respected Sir/Madam,",
+      "Hello,"
+    ],
+    "answer": 2,
+    "explanation": "A formal letter to a school authority uses a respectful salutation such as 'Respected Sir/Madam,' rather than a casual greeting.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q022",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "When writing an autobiography of an object (for example, a recycled notebook), which point of view should be used throughout?",
+    "options": [
+      "Third person - using he, she, it",
+      "A mix of first and third person",
+      "Second person - using you, your",
+      "First person - using I, me, my, mine"
+    ],
+    "answer": 3,
+    "explanation": "An autobiography is the subject telling its OWN story, so it is written in the first person throughout, as if the object itself were speaking.",
+    "tags": [
+      "autobiography",
+      "creative-writing",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q023",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which opening line would make the strongest 'hook' for an autobiography?",
+    "options": [
+      "I thought my life was over when I was thrown into a recycling bin.",
+      "This is the story of a notebook.",
+      "Notebooks are made of paper.",
+      "I am a notebook."
+    ],
+    "answer": 0,
+    "explanation": "A strong hook opens with something surprising or dramatic rather than a plain statement of fact - it makes the reader want to know what happens next.",
+    "tags": [
+      "autobiography",
+      "creative-writing",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q024",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these best follows the advice to 'maintain a clear sequence of events' in a narrative piece of writing?",
+    "options": [
+      "Describing every event out of order",
+      "Using linking words such as first, then, later, finally, and at last",
+      "Leaving out all time references entirely",
+      "Jumping between different time periods with no warning"
+    ],
+    "answer": 1,
+    "explanation": "Linking words like 'first', 'then' and 'finally' guide the reader through events in the order they happened, keeping the sequence clear.",
+    "tags": [
+      "autobiography",
+      "creative-writing",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q025",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "An autobiography should end with which kind of conclusion?",
+    "options": [
+      "A list of unrelated facts",
+      "A repeat of the opening line word for word",
+      "A meaningful message, lesson or wish the writer wants to share",
+      "A sudden stop with no closing thought"
+    ],
+    "answer": 2,
+    "explanation": "A strong ending leaves the reader with something to take away - a lesson learned, a hope expressed, or a message about the subject's journey.",
+    "tags": [
+      "autobiography",
+      "creative-writing",
+      "school"
     ]
   },
   {

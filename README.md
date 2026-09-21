@@ -270,6 +270,20 @@ every time. Because they are separate families, the mix can be changed from
 `data/syllabus.json`: drop a name to remove word problems from a chapter, or
 list one twice-over on a chapter that needs more of them.
 
+Each Maths chapter's base family was also extended with a handful of skills
+taken straight from real Dhruv Global School worksheets, once those became
+available - concepts the original generators did not cover at all:
+
+| Family | New skill added | Worksheet it came from |
+| --- | --- | --- |
+| `arithmetic-expressions` | counting the terms in an expression | Term-1 Worksheet 1 |
+| `arithmetic-expressions` | translating a word phrase into an expression | Term-1 Worksheet 1 |
+| `arithmetic-expressions` | the a×b − a×c = a×(b−c) shortcut | Term-1 Worksheet 1 |
+| `fractions` | the reciprocal of a fraction, and of 1 and 0 | Gr7 Fractions Worksheet |
+| `decimals` | using a whole-number fact to place a decimal point | Gr7 Fractions & Decimals WS-2 |
+| `lines-and-angles` | the basic triangle angle-sum property | Gr7 Lines and Angles WS |
+| `lines-and-angles` | "are these two lines parallel?" reasoning | Gr7 Lines and Angles WS |
+
 Which chapters appear in this table is decided entirely by
 `data/syllabus.json`, not by any list inside `js/`.
 
@@ -287,14 +301,27 @@ inventing one would be worse than having no question at all.
 
 ### 6b. The hand-written bank
 
-`data/questions.json` holds **575 questions**. 546 of them back the 37 chapters
+`data/questions.json` holds **619 questions**. 590 of them back the 37 chapters
 that have no generator; the remaining 29 sit in generated chapters as a fallback
 that is only used if generation ever fails. Every bank-backed chapter has at
 least 12 questions, so a 10-question quiz is never simply the whole bank in a
 different order.
 
-These are original questions written for practice - **not** copied from any
-textbook.
+Most of these are original questions written for practice - **not** copied
+from any textbook or third-party bank.
+
+A smaller set (the literature MCQs, and the example sentences used in the
+pronoun/adjective/tense grammar questions) comes from real Dhruv Global School
+worksheets that carried their own answer key - literature MCQs with the correct
+option in bold, grammar and tense worksheets marked "\_AK". To be plain about
+what "from the worksheet" means here: the literature MCQs use that exact
+question and option wording, since the worksheet had already written them as
+finished multiple-choice questions with a verified answer; the grammar
+questions reuse the worksheet's example sentences (also verbatim, since those
+are what the school's own answer keys judged), but the four options and the
+explanation for each were newly written for this app, since the source
+worksheets asked those as fill-in-the-blank or identify-the-word items rather
+than as MCQs.
 
 ### 6c. Every chapter now has content
 

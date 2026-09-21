@@ -438,12 +438,84 @@ function verifyWordAngles(q) {
   return null;
 }
 
+/* --------- verifiers for the school-worksheet-derived generators -------- */
+
+function verifyExtraTerms(q) {
+  const m = q.question.match(/^How many terms are there in the expression (.+)\?$/);
+  if (!m) return null;
+  const pieces = m[1].split(/\s[+−]\s/);
+  return Number(marked(q)) === pieces.length;
+}
+
+function verifyExtraPhrase(q) {
+  const m = q.question.match(/^Which expression correctly represents '(\d+) more than (\d+) times the difference of (\d+) and (\d+)'\?$/);
+  if (!m) return null;
+  const [n, p, a, b] = [m[1], m[2], m[3], m[4]];
+  const want = `${p} × (${a} − ${b}) + ${n}`;
+  return marked(q) === want;
+}
+
+function verifyExtraFactorShortcut(q) {
+  const m = q.question.match(/^Find the value of (\d+) × (\d+) − (\d+) × (\d+)\.$/);
+  if (!m) return null;
+  const [a, b, a2, c] = [+m[1], +m[2], +m[3], +m[4]];
+  if (a !== a2) return false;
+  return Number(marked(q)) === a * (b - c);
+}
+
+function verifyExtraTriangleSum(q) {
+  const m = q.question.match(/^Two angles of a triangle measure (\d+)° and (\d+)°\. What is the third angle\?$/);
+  if (!m) return null;
+  return Number(marked(q)) === 180 - +m[1] - +m[2];
+}
+
+function verifyExtraCheckParallel(q) {
+  const m = q.question.match(/^A transversal cuts two lines\. One co-interior angle measures (\d+)° and the other measures (\d+)°\. Are the two lines parallel\?$/);
+  if (!m) return null;
+  const sum = +m[1] + +m[2];
+  const want = sum === 180 ? "Yes, the lines are parallel" : "No, the lines are not parallel";
+  return marked(q) === want;
+}
+
+function verifyExtraReciprocal(q) {
+  let m = q.question.match(/^What is the reciprocal of (\d+)\?$/);
+  if (m) {
+    const n = +m[1];
+    if (n === 0) return marked(q) === "There is no reciprocal of 0";
+    if (n === 1) return marked(q) === "1";
+    return null;
+  }
+  m = q.question.match(/^What is the reciprocal of (\d+)\/(\d+)\?$/);
+  if (m) {
+    const n = +m[1], d = +m[2];
+    const got = parseRational(marked(q));
+    if (!got) return false;
+    return rEq(got, R(d, n));
+  }
+  return null;
+}
+
+function verifyExtraDecimalShift(q) {
+  const m = q.question.match(/^If (\d+) × (\d+) = (\d+), what is (\S+) × (\S+)\?$/);
+  if (!m) return null;
+  const a = parseRational(m[4]);
+  const b = parseRational(m[5]);
+  if (!a || !b) return null;
+  const want = rMul(a, b);
+  const got = parseRational(marked(q));
+  if (!got) return false;
+  return rEq(want, got);
+}
+
 const VERIFIERS = [
   verifyArithmetic, verifyHcfLcm, verifyNumberLine, verifyFractionOfQuantity,
   verifyCompare, verifyPlaceValue, verifyAngles, verifyExcel,
   verifyExpressionChoice, verifyExcelFormulaChoice, verifyCellReference,
   verifyWordHcfLcm, verifyWordIntegers, verifyWordBodmas,
   verifyWordFractions, verifyWordDecimals, verifyWordAngles,
+  verifyExtraTerms, verifyExtraPhrase, verifyExtraFactorShortcut,
+  verifyExtraTriangleSum, verifyExtraCheckParallel, verifyExtraReciprocal,
+  verifyExtraDecimalShift,
 ];
 
 /** Run every verifier; returns true / false / null (nothing applied). */
