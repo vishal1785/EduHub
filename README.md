@@ -309,7 +309,7 @@ inventing one would be worse than having no question at all.
 
 ### 6b. The hand-written bank
 
-`data/questions.json` holds **679 questions**. 624 of them back the 36 chapters
+`data/questions.json` holds **732 questions**. 677 of them back the 37 chapters
 that have no generator; the remaining 55 sit in generated chapters as a fallback
 that is only used if generation ever fails. Every bank-backed chapter has at
 least 12 questions, so a 10-question quiz is never simply the whole bank in a
@@ -344,7 +344,7 @@ combination that means that.
 
 ### 6c. Every chapter now has content
 
-All 44 chapters are practisable. The last two gaps — *Say the Right Thing* and
+All 45 chapters are practisable. The last two gaps — *Say the Right Thing* and
 *My Brother's Great Invention* — were filled once photographs of those pages of
 *Poorvi* were available.
 
@@ -362,6 +362,17 @@ the bank's guesses would have been confidently wrong.
 The app still supports empty chapters: any chapter with no questions and no
 generators shows "Content coming soon" automatically, so adding one to
 `data/syllabus.json` before its content exists is safe.
+
+A 45th chapter, **अपठित गद्यांश** (`hindi-apathit`, unseen passage
+comprehension), was added later once real school worksheets on that skill were
+available. It did not fit any of the existing Hindi chapters - it is a reading
+skill, not a set text or a grammar topic - so it is a plain entry in
+`data/syllabus.json` with no code change anywhere, exactly the guarantee this
+project has kept since chapters became data-driven. Its questions embed a full
+passage before the actual question, separated by a blank line in the source
+text (`\n\n`); `.question-text` and `.qtext` in `css/style.css` use
+`white-space: pre-line` so that renders as a real paragraph break instead of
+collapsing into one run-on line.
 
 ---
 
@@ -519,7 +530,7 @@ missing from that list is what let two versions drift apart in the first place.
 page's load event open until it reports back - without that, headless Chrome
 dumps the DOM while the app is still waiting on IndexedDB.)
 
-**`tests/verify.html` - 148 checks.**
+**`tests/verify.html` - 149 checks.**
 
 - `data/questions.json` is valid JSON with unique ids, four distinct options
   per question, an in-range answer index, a non-empty explanation, and a
@@ -537,7 +548,7 @@ dumps the DOM while the app is still waiting on IndexedDB.)
   than in front of a student.
 - Freshness: back-to-back quizzes on a generated chapter share at most 3 of 10
   questions, and 40 rebuilds yield 300+ distinct questions per chapter.
-- Quiz building for all 44 chapters, Quick 10 per subject, the Mid-Term Mock
+- Quiz building for all 45 chapters, Quick 10 per subject, the Mid-Term Mock
   (per-subject counts honoured) and weak-area quizzes.
 - Scoring at 100% / 0% / 50%, review pairing, resume across a save/load round
   trip, and backwards compatibility with attempts saved before questions were

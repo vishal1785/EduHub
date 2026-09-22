@@ -216,6 +216,12 @@
       "description": "Core Hindi grammar."
     },
     {
+      "id": "hindi-apathit",
+      "number": null,
+      "name": "अपठित गद्यांश",
+      "description": "Unseen passage comprehension."
+    },
+    {
       "id": "hindi-lekhan",
       "number": null,
       "name": "रचनात्मक लेखन",
