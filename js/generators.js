@@ -1793,6 +1793,99 @@ function genDecimalShiftMultiply() {
   };
 }
 
+/* -------------------- family: speed-time-motion --------------------------- */
+/*
+ * Added from an actual school worksheet ("Measurement of Time and Motion"),
+ * covering speed = distance/time and its two rearrangements, average speed
+ * over a two-leg journey, and finding a pendulum's time period from a count
+ * of oscillations. This is the first generator family for a Science chapter
+ * - science-ch8 previously had none.
+ */
+
+function genSpeedFromDistanceTime() {
+  const speed = randInt(20, 90);
+  const time = randInt(2, 8);
+  const distance = speed * time;
+  const opts = makeOptions(speed, shuffled([distance, time, speed + time, Math.max(1, Math.round(distance / (time + 1)))]), numericNudge(speed));
+  if (!opts) return null;
+  return {
+    question: `A car covers ${distance} km in ${time} hours. What is its speed?`,
+    ...opts,
+    explanation: `Speed = Distance ÷ Time = ${distance} ÷ ${time} = ${speed} km/h.`,
+    simpler: [`Speed tells you how much distance is covered in each hour, so divide.`, `Speed = Distance ÷ Time = ${distance} ÷ ${time}.`, `${distance} ÷ ${time} = ${speed} km/h.`],
+    difficulty: "easy",
+    tags: ["speed", "word-problem"],
+  };
+}
+
+function genDistanceFromSpeedTime() {
+  const speed = randInt(20, 100);
+  const time = randInt(2, 6);
+  const correct = speed * time;
+  const opts = makeOptions(correct, shuffled([speed + time, speed, time, Math.max(1, Math.round(correct / 2))]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A train travels at a speed of ${speed} km/h. How much distance will it cover in ${time} hours?`,
+    ...opts,
+    explanation: `Distance = Speed × Time = ${speed} × ${time} = ${correct} km.`,
+    simpler: [`Distance covered is speed multiplied by time.`, `Distance = Speed × Time = ${speed} × ${time}.`, `${speed} × ${time} = ${correct} km.`],
+    difficulty: "easy",
+    tags: ["speed", "word-problem"],
+  };
+}
+
+function genAverageSpeedTwoLegs() {
+  const speed1 = pick([40, 50, 60, 75, 80, 90]);
+  const speed2 = pick([40, 50, 60, 75, 80, 90]);
+  // Equal speeds collapse the average onto the plain-mean distractor too,
+  // leaving too few distinct options - so only distinct speeds are used.
+  if (speed1 === speed2) return null;
+  const time1 = randInt(2, 5);
+  const time2 = randInt(2, 5);
+  const dist1 = speed1 * time1;
+  const dist2 = speed2 * time2;
+  const totalDist = dist1 + dist2;
+  const totalTime = time1 + time2;
+  if (totalDist % totalTime !== 0) return null;
+  const correct = totalDist / totalTime;
+  const opts = makeOptions(correct, shuffled([Math.round((speed1 + speed2) / 2), speed1, speed2, correct + 5]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A train travels ${dist1} km at ${speed1} km/h, then ${dist2} km at ${speed2} km/h. What is its average speed for the entire journey?`,
+    ...opts,
+    explanation: `Total distance = ${dist1} + ${dist2} = ${totalDist} km. Time for the first part = ${dist1} ÷ ${speed1} = ${time1} h, and for the second part = ${dist2} ÷ ${speed2} = ${time2} h, so total time = ${totalTime} h. Average speed = ${totalDist} ÷ ${totalTime} = ${correct} km/h.`,
+    simpler: [
+      `Average speed is NOT just the average of the two speeds - it is total distance ÷ total time.`,
+      `Total distance = ${dist1} + ${dist2} = ${totalDist} km.`,
+      `Total time = ${time1} h + ${time2} h = ${totalTime} h.`,
+      `Average speed = ${totalDist} ÷ ${totalTime} = ${correct} km/h.`,
+    ],
+    difficulty: "hard",
+    tags: ["speed", "average", "word-problem"],
+  };
+}
+
+function genPendulumTimePeriod() {
+  const oscillations = pick([10, 15, 20, 25, 30]);
+  const period = randInt(2, 4);
+  const totalTime = oscillations * period;
+  const correct = period;
+  const opts = makeOptions(correct, shuffled([totalTime, oscillations, Math.max(1, Math.round(totalTime / (oscillations - 1))), correct + 1]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A pendulum completes ${oscillations} oscillations in ${totalTime} seconds. Find its time period.`,
+    ...opts,
+    explanation: `Time period = Total time ÷ Number of oscillations = ${totalTime} ÷ ${oscillations} = ${correct} s.`,
+    simpler: [
+      `The time period is the time for just ONE oscillation, so share the total time equally among all the oscillations.`,
+      `Time period = Total time ÷ Number of oscillations = ${totalTime} ÷ ${oscillations}.`,
+      `${totalTime} ÷ ${oscillations} = ${correct} s.`,
+    ],
+    difficulty: "medium",
+    tags: ["pendulum", "time-period", "word-problem"],
+  };
+}
+
 const FAMILIES = {
   "hcf-lcm-factors": [genHCF, genLCM, genIsFactor, genSmallestDivisibleBy, genFactorCount, genHCFThree],
   "integer-operations": [genIntegerAdd, genIntegerSubtract, genIntegerMultiply, genIntegerDivide, genIntegerThreeTerm, genIntegerNumberLine],
@@ -1801,6 +1894,10 @@ const FAMILIES = {
   "decimals": [genDecimalAdd, genDecimalSubtract, genDecimalTimesWhole, genDecimalDivideWhole, genDecimalTimesDecimal, genDecimalCompare, genDecimalPlaceValue, genDecimalShiftMultiply],
   "lines-and-angles": [genComplementSupplement, genVerticallyOpposite, genLinearPair, genParallelEqualAngles, genCoInterior, genAnglesOnStraightLine, genAnglesAtAPoint, genTriangleAngleSum, genCheckParallel],
   "excel-formulas": [genExcelSum, genExcelAverage, genExcelMaxMin, genExcelCount, genExcelFormulaChoice, genExcelReference],
+
+  // Science. speed-time-motion is the first generator family for a Science
+  // chapter - see the section above for why it was added.
+  "speed-time-motion": [genSpeedFromDistanceTime, genDistanceFromSpeedTime, genAverageSpeedTwoLegs, genPendulumTimePeriod],
 
   // Word problems. Separate families so a chapter can ask for more or fewer of
   // them from data/syllabus.json without any code change.

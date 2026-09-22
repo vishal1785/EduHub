@@ -507,6 +507,33 @@ function verifyExtraDecimalShift(q) {
   return rEq(want, got);
 }
 
+function verifySpeedFromDistanceTime(q) {
+  const m = q.question.match(/^A car covers (\d+) km in (\d+) hours\. What is its speed\?$/);
+  if (!m) return null;
+  return Number(marked(q)) === +m[1] / +m[2];
+}
+
+function verifyDistanceFromSpeedTime(q) {
+  const m = q.question.match(/^A train travels at a speed of (\d+) km\/h\. How much distance will it cover in (\d+) hours\?$/);
+  if (!m) return null;
+  return Number(marked(q)) === +m[1] * +m[2];
+}
+
+function verifyAverageSpeedTwoLegs(q) {
+  const m = q.question.match(/^A train travels (\d+) km at (\d+) km\/h, then (\d+) km at (\d+) km\/h\. What is its average speed for the entire journey\?$/);
+  if (!m) return null;
+  const [d1, s1, d2, s2] = [+m[1], +m[2], +m[3], +m[4]];
+  if (d1 % s1 !== 0 || d2 % s2 !== 0) return false;
+  const t1 = d1 / s1, t2 = d2 / s2;
+  return Number(marked(q)) === (d1 + d2) / (t1 + t2);
+}
+
+function verifyPendulumTimePeriod(q) {
+  const m = q.question.match(/^A pendulum completes (\d+) oscillations in (\d+) seconds\. Find its time period\.$/);
+  if (!m) return null;
+  return Number(marked(q)) === +m[2] / +m[1];
+}
+
 const VERIFIERS = [
   verifyArithmetic, verifyHcfLcm, verifyNumberLine, verifyFractionOfQuantity,
   verifyCompare, verifyPlaceValue, verifyAngles, verifyExcel,
@@ -516,6 +543,8 @@ const VERIFIERS = [
   verifyExtraTerms, verifyExtraPhrase, verifyExtraFactorShortcut,
   verifyExtraTriangleSum, verifyExtraCheckParallel, verifyExtraReciprocal,
   verifyExtraDecimalShift,
+  verifySpeedFromDistanceTime, verifyDistanceFromSpeedTime,
+  verifyAverageSpeedTwoLegs, verifyPendulumTimePeriod,
 ];
 
 /** Run every verifier; returns true / false / null (nothing applied). */

@@ -246,7 +246,7 @@ There are two sources, chosen per chapter.
 
 ### 6a. Generated questions (fresh every time)
 
-Seven chapters produce **brand-new randomised questions on every quiz**, rather
+Eight chapters produce **brand-new randomised questions on every quiz**, rather
 than replaying a fixed list. These are the chapters where the correct answer can
 be *computed*, so it can be guaranteed correct without a textbook:
 
@@ -259,6 +259,12 @@ be *computed*, so it can be guaranteed correct without a textbook:
 | Maths 7 - A Peak Beyond The Point | `decimals` | decimal arithmetic, place value, comparing |
 | Maths 10 - Parallel and Intersecting Lines | `lines-and-angles` | complements, linear pairs, transversal angles |
 | ICT 2 - Calculations in Excel 2016 | `excel-formulas` | SUM / AVERAGE / MAX / MIN / COUNT, cell references |
+| Science 8 - Measurement of Time and Motion | `speed-time-motion` | speed = distance/time, average speed over two legs, pendulum time period |
+
+`speed-time-motion` is the first generator family written for a Science
+chapter, added once a real school worksheet on time and motion showed how
+computable this topic actually is - the same reasoning that put Maths word
+problems into generators applies here too.
 
 Each Maths chapter also opts into a **word-problem** family
 (`word-problems-hcf-lcm`, `word-problems-integers`, `word-problems-bodmas`,
@@ -295,14 +301,16 @@ All arithmetic in `generators.js` is done on **integers** - decimals are carried
 as scaled integers and only turned into text at the last moment - so
 floating-point error can never make a generated answer wrong.
 
-Every other subject stays on the hand-written bank on purpose. A generator can
-compute `17 x 4`, but it cannot invent a verifiable fact about a Hindi poem, so
+Every other chapter stays on the hand-written bank on purpose, for the same
+reason `speed-time-motion` above was the exception rather than the rule: a
+generator can compute `17 x 4` or `distance ÷ time`, but it cannot invent a
+verifiable fact about a Hindi poem or a chapter on acids and bases, so
 inventing one would be worse than having no question at all.
 
 ### 6b. The hand-written bank
 
-`data/questions.json` holds **619 questions**. 590 of them back the 37 chapters
-that have no generator; the remaining 29 sit in generated chapters as a fallback
+`data/questions.json` holds **679 questions**. 624 of them back the 36 chapters
+that have no generator; the remaining 55 sit in generated chapters as a fallback
 that is only used if generation ever fails. Every bank-backed chapter has at
 least 12 questions, so a 10-question quiz is never simply the whole bank in a
 different order.
@@ -322,6 +330,17 @@ are what the school's own answer keys judged), but the four options and the
 explanation for each were newly written for this app, since the source
 worksheets asked those as fill-in-the-blank or identify-the-word items rather
 than as MCQs.
+
+The SST and Science questions added after that (Civics, Geography and History
+revision worksheets; Acids/Bases/Salts, Electric Circuits, Physical & Chemical
+Changes, Adolescence, and Time and Motion) follow a third pattern: none of
+their wording is copied. The worksheets' own MCQs and assertion-reason pairs
+were used only to establish which fact was correct - each assertion-reason
+pair became one ordinary "why" MCQ here, keeping the same true statement and
+the same false distractor the worksheet's own Reason line was built to catch.
+One assertion-reason pair, whose verified answer was "both statements are
+false", was left out entirely, since the app's four-option format has no
+combination that means that.
 
 ### 6c. Every chapter now has content
 
@@ -500,7 +519,7 @@ missing from that list is what let two versions drift apart in the first place.
 page's load event open until it reports back - without that, headless Chrome
 dumps the DOM while the app is still waiting on IndexedDB.)
 
-**`tests/verify.html` - 141 checks.**
+**`tests/verify.html` - 148 checks.**
 
 - `data/questions.json` is valid JSON with unique ids, four distinct options
   per question, an in-range answer index, a non-empty explanation, and a
@@ -513,7 +532,7 @@ dumps the DOM while the app is still waiting on IndexedDB.)
 - **Every generated question is independently recomputed.** The suite parses
   the question back out of its own printed text and recalculates the answer
   using exact rational arithmetic, rather than trusting `generators.js`. On the
-  last run, **14,000 generated questions were checked this way and 100% were
+  last run, **16,000 generated questions were checked this way and 100% were
   correct** - a generator that starts producing wrong answers fails here rather
   than in front of a student.
 - Freshness: back-to-back quizzes on a generated chapter share at most 3 of 10

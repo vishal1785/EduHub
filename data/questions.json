@@ -883,6 +883,94 @@
     ]
   },
   {
+    "id": "science-ch2-q018",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Turmeric can be used to identify some basic substances. Why does this work?",
+    "options": [
+      "Turmeric has no reaction with either acids or bases",
+      "Turmeric only reacts with acids, not bases",
+      "Turmeric changes colour when it comes into contact with a basic substance",
+      "Turmeric changes colour when it comes into contact with any liquid"
+    ],
+    "answer": 2,
+    "explanation": "Turmeric turns to a reddish-brown colour specifically in the presence of a base, which is exactly what makes it useful as a natural indicator for basic substances.",
+    "tags": [
+      "indicators",
+      "turmeric",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch2-q019",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Lemon juice turns blue litmus paper red. What does this tell you?",
+    "options": [
+      "Lemon juice contains a base",
+      "Lemon juice has no effect on litmus at all",
+      "Lemon juice is neutral",
+      "Lemon juice contains an acid"
+    ],
+    "answer": 3,
+    "explanation": "Turning blue litmus red is the defining test for an acid - lemon juice does this because it contains citric acid.",
+    "tags": [
+      "indicators",
+      "litmus",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch2-q020",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Is it true that all substances that taste sour are safe to taste in a laboratory?",
+    "options": [
+      "No - some acids can be harmful and should never be tasted",
+      "Yes, but only in a school laboratory",
+      "No substance in a lab is ever sour",
+      "Yes, sourness always means a substance is safe"
+    ],
+    "answer": 0,
+    "explanation": "Sourness is a property of acids in general, but many acids used or produced in a laboratory are corrosive or otherwise harmful, so nothing should ever be tasted to identify it.",
+    "tags": [
+      "safety",
+      "acids",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch2-q021",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Soap solution is basic, not acidic. Which test result actually confirms this?",
+    "options": [
+      "Soap solution turns blue litmus paper red",
+      "Soap solution turns red litmus paper blue",
+      "Soap solution turns turmeric paper yellow",
+      "Soap solution has no effect on either litmus colour"
+    ],
+    "answer": 1,
+    "explanation": "Turning red litmus blue is the signature test for a base. Soap solution does exactly this, which is how we know it is basic rather than acidic, whatever its everyday 'cleaning' use might suggest.",
+    "tags": [
+      "indicators",
+      "bases",
+      "school"
+    ]
+  },
+  {
     "id": "science-ch3-q001",
     "subject": "Science",
     "chapterId": "science-ch3",
@@ -1258,6 +1346,138 @@
     ]
   },
   {
+    "id": "science-ch3-q019",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the SI unit of electric current?",
+    "options": [
+      "Ohm",
+      "Watt",
+      "Ampere",
+      "Volt"
+    ],
+    "answer": 2,
+    "explanation": "Electric current is measured in amperes (A). Volt measures potential difference, watt measures power, and ohm measures resistance.",
+    "tags": [
+      "circuits",
+      "units",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q020",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these devices glows because of the heating effect of electric current?",
+    "options": [
+      "A solar lamp",
+      "A CFL",
+      "An LED",
+      "An incandescent bulb"
+    ],
+    "answer": 3,
+    "explanation": "An incandescent bulb glows because current heats its filament until it is white-hot. LEDs and CFLs produce light through different effects that generate far less heat.",
+    "tags": [
+      "circuits",
+      "heating-effect",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q021",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which metal is used for the filament of an incandescent electric bulb?",
+    "options": [
+      "Tungsten",
+      "Aluminium",
+      "Silver",
+      "Copper"
+    ],
+    "answer": 0,
+    "explanation": "Tungsten is used because it has a very high melting point, which lets the filament glow white-hot from the heating effect without melting.",
+    "tags": [
+      "circuits",
+      "materials",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q022",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A bulb can glow only when the circuit is complete. Can current flow through an open circuit?",
+    "options": [
+      "Yes, but only for a few seconds",
+      "No - an open circuit has a gap, so no current can flow through it",
+      "Yes, current always finds a way around any gap",
+      "It depends on the colour of the wire"
+    ],
+    "answer": 1,
+    "explanation": "An open circuit has a break in the conducting path. Since current needs a complete loop to flow, an open circuit simply cannot carry current at all.",
+    "tags": [
+      "circuits",
+      "open-closed",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q023",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Does a switch increase the amount of current flowing in a circuit?",
+    "options": [
+      "No, a switch has no function in a circuit at all",
+      "Yes, but only in circuits with more than one bulb",
+      "No - a switch is used only to complete or break the circuit, not to increase current",
+      "Yes, closing a switch always increases the current"
+    ],
+    "answer": 2,
+    "explanation": "A switch's only job is to open or close the circuit path. It does not add current to the circuit - how much current flows depends on the cell and the components, not the switch.",
+    "tags": [
+      "circuits",
+      "switch",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q024",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Plastic-coated wires conduct electricity once the insulation is stripped from their ends. Why does stripping the ends matter?",
+    "options": [
+      "Stripping the plastic has no effect on how the wire conducts",
+      "The wire only conducts electricity while it is still coated in plastic",
+      "Plastic actually helps electricity flow, so removing it stops the flow",
+      "Plastic is an electrical insulator, so it must be removed to expose the conducting metal underneath"
+    ],
+    "answer": 3,
+    "explanation": "Plastic is an insulator and does not conduct electricity. The bare metal wire underneath is the actual conductor, which is why the coating has to be stripped from the ends to make an electrical connection.",
+    "tags": [
+      "circuits",
+      "insulators",
+      "school"
+    ]
+  },
+  {
     "id": "science-ch5-q001",
     "subject": "Science",
     "chapterId": "science-ch5",
@@ -1587,6 +1807,116 @@
     "tags": [
       "chemical-change",
       "photosynthesis"
+    ]
+  },
+  {
+    "id": "science-ch5-q017",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Cutting paper into small pieces is a physical change. Why?",
+    "options": [
+      "No new substance is formed during a physical change",
+      "Paper cannot undergo a physical change",
+      "Cutting always produces heat, which makes it a chemical change",
+      "A new substance called 'small paper' is formed"
+    ],
+    "answer": 0,
+    "explanation": "Cutting only changes the size and shape of the paper - it is still paper, chemically unchanged, which is exactly what makes it a physical change.",
+    "tags": [
+      "chemical-change",
+      "physical-change",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch5-q018",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Rusting is a slow chemical change. Is 'rust' simply another chemical name for iron?",
+    "options": [
+      "Yes, rust is just the technical term chemists use for iron",
+      "No - rust is a new substance (iron oxide) formed when iron reacts with oxygen and water, not just another name for iron",
+      "No, rust and iron have nothing to do with each other",
+      "Yes, rust and iron are exactly the same substance"
+    ],
+    "answer": 1,
+    "explanation": "Rust is iron oxide, a genuinely different substance from iron itself, formed when iron reacts with oxygen and moisture. Calling it just 'the chemical name of iron' misstates what rust actually is.",
+    "tags": [
+      "chemical-change",
+      "rusting",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch5-q019",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Burning a magnesium ribbon produces magnesium oxide. Why does this count as a chemical change?",
+    "options": [
+      "No new substance is involved in burning magnesium",
+      "Burning only changes the shape of the magnesium ribbon",
+      "A new substance (magnesium oxide) is formed during the burning",
+      "The magnesium ribbon simply melts and re-solidifies"
+    ],
+    "answer": 2,
+    "explanation": "Magnesium oxide is a genuinely new substance with different properties from the magnesium metal it came from, which is exactly what defines a chemical change.",
+    "tags": [
+      "chemical-change",
+      "burning",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch5-q020",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which of the following is a chemical change?",
+    "options": [
+      "Dissolving sugar in water",
+      "Melting of ice",
+      "Breaking of glass",
+      "Burning of a candle's wick"
+    ],
+    "answer": 3,
+    "explanation": "Burning produces new substances - carbon dioxide, water vapour and soot - so it is a chemical change. The others only change shape or state, without forming anything new.",
+    "tags": [
+      "chemical-change",
+      "physical-change",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch5-q021",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which process would you use to separate a mixture of iron filings and sulphur?",
+    "options": [
+      "Magnetic separation",
+      "Sedimentation",
+      "Filtration",
+      "Evaporation"
+    ],
+    "answer": 0,
+    "explanation": "Iron is magnetic and sulphur is not, so a magnet can pull the iron filings straight out of the mixture, leaving the sulphur behind - a quick, purely physical separation.",
+    "tags": [
+      "separation",
+      "mixtures",
+      "school"
     ]
   },
   {
@@ -1920,6 +2250,204 @@
     "tags": [
       "emotions",
       "hormones"
+    ]
+  },
+  {
+    "id": "science-ch6-q017",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which of the following best describes adolescence?",
+    "options": [
+      "A stage that occurs only after adulthood",
+      "A transition from childhood to adulthood",
+      "A period when no major changes occur",
+      "A stage limited only to physical growth"
+    ],
+    "answer": 1,
+    "explanation": "Adolescence is the whole transitional period between childhood and adulthood, involving physical, emotional and social changes together - not just one kind of change.",
+    "tags": [
+      "adolescence",
+      "definition",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q018",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which nutrient is particularly important for bone growth during adolescence?",
+    "options": [
+      "Iron",
+      "Fats",
+      "Calcium",
+      "Carbohydrates"
+    ],
+    "answer": 2,
+    "explanation": "Calcium is essential for building strong bones, which matters especially during adolescence when the skeleton is still growing rapidly.",
+    "tags": [
+      "adolescence",
+      "nutrition",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q019",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A teenager notices increased sweating and oilier skin. Which body change is most closely linked to this?",
+    "options": [
+      "Decreased production of hormones",
+      "Reduced blood circulation",
+      "A general slowing down of growth",
+      "Increased activity of sweat and sebaceous glands"
+    ],
+    "answer": 3,
+    "explanation": "Hormonal changes during adolescence make sweat glands and sebaceous (oil) glands more active, which is exactly why sweating and skin oiliness both increase around this time.",
+    "tags": [
+      "adolescence",
+      "body-changes",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q020",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Voice deepening and facial hair growth in boys are examples of:",
+    "options": [
+      "Secondary sexual characteristics, which develop as the body changes during puberty",
+      "Temporary changes that disappear after adolescence",
+      "Changes unrelated to puberty",
+      "Primary changes present since birth"
+    ],
+    "answer": 0,
+    "explanation": "Secondary sexual characteristics are physical features - like a deepening voice or facial hair - that appear during puberty as the body matures, without being directly involved in reproduction itself.",
+    "tags": [
+      "adolescence",
+      "puberty",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q021",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Adolescents need a nutritious, balanced diet. What makes this especially important during adolescence?",
+    "options": [
+      "A balanced diet only matters after adolescence ends",
+      "Rapid growth and development during adolescence increase the body's need for nutrients",
+      "Adolescents generally need less food than younger children",
+      "Nutrition has no real connection to growth"
+    ],
+    "answer": 1,
+    "explanation": "The body is growing and changing quickly during adolescence, which raises its demand for nutrients well above what a slower-growing body would need.",
+    "tags": [
+      "adolescence",
+      "nutrition",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q022",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Adolescents should avoid harmful substances such as tobacco and alcohol. Why?",
+    "options": [
+      "Avoiding them is a matter of personal taste, not health",
+      "Tobacco and alcohol only affect memory, nothing else",
+      "Such substances can damage physical and mental health and may lead to addiction",
+      "These substances only affect adults, not adolescents"
+    ],
+    "answer": 2,
+    "explanation": "Tobacco and alcohol can genuinely harm a still-developing body and mind, and can lead to addiction - real health risks, not just a matter of preference.",
+    "tags": [
+      "adolescence",
+      "health",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q023",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Does adolescence involve only physical changes?",
+    "options": [
+      "Yes, but only in boys",
+      "No, adolescence involves no physical changes at all",
+      "Yes, adolescence is purely a physical stage",
+      "No - adolescents also experience emotional and behavioural changes"
+    ],
+    "answer": 3,
+    "explanation": "Adolescence brings physical changes, but just as importantly it brings emotional and behavioural changes too - mood swings and shifting responses to situations are a normal part of it.",
+    "tags": [
+      "adolescence",
+      "emotional-changes",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q024",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What is the Rashtriya Kishor Swasthya Karyakram (RKSK)?",
+    "options": [
+      "A government programme focused on improving the health and well-being of adolescents",
+      "A private hospital chain for children",
+      "A school subject taught only in Grade 7",
+      "A sports competition held once every four years"
+    ],
+    "answer": 0,
+    "explanation": "RKSK is a national programme aimed at adolescent health, covering areas such as nutrition, mental health and reproductive health.",
+    "tags": [
+      "adolescence",
+      "rksk",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q025",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The hormone testosterone, produced by the testes, is mainly responsible for which changes in boys during puberty?",
+    "options": [
+      "Loss of appetite",
+      "Development of male secondary sexual characteristics such as a deepening voice and facial hair",
+      "A decrease in muscle development",
+      "A slowing down of overall growth"
+    ],
+    "answer": 1,
+    "explanation": "Testosterone drives the development of male secondary sexual characteristics during puberty, including the voice deepening and facial hair growth that become noticeable around this age.",
+    "tags": [
+      "adolescence",
+      "hormones",
+      "school"
     ]
   },
   {
@@ -2276,6 +2804,204 @@
     ]
   },
   {
+    "id": "science-ch8-q018",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What is the SI unit of speed?",
+    "options": [
+      "Metre",
+      "Kilometre per hour (km/h)",
+      "Metre per second (m/s)",
+      "Second"
+    ],
+    "answer": 2,
+    "explanation": "The SI unit of speed is the metre per second (m/s), since speed is distance (in metres) divided by time (in seconds).",
+    "tags": [
+      "speed",
+      "units",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q019",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which instrument would be most suitable for measuring the length of a classroom?",
+    "options": [
+      "A stopwatch",
+      "A pendulum",
+      "A measuring tape",
+      "A metre scale"
+    ],
+    "answer": 3,
+    "explanation": "A metre scale is well suited to measuring something the size of a classroom - long enough to be practical, but still precise for everyday lengths.",
+    "tags": [
+      "measurement",
+      "instruments",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q020",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which instrument would be most appropriate for measuring the distance covered by a runner during a race?",
+    "options": [
+      "A measuring tape",
+      "A thermometer",
+      "A metre scale",
+      "A stopwatch"
+    ],
+    "answer": 0,
+    "explanation": "A measuring tape can stretch out over a long distance in one go, which makes it far more practical than a rigid metre scale for measuring a race track.",
+    "tags": [
+      "measurement",
+      "instruments",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q021",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A stopwatch is more suitable than an ordinary clock for measuring the time taken by a runner in a race. Why?",
+    "options": [
+      "A stopwatch is always more expensive than a clock",
+      "A stopwatch is designed to measure short intervals of time accurately",
+      "An ordinary clock cannot show seconds at all",
+      "A stopwatch measures distance as well as time"
+    ],
+    "answer": 1,
+    "explanation": "A stopwatch is built specifically to start, stop and read short time intervals precisely - exactly what timing a race needs, unlike an ordinary clock meant for telling the time of day.",
+    "tags": [
+      "measurement",
+      "stopwatch",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q022",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The time period of a simple pendulum stays the same even if the mass of its bob is increased, as long as the length is unchanged. Why?",
+    "options": [
+      "The time period always depends on the mass of the bob",
+      "The time period changes randomly with each swing",
+      "The time period of a simple pendulum depends mainly on its length, not on the mass of the bob",
+      "A heavier bob always swings faster"
+    ],
+    "answer": 2,
+    "explanation": "For a simple pendulum, it is the length of the string that determines the time period - changing the mass of the bob on the end makes no real difference.",
+    "tags": [
+      "pendulum",
+      "time-period",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q023",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A car's speed is given as 10 m/s. What does this mean?",
+    "options": [
+      "The car will stop after 10 seconds",
+      "The car has travelled a total of 10 metres",
+      "The car travels 10 kilometres in one hour only",
+      "The car travels 10 metres in one second"
+    ],
+    "answer": 3,
+    "explanation": "A speed of 10 m/s means the car covers 10 metres of distance for every second that passes - it's a rate, not a fixed total.",
+    "tags": [
+      "speed",
+      "meaning",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q024",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A student measuring a table with a ruler accidentally starts from the 2 cm mark instead of the zero mark. What should they do to get the correct length?",
+    "options": [
+      "Subtract 2 cm from the final reading",
+      "Add 2 cm to the final reading",
+      "Ignore the error - it will not affect the result",
+      "Start measuring again from the 5 cm mark instead"
+    ],
+    "answer": 0,
+    "explanation": "Since the ruler's zero mark was skipped by 2 cm, that same 2 cm must be subtracted from wherever the final reading lands, to correct for the offset.",
+    "tags": [
+      "measurement",
+      "reading-scales",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q025",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is periodic motion, and why does a simple pendulum show it?",
+    "options": [
+      "Motion that never repeats itself",
+      "Motion that repeats itself after equal intervals of time - a pendulum shows it because it swings to and fro, completing each oscillation in roughly equal time",
+      "Motion that speeds up every time it repeats",
+      "Motion that only happens once and then stops"
+    ],
+    "answer": 1,
+    "explanation": "Periodic motion repeats after equal time intervals, like the swing of a pendulum returning to the same point again and again in roughly the same amount of time each cycle.",
+    "tags": [
+      "periodic-motion",
+      "pendulum",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q026",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What distinguishes uniform motion from non-uniform motion?",
+    "options": [
+      "There is no real difference between the two",
+      "Uniform motion only happens on straight roads",
+      "In uniform motion an object covers equal distances in equal time intervals; in non-uniform motion the distances covered in equal time intervals are unequal",
+      "Non-uniform motion means the object is not actually moving"
+    ],
+    "answer": 2,
+    "explanation": "Uniform motion means the object's speed stays constant, covering the same distance in each equal slice of time; non-uniform motion means the speed itself is changing.",
+    "tags": [
+      "motion",
+      "uniform-non-uniform",
+      "school"
+    ]
+  },
+  {
     "id": "sst-ch2-q001",
     "subject": "SST",
     "chapterId": "sst-ch2",
@@ -2602,6 +3328,72 @@
     "tags": [
       "temperature",
       "daily-variation"
+    ]
+  },
+  {
+    "id": "sst-ch2-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In which year was the India Meteorological Department (IMD) established?",
+    "options": [
+      "1947",
+      "1991",
+      "2020",
+      "1875"
+    ],
+    "answer": 3,
+    "explanation": "The IMD was established in 1875, making it one of the oldest meteorological departments in the world.",
+    "tags": [
+      "weather",
+      "imd",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch2-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Nitrogen is the most abundant gas in the Earth's atmosphere. About what percentage of the atmosphere does it make up?",
+    "options": [
+      "About 78%",
+      "About 50%",
+      "About 95%",
+      "About 21%"
+    ],
+    "answer": 0,
+    "explanation": "Nitrogen makes up roughly 78% of the atmosphere, with oxygen at about 21% and other gases making up the small remainder.",
+    "tags": [
+      "weather",
+      "atmosphere",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch2-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The India Meteorological Department (IMD) is responsible for weather forecasting in India. How does it carry out this responsibility?",
+    "options": [
+      "It relies entirely on satellite images from other countries",
+      "It collects and analyses weather data to predict conditions and issue warnings for events like cyclones and heavy rainfall",
+      "It only records rainfall once a year",
+      "It only forecasts weather for airports"
+    ],
+    "answer": 1,
+    "explanation": "The IMD's forecasting role works through ongoing data collection and analysis, which lets it issue timely warnings before events such as cyclones or heat waves.",
+    "tags": [
+      "weather",
+      "imd",
+      "school"
     ]
   },
   {
@@ -2936,6 +3728,116 @@
     ]
   },
   {
+    "id": "sst-ch3-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The word 'monsoon' comes from an Arabic word meaning 'season'. How is that word spelled?",
+    "options": [
+      "Mawsim",
+      "Mahawat",
+      "Mausim",
+      "Mousam"
+    ],
+    "answer": 2,
+    "explanation": "The Arabic word is 'mausim', meaning season - a fitting origin for winds that reverse with the seasons.",
+    "tags": [
+      "climate",
+      "monsoon",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch3-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Climate is the average pattern of weather over how many years or more?",
+    "options": [
+      "5 years",
+      "50 years",
+      "10 years",
+      "30 years"
+    ],
+    "answer": 3,
+    "explanation": "Climate is generally studied over a period of 30 years or more, which is long enough to smooth out year-to-year weather variation and reveal a genuine long-term pattern.",
+    "tags": [
+      "climate",
+      "definition",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch3-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Himalayas protect India from the cold winds of which region?",
+    "options": [
+      "Central Asia",
+      "Africa",
+      "Europe",
+      "Australia"
+    ],
+    "answer": 0,
+    "explanation": "The Himalayan range acts as a barrier that blocks the bitterly cold winds blowing down from Central Asia, which is one reason northern India stays relatively milder in winter than it otherwise would.",
+    "tags": [
+      "climate",
+      "himalayas",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch3-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Hill stations are generally cooler than the plains. Why?",
+    "options": [
+      "Hill stations are always further from the equator",
+      "Temperature decreases as altitude increases",
+      "Hill stations receive less sunlight overall",
+      "Hill stations have more rainfall"
+    ],
+    "answer": 1,
+    "explanation": "As altitude increases, the air becomes thinner and cooler, which is why hill stations sitting at height are cooler than the plains below them.",
+    "tags": [
+      "climate",
+      "altitude",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch3-q021",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The leeward side of a mountain often receives very little rainfall and is called a rain shadow area. Why does this happen?",
+    "options": [
+      "Mountains block all wind from reaching the leeward side",
+      "The leeward side is always further from the sea",
+      "The air loses most of its moisture while rising and raining on the windward side",
+      "Rain only ever falls on the windward side of any slope"
+    ],
+    "answer": 2,
+    "explanation": "As moist air is forced up the windward slope it cools and releases its moisture as rain. By the time that same air crosses to the leeward (far) side, it has little moisture left to give.",
+    "tags": [
+      "climate",
+      "rain-shadow",
+      "school"
+    ]
+  },
+  {
     "id": "sst-ch5-q001",
     "subject": "SST",
     "chapterId": "sst-ch5",
@@ -3265,6 +4167,118 @@
     "tags": [
       "mauryan",
       "chronology"
+    ]
+  },
+  {
+    "id": "sst-ch5-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Who founded the Mauryan Empire?",
+    "options": [
+      "Bindusara",
+      "Chanakya",
+      "Ashoka",
+      "Chandragupta Maurya"
+    ],
+    "answer": 3,
+    "explanation": "Chandragupta Maurya founded the Mauryan Empire around 321 BCE, with guidance from his advisor Chanakya.",
+    "tags": [
+      "mauryan",
+      "founder",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch5-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Ashoka's inscriptions, carved on rocks and pillars across his empire, were written mainly in which script?",
+    "options": [
+      "Brahmi",
+      "Kharosthi only",
+      "Devanagari",
+      "Sanskrit script"
+    ],
+    "answer": 0,
+    "explanation": "Most of Ashoka's edicts were inscribed in the Brahmi script (with a smaller number in Kharosthi in the northwest), making them readable across much of his empire.",
+    "tags": [
+      "mauryan",
+      "ashoka",
+      "inscriptions",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch5-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Near which river did Alexander fight the Indian king Porus?",
+    "options": [
+      "The river Narmada",
+      "The river Jhelum",
+      "The river Ganga",
+      "The river Indus"
+    ],
+    "answer": 1,
+    "explanation": "Alexander fought King Porus at the Battle of the Hydaspes, on the banks of the river Jhelum (also called the Hydaspes), in 326 BCE.",
+    "tags": [
+      "mauryan",
+      "alexander",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch5-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Lion Capital of Sarnath, built during Ashoka's reign, was later adopted as India's:",
+    "options": [
+      "National Flag",
+      "Royal Seal of the British Crown",
+      "National Emblem",
+      "National Anthem"
+    ],
+    "answer": 2,
+    "explanation": "The Lion Capital, originally the top of one of Ashoka's pillars at Sarnath, was adopted as independent India's national emblem.",
+    "tags": [
+      "mauryan",
+      "ashoka",
+      "national-emblem",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch5-q021",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Indica is considered one of the earliest written accounts of India by a foreign visitor. Who wrote it, and how?",
+    "options": [
+      "Panini wrote it as part of his grammar of Sanskrit",
+      "Alexander the Great wrote it after his invasion of India",
+      "Ashoka commissioned it as an official record of his empire",
+      "Megasthenes, a Greek ambassador, wrote it based on his observations while staying at Chandragupta Maurya's court"
+    ],
+    "answer": 3,
+    "explanation": "Megasthenes was a Greek ambassador sent to the Mauryan court, and Indica records what he observed of India during his stay there under Chandragupta Maurya.",
+    "tags": [
+      "mauryan",
+      "megasthenes",
+      "school"
     ]
   },
   {
@@ -3601,6 +4615,116 @@
     ]
   },
   {
+    "id": "sst-ch7-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Who wrote the Aryabhatiya?",
+    "options": [
+      "Aryabhata",
+      "Varahamihira",
+      "Kalidasa",
+      "Harisena"
+    ],
+    "answer": 0,
+    "explanation": "The Aryabhatiya, a foundational work of Indian mathematics and astronomy, was written by Aryabhata.",
+    "tags": [
+      "gupta",
+      "aryabhata",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch7-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Pallava dynasty ruled over which part of India?",
+    "options": [
+      "Western India",
+      "Southern India",
+      "Eastern India",
+      "Northern India"
+    ],
+    "answer": 1,
+    "explanation": "The Pallavas were a powerful dynasty based in southern India, known among other things for their temple architecture.",
+    "tags": [
+      "gupta",
+      "pallavas",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch7-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Gupta rulers commonly issued land grants inscribed on:",
+    "options": [
+      "Gold coins",
+      "Palm leaves",
+      "Copper plates",
+      "Stone tablets"
+    ],
+    "answer": 2,
+    "explanation": "Land grants during the Gupta period were typically recorded on copper plates, which served as a durable legal record of the grant.",
+    "tags": [
+      "gupta",
+      "land-grants",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch7-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The Gupta period was known for internal peace and prosperity. What was the reason for this?",
+    "options": [
+      "Frequent wars strengthened the empire's economy",
+      "Peace resulted mainly from having no neighbouring kingdoms",
+      "The Gupta rulers relied entirely on foreign armies to keep peace",
+      "Strong administration allowed trade, learning and the arts to flourish, without the frequent wars that would have disrupted them"
+    ],
+    "answer": 3,
+    "explanation": "The Gupta era's relative freedom from frequent internal wars gave trade, science and the arts the stability to flourish - it was not the wars themselves that produced this prosperity.",
+    "tags": [
+      "gupta",
+      "golden-age",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch7-q021",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Aryabhata is credited with calculating the Earth's rotation. What did he actually believe about the Earth and Sun?",
+    "options": [
+      "That the Earth rotates on its own axis, not that the Sun revolves around a stationary Earth",
+      "That neither the Earth nor the Sun move at all",
+      "That the Earth and Moon revolve around the Sun together",
+      "That the Sun revolves around the Earth"
+    ],
+    "answer": 0,
+    "explanation": "Aryabhata proposed that the Earth rotates on its own axis, which is what causes day and night - a genuinely advanced idea for his time. He did not hold the geocentric belief that the Sun circles a fixed Earth.",
+    "tags": [
+      "gupta",
+      "aryabhata",
+      "school"
+    ]
+  },
+  {
     "id": "sst-ch9-q001",
     "subject": "SST",
     "chapterId": "sst-ch9",
@@ -3928,6 +5052,116 @@
     ]
   },
   {
+    "id": "sst-ch9-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which feature helps citizens hold their elected representatives accountable for their work?",
+    "options": [
+      "Military rule",
+      "Regular elections",
+      "Hereditary succession",
+      "Frequent wars"
+    ],
+    "answer": 1,
+    "explanation": "Regular elections give citizens a recurring opportunity to reward or remove representatives based on how well they have performed - this is what accountability in a democracy depends on.",
+    "tags": [
+      "government-types",
+      "democracy",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch9-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "In which type of government does the military usually take control of a country by force?",
+    "options": [
+      "A direct democracy",
+      "A constitutional monarchy",
+      "A dictatorship through military rule",
+      "A representative democracy"
+    ],
+    "answer": 2,
+    "explanation": "A military dictatorship is exactly this - the armed forces seize and hold power by force rather than through election.",
+    "tags": [
+      "government-types",
+      "dictatorship",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch9-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A country has a king as head of state, but all major decisions are made by an elected Parliament. What type of government is this?",
+    "options": [
+      "A dictatorship",
+      "A theocracy",
+      "An absolute monarchy",
+      "A constitutional monarchy"
+    ],
+    "answer": 3,
+    "explanation": "In a constitutional monarchy the monarch is head of state largely in name, while real law-making power sits with an elected body such as Parliament.",
+    "tags": [
+      "government-types",
+      "monarchy",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch9-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of the following is NOT a characteristic of a dictatorship?",
+    "options": [
+      "Free and fair elections",
+      "Limited political freedom",
+      "Concentration of power in one leader",
+      "Strict control over opposition"
+    ],
+    "answer": 0,
+    "explanation": "Free and fair elections are the opposite of how a dictatorship works - dictatorships concentrate power in one person or a small group and restrict genuine political competition.",
+    "tags": [
+      "government-types",
+      "dictatorship",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch9-q021",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a constitutional monarchy, the monarch cannot make laws independently. Why?",
+    "options": [
+      "Because only the military can make laws in a constitutional monarchy",
+      "Because the monarch's powers are limited by the Constitution, and elected representatives make the laws instead",
+      "Because constitutional monarchies do not have written laws",
+      "Because the monarch has no official role in government at all"
+    ],
+    "answer": 1,
+    "explanation": "The Constitution itself sets limits on what the monarch may do, and law-making is handed instead to elected representatives - that is exactly what makes it a CONSTITUTIONAL monarchy rather than an absolute one.",
+    "tags": [
+      "government-types",
+      "monarchy",
+      "school"
+    ]
+  },
+  {
     "id": "sst-ch10-q001",
     "subject": "SST",
     "chapterId": "sst-ch10",
@@ -4252,6 +5486,94 @@
     "explanation": "An amendment is a formal change to the Constitution. The process is deliberately demanding, so the basic framework is not altered lightly.",
     "tags": [
       "amendment"
+    ]
+  },
+  {
+    "id": "sst-ch10-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which idea from India's cultural heritage is said to have influenced the values behind the Constitution?",
+    "options": [
+      "The parliamentary system",
+      "Separation of powers",
+      "Vasudhaiva Kutumbakam (the world is one family)",
+      "Judicial review"
+    ],
+    "answer": 2,
+    "explanation": "Vasudhaiva Kutumbakam - the idea that the whole world is one family - is an ancient Indian concept reflected in the Constitution's spirit of universal welfare, unlike the other options, which are structural/legal ideas borrowed from elsewhere.",
+    "tags": [
+      "constitution",
+      "heritage",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch10-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "How many women were members of India's Constituent Assembly?",
+    "options": [
+      "10",
+      "20",
+      "5",
+      "15"
+    ],
+    "answer": 3,
+    "explanation": "Fifteen women served as members of the Constituent Assembly that drafted India's Constitution.",
+    "tags": [
+      "constitution",
+      "constituent-assembly",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch10-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The Constitution guarantees the Right to Education under which Article?",
+    "options": [
+      "Article 21-A",
+      "Article 21",
+      "Article 19",
+      "Article 22"
+    ],
+    "answer": 0,
+    "explanation": "The Right to Education was added to the Constitution as Article 21-A, through the 86th Constitutional Amendment.",
+    "tags": [
+      "constitution",
+      "fundamental-rights",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch10-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Constitution of India is often called a 'living document'. Why?",
+    "options": [
+      "Because only living Presidents may read it",
+      "Because it can be amended according to the changing needs of society",
+      "Because it changes automatically every ten years without any process",
+      "Because it was written on living plant material"
+    ],
+    "answer": 1,
+    "explanation": "A 'living document' is one that can grow and adapt - India's Constitution can be formally amended as the country's needs change, which is exactly why it earns that description.",
+    "tags": [
+      "constitution",
+      "amendment",
+      "school"
     ]
   },
   {
