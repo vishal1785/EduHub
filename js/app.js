@@ -910,7 +910,7 @@ async function renderMore() {
 
       <div class="section-title">About</div>
       <div class="card" style="font-size:0.85rem;color:var(--ink-soft);line-height:1.6;">
-        Learn Splash v${escapeHtml(String(DATA.config.appVersion || "3.0"))}<br />
+        Learn Splash v${escapeHtml(String(DATA.config.appVersion || "4.1"))}<br />
         All your data stays on this device — nothing is sent anywhere.<br />
         Use <strong>Export Data</strong> regularly to keep a backup, especially before clearing browser data.
       </div>

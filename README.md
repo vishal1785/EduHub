@@ -1,6 +1,6 @@
 # Learn Splash
 
-**Version 3.0**
+**Version 4.1**
 
 A mobile-first, offline-capable practice app for Grade 7 CBSE - Maths, Science, SST,
 English, Hindi, German and ICT. Vanilla HTML/CSS/JS, no build step, no backend, no
@@ -246,7 +246,7 @@ There are two sources, chosen per chapter.
 
 ### 6a. Generated questions (fresh every time)
 
-Seven chapters produce **brand-new randomised questions on every quiz**, rather
+Nine chapters produce **brand-new randomised questions on every quiz**, rather
 than replaying a fixed list. These are the chapters where the correct answer can
 be *computed*, so it can be guaranteed correct without a textbook:
 
@@ -259,6 +259,20 @@ be *computed*, so it can be guaranteed correct without a textbook:
 | Maths 7 - A Peak Beyond The Point | `decimals` | decimal arithmetic, place value, comparing |
 | Maths 10 - Parallel and Intersecting Lines | `lines-and-angles` | complements, linear pairs, transversal angles |
 | ICT 2 - Calculations in Excel 2016 | `excel-formulas` | SUM / AVERAGE / MAX / MIN / COUNT, cell references |
+| Science 8 - Measurement of Time and Motion | `speed-time-motion` | speed = distance/time, average speed over two legs, pendulum time period |
+| German Grammar | `german-verb-conjugation` | irregular and separable verb conjugation, drilled across all six pronouns |
+
+`speed-time-motion` is the first generator family written for a Science
+chapter, added once a real school worksheet on time and motion showed how
+computable this topic actually is - the same reasoning that put Maths word
+problems into generators applies here too.
+
+`german-verb-conjugation` is the first non-Maths, non-Science generator
+family, built from a school worksheet listing 8 irregular and 18 separable
+verbs across all 6 pronouns. Unlike the numeric families, it draws from a
+fixed table rather than an unbounded range, so it has a hard ceiling of 156
+distinct questions (26 verbs x 6 pronouns) - still far more than the 14
+questions the chapter's static bank held before it existed.
 
 Each Maths chapter also opts into a **word-problem** family
 (`word-problems-hcf-lcm`, `word-problems-integers`, `word-problems-bodmas`,
@@ -270,35 +284,97 @@ every time. Because they are separate families, the mix can be changed from
 `data/syllabus.json`: drop a name to remove word problems from a chapter, or
 list one twice-over on a chapter that needs more of them.
 
+Each Maths chapter's base family was also extended with a handful of skills
+taken straight from real Dhruv Global School worksheets, once those became
+available - concepts the original generators did not cover at all:
+
+| Family | New skill added | Worksheet it came from |
+| --- | --- | --- |
+| `arithmetic-expressions` | counting the terms in an expression | Term-1 Worksheet 1 |
+| `arithmetic-expressions` | translating a word phrase into an expression | Term-1 Worksheet 1 |
+| `arithmetic-expressions` | the a×b − a×c = a×(b−c) shortcut | Term-1 Worksheet 1 |
+| `fractions` | the reciprocal of a fraction, and of 1 and 0 | Gr7 Fractions Worksheet |
+| `decimals` | using a whole-number fact to place a decimal point | Gr7 Fractions & Decimals WS-2 |
+| `lines-and-angles` | the basic triangle angle-sum property | Gr7 Lines and Angles WS |
+| `lines-and-angles` | "are these two lines parallel?" reasoning | Gr7 Lines and Angles WS |
+
 Which chapters appear in this table is decided entirely by
 `data/syllabus.json`, not by any list inside `js/`.
 
 This is what fixed the "same four questions every time" problem: forty rebuilds
-of a single chapter produce **300-400 distinct questions**, and two quizzes taken
-back to back typically share none at all.
+of a single chapter produce **300-400 distinct questions** for the numeric
+families (the fixed-table `german-verb-conjugation` family tops out around
+its 156-question ceiling instead), and two quizzes taken back to back
+typically share none at all.
 
 All arithmetic in `generators.js` is done on **integers** - decimals are carried
 as scaled integers and only turned into text at the last moment - so
 floating-point error can never make a generated answer wrong.
 
-Every other subject stays on the hand-written bank on purpose. A generator can
-compute `17 x 4`, but it cannot invent a verifiable fact about a Hindi poem, so
+Every other chapter stays on the hand-written bank on purpose, for the same
+reason `speed-time-motion` above was the exception rather than the rule: a
+generator can compute `17 x 4` or `distance ÷ time`, but it cannot invent a
+verifiable fact about a Hindi poem or a chapter on acids and bases, so
 inventing one would be worse than having no question at all.
 
 ### 6b. The hand-written bank
 
-`data/questions.json` holds **575 questions**. 546 of them back the 37 chapters
-that have no generator; the remaining 29 sit in generated chapters as a fallback
+`data/questions.json` holds **747 questions**. 674 of them back the 36 chapters
+that have no generator; the remaining 73 sit in generated chapters as a fallback
 that is only used if generation ever fails. Every bank-backed chapter has at
 least 12 questions, so a 10-question quiz is never simply the whole bank in a
 different order.
 
-These are original questions written for practice - **not** copied from any
-textbook.
+Most of these are original questions written for practice - **not** copied
+from any textbook or third-party bank.
+
+A smaller set (the literature MCQs, and the example sentences used in the
+pronoun/adjective/tense grammar questions) comes from real Dhruv Global School
+worksheets that carried their own answer key - literature MCQs with the correct
+option in bold, grammar and tense worksheets marked "\_AK". To be plain about
+what "from the worksheet" means here: the literature MCQs use that exact
+question and option wording, since the worksheet had already written them as
+finished multiple-choice questions with a verified answer; the grammar
+questions reuse the worksheet's example sentences (also verbatim, since those
+are what the school's own answer keys judged), but the four options and the
+explanation for each were newly written for this app, since the source
+worksheets asked those as fill-in-the-blank or identify-the-word items rather
+than as MCQs.
+
+The SST and Science questions added after that (Civics, Geography and History
+revision worksheets; Acids/Bases/Salts, Electric Circuits, Physical & Chemical
+Changes, Adolescence, and Time and Motion) follow a third pattern: none of
+their wording is copied. The worksheets' own MCQs and assertion-reason pairs
+were used only to establish which fact was correct - each assertion-reason
+pair became one ordinary "why" MCQ here, keeping the same true statement and
+the same false distractor the worksheet's own Reason line was built to catch.
+One assertion-reason pair, whose verified answer was "both statements are
+false", was left out entirely, since the app's four-option format has no
+combination that means that.
+
+The Hindi अपठित गद्यांश (`hindi-apathit`) questions follow the same
+none-of-the-wording-is-copied pattern, built from two unseen-passage
+worksheets: the passage text itself is reproduced verbatim (it has to be, for
+the comprehension questions to be answerable), but every question, option and
+explanation is freshly written from it.
+
+The German additions use two different sourcing rules depending on what the
+worksheet actually licensed. The verb-conjugation table (8 irregular + 18
+separable verbs) is a fixed set of grammatical facts, so it was turned into
+the `german-verb-conjugation` generator described above, plus a handful of
+hand-written vocabulary and preposition-case questions built from the same
+worksheet's other examples. The "Was gibt es im Fernsehen?" / "Um wie viel Uhr
+stehst du auf?" worksheet, by contrast, opens with an explicit warning that
+its sample answers are illustrative only ("Similar questions will be asked in
+the exam. NOT SAME") - so none of its specific example sentences were quizzed
+as facts, only its vocabulary and grammar patterns were reused. A separate
+worksheet, "Mein Tagesablauf", gives a fixed daily-routine passage rather than
+a variable example, so that one was used the same way as the Hindi passage:
+reproduced verbatim, with fresh comprehension questions built from its facts.
 
 ### 6c. Every chapter now has content
 
-All 44 chapters are practisable. The last two gaps — *Say the Right Thing* and
+All 45 chapters are practisable. The last two gaps — *Say the Right Thing* and
 *My Brother's Great Invention* — were filled once photographs of those pages of
 *Poorvi* were available.
 
@@ -316,6 +392,17 @@ the bank's guesses would have been confidently wrong.
 The app still supports empty chapters: any chapter with no questions and no
 generators shows "Content coming soon" automatically, so adding one to
 `data/syllabus.json` before its content exists is safe.
+
+A 45th chapter, **अपठित गद्यांश** (`hindi-apathit`, unseen passage
+comprehension), was added later once real school worksheets on that skill were
+available. It did not fit any of the existing Hindi chapters - it is a reading
+skill, not a set text or a grammar topic - so it is a plain entry in
+`data/syllabus.json` with no code change anywhere, exactly the guarantee this
+project has kept since chapters became data-driven. Its questions embed a full
+passage before the actual question, separated by a blank line in the source
+text (`\n\n`); `.question-text` and `.qtext` in `css/style.css` use
+`white-space: pre-line` so that renders as a real paragraph break instead of
+collapsing into one run-on line.
 
 ---
 
@@ -473,7 +560,7 @@ missing from that list is what let two versions drift apart in the first place.
 page's load event open until it reports back - without that, headless Chrome
 dumps the DOM while the app is still waiting on IndexedDB.)
 
-**`tests/verify.html` - 141 checks.**
+**`tests/verify.html` - 156 checks.**
 
 - `data/questions.json` is valid JSON with unique ids, four distinct options
   per question, an in-range answer index, a non-empty explanation, and a
@@ -486,12 +573,12 @@ dumps the DOM while the app is still waiting on IndexedDB.)
 - **Every generated question is independently recomputed.** The suite parses
   the question back out of its own printed text and recalculates the answer
   using exact rational arithmetic, rather than trusting `generators.js`. On the
-  last run, **14,000 generated questions were checked this way and 100% were
+  last run, **16,000 generated questions were checked this way and 100% were
   correct** - a generator that starts producing wrong answers fails here rather
   than in front of a student.
 - Freshness: back-to-back quizzes on a generated chapter share at most 3 of 10
   questions, and 40 rebuilds yield 300+ distinct questions per chapter.
-- Quiz building for all 44 chapters, Quick 10 per subject, the Mid-Term Mock
+- Quiz building for all 45 chapters, Quick 10 per subject, the Mid-Term Mock
   (per-subject counts honoured) and weak-area quizzes.
 - Scoring at 100% / 0% / 50%, review pairing, resume across a save/load round
   trip, and backwards compatibility with attempts saved before questions were

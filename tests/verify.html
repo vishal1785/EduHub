@@ -438,12 +438,166 @@ function verifyWordAngles(q) {
   return null;
 }
 
+/* --------- verifiers for the school-worksheet-derived generators -------- */
+
+function verifyExtraTerms(q) {
+  const m = q.question.match(/^How many terms are there in the expression (.+)\?$/);
+  if (!m) return null;
+  const pieces = m[1].split(/\s[+−]\s/);
+  return Number(marked(q)) === pieces.length;
+}
+
+function verifyExtraPhrase(q) {
+  const m = q.question.match(/^Which expression correctly represents '(\d+) more than (\d+) times the difference of (\d+) and (\d+)'\?$/);
+  if (!m) return null;
+  const [n, p, a, b] = [m[1], m[2], m[3], m[4]];
+  const want = `${p} × (${a} − ${b}) + ${n}`;
+  return marked(q) === want;
+}
+
+function verifyExtraFactorShortcut(q) {
+  const m = q.question.match(/^Find the value of (\d+) × (\d+) − (\d+) × (\d+)\.$/);
+  if (!m) return null;
+  const [a, b, a2, c] = [+m[1], +m[2], +m[3], +m[4]];
+  if (a !== a2) return false;
+  return Number(marked(q)) === a * (b - c);
+}
+
+function verifyExtraTriangleSum(q) {
+  const m = q.question.match(/^Two angles of a triangle measure (\d+)° and (\d+)°\. What is the third angle\?$/);
+  if (!m) return null;
+  return Number(marked(q)) === 180 - +m[1] - +m[2];
+}
+
+function verifyExtraCheckParallel(q) {
+  const m = q.question.match(/^A transversal cuts two lines\. One co-interior angle measures (\d+)° and the other measures (\d+)°\. Are the two lines parallel\?$/);
+  if (!m) return null;
+  const sum = +m[1] + +m[2];
+  const want = sum === 180 ? "Yes, the lines are parallel" : "No, the lines are not parallel";
+  return marked(q) === want;
+}
+
+function verifyExtraReciprocal(q) {
+  let m = q.question.match(/^What is the reciprocal of (\d+)\?$/);
+  if (m) {
+    const n = +m[1];
+    if (n === 0) return marked(q) === "There is no reciprocal of 0";
+    if (n === 1) return marked(q) === "1";
+    return null;
+  }
+  m = q.question.match(/^What is the reciprocal of (\d+)\/(\d+)\?$/);
+  if (m) {
+    const n = +m[1], d = +m[2];
+    const got = parseRational(marked(q));
+    if (!got) return false;
+    return rEq(got, R(d, n));
+  }
+  return null;
+}
+
+function verifyExtraDecimalShift(q) {
+  const m = q.question.match(/^If (\d+) × (\d+) = (\d+), what is (\S+) × (\S+)\?$/);
+  if (!m) return null;
+  const a = parseRational(m[4]);
+  const b = parseRational(m[5]);
+  if (!a || !b) return null;
+  const want = rMul(a, b);
+  const got = parseRational(marked(q));
+  if (!got) return false;
+  return rEq(want, got);
+}
+
+function verifySpeedFromDistanceTime(q) {
+  const m = q.question.match(/^A car covers (\d+) km in (\d+) hours\. What is its speed\?$/);
+  if (!m) return null;
+  return Number(marked(q)) === +m[1] / +m[2];
+}
+
+function verifyDistanceFromSpeedTime(q) {
+  const m = q.question.match(/^A train travels at a speed of (\d+) km\/h\. How much distance will it cover in (\d+) hours\?$/);
+  if (!m) return null;
+  return Number(marked(q)) === +m[1] * +m[2];
+}
+
+function verifyAverageSpeedTwoLegs(q) {
+  const m = q.question.match(/^A train travels (\d+) km at (\d+) km\/h, then (\d+) km at (\d+) km\/h\. What is its average speed for the entire journey\?$/);
+  if (!m) return null;
+  const [d1, s1, d2, s2] = [+m[1], +m[2], +m[3], +m[4]];
+  if (d1 % s1 !== 0 || d2 % s2 !== 0) return false;
+  const t1 = d1 / s1, t2 = d2 / s2;
+  return Number(marked(q)) === (d1 + d2) / (t1 + t2);
+}
+
+function verifyPendulumTimePeriod(q) {
+  const m = q.question.match(/^A pendulum completes (\d+) oscillations in (\d+) seconds\. Find its time period\.$/);
+  if (!m) return null;
+  return Number(marked(q)) === +m[2] / +m[1];
+}
+
+/* --------- verifiers for the German verb-conjugation generators --------- */
+/* A second, independent copy of the same worksheet data - deliberately not
+ * imported from js/generators.js, so a typo made there would still be
+ * caught here rather than the two copies silently agreeing with each other. */
+
+const GERMAN_VERB_FORMS = {
+  essen: { ich: "esse", du: "isst", "er/sie/es": "isst", wir: "essen", ihr: "esst", "sie/Sie": "essen" },
+  nehmen: { ich: "nehme", du: "nimmst", "er/sie/es": "nimmt", wir: "nehmen", ihr: "nehmt", "sie/Sie": "nehmen" },
+  sprechen: { ich: "spreche", du: "sprichst", "er/sie/es": "spricht", wir: "sprechen", ihr: "sprecht", "sie/Sie": "sprechen" },
+  lesen: { ich: "lese", du: "liest", "er/sie/es": "liest", wir: "lesen", ihr: "lest", "sie/Sie": "lesen" },
+  sehen: { ich: "sehe", du: "siehst", "er/sie/es": "sieht", wir: "sehen", ihr: "seht", "sie/Sie": "sehen" },
+  fahren: { ich: "fahre", du: "fährst", "er/sie/es": "fährt", wir: "fahren", ihr: "fahrt", "sie/Sie": "fahren" },
+  schlafen: { ich: "schlafe", du: "schläfst", "er/sie/es": "schläft", wir: "schlafen", ihr: "schlaft", "sie/Sie": "schlafen" },
+  tragen: { ich: "trage", du: "trägst", "er/sie/es": "trägt", wir: "tragen", ihr: "tragt", "sie/Sie": "tragen" },
+  anfangen: { ich: "fange", du: "fängst", "er/sie/es": "fängt", wir: "fangen", ihr: "fangt", "sie/Sie": "fangen" },
+  ankommen: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" },
+  anrufen: { ich: "rufe", du: "rufst", "er/sie/es": "ruft", wir: "rufen", ihr: "ruft", "sie/Sie": "rufen" },
+  anschalten: { ich: "schalte", du: "schaltest", "er/sie/es": "schaltet", wir: "schalten", ihr: "schaltet", "sie/Sie": "schalten" },
+  ausschalten: { ich: "schalte", du: "schaltest", "er/sie/es": "schaltet", wir: "schalten", ihr: "schaltet", "sie/Sie": "schalten" },
+  abfahren: { ich: "fahre", du: "fährst", "er/sie/es": "fährt", wir: "fahren", ihr: "fahrt", "sie/Sie": "fahren" },
+  aufräumen: { ich: "räume", du: "räumst", "er/sie/es": "räumt", wir: "räumen", ihr: "räumt", "sie/Sie": "räumen" },
+  aufstehen: { ich: "stehe", du: "stehst", "er/sie/es": "steht", wir: "stehen", ihr: "steht", "sie/Sie": "stehen" },
+  einladen: { ich: "lade", du: "lädst", "er/sie/es": "lädt", wir: "laden", ihr: "ladet", "sie/Sie": "laden" },
+  vorlesen: { ich: "lese", du: "liest", "er/sie/es": "liest", wir: "lesen", ihr: "lest", "sie/Sie": "lesen" },
+  aussehen: { ich: "sehe", du: "siehst", "er/sie/es": "sieht", wir: "sehen", ihr: "seht", "sie/Sie": "sehen" },
+  mitnehmen: { ich: "nehme", du: "nimmst", "er/sie/es": "nimmt", wir: "nehmen", ihr: "nehmt", "sie/Sie": "nehmen" },
+  zurückkommen: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" },
+  zuhören: { ich: "höre", du: "hörst", "er/sie/es": "hört", wir: "hören", ihr: "hört", "sie/Sie": "hören" },
+  einschlafen: { ich: "schlafe", du: "schläfst", "er/sie/es": "schläft", wir: "schlafen", ihr: "schlaft", "sie/Sie": "schlafen" },
+  einkaufen: { ich: "kaufe", du: "kaufst", "er/sie/es": "kauft", wir: "kaufen", ihr: "kauft", "sie/Sie": "kaufen" },
+  mitkommen: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" },
+  aufmachen: { ich: "mache", du: "machst", "er/sie/es": "macht", wir: "machen", ihr: "macht", "sie/Sie": "machen" },
+};
+
+function verifyGermanIrregularVerb(q) {
+  const m = q.question.match(/^Fill in the correct present-tense form: '(ich|du|er\/sie\/es|wir|ihr|sie\/Sie) ___ \.\.\.' \((\w+) - /);
+  if (!m) return null;
+  const [pronoun, inf] = [m[1], m[2]];
+  const forms = GERMAN_VERB_FORMS[inf];
+  if (!forms) return null;
+  return marked(q) === forms[pronoun];
+}
+
+function verifyGermanSeparableVerb(q) {
+  const m = q.question.match(/^'(\w+)' \([^)]+\) is a separable verb, with the prefix '[^']+' moving to the end of the sentence\. What is the conjugated stem for '(ich|du|er\/sie\/es|wir|ihr|sie\/Sie)'\?$/);
+  if (!m) return null;
+  const [inf, pronoun] = [m[1], m[2]];
+  const forms = GERMAN_VERB_FORMS[inf];
+  if (!forms) return null;
+  return marked(q) === forms[pronoun];
+}
+
 const VERIFIERS = [
   verifyArithmetic, verifyHcfLcm, verifyNumberLine, verifyFractionOfQuantity,
   verifyCompare, verifyPlaceValue, verifyAngles, verifyExcel,
   verifyExpressionChoice, verifyExcelFormulaChoice, verifyCellReference,
   verifyWordHcfLcm, verifyWordIntegers, verifyWordBodmas,
   verifyWordFractions, verifyWordDecimals, verifyWordAngles,
+  verifyExtraTerms, verifyExtraPhrase, verifyExtraFactorShortcut,
+  verifyExtraTriangleSum, verifyExtraCheckParallel, verifyExtraReciprocal,
+  verifyExtraDecimalShift,
+  verifySpeedFromDistanceTime, verifyDistanceFromSpeedTime,
+  verifyAverageSpeedTwoLegs, verifyPendulumTimePeriod,
+  verifyGermanIrregularVerb, verifyGermanSeparableVerb,
 ];
 
 /** Run every verifier; returns true / false / null (nothing applied). */
@@ -656,10 +810,25 @@ async function run() {
 
   // Over many rebuilds a generated chapter should produce far more distinct
   // questions than the static bank ever held — that is the whole point.
+  // Most families draw from effectively-infinite numeric ranges, so >= 200
+  // distinct questions from 40 rebuilds is a fair bar. A few families are
+  // built from a small fixed table instead (e.g. a verb/pronoun list) and
+  // have a hard combinatorial ceiling below that; those are checked against
+  // their own known ceiling so the bar stays meaningful rather than being
+  // loosened blindly.
+  const FINITE_CHAPTER_CEILINGS = {
+    "german-grammar": 156, // 8 irregular + 18 separable verbs x 6 pronouns each
+  };
   for (const chapter of generatedChapters) {
     const seen = new Set();
     for (let i = 0; i < 40; i++) for (const q of generateForChapter(chapter, 10)) seen.add(q.question);
-    check(seen.size >= 200, `${chapter.id}: 40 rebuilds yield ${seen.size} distinct questions (want >= 200)`);
+    const ceiling = FINITE_CHAPTER_CEILINGS[chapter.id];
+    if (ceiling) {
+      const want = Math.round(ceiling * 0.85);
+      check(seen.size >= want, `${chapter.id}: 40 rebuilds yield ${seen.size} distinct questions (finite table, want >= ${want} of ${ceiling} possible)`);
+    } else {
+      check(seen.size >= 200, `${chapter.id}: 40 rebuilds yield ${seen.size} distinct questions (want >= 200)`);
+    }
   }
 
   /* -------------------------- 6. quiz building ------------------------- */

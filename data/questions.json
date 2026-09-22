@@ -883,6 +883,94 @@
     ]
   },
   {
+    "id": "science-ch2-q018",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Turmeric can be used to identify some basic substances. Why does this work?",
+    "options": [
+      "Turmeric has no reaction with either acids or bases",
+      "Turmeric only reacts with acids, not bases",
+      "Turmeric changes colour when it comes into contact with a basic substance",
+      "Turmeric changes colour when it comes into contact with any liquid"
+    ],
+    "answer": 2,
+    "explanation": "Turmeric turns to a reddish-brown colour specifically in the presence of a base, which is exactly what makes it useful as a natural indicator for basic substances.",
+    "tags": [
+      "indicators",
+      "turmeric",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch2-q019",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Lemon juice turns blue litmus paper red. What does this tell you?",
+    "options": [
+      "Lemon juice contains a base",
+      "Lemon juice has no effect on litmus at all",
+      "Lemon juice is neutral",
+      "Lemon juice contains an acid"
+    ],
+    "answer": 3,
+    "explanation": "Turning blue litmus red is the defining test for an acid - lemon juice does this because it contains citric acid.",
+    "tags": [
+      "indicators",
+      "litmus",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch2-q020",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Is it true that all substances that taste sour are safe to taste in a laboratory?",
+    "options": [
+      "No - some acids can be harmful and should never be tasted",
+      "Yes, but only in a school laboratory",
+      "No substance in a lab is ever sour",
+      "Yes, sourness always means a substance is safe"
+    ],
+    "answer": 0,
+    "explanation": "Sourness is a property of acids in general, but many acids used or produced in a laboratory are corrosive or otherwise harmful, so nothing should ever be tasted to identify it.",
+    "tags": [
+      "safety",
+      "acids",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch2-q021",
+    "subject": "Science",
+    "chapterId": "science-ch2",
+    "chapter": "Exploring Substances: Acidic, Basic and Neutral",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Soap solution is basic, not acidic. Which test result actually confirms this?",
+    "options": [
+      "Soap solution turns blue litmus paper red",
+      "Soap solution turns red litmus paper blue",
+      "Soap solution turns turmeric paper yellow",
+      "Soap solution has no effect on either litmus colour"
+    ],
+    "answer": 1,
+    "explanation": "Turning red litmus blue is the signature test for a base. Soap solution does exactly this, which is how we know it is basic rather than acidic, whatever its everyday 'cleaning' use might suggest.",
+    "tags": [
+      "indicators",
+      "bases",
+      "school"
+    ]
+  },
+  {
     "id": "science-ch3-q001",
     "subject": "Science",
     "chapterId": "science-ch3",
@@ -1258,6 +1346,138 @@
     ]
   },
   {
+    "id": "science-ch3-q019",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the SI unit of electric current?",
+    "options": [
+      "Ohm",
+      "Watt",
+      "Ampere",
+      "Volt"
+    ],
+    "answer": 2,
+    "explanation": "Electric current is measured in amperes (A). Volt measures potential difference, watt measures power, and ohm measures resistance.",
+    "tags": [
+      "circuits",
+      "units",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q020",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these devices glows because of the heating effect of electric current?",
+    "options": [
+      "A solar lamp",
+      "A CFL",
+      "An LED",
+      "An incandescent bulb"
+    ],
+    "answer": 3,
+    "explanation": "An incandescent bulb glows because current heats its filament until it is white-hot. LEDs and CFLs produce light through different effects that generate far less heat.",
+    "tags": [
+      "circuits",
+      "heating-effect",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q021",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which metal is used for the filament of an incandescent electric bulb?",
+    "options": [
+      "Tungsten",
+      "Aluminium",
+      "Silver",
+      "Copper"
+    ],
+    "answer": 0,
+    "explanation": "Tungsten is used because it has a very high melting point, which lets the filament glow white-hot from the heating effect without melting.",
+    "tags": [
+      "circuits",
+      "materials",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q022",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A bulb can glow only when the circuit is complete. Can current flow through an open circuit?",
+    "options": [
+      "Yes, but only for a few seconds",
+      "No - an open circuit has a gap, so no current can flow through it",
+      "Yes, current always finds a way around any gap",
+      "It depends on the colour of the wire"
+    ],
+    "answer": 1,
+    "explanation": "An open circuit has a break in the conducting path. Since current needs a complete loop to flow, an open circuit simply cannot carry current at all.",
+    "tags": [
+      "circuits",
+      "open-closed",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q023",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Does a switch increase the amount of current flowing in a circuit?",
+    "options": [
+      "No, a switch has no function in a circuit at all",
+      "Yes, but only in circuits with more than one bulb",
+      "No - a switch is used only to complete or break the circuit, not to increase current",
+      "Yes, closing a switch always increases the current"
+    ],
+    "answer": 2,
+    "explanation": "A switch's only job is to open or close the circuit path. It does not add current to the circuit - how much current flows depends on the cell and the components, not the switch.",
+    "tags": [
+      "circuits",
+      "switch",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch3-q024",
+    "subject": "Science",
+    "chapterId": "science-ch3",
+    "chapter": "Electricity, Circuits and their Components",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Plastic-coated wires conduct electricity once the insulation is stripped from their ends. Why does stripping the ends matter?",
+    "options": [
+      "Stripping the plastic has no effect on how the wire conducts",
+      "The wire only conducts electricity while it is still coated in plastic",
+      "Plastic actually helps electricity flow, so removing it stops the flow",
+      "Plastic is an electrical insulator, so it must be removed to expose the conducting metal underneath"
+    ],
+    "answer": 3,
+    "explanation": "Plastic is an insulator and does not conduct electricity. The bare metal wire underneath is the actual conductor, which is why the coating has to be stripped from the ends to make an electrical connection.",
+    "tags": [
+      "circuits",
+      "insulators",
+      "school"
+    ]
+  },
+  {
     "id": "science-ch5-q001",
     "subject": "Science",
     "chapterId": "science-ch5",
@@ -1587,6 +1807,116 @@
     "tags": [
       "chemical-change",
       "photosynthesis"
+    ]
+  },
+  {
+    "id": "science-ch5-q017",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Cutting paper into small pieces is a physical change. Why?",
+    "options": [
+      "No new substance is formed during a physical change",
+      "Paper cannot undergo a physical change",
+      "Cutting always produces heat, which makes it a chemical change",
+      "A new substance called 'small paper' is formed"
+    ],
+    "answer": 0,
+    "explanation": "Cutting only changes the size and shape of the paper - it is still paper, chemically unchanged, which is exactly what makes it a physical change.",
+    "tags": [
+      "chemical-change",
+      "physical-change",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch5-q018",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Rusting is a slow chemical change. Is 'rust' simply another chemical name for iron?",
+    "options": [
+      "Yes, rust is just the technical term chemists use for iron",
+      "No - rust is a new substance (iron oxide) formed when iron reacts with oxygen and water, not just another name for iron",
+      "No, rust and iron have nothing to do with each other",
+      "Yes, rust and iron are exactly the same substance"
+    ],
+    "answer": 1,
+    "explanation": "Rust is iron oxide, a genuinely different substance from iron itself, formed when iron reacts with oxygen and moisture. Calling it just 'the chemical name of iron' misstates what rust actually is.",
+    "tags": [
+      "chemical-change",
+      "rusting",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch5-q019",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Burning a magnesium ribbon produces magnesium oxide. Why does this count as a chemical change?",
+    "options": [
+      "No new substance is involved in burning magnesium",
+      "Burning only changes the shape of the magnesium ribbon",
+      "A new substance (magnesium oxide) is formed during the burning",
+      "The magnesium ribbon simply melts and re-solidifies"
+    ],
+    "answer": 2,
+    "explanation": "Magnesium oxide is a genuinely new substance with different properties from the magnesium metal it came from, which is exactly what defines a chemical change.",
+    "tags": [
+      "chemical-change",
+      "burning",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch5-q020",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which of the following is a chemical change?",
+    "options": [
+      "Dissolving sugar in water",
+      "Melting of ice",
+      "Breaking of glass",
+      "Burning of a candle's wick"
+    ],
+    "answer": 3,
+    "explanation": "Burning produces new substances - carbon dioxide, water vapour and soot - so it is a chemical change. The others only change shape or state, without forming anything new.",
+    "tags": [
+      "chemical-change",
+      "physical-change",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch5-q021",
+    "subject": "Science",
+    "chapterId": "science-ch5",
+    "chapter": "Changes Around Us: Physical and Chemical",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which process would you use to separate a mixture of iron filings and sulphur?",
+    "options": [
+      "Magnetic separation",
+      "Sedimentation",
+      "Filtration",
+      "Evaporation"
+    ],
+    "answer": 0,
+    "explanation": "Iron is magnetic and sulphur is not, so a magnet can pull the iron filings straight out of the mixture, leaving the sulphur behind - a quick, purely physical separation.",
+    "tags": [
+      "separation",
+      "mixtures",
+      "school"
     ]
   },
   {
@@ -1920,6 +2250,204 @@
     "tags": [
       "emotions",
       "hormones"
+    ]
+  },
+  {
+    "id": "science-ch6-q017",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which of the following best describes adolescence?",
+    "options": [
+      "A stage that occurs only after adulthood",
+      "A transition from childhood to adulthood",
+      "A period when no major changes occur",
+      "A stage limited only to physical growth"
+    ],
+    "answer": 1,
+    "explanation": "Adolescence is the whole transitional period between childhood and adulthood, involving physical, emotional and social changes together - not just one kind of change.",
+    "tags": [
+      "adolescence",
+      "definition",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q018",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which nutrient is particularly important for bone growth during adolescence?",
+    "options": [
+      "Iron",
+      "Fats",
+      "Calcium",
+      "Carbohydrates"
+    ],
+    "answer": 2,
+    "explanation": "Calcium is essential for building strong bones, which matters especially during adolescence when the skeleton is still growing rapidly.",
+    "tags": [
+      "adolescence",
+      "nutrition",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q019",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A teenager notices increased sweating and oilier skin. Which body change is most closely linked to this?",
+    "options": [
+      "Decreased production of hormones",
+      "Reduced blood circulation",
+      "A general slowing down of growth",
+      "Increased activity of sweat and sebaceous glands"
+    ],
+    "answer": 3,
+    "explanation": "Hormonal changes during adolescence make sweat glands and sebaceous (oil) glands more active, which is exactly why sweating and skin oiliness both increase around this time.",
+    "tags": [
+      "adolescence",
+      "body-changes",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q020",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Voice deepening and facial hair growth in boys are examples of:",
+    "options": [
+      "Secondary sexual characteristics, which develop as the body changes during puberty",
+      "Temporary changes that disappear after adolescence",
+      "Changes unrelated to puberty",
+      "Primary changes present since birth"
+    ],
+    "answer": 0,
+    "explanation": "Secondary sexual characteristics are physical features - like a deepening voice or facial hair - that appear during puberty as the body matures, without being directly involved in reproduction itself.",
+    "tags": [
+      "adolescence",
+      "puberty",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q021",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Adolescents need a nutritious, balanced diet. What makes this especially important during adolescence?",
+    "options": [
+      "A balanced diet only matters after adolescence ends",
+      "Rapid growth and development during adolescence increase the body's need for nutrients",
+      "Adolescents generally need less food than younger children",
+      "Nutrition has no real connection to growth"
+    ],
+    "answer": 1,
+    "explanation": "The body is growing and changing quickly during adolescence, which raises its demand for nutrients well above what a slower-growing body would need.",
+    "tags": [
+      "adolescence",
+      "nutrition",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q022",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Adolescents should avoid harmful substances such as tobacco and alcohol. Why?",
+    "options": [
+      "Avoiding them is a matter of personal taste, not health",
+      "Tobacco and alcohol only affect memory, nothing else",
+      "Such substances can damage physical and mental health and may lead to addiction",
+      "These substances only affect adults, not adolescents"
+    ],
+    "answer": 2,
+    "explanation": "Tobacco and alcohol can genuinely harm a still-developing body and mind, and can lead to addiction - real health risks, not just a matter of preference.",
+    "tags": [
+      "adolescence",
+      "health",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q023",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Does adolescence involve only physical changes?",
+    "options": [
+      "Yes, but only in boys",
+      "No, adolescence involves no physical changes at all",
+      "Yes, adolescence is purely a physical stage",
+      "No - adolescents also experience emotional and behavioural changes"
+    ],
+    "answer": 3,
+    "explanation": "Adolescence brings physical changes, but just as importantly it brings emotional and behavioural changes too - mood swings and shifting responses to situations are a normal part of it.",
+    "tags": [
+      "adolescence",
+      "emotional-changes",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q024",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What is the Rashtriya Kishor Swasthya Karyakram (RKSK)?",
+    "options": [
+      "A government programme focused on improving the health and well-being of adolescents",
+      "A private hospital chain for children",
+      "A school subject taught only in Grade 7",
+      "A sports competition held once every four years"
+    ],
+    "answer": 0,
+    "explanation": "RKSK is a national programme aimed at adolescent health, covering areas such as nutrition, mental health and reproductive health.",
+    "tags": [
+      "adolescence",
+      "rksk",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch6-q025",
+    "subject": "Science",
+    "chapterId": "science-ch6",
+    "chapter": "Adolescence: A Stage of Growth and Change",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The hormone testosterone, produced by the testes, is mainly responsible for which changes in boys during puberty?",
+    "options": [
+      "Loss of appetite",
+      "Development of male secondary sexual characteristics such as a deepening voice and facial hair",
+      "A decrease in muscle development",
+      "A slowing down of overall growth"
+    ],
+    "answer": 1,
+    "explanation": "Testosterone drives the development of male secondary sexual characteristics during puberty, including the voice deepening and facial hair growth that become noticeable around this age.",
+    "tags": [
+      "adolescence",
+      "hormones",
+      "school"
     ]
   },
   {
@@ -2276,6 +2804,204 @@
     ]
   },
   {
+    "id": "science-ch8-q018",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What is the SI unit of speed?",
+    "options": [
+      "Metre",
+      "Kilometre per hour (km/h)",
+      "Metre per second (m/s)",
+      "Second"
+    ],
+    "answer": 2,
+    "explanation": "The SI unit of speed is the metre per second (m/s), since speed is distance (in metres) divided by time (in seconds).",
+    "tags": [
+      "speed",
+      "units",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q019",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which instrument would be most suitable for measuring the length of a classroom?",
+    "options": [
+      "A stopwatch",
+      "A pendulum",
+      "A measuring tape",
+      "A metre scale"
+    ],
+    "answer": 3,
+    "explanation": "A metre scale is well suited to measuring something the size of a classroom - long enough to be practical, but still precise for everyday lengths.",
+    "tags": [
+      "measurement",
+      "instruments",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q020",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which instrument would be most appropriate for measuring the distance covered by a runner during a race?",
+    "options": [
+      "A measuring tape",
+      "A thermometer",
+      "A metre scale",
+      "A stopwatch"
+    ],
+    "answer": 0,
+    "explanation": "A measuring tape can stretch out over a long distance in one go, which makes it far more practical than a rigid metre scale for measuring a race track.",
+    "tags": [
+      "measurement",
+      "instruments",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q021",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A stopwatch is more suitable than an ordinary clock for measuring the time taken by a runner in a race. Why?",
+    "options": [
+      "A stopwatch is always more expensive than a clock",
+      "A stopwatch is designed to measure short intervals of time accurately",
+      "An ordinary clock cannot show seconds at all",
+      "A stopwatch measures distance as well as time"
+    ],
+    "answer": 1,
+    "explanation": "A stopwatch is built specifically to start, stop and read short time intervals precisely - exactly what timing a race needs, unlike an ordinary clock meant for telling the time of day.",
+    "tags": [
+      "measurement",
+      "stopwatch",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q022",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The time period of a simple pendulum stays the same even if the mass of its bob is increased, as long as the length is unchanged. Why?",
+    "options": [
+      "The time period always depends on the mass of the bob",
+      "The time period changes randomly with each swing",
+      "The time period of a simple pendulum depends mainly on its length, not on the mass of the bob",
+      "A heavier bob always swings faster"
+    ],
+    "answer": 2,
+    "explanation": "For a simple pendulum, it is the length of the string that determines the time period - changing the mass of the bob on the end makes no real difference.",
+    "tags": [
+      "pendulum",
+      "time-period",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q023",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "A car's speed is given as 10 m/s. What does this mean?",
+    "options": [
+      "The car will stop after 10 seconds",
+      "The car has travelled a total of 10 metres",
+      "The car travels 10 kilometres in one hour only",
+      "The car travels 10 metres in one second"
+    ],
+    "answer": 3,
+    "explanation": "A speed of 10 m/s means the car covers 10 metres of distance for every second that passes - it's a rate, not a fixed total.",
+    "tags": [
+      "speed",
+      "meaning",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q024",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A student measuring a table with a ruler accidentally starts from the 2 cm mark instead of the zero mark. What should they do to get the correct length?",
+    "options": [
+      "Subtract 2 cm from the final reading",
+      "Add 2 cm to the final reading",
+      "Ignore the error - it will not affect the result",
+      "Start measuring again from the 5 cm mark instead"
+    ],
+    "answer": 0,
+    "explanation": "Since the ruler's zero mark was skipped by 2 cm, that same 2 cm must be subtracted from wherever the final reading lands, to correct for the offset.",
+    "tags": [
+      "measurement",
+      "reading-scales",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q025",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is periodic motion, and why does a simple pendulum show it?",
+    "options": [
+      "Motion that never repeats itself",
+      "Motion that repeats itself after equal intervals of time - a pendulum shows it because it swings to and fro, completing each oscillation in roughly equal time",
+      "Motion that speeds up every time it repeats",
+      "Motion that only happens once and then stops"
+    ],
+    "answer": 1,
+    "explanation": "Periodic motion repeats after equal time intervals, like the swing of a pendulum returning to the same point again and again in roughly the same amount of time each cycle.",
+    "tags": [
+      "periodic-motion",
+      "pendulum",
+      "school"
+    ]
+  },
+  {
+    "id": "science-ch8-q026",
+    "subject": "Science",
+    "chapterId": "science-ch8",
+    "chapter": "Measurement of Time and Motion",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What distinguishes uniform motion from non-uniform motion?",
+    "options": [
+      "There is no real difference between the two",
+      "Uniform motion only happens on straight roads",
+      "In uniform motion an object covers equal distances in equal time intervals; in non-uniform motion the distances covered in equal time intervals are unequal",
+      "Non-uniform motion means the object is not actually moving"
+    ],
+    "answer": 2,
+    "explanation": "Uniform motion means the object's speed stays constant, covering the same distance in each equal slice of time; non-uniform motion means the speed itself is changing.",
+    "tags": [
+      "motion",
+      "uniform-non-uniform",
+      "school"
+    ]
+  },
+  {
     "id": "sst-ch2-q001",
     "subject": "SST",
     "chapterId": "sst-ch2",
@@ -2602,6 +3328,72 @@
     "tags": [
       "temperature",
       "daily-variation"
+    ]
+  },
+  {
+    "id": "sst-ch2-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In which year was the India Meteorological Department (IMD) established?",
+    "options": [
+      "1947",
+      "1991",
+      "2020",
+      "1875"
+    ],
+    "answer": 3,
+    "explanation": "The IMD was established in 1875, making it one of the oldest meteorological departments in the world.",
+    "tags": [
+      "weather",
+      "imd",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch2-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Nitrogen is the most abundant gas in the Earth's atmosphere. About what percentage of the atmosphere does it make up?",
+    "options": [
+      "About 78%",
+      "About 50%",
+      "About 95%",
+      "About 21%"
+    ],
+    "answer": 0,
+    "explanation": "Nitrogen makes up roughly 78% of the atmosphere, with oxygen at about 21% and other gases making up the small remainder.",
+    "tags": [
+      "weather",
+      "atmosphere",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch2-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch2",
+    "chapter": "Understanding the Weather",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The India Meteorological Department (IMD) is responsible for weather forecasting in India. How does it carry out this responsibility?",
+    "options": [
+      "It relies entirely on satellite images from other countries",
+      "It collects and analyses weather data to predict conditions and issue warnings for events like cyclones and heavy rainfall",
+      "It only records rainfall once a year",
+      "It only forecasts weather for airports"
+    ],
+    "answer": 1,
+    "explanation": "The IMD's forecasting role works through ongoing data collection and analysis, which lets it issue timely warnings before events such as cyclones or heat waves.",
+    "tags": [
+      "weather",
+      "imd",
+      "school"
     ]
   },
   {
@@ -2936,6 +3728,116 @@
     ]
   },
   {
+    "id": "sst-ch3-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The word 'monsoon' comes from an Arabic word meaning 'season'. How is that word spelled?",
+    "options": [
+      "Mawsim",
+      "Mahawat",
+      "Mausim",
+      "Mousam"
+    ],
+    "answer": 2,
+    "explanation": "The Arabic word is 'mausim', meaning season - a fitting origin for winds that reverse with the seasons.",
+    "tags": [
+      "climate",
+      "monsoon",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch3-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Climate is the average pattern of weather over how many years or more?",
+    "options": [
+      "5 years",
+      "50 years",
+      "10 years",
+      "30 years"
+    ],
+    "answer": 3,
+    "explanation": "Climate is generally studied over a period of 30 years or more, which is long enough to smooth out year-to-year weather variation and reveal a genuine long-term pattern.",
+    "tags": [
+      "climate",
+      "definition",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch3-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Himalayas protect India from the cold winds of which region?",
+    "options": [
+      "Central Asia",
+      "Africa",
+      "Europe",
+      "Australia"
+    ],
+    "answer": 0,
+    "explanation": "The Himalayan range acts as a barrier that blocks the bitterly cold winds blowing down from Central Asia, which is one reason northern India stays relatively milder in winter than it otherwise would.",
+    "tags": [
+      "climate",
+      "himalayas",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch3-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Hill stations are generally cooler than the plains. Why?",
+    "options": [
+      "Hill stations are always further from the equator",
+      "Temperature decreases as altitude increases",
+      "Hill stations receive less sunlight overall",
+      "Hill stations have more rainfall"
+    ],
+    "answer": 1,
+    "explanation": "As altitude increases, the air becomes thinner and cooler, which is why hill stations sitting at height are cooler than the plains below them.",
+    "tags": [
+      "climate",
+      "altitude",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch3-q021",
+    "subject": "SST",
+    "chapterId": "sst-ch3",
+    "chapter": "Climates of India",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The leeward side of a mountain often receives very little rainfall and is called a rain shadow area. Why does this happen?",
+    "options": [
+      "Mountains block all wind from reaching the leeward side",
+      "The leeward side is always further from the sea",
+      "The air loses most of its moisture while rising and raining on the windward side",
+      "Rain only ever falls on the windward side of any slope"
+    ],
+    "answer": 2,
+    "explanation": "As moist air is forced up the windward slope it cools and releases its moisture as rain. By the time that same air crosses to the leeward (far) side, it has little moisture left to give.",
+    "tags": [
+      "climate",
+      "rain-shadow",
+      "school"
+    ]
+  },
+  {
     "id": "sst-ch5-q001",
     "subject": "SST",
     "chapterId": "sst-ch5",
@@ -3265,6 +4167,118 @@
     "tags": [
       "mauryan",
       "chronology"
+    ]
+  },
+  {
+    "id": "sst-ch5-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Who founded the Mauryan Empire?",
+    "options": [
+      "Bindusara",
+      "Chanakya",
+      "Ashoka",
+      "Chandragupta Maurya"
+    ],
+    "answer": 3,
+    "explanation": "Chandragupta Maurya founded the Mauryan Empire around 321 BCE, with guidance from his advisor Chanakya.",
+    "tags": [
+      "mauryan",
+      "founder",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch5-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Ashoka's inscriptions, carved on rocks and pillars across his empire, were written mainly in which script?",
+    "options": [
+      "Brahmi",
+      "Kharosthi only",
+      "Devanagari",
+      "Sanskrit script"
+    ],
+    "answer": 0,
+    "explanation": "Most of Ashoka's edicts were inscribed in the Brahmi script (with a smaller number in Kharosthi in the northwest), making them readable across much of his empire.",
+    "tags": [
+      "mauryan",
+      "ashoka",
+      "inscriptions",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch5-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Near which river did Alexander fight the Indian king Porus?",
+    "options": [
+      "The river Narmada",
+      "The river Jhelum",
+      "The river Ganga",
+      "The river Indus"
+    ],
+    "answer": 1,
+    "explanation": "Alexander fought King Porus at the Battle of the Hydaspes, on the banks of the river Jhelum (also called the Hydaspes), in 326 BCE.",
+    "tags": [
+      "mauryan",
+      "alexander",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch5-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Lion Capital of Sarnath, built during Ashoka's reign, was later adopted as India's:",
+    "options": [
+      "National Flag",
+      "Royal Seal of the British Crown",
+      "National Emblem",
+      "National Anthem"
+    ],
+    "answer": 2,
+    "explanation": "The Lion Capital, originally the top of one of Ashoka's pillars at Sarnath, was adopted as independent India's national emblem.",
+    "tags": [
+      "mauryan",
+      "ashoka",
+      "national-emblem",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch5-q021",
+    "subject": "SST",
+    "chapterId": "sst-ch5",
+    "chapter": "The Rise of Empires",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Indica is considered one of the earliest written accounts of India by a foreign visitor. Who wrote it, and how?",
+    "options": [
+      "Panini wrote it as part of his grammar of Sanskrit",
+      "Alexander the Great wrote it after his invasion of India",
+      "Ashoka commissioned it as an official record of his empire",
+      "Megasthenes, a Greek ambassador, wrote it based on his observations while staying at Chandragupta Maurya's court"
+    ],
+    "answer": 3,
+    "explanation": "Megasthenes was a Greek ambassador sent to the Mauryan court, and Indica records what he observed of India during his stay there under Chandragupta Maurya.",
+    "tags": [
+      "mauryan",
+      "megasthenes",
+      "school"
     ]
   },
   {
@@ -3601,6 +4615,116 @@
     ]
   },
   {
+    "id": "sst-ch7-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Who wrote the Aryabhatiya?",
+    "options": [
+      "Aryabhata",
+      "Varahamihira",
+      "Kalidasa",
+      "Harisena"
+    ],
+    "answer": 0,
+    "explanation": "The Aryabhatiya, a foundational work of Indian mathematics and astronomy, was written by Aryabhata.",
+    "tags": [
+      "gupta",
+      "aryabhata",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch7-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Pallava dynasty ruled over which part of India?",
+    "options": [
+      "Western India",
+      "Southern India",
+      "Eastern India",
+      "Northern India"
+    ],
+    "answer": 1,
+    "explanation": "The Pallavas were a powerful dynasty based in southern India, known among other things for their temple architecture.",
+    "tags": [
+      "gupta",
+      "pallavas",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch7-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Gupta rulers commonly issued land grants inscribed on:",
+    "options": [
+      "Gold coins",
+      "Palm leaves",
+      "Copper plates",
+      "Stone tablets"
+    ],
+    "answer": 2,
+    "explanation": "Land grants during the Gupta period were typically recorded on copper plates, which served as a durable legal record of the grant.",
+    "tags": [
+      "gupta",
+      "land-grants",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch7-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The Gupta period was known for internal peace and prosperity. What was the reason for this?",
+    "options": [
+      "Frequent wars strengthened the empire's economy",
+      "Peace resulted mainly from having no neighbouring kingdoms",
+      "The Gupta rulers relied entirely on foreign armies to keep peace",
+      "Strong administration allowed trade, learning and the arts to flourish, without the frequent wars that would have disrupted them"
+    ],
+    "answer": 3,
+    "explanation": "The Gupta era's relative freedom from frequent internal wars gave trade, science and the arts the stability to flourish - it was not the wars themselves that produced this prosperity.",
+    "tags": [
+      "gupta",
+      "golden-age",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch7-q021",
+    "subject": "SST",
+    "chapterId": "sst-ch7",
+    "chapter": "The Gupta Era: An Age of Tireless Creativity",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Aryabhata is credited with calculating the Earth's rotation. What did he actually believe about the Earth and Sun?",
+    "options": [
+      "That the Earth rotates on its own axis, not that the Sun revolves around a stationary Earth",
+      "That neither the Earth nor the Sun move at all",
+      "That the Earth and Moon revolve around the Sun together",
+      "That the Sun revolves around the Earth"
+    ],
+    "answer": 0,
+    "explanation": "Aryabhata proposed that the Earth rotates on its own axis, which is what causes day and night - a genuinely advanced idea for his time. He did not hold the geocentric belief that the Sun circles a fixed Earth.",
+    "tags": [
+      "gupta",
+      "aryabhata",
+      "school"
+    ]
+  },
+  {
     "id": "sst-ch9-q001",
     "subject": "SST",
     "chapterId": "sst-ch9",
@@ -3928,6 +5052,116 @@
     ]
   },
   {
+    "id": "sst-ch9-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Which feature helps citizens hold their elected representatives accountable for their work?",
+    "options": [
+      "Military rule",
+      "Regular elections",
+      "Hereditary succession",
+      "Frequent wars"
+    ],
+    "answer": 1,
+    "explanation": "Regular elections give citizens a recurring opportunity to reward or remove representatives based on how well they have performed - this is what accountability in a democracy depends on.",
+    "tags": [
+      "government-types",
+      "democracy",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch9-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "In which type of government does the military usually take control of a country by force?",
+    "options": [
+      "A direct democracy",
+      "A constitutional monarchy",
+      "A dictatorship through military rule",
+      "A representative democracy"
+    ],
+    "answer": 2,
+    "explanation": "A military dictatorship is exactly this - the armed forces seize and hold power by force rather than through election.",
+    "tags": [
+      "government-types",
+      "dictatorship",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch9-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "A country has a king as head of state, but all major decisions are made by an elected Parliament. What type of government is this?",
+    "options": [
+      "A dictatorship",
+      "A theocracy",
+      "An absolute monarchy",
+      "A constitutional monarchy"
+    ],
+    "answer": 3,
+    "explanation": "In a constitutional monarchy the monarch is head of state largely in name, while real law-making power sits with an elected body such as Parliament.",
+    "tags": [
+      "government-types",
+      "monarchy",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch9-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of the following is NOT a characteristic of a dictatorship?",
+    "options": [
+      "Free and fair elections",
+      "Limited political freedom",
+      "Concentration of power in one leader",
+      "Strict control over opposition"
+    ],
+    "answer": 0,
+    "explanation": "Free and fair elections are the opposite of how a dictatorship works - dictatorships concentrate power in one person or a small group and restrict genuine political competition.",
+    "tags": [
+      "government-types",
+      "dictatorship",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch9-q021",
+    "subject": "SST",
+    "chapterId": "sst-ch9",
+    "chapter": "From the Rulers to the Ruled: Types of Governments",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a constitutional monarchy, the monarch cannot make laws independently. Why?",
+    "options": [
+      "Because only the military can make laws in a constitutional monarchy",
+      "Because the monarch's powers are limited by the Constitution, and elected representatives make the laws instead",
+      "Because constitutional monarchies do not have written laws",
+      "Because the monarch has no official role in government at all"
+    ],
+    "answer": 1,
+    "explanation": "The Constitution itself sets limits on what the monarch may do, and law-making is handed instead to elected representatives - that is exactly what makes it a CONSTITUTIONAL monarchy rather than an absolute one.",
+    "tags": [
+      "government-types",
+      "monarchy",
+      "school"
+    ]
+  },
+  {
     "id": "sst-ch10-q001",
     "subject": "SST",
     "chapterId": "sst-ch10",
@@ -4252,6 +5486,94 @@
     "explanation": "An amendment is a formal change to the Constitution. The process is deliberately demanding, so the basic framework is not altered lightly.",
     "tags": [
       "amendment"
+    ]
+  },
+  {
+    "id": "sst-ch10-q017",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which idea from India's cultural heritage is said to have influenced the values behind the Constitution?",
+    "options": [
+      "The parliamentary system",
+      "Separation of powers",
+      "Vasudhaiva Kutumbakam (the world is one family)",
+      "Judicial review"
+    ],
+    "answer": 2,
+    "explanation": "Vasudhaiva Kutumbakam - the idea that the whole world is one family - is an ancient Indian concept reflected in the Constitution's spirit of universal welfare, unlike the other options, which are structural/legal ideas borrowed from elsewhere.",
+    "tags": [
+      "constitution",
+      "heritage",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch10-q018",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "How many women were members of India's Constituent Assembly?",
+    "options": [
+      "10",
+      "20",
+      "5",
+      "15"
+    ],
+    "answer": 3,
+    "explanation": "Fifteen women served as members of the Constituent Assembly that drafted India's Constitution.",
+    "tags": [
+      "constitution",
+      "constituent-assembly",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch10-q019",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "The Constitution guarantees the Right to Education under which Article?",
+    "options": [
+      "Article 21-A",
+      "Article 21",
+      "Article 19",
+      "Article 22"
+    ],
+    "answer": 0,
+    "explanation": "The Right to Education was added to the Constitution as Article 21-A, through the 86th Constitutional Amendment.",
+    "tags": [
+      "constitution",
+      "fundamental-rights",
+      "school"
+    ]
+  },
+  {
+    "id": "sst-ch10-q020",
+    "subject": "SST",
+    "chapterId": "sst-ch10",
+    "chapter": "The Constitution of India — An Introduction",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "The Constitution of India is often called a 'living document'. Why?",
+    "options": [
+      "Because only living Presidents may read it",
+      "Because it can be amended according to the changing needs of society",
+      "Because it changes automatically every ten years without any process",
+      "Because it was written on living plant material"
+    ],
+    "answer": 1,
+    "explanation": "A 'living document' is one that can grow and adapt - India's Constitution can be formally amended as the country's needs change, which is exactly why it earns that description.",
+    "tags": [
+      "constitution",
+      "amendment",
+      "school"
     ]
   },
   {
@@ -4836,6 +6158,72 @@
     ]
   },
   {
+    "id": "english-u2-q013",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If Doctor Dolittle had ignored the advice and needs of animals, which of the following would most likely have happened?",
+    "options": [
+      "He would have remained equally successful as a doctor",
+      "The animals would have learned to speak like humans",
+      "He would have continued to receive more human patients",
+      "He would have lost the special understanding that made his work successful"
+    ],
+    "answer": 3,
+    "explanation": "The whole basis of his success as an animal doctor was listening to what animals told him. Ignoring them would have cost him the very skill that made his new career work.",
+    "tags": [
+      "dolittle",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-q014",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does the animals' trust in Doctor Dolittle suggest about the way he treated them?",
+    "options": [
+      "He listened to them patiently and cared about their needs",
+      "He was afraid that the animals might cause trouble if he ignored them",
+      "He treated them only when other doctors could not help them",
+      "He treated them mainly because they brought more patients to his clinic"
+    ],
+    "answer": 0,
+    "explanation": "Animals trusted him and word of his skill spread among them because he genuinely listened and cared, not because of any selfish motive.",
+    "tags": [
+      "dolittle",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-q015",
+    "subject": "English",
+    "chapterId": "english-u2",
+    "chapter": "Animals, Birds and Dr Dolittle",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Doctor Dolittle's decision to change his profession can best be understood as an example of:",
+    "options": [
+      "Giving up whenever a difficulty arises",
+      "Recognising one's strengths and using them to help others",
+      "Avoiding people because animals are easier to understand",
+      "Choosing personal comfort over responsibility"
+    ],
+    "answer": 1,
+    "explanation": "He did not give up on medicine — he redirected it towards where his particular gift (understanding animals) could do the most good.",
+    "tags": [
+      "dolittle",
+      "inference",
+      "school"
+    ]
+  },
+  {
     "id": "english-u2-poem-q001",
     "subject": "English",
     "chapterId": "english-u2-poem",
@@ -4863,7 +6251,7 @@
     "chapter": "A Funny Man (Poem)",
     "type": "mcq",
     "difficulty": "easy",
-    "question": "\"He wore his hat upon his feet, and walked upon his head.\" This line is funny because it:",
+    "question": "\"He wore a shoe upon his head, and hats upon his feet.\" This line is funny because it:",
     "options": [
       "Reverses the ordinary way things are done",
       "Describes a real accident",
@@ -4871,7 +6259,7 @@
       "Gives a serious warning"
     ],
     "answer": 0,
-    "explanation": "The comedy comes from inversion — everything is done the wrong way round, which is the poem's central joke.",
+    "explanation": "This is the poem's opening description of the funny man. The comedy comes from inversion — he wears a shoe where a hat should go and hats where shoes should go, everything the wrong way round.",
     "tags": [
       "poem",
       "imagery"
@@ -5085,6 +6473,72 @@
     "tags": [
       "poem",
       "theme"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q013",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What can the reader infer about the poet's attitude towards the funny man?",
+    "options": [
+      "The poet considers him troublesome and irritating",
+      "The poet believes his behaviour should be corrected",
+      "The poet views him with amusement and affection",
+      "The poet feels frightened by his behaviour"
+    ],
+    "answer": 2,
+    "explanation": "The poem's light, playful tone throughout shows the poet enjoys the funny man's oddness rather than disapproving of it.",
+    "tags": [
+      "poem",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q014",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of the following situations would best match the spirit of the poem?",
+    "options": [
+      "Someone becomes upset whenever others laugh",
+      "Someone refuses to speak to anyone around them",
+      "Someone follows every rule without questioning it",
+      "Someone reacts to an ordinary situation in an unexpected and amusing way"
+    ],
+    "answer": 3,
+    "explanation": "The poem celebrates delightful unpredictability — doing ordinary things in a topsy-turvy, amusing way is exactly its spirit.",
+    "tags": [
+      "poem",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-poem-q015",
+    "subject": "English",
+    "chapterId": "english-u2-poem",
+    "chapter": "A Funny Man (Poem)",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "If the funny man behaved exactly like everyone else, what would most likely happen to the mood created in the poem?",
+    "options": [
+      "It would become more serious and ordinary",
+      "It would remain exactly the same",
+      "It would become more mysterious",
+      "It would become more dramatic"
+    ],
+    "answer": 0,
+    "explanation": "The poem's playful, comic mood depends entirely on the funny man doing everything the wrong way round. Take that away and there is nothing left to smile at.",
+    "tags": [
+      "poem",
+      "inference",
+      "school"
     ]
   },
   {
@@ -5340,6 +6794,72 @@
     ]
   },
   {
+    "id": "english-u2-supp-q013",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What does Mary's way of speaking during the conversation mainly reveal about her?",
+    "options": [
+      "She is deliberately trying to embarrass Mrs. Harding and Mrs. Lee",
+      "She speaks honestly without always considering how her words may affect others",
+      "She is afraid of expressing her real opinions in front of adults",
+      "She carefully chooses every word to make the visitors comfortable"
+    ],
+    "answer": 1,
+    "explanation": "Mary is not malicious — she simply blurts out whatever she thinks, without pausing to consider how it will land. That is exactly what her mother tried to coach her out of.",
+    "tags": [
+      "say-the-right-thing",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q014",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "What does Mrs. Shaw's behaviour suggest about her understanding of social situations?",
+    "options": [
+      "She wants Mary to avoid speaking honestly whenever guests are present",
+      "She feels that Mary should never participate in conversations with adults",
+      "She knows that being truthful is not enough; one must also consider how and when something is said",
+      "She believes that people should always hide their real opinions"
+    ],
+    "answer": 2,
+    "explanation": "Mrs. Shaw's coaching is about tact, not dishonesty — she wants Mary to think before speaking, not to lie.",
+    "tags": [
+      "say-the-right-thing",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u2-supp-q015",
+    "subject": "English",
+    "chapterId": "english-u2-supp",
+    "chapter": "Say The Right Thing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which idea is best supported by the events in the story?",
+    "options": [
+      "Being polite always means agreeing with whatever others say",
+      "Speaking less is the best way to avoid uncomfortable situations",
+      "People are offended whenever someone expresses an honest opinion",
+      "Speaking honestly requires good judgement about the words and manner we use"
+    ],
+    "answer": 3,
+    "explanation": "Every blunder in the play comes from Mary saying something true but tactless. The play's lesson is about judgement in speech, not about staying silent or being dishonest.",
+    "tags": [
+      "say-the-right-thing",
+      "inference",
+      "school"
+    ]
+  },
+  {
     "id": "english-u3-q001",
     "subject": "English",
     "chapterId": "english-u3",
@@ -5589,6 +7109,72 @@
     "tags": [
       "great-invention",
       "ending"
+    ]
+  },
+  {
+    "id": "english-u3-q013",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Boppa's disappearance after entering the time machine creates an unexpected situation. What does this incident mainly show about Anand's invention?",
+    "options": [
+      "An invention can have consequences that its creator may not have anticipated",
+      "Scientific inventions are useful only when they are tested by adults",
+      "Anand deliberately designed the machine to make Boppa disappear",
+      "Every invention works exactly as its creator plans"
+    ],
+    "answer": 0,
+    "explanation": "Anand built the time machine for fun, with no intention of ever testing it on an intruder — its effect on Boppa was entirely unplanned.",
+    "tags": [
+      "great-invention",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u3-q014",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Why is Anita's presence important to the development of the story?",
+    "options": [
+      "She encourages Anand to invent the time machine",
+      "She helps Anand deal with the unexpected events that occur at home",
+      "She discovers how to operate the time machine before Anand does",
+      "She warns the parents about Anand's inventions before they leave"
+    ],
+    "answer": 1,
+    "explanation": "As narrator, Anita is right there through the break-in, working with Anand to handle the crisis as it unfolds — that is her role in driving the story forward.",
+    "tags": [
+      "great-invention",
+      "inference",
+      "school"
+    ]
+  },
+  {
+    "id": "english-u3-q015",
+    "subject": "English",
+    "chapterId": "english-u3",
+    "chapter": "My Brother's Great Invention",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What can the reader infer from the parents leaving Anand and Anita alone for the night?",
+    "options": [
+      "They expected Anita to take complete responsibility for Anand",
+      "They knew that something unusual was going to happen at home",
+      "They believed the children could manage responsibly on their own",
+      "They wanted the children to experiment with Anand's inventions"
+    ],
+    "answer": 2,
+    "explanation": "Ma and Papa trust the children enough to leave them for one night, believing they are old enough to look after themselves and the house.",
+    "tags": [
+      "great-invention",
+      "inference",
+      "school"
     ]
   },
   {
@@ -5959,6 +7545,492 @@
     ]
   },
   {
+    "id": "english-grammar-q019",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Identify the type of pronoun: 'Neither of the two explanations was convincing.'",
+    "options": [
+      "Indefinite pronoun",
+      "Reciprocal pronoun",
+      "Relative pronoun",
+      "Distributive pronoun"
+    ],
+    "answer": 3,
+    "explanation": "'Neither' refers to the two explanations taken one at a time (not together), which is what a distributive pronoun does.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q020",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Identify the type of pronoun: 'The two scientists respected one another despite their different opinions.'",
+    "options": [
+      "Reciprocal pronoun",
+      "Emphatic pronoun",
+      "Indefinite pronoun",
+      "Distributive pronoun"
+    ],
+    "answer": 0,
+    "explanation": "'One another' shows a mutual action between two people, which is exactly what a reciprocal pronoun expresses.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q021",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the type of pronoun: 'Someone has left their umbrella in the laboratory.'",
+    "options": [
+      "Relative pronoun",
+      "Indefinite pronoun",
+      "Reciprocal pronoun",
+      "Distributive pronoun"
+    ],
+    "answer": 1,
+    "explanation": "'Someone' does not refer to any specific, named person, which makes it an indefinite pronoun.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q022",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the type of pronoun: 'The artist who painted this portrait lives in Jaipur.'",
+    "options": [
+      "Dummy pronoun",
+      "Reciprocal pronoun",
+      "Relative pronoun",
+      "Distributive pronoun"
+    ],
+    "answer": 2,
+    "explanation": "'Who' connects the describing clause back to 'the artist', which is the job of a relative pronoun.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q023",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In 'The little boy hurt himself while climbing the tree,' what is 'himself'?",
+    "options": [
+      "Emphatic pronoun",
+      "Dummy pronoun",
+      "Distributive pronoun",
+      "Reflexive pronoun"
+    ],
+    "answer": 3,
+    "explanation": "'Himself' shows the action of the verb falling back on the subject - the boy hurt his own self - which is a reflexive pronoun.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q024",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In 'The little boy himself carried the heavy box upstairs,' what is 'himself'?",
+    "options": [
+      "Emphatic pronoun",
+      "Dummy pronoun",
+      "Indefinite pronoun",
+      "Reflexive pronoun"
+    ],
+    "answer": 0,
+    "explanation": "Here 'himself' simply adds emphasis - it stresses that the boy, and no one else, carried the box. That makes it an emphatic pronoun rather than a reflexive one.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q025",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In 'It is getting dark outside,' what kind of pronoun is 'It'?",
+    "options": [
+      "Emphatic pronoun",
+      "Dummy pronoun",
+      "Reflexive pronoun",
+      "Reciprocal pronoun"
+    ],
+    "answer": 1,
+    "explanation": "This 'it' does not stand for any actual thing - it just fills the subject slot the sentence needs. That empty, placeholder use is called a dummy pronoun.",
+    "tags": [
+      "pronouns",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q026",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which sentence uses 'those' as a demonstrative pronoun rather than a demonstrative adjective?",
+    "options": [
+      "I have read those books already.",
+      "Those students have all submitted their projects.",
+      "Those students submitted their projects, but those have not.",
+      "Give me those papers on the desk."
+    ],
+    "answer": 2,
+    "explanation": "In the first sentence the second 'those' stands alone in place of a noun ('those [students]'), which makes it a pronoun. When 'those' sits directly before a noun, as in the other options, it is a demonstrative adjective instead.",
+    "tags": [
+      "pronouns",
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q027",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "'The courageous firefighter rescued the trapped family.' What type of adjective is 'courageous'?",
+    "options": [
+      "Adjective of number",
+      "Adjective of quantity",
+      "Distributive adjective",
+      "Adjective of quality"
+    ],
+    "answer": 3,
+    "explanation": "'Courageous' describes what kind of firefighter he is - a quality he has - so it is an adjective of quality.",
+    "tags": [
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q028",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'We have enough food for all the guests.' What type of adjective is 'enough'?",
+    "options": [
+      "Adjective of quantity",
+      "Adjective of quality",
+      "Adjective of number",
+      "Demonstrative adjective"
+    ],
+    "answer": 0,
+    "explanation": "'Enough' tells us how much food there is without giving an exact count, which makes it an adjective of quantity.",
+    "tags": [
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q029",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'Every participant received a certificate.' What type of adjective is 'Every'?",
+    "options": [
+      "Adjective of quality",
+      "Distributive adjective",
+      "Possessive adjective",
+      "Adjective of number"
+    ],
+    "answer": 1,
+    "explanation": "'Every' refers to each participant taken separately, one at a time - that is what makes it a distributive adjective.",
+    "tags": [
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q030",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "'She bought three reference books for her research.' What type of adjective is 'three'?",
+    "options": [
+      "Distributive adjective",
+      "Adjective of quality",
+      "Adjective of number",
+      "Adjective of quantity"
+    ],
+    "answer": 2,
+    "explanation": "'Three' gives an exact, countable number of books, which makes it an adjective of number (quantity adjectives are used for uncountable amounts instead).",
+    "tags": [
+      "adjectives",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q031",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which sentence puts the adjectives in the correct order?",
+    "options": [
+      "She bought an Indian red beautiful silk scarf.",
+      "She bought a red silk beautiful Indian scarf.",
+      "She bought a silk beautiful red Indian scarf.",
+      "She bought a beautiful red Indian silk scarf."
+    ],
+    "answer": 3,
+    "explanation": "English adjectives follow a set order: opinion/quality, then colour, then origin, then material - 'beautiful' (opinion) before 'red' (colour) before 'Indian' (origin) before 'silk' (material).",
+    "tags": [
+      "adjectives",
+      "word-order",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q032",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Which order of adjectives is correct?",
+    "options": [
+      "A small old wooden table",
+      "A wooden old small table",
+      "A wooden small old table",
+      "An old wooden small table"
+    ],
+    "answer": 0,
+    "explanation": "The standard order runs size before age before material: 'small' (size), then 'old' (age), then 'wooden' (material).",
+    "tags": [
+      "adjectives",
+      "word-order",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q033",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which sentence is correctly punctuated to show possession by one girl?",
+    "options": [
+      "The girls' bicycle is new for one girl.",
+      "The girl's bicycle is new.",
+      "The girls bicycle is new.",
+      "The girl's bicycle's is new."
+    ],
+    "answer": 1,
+    "explanation": "An apostrophe followed by 's' shows singular possession - the bicycle belongs to one girl.",
+    "tags": [
+      "punctuation",
+      "apostrophe"
+    ]
+  },
+  {
+    "id": "english-grammar-q034",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Identify the tense: 'I have discovered a new way to solve this.'",
+    "options": [
+      "Past Perfect Tense",
+      "Future Perfect Tense",
+      "Present Perfect Tense",
+      "Present Continuous Tense"
+    ],
+    "answer": 2,
+    "explanation": "'have discovered' uses 'have' + past participle, the standard form of the Present Perfect Tense.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q035",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the tense: 'By next Friday, the students will have completed their science models.'",
+    "options": [
+      "Future Continuous Tense",
+      "Present Perfect Tense",
+      "Past Perfect Tense",
+      "Future Perfect Tense"
+    ],
+    "answer": 3,
+    "explanation": "'will have completed' describes an action that will be finished before a stated point in the future - the Future Perfect Tense.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q036",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the tense: 'By the time we arrived, the speaker had already left the auditorium.'",
+    "options": [
+      "Past Perfect Tense",
+      "Past Continuous Tense",
+      "Present Perfect Tense",
+      "Simple Past Tense"
+    ],
+    "answer": 0,
+    "explanation": "The speaker's leaving happened before another past event (our arriving), which is exactly when the Past Perfect Tense is used.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q037",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Choose the correct sentence.",
+    "options": [
+      "When we arrived, the film already started.",
+      "When we arrived, the film had already started.",
+      "When we arrived, the film will have already started.",
+      "When we arrived, the film has already started."
+    ],
+    "answer": 1,
+    "explanation": "One past action (the film starting) happened before another past action (our arriving), so the earlier one needs the Past Perfect Tense: 'had already started'.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q038",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Present Perfect and Past Perfect both describe completed actions. What is the key difference between them?",
+    "options": [
+      "Past Perfect is used only for future events",
+      "There is no real difference between them",
+      "Past Perfect places one past action before another past action; Present Perfect links a past action to the present",
+      "Present Perfect always needs a specific past date"
+    ],
+    "answer": 2,
+    "explanation": "'I have visited Delhi' links a past experience to now, with no fixed reference point. 'I had visited Delhi before I moved to Mumbai' places the visit before another past event - moving to Mumbai.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q039",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Identify the tense: 'The farmers have been working in the fields since sunrise.'",
+    "options": [
+      "Past Perfect Continuous Tense",
+      "Present Continuous Tense",
+      "Present Perfect Tense",
+      "Present Perfect Continuous Tense"
+    ],
+    "answer": 3,
+    "explanation": "'have been working' - 'have been' + verb-ing - shows an action that started in the past and is still continuing now, the Present Perfect Continuous Tense.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q040",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Identify the tense: 'The family had been walking along the beach for nearly an hour when it suddenly began to rain.'",
+    "options": [
+      "Past Perfect Continuous Tense",
+      "Future Perfect Continuous Tense",
+      "Past Continuous Tense",
+      "Present Perfect Continuous Tense"
+    ],
+    "answer": 0,
+    "explanation": "The walking had been going on for a while before another past event (the rain starting) - that combination of duration-before-a-past-point is the Past Perfect Continuous Tense.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
+    "id": "english-grammar-q041",
+    "subject": "English",
+    "chapterId": "english-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "Choose the correctly completed sentence: 'By the time the train arrives, we ___ at the station for three hours.'",
+    "options": [
+      "had been waiting",
+      "will have been waiting",
+      "have been waiting",
+      "were waiting"
+    ],
+    "answer": 1,
+    "explanation": "The waiting will have gone on for a duration right up to a future point (the train's arrival), which needs the Future Perfect Continuous Tense: 'will have been waiting'.",
+    "tags": [
+      "tenses",
+      "school"
+    ]
+  },
+  {
     "id": "english-writing-q001",
     "subject": "English",
     "chapterId": "english-writing",
@@ -6279,6 +8351,204 @@
     "tags": [
       "essay-writing",
       "planning"
+    ]
+  },
+  {
+    "id": "english-writing-q017",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "When writing a formal application letter, what comes right after the receiver's address and date?",
+    "options": [
+      "The body of the letter",
+      "The sender's details",
+      "The subject line",
+      "The complimentary close"
+    ],
+    "answer": 2,
+    "explanation": "The taught format runs: receiver's address, date, subject, salutation, then the body. The subject line comes before the salutation and the body, straight after the date.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q018",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "In a formal application, what should the introduction part of the body do?",
+    "options": [
+      "Thank the reader for reading the whole letter",
+      "Describe an unrelated personal story",
+      "List every rule of the school",
+      "Introduce yourself and clearly state the purpose of writing"
+    ],
+    "answer": 3,
+    "explanation": "The introduction's job is simple: say who you are and why you are writing, so the reader immediately knows the purpose of the letter.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q019",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In a formal application, what should the main content of the body include?",
+    "options": [
+      "The necessary details of the request, with reasons and relevant information",
+      "A joke to make the letter memorable",
+      "A list of unrelated complaints",
+      "Only a single sentence with no explanation"
+    ],
+    "answer": 0,
+    "explanation": "The main paragraph is where the actual request is explained fully - what is being asked for, why, and any details the reader needs to decide.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q020",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What should the conclusion of a formal application do?",
+    "options": [
+      "Introduce a completely new request",
+      "Make a polite request for approval and thank the reader",
+      "Demand an immediate response",
+      "Repeat the entire letter word for word"
+    ],
+    "answer": 1,
+    "explanation": "The conclusion politely asks for the approval or action wanted, and closes with a note of thanks - it should not introduce new information.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q021",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "An application to a school Principal should open with which salutation?",
+    "options": [
+      "Hi there,",
+      "Dear friend,",
+      "Respected Sir/Madam,",
+      "Hello,"
+    ],
+    "answer": 2,
+    "explanation": "A formal letter to a school authority uses a respectful salutation such as 'Respected Sir/Madam,' rather than a casual greeting.",
+    "tags": [
+      "formal-letter",
+      "format",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q022",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "When writing an autobiography of an object (for example, a recycled notebook), which point of view should be used throughout?",
+    "options": [
+      "Third person - using he, she, it",
+      "A mix of first and third person",
+      "Second person - using you, your",
+      "First person - using I, me, my, mine"
+    ],
+    "answer": 3,
+    "explanation": "An autobiography is the subject telling its OWN story, so it is written in the first person throughout, as if the object itself were speaking.",
+    "tags": [
+      "autobiography",
+      "creative-writing",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q023",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which opening line would make the strongest 'hook' for an autobiography?",
+    "options": [
+      "I thought my life was over when I was thrown into a recycling bin.",
+      "This is the story of a notebook.",
+      "Notebooks are made of paper.",
+      "I am a notebook."
+    ],
+    "answer": 0,
+    "explanation": "A strong hook opens with something surprising or dramatic rather than a plain statement of fact - it makes the reader want to know what happens next.",
+    "tags": [
+      "autobiography",
+      "creative-writing",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q024",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Which of these best follows the advice to 'maintain a clear sequence of events' in a narrative piece of writing?",
+    "options": [
+      "Describing every event out of order",
+      "Using linking words such as first, then, later, finally, and at last",
+      "Leaving out all time references entirely",
+      "Jumping between different time periods with no warning"
+    ],
+    "answer": 1,
+    "explanation": "Linking words like 'first', 'then' and 'finally' guide the reader through events in the order they happened, keeping the sequence clear.",
+    "tags": [
+      "autobiography",
+      "creative-writing",
+      "school"
+    ]
+  },
+  {
+    "id": "english-writing-q025",
+    "subject": "English",
+    "chapterId": "english-writing",
+    "chapter": "Creative Writing",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "An autobiography should end with which kind of conclusion?",
+    "options": [
+      "A list of unrelated facts",
+      "A repeat of the opening line word for word",
+      "A meaningful message, lesson or wish the writer wants to share",
+      "A sudden stop with no closing thought"
+    ],
+    "answer": 2,
+    "explanation": "A strong ending leaves the reader with something to take away - a lesson learned, a hope expressed, or a message about the subject's journey.",
+    "tags": [
+      "autobiography",
+      "creative-writing",
+      "school"
     ]
   },
   {
@@ -7012,6 +9282,132 @@
     ]
   },
   {
+    "id": "hindi-phool-q013",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "कविता के अनुसार परोपकार का प्रतीक कौन है?",
+    "options": [
+      "पत्ता",
+      "काँटा",
+      "पत्थर",
+      "फूल"
+    ],
+    "answer": 3,
+    "explanation": "कविता में फूल परोपकार और सुगंध बाँटने का प्रतीक है, जबकि काँटा कष्ट पहुँचाने का प्रतीक है।",
+    "tags": [
+      "phool-kaanta",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-phool-q014",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "निम्नलिखित में से कौन-सा गुण व्यक्ति को समाज में सम्मान दिलाता है?",
+    "options": [
+      "मधुर व्यवहार",
+      "अहंकार",
+      "ईर्ष्या",
+      "क्रोध"
+    ],
+    "answer": 0,
+    "explanation": "कविता के अनुसार मधुर व्यवहार और अच्छे गुण ही व्यक्ति को समाज में सम्मान और प्रेम दिलाते हैं, न कि अहंकार या क्रोध जैसे भाव।",
+    "tags": [
+      "phool-kaanta",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-phool-q015",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "काँटा किस मानवीय प्रवृत्ति का प्रतीक माना जा सकता है?",
+    "options": [
+      "विनम्रता",
+      "कठोरता",
+      "दया",
+      "सहयोग"
+    ],
+    "answer": 1,
+    "explanation": "काँटा अपने स्वभाव से दूसरों को कष्ट पहुँचाता है, इसलिए वह कठोर और नकारात्मक स्वभाव वाले व्यक्तियों का प्रतीक माना जाता है।",
+    "tags": [
+      "phool-kaanta",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-phool-q016",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "फूल और काँटा समान परिस्थितियों में विकसित होकर भी अलग-अलग संदेश देते हैं। क्या यह इसलिए है क्योंकि किसी व्यक्ति का चरित्र केवल उसके जन्मस्थान से निर्धारित होता है?",
+    "options": [
+      "इस प्रश्न का कविता से कोई संबंध नहीं है",
+      "हाँ, चरित्र पूरी तरह जन्मस्थान पर निर्भर करता है",
+      "नहीं - चरित्र जन्मस्थान से नहीं, बल्कि स्वभाव और कर्मों से तय होता है",
+      "फूल और काँटे का चरित्र सदा एक-सा होता है"
+    ],
+    "answer": 2,
+    "explanation": "कविता यही सिखाती है कि एक ही स्थान पर जन्म लेने के बावजूद फूल और काँटे का स्वभाव भिन्न होता है - इसलिए चरित्र जन्मस्थान से नहीं, बल्कि अपने कर्मों और स्वभाव से तय होता है।",
+    "tags": [
+      "phool-kaanta",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-phool-q017",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "यदि किसी व्यक्ति को अच्छे अवसर मिलें, फिर भी वह दूसरों से कठोर व्यवहार करे, तो कविता के आधार पर उसका मूल्यांकन कैसे होगा?",
+    "options": [
+      "उसका मूल्यांकन नहीं किया जा सकता",
+      "अवसर और स्वभाव का आपस में कोई संबंध नहीं है",
+      "वह फूल के समान माना जाएगा, क्योंकि उसे अच्छे अवसर मिले",
+      "वह काँटे के समान माना जाएगा, क्योंकि अच्छे अवसर मिलने पर भी उसका स्वभाव कठोर बना रहा"
+    ],
+    "answer": 3,
+    "explanation": "कविता के अनुसार पहचान अवसरों से नहीं, बल्कि स्वभाव से होती है - अच्छे अवसर पाकर भी कठोर व्यवहार करने वाला व्यक्ति काँटे जैसा माना जाएगा।",
+    "tags": [
+      "phool-kaanta",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-phool-q018",
+    "subject": "Hindi",
+    "chapterId": "hindi-phool",
+    "chapter": "फूल और काँटा",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "फूल के ऐसे कौन-से गुण हैं जिन्हें हर विद्यार्थी अपने जीवन में अपना सकता है?",
+    "options": [
+      "दूसरों की सहायता करना और मधुर व्यवहार रखना",
+      "सबसे दूर रहना",
+      "चुप रहना और किसी से बात न करना",
+      "हमेशा प्रतिस्पर्धा करना"
+    ],
+    "answer": 0,
+    "explanation": "फूल परोपकार, मधुरता और दूसरों के जीवन में खुशियाँ बाँटने का प्रतीक है - ये ही गुण विद्यार्थी अपने व्यवहार में अपना सकते हैं।",
+    "tags": [
+      "phool-kaanta",
+      "school"
+    ]
+  },
+  {
     "id": "hindi-paani-q001",
     "subject": "Hindi",
     "chapterId": "hindi-paani",
@@ -7252,6 +9648,111 @@
     "explanation": "लेखक यही समझाता है कि जल सीमित है; उसे बचाना, संचित करना और मितव्ययिता से बरतना हम सबकी ज़िम्मेदारी है।",
     "tags": [
       "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-paani-q013",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "'पानी रे पानी' पाठ के अनुसार जल का संरक्षण किसके लिए आवश्यक है?",
+    "options": [
+      "केवल शहरों के लिए",
+      "प्रत्येक जीव के लिए",
+      "केवल किसानों के लिए",
+      "केवल उद्योगों के लिए"
+    ],
+    "answer": 1,
+    "explanation": "पाठ बताता है कि जल केवल मनुष्यों के लिए नहीं, बल्कि पशु-पक्षियों और पेड़-पौधों सहित हर जीव के जीवन के लिए आवश्यक है।",
+    "tags": [
+      "paani-re-paani",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-paani-q014",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "वर्षा जल संचयन से भविष्य में जल की उपलब्धता बढ़ाई जा सकती है - इसका मुख्य कारण क्या है?",
+    "options": [
+      "वर्षा जल संचयन से वर्षा अधिक होने लगती है",
+      "वर्षा का जल सीधे पीने योग्य हो जाता है",
+      "वर्षा का जल धरती में समाकर भूजल स्तर बढ़ाने में सहायता करता है",
+      "वर्षा का जल कभी समाप्त नहीं होता"
+    ],
+    "answer": 2,
+    "explanation": "जब वर्षा का जल एकत्र कर धरती में उतरने दिया जाता है, तो वह भूजल स्तर को बढ़ाता है, जिससे भविष्य में जल की उपलब्धता बनी रहती है।",
+    "tags": [
+      "paani-re-paani",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-paani-q015",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'पानी रे पानी' पाठ के अनुसार जल बचाने की शुरुआत घर से कैसे की जा सकती है?",
+    "options": [
+      "केवल बाहर से पानी मँगवाकर",
+      "पानी का उपयोग पूरी तरह बंद करके",
+      "अधिक पानी जमा करके",
+      "नलों का अनावश्यक उपयोग रोककर और वर्षा जल संचयन अपनाकर"
+    ],
+    "answer": 3,
+    "explanation": "घर में लीकेज ठीक कराना, नल का अनावश्यक उपयोग रोकना और वर्षा जल संचयन अपनाना - ये छोटे कदम जल संरक्षण की शुरुआत करते हैं।",
+    "tags": [
+      "paani-re-paani",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-paani-q016",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "यदि किसी क्षेत्र में तालाब समाप्त हो जाएँ, तो वहाँ क्या प्रभाव पड़ सकता है?",
+    "options": [
+      "भूजल स्तर घटेगा और पशु-पक्षियों तथा किसानों को कठिनाई होगी",
+      "वर्षा अधिक होने लगेगी",
+      "भूजल स्तर बढ़ जाएगा",
+      "कोई प्रभाव नहीं पड़ेगा"
+    ],
+    "answer": 0,
+    "explanation": "तालाब जल संचयन का प्राकृतिक स्रोत हैं। उनके समाप्त होने से भूजल स्तर घटता है और जल संकट बढ़ने से पशु-पक्षी व किसान दोनों प्रभावित होते हैं।",
+    "tags": [
+      "paani-re-paani",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-paani-q017",
+    "subject": "Hindi",
+    "chapterId": "hindi-paani",
+    "chapter": "पानी रे पानी",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "स्वच्छ जल और अच्छे स्वास्थ्य का क्या संबंध है?",
+    "options": [
+      "जल का स्वास्थ्य से कोई संबंध नहीं है",
+      "स्वच्छ जल पीने से संक्रामक रोगों से बचाव होता है",
+      "स्वच्छ जल केवल स्वाद के लिए आवश्यक है",
+      "अशुद्ध जल पीने से भी कोई हानि नहीं होती"
+    ],
+    "answer": 1,
+    "explanation": "स्वच्छ जल पीने से शरीर अनेक संक्रामक रोगों से बचा रहता है, इसलिए स्वच्छ जल अच्छे स्वास्थ्य का आधार माना जाता है।",
+    "tags": [
+      "paani-re-paani",
+      "school"
     ]
   },
   {
@@ -7496,6 +9997,90 @@
     "explanation": "पाठ यही समझाता है कि संतुलित आहार, व्यायाम, स्वच्छता और पर्याप्त नींद — ये चार आदतें ही बीमार न पड़ने का सबसे भरोसेमंद उपाय हैं।",
     "tags": [
       "संदेश"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q013",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'नहीं होना बीमार' कहानी में यदि लेखक ने सच बोल दिया होता, तो सबसे उचित परिणाम क्या होता?",
+    "options": [
+      "कोई अंतर नहीं पड़ता",
+      "उसे विद्यालय से निकाल दिया जाता",
+      "समस्या का समाधान ईमानदारी से हो जाता",
+      "उसे अस्पताल भेज दिया जाता"
+    ],
+    "answer": 2,
+    "explanation": "कहानी यही सिखाती है कि सच बोलने से समस्या आसानी से सुलझ सकती थी - झूठ ने केवल मुसीबतें बढ़ाईं।",
+    "tags": [
+      "nahin-hona-beemar",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q014",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "कहानी 'नहीं होना बीमार' के आधार पर ईमानदारी का क्या महत्व बताया गया है?",
+    "options": [
+      "झूठ बोलना अधिक सुविधाजनक होता है",
+      "ईमानदारी से केवल समय की बर्बादी होती है",
+      "ईमानदारी का कोई महत्व नहीं है",
+      "ईमानदारी व्यक्ति को सम्मान और विश्वास दिलाती है"
+    ],
+    "answer": 3,
+    "explanation": "सत्य स्वीकार करने से समस्याओं का समाधान सरलता से होता है और व्यक्ति का चरित्र भी मजबूत बनता है - यही कहानी का मुख्य संदेश है।",
+    "tags": [
+      "nahin-hona-beemar",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q015",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'नहीं होना बीमार' कहानी में लेखक को अंत में किस बात का पश्चाताप हुआ?",
+    "options": [
+      "झूठ बोलने के कारण उसे दिन भर अनेक कठिनाइयों का सामना करना पड़ा",
+      "उसने बहुत अधिक पढ़ाई कर ली थी",
+      "उसने अपने मित्रों की सहायता कर दी थी",
+      "उसे किसी बात का पश्चाताप नहीं हुआ"
+    ],
+    "answer": 0,
+    "explanation": "बीमारी का बहाना बनाकर लेखक स्वयं मुसीबत में पड़ गया, और दिन भर की कठिनाइयों के बाद उसे अपनी गलती का एहसास हुआ।",
+    "tags": [
+      "nahin-hona-beemar",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-bimaar-q016",
+    "subject": "Hindi",
+    "chapterId": "hindi-bimaar",
+    "chapter": "नहीं होना बीमार",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "यदि आप 'नहीं होना बीमार' कहानी में लेखक के मित्र होते, तो उसे क्या सलाह देते?",
+    "options": [
+      "झूठ को और अच्छी तरह छिपाने की सलाह देते",
+      "सच बोलने और अपनी गलती स्वीकार करने की सलाह देते",
+      "किसी और पर दोष मढ़ने की सलाह देते",
+      "इस बारे में कुछ न कहने की सलाह देते"
+    ],
+    "answer": 1,
+    "explanation": "कहानी का संदेश यही है कि झूठ बोलने के बजाय साहसपूर्वक सच का सामना करना उचित होता है, इसलिए सच बोलने की सलाह ही उपयुक्त होगी।",
+    "tags": [
+      "nahin-hona-beemar",
+      "school"
     ]
   },
   {
@@ -7862,6 +10447,615 @@
     ]
   },
   {
+    "id": "hindi-vyakaran-q019",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "समास किसे कहते हैं?",
+    "options": [
+      "किसी शब्द के विपरीत अर्थ वाले शब्द को समास कहते हैं",
+      "किसी शब्द के समान अर्थ वाले शब्द को समास कहते हैं",
+      "दो या दो से अधिक शब्दों को मिलाकर संक्षिप्त रूप में एक शब्द बनाने की प्रक्रिया को समास कहते हैं",
+      "वाक्य के अंत में लगने वाले चिह्न को समास कहते हैं"
+    ],
+    "answer": 2,
+    "explanation": "समास में दो या अधिक शब्द मिलकर एक नया, संक्षिप्त शब्द बनाते हैं - जैसे 'राजा का पुत्र' से 'राजपुत्र'।",
+    "tags": [
+      "samaas",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q020",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "'यथाशक्ति' किस समास का उदाहरण है?",
+    "options": [
+      "द्विगु समास",
+      "द्वंद्व समास",
+      "बहुव्रीहि समास",
+      "अव्ययीभाव समास"
+    ],
+    "answer": 3,
+    "explanation": "अव्ययीभाव समास में पहला पद प्रधान होता है और समस्त पद अव्यय के रूप में प्रयुक्त होता है - 'यथाशक्ति' का अर्थ है 'शक्ति के अनुसार'।",
+    "tags": [
+      "samaas",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q021",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'राधा-कृष्ण' किस समास का उदाहरण है?",
+    "options": [
+      "द्वंद्व समास",
+      "अव्ययीभाव समास",
+      "द्विगु समास",
+      "तत्पुरुष समास"
+    ],
+    "answer": 0,
+    "explanation": "द्वंद्व समास में दोनों पद प्रधान होते हैं और उनके बीच 'और' का भाव छिपा रहता है - 'राधा-कृष्ण' यानी 'राधा और कृष्ण'।",
+    "tags": [
+      "samaas",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q022",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "'चौराहा' किस समास का उदाहरण है?",
+    "options": [
+      "अव्ययीभाव समास",
+      "द्विगु समास",
+      "बहुव्रीहि समास",
+      "द्वंद्व समास"
+    ],
+    "answer": 1,
+    "explanation": "द्विगु समास में पहला पद संख्यावाचक होता है और समूह का बोध कराता है - 'चौराहा' यानी 'चार राहों का समूह'।",
+    "tags": [
+      "samaas",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q023",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "'लंबोदर' (जिसका उदर लंबा है, अर्थात गणेश) किस समास का उदाहरण है?",
+    "options": [
+      "द्विगु समास",
+      "द्वंद्व समास",
+      "बहुव्रीहि समास",
+      "अव्ययीभाव समास"
+    ],
+    "answer": 2,
+    "explanation": "बहुव्रीहि समास में कोई भी पद प्रधान नहीं होता; समस्त पद किसी अन्य व्यक्ति या वस्तु की विशेषता बताता है - 'लंबोदर' गणेश जी की विशेषता बताता है।",
+    "tags": [
+      "samaas",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q024",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "शब्दों को उत्पत्ति (स्रोत) के आधार पर कितने प्रकारों में बाँटा जाता है?",
+    "options": [
+      "तीन - सार्थक, निरर्थक और मिश्रित",
+      "दो - रूढ़ और यौगिक",
+      "पाँच - संज्ञा, सर्वनाम, विशेषण, क्रिया और अव्यय",
+      "चार - तत्सम, तद्भव, देशज और विदेशी"
+    ],
+    "answer": 3,
+    "explanation": "उत्पत्ति के आधार पर शब्दों के चार भेद होते हैं: तत्सम (जैसे सूर्य), तद्भव (जैसे सूरज), देशज (जैसे झटपट) और विदेशी (जैसे किताब)।",
+    "tags": [
+      "shabd-vichaar",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q025",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'सूरज' शब्द किस प्रकार का शब्द है?",
+    "options": [
+      "तद्भव शब्द",
+      "विदेशी शब्द",
+      "तत्सम शब्द",
+      "देशज शब्द"
+    ],
+    "answer": 0,
+    "explanation": "तद्भव शब्द वे हैं जो रूप बदलकर संस्कृत से हिंदी में आए हैं - संस्कृत के 'सूर्य' से हिंदी का 'सूरज' बना है।",
+    "tags": [
+      "shabd-vichaar",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q026",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'किताब' शब्द किस प्रकार का शब्द है?",
+    "options": [
+      "तद्भव शब्द",
+      "विदेशी शब्द",
+      "तत्सम शब्द",
+      "देशज शब्द"
+    ],
+    "answer": 1,
+    "explanation": "'किताब' अरबी भाषा से हिंदी में आया शब्द है, इसलिए यह विदेशी शब्द कहलाता है।",
+    "tags": [
+      "shabd-vichaar",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q027",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "'पंकज' शब्द योगरूढ़ क्यों कहलाता है?",
+    "options": [
+      "यह दो शब्दों से बिलकुल नहीं बना है",
+      "इसका कोई अर्थ ही नहीं है",
+      "इसका सामान्य अर्थ 'कीचड़ में जन्मा' होता है, पर इसका विशेष अर्थ केवल 'कमल' है",
+      "यह हमेशा दो अलग-अलग अर्थ देता है"
+    ],
+    "answer": 2,
+    "explanation": "पंकज = पंक (कीचड़) + ज (जन्मा) से बना यौगिक शब्द है, पर व्यवहार में इसका विशेष अर्थ केवल 'कमल' है - इसलिए यह योगरूढ़ शब्द है।",
+    "tags": [
+      "shabd-vichaar",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q028",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'बच्चा सो रहा है' वाक्य में 'सो रहा है' अकर्मक क्रिया क्यों है?",
+    "options": [
+      "क्योंकि इस वाक्य में कर्ता नहीं है",
+      "क्योंकि यह क्रिया भविष्यकाल में है",
+      "क्योंकि यह क्रिया सदैव कर्म के साथ आती है",
+      "क्योंकि इस क्रिया के साथ किसी कर्म की आवश्यकता नहीं है"
+    ],
+    "answer": 3,
+    "explanation": "अकर्मक क्रिया का फल कर्ता पर ही रहता है, उसे किसी कर्म की आवश्यकता नहीं होती - 'सोना' ऐसी ही क्रिया है।",
+    "tags": [
+      "kriya",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q029",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'माली पौधों को सींचता है' वाक्य में कर्म क्या है?",
+    "options": [
+      "पौधों को",
+      "सींचता है",
+      "माली",
+      "इस वाक्य में कोई कर्म नहीं है"
+    ],
+    "answer": 0,
+    "explanation": "जिस पर क्रिया का फल पड़ता है, वह कर्म कहलाता है - यहाँ सींचने की क्रिया का फल 'पौधों' पर पड़ रहा है।",
+    "tags": [
+      "kriya",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q030",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'रोहन ने गेंद फेंकी' वाक्य में यह क्रिया सकर्मक है या अकर्मक?",
+    "options": [
+      "इसका निर्धारण नहीं किया जा सकता",
+      "सकर्मक, क्योंकि इसमें 'गेंद' कर्म है",
+      "अकर्मक, क्योंकि इसमें कोई कर्म नहीं है",
+      "यह क्रिया न सकर्मक है न अकर्मक"
+    ],
+    "answer": 1,
+    "explanation": "फेंकने की क्रिया का फल 'गेंद' पर पड़ता है, इसलिए 'गेंद' कर्म है और क्रिया सकर्मक है।",
+    "tags": [
+      "kriya",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q031",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "विशेषण के कितने मुख्य भेद होते हैं?",
+    "options": [
+      "पाँच - संज्ञा, सर्वनाम, क्रिया, विशेषण और अव्यय",
+      "तीन - रूढ़, यौगिक और योगरूढ़",
+      "चार - गुणवाचक, संख्यावाचक, परिमाणवाचक और सार्वनामिक",
+      "दो - गुणवाचक और संख्यावाचक"
+    ],
+    "answer": 2,
+    "explanation": "विशेषण के चार मुख्य भेद होते हैं: गुणवाचक (गुण बताने वाला), संख्यावाचक (संख्या बताने वाला), परिमाणवाचक (मात्रा बताने वाला) और सार्वनामिक (सर्वनाम से बना)।",
+    "tags": [
+      "visheshan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q032",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "'गिलास में थोड़ा पानी बचा है' वाक्य में 'थोड़ा' किस प्रकार का विशेषण है?",
+    "options": [
+      "संख्यावाचक विशेषण",
+      "गुणवाचक विशेषण",
+      "सार्वनामिक विशेषण",
+      "परिमाणवाचक विशेषण"
+    ],
+    "answer": 3,
+    "explanation": "'थोड़ा' किसी वस्तु की मात्रा या नाप-तोल बताता है, इसलिए यह परिमाणवाचक विशेषण है।",
+    "tags": [
+      "visheshan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q033",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "'यह पुस्तक मेरी है' वाक्य में 'यह' किस प्रकार का विशेषण है?",
+    "options": [
+      "सार्वनामिक विशेषण",
+      "गुणवाचक विशेषण",
+      "परिमाणवाचक विशेषण",
+      "संख्यावाचक विशेषण"
+    ],
+    "answer": 0,
+    "explanation": "सार्वनामिक विशेषण वे सर्वनाम शब्द हैं जो संज्ञा से पहले लगकर उसकी ओर संकेत करते हैं - 'यह' पुस्तक की ओर संकेत कर रहा है।",
+    "tags": [
+      "visheshan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q034",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "'कक्षा में तीस विद्यार्थी उपस्थित हैं' वाक्य में 'तीस' किस प्रकार का संख्यावाचक विशेषण है?",
+    "options": [
+      "परिमाणवाचक विशेषण",
+      "निश्चित संख्यावाचक विशेषण",
+      "गुणवाचक विशेषण",
+      "अनिश्चित संख्यावाचक विशेषण"
+    ],
+    "answer": 1,
+    "explanation": "'तीस' एक निश्चित, गिनी जा सकने वाली संख्या बताता है, इसलिए यह निश्चित संख्यावाचक विशेषण है।",
+    "tags": [
+      "visheshan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-vyakaran-q035",
+    "subject": "Hindi",
+    "chapterId": "hindi-vyakaran",
+    "chapter": "व्याकरण",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "'कुछ विद्यार्थी पुस्तकालय गए हैं' वाक्य में 'कुछ' किस प्रकार का विशेषण है?",
+    "options": [
+      "परिमाणवाचक विशेषण",
+      "गुणवाचक विशेषण",
+      "अनिश्चित संख्यावाचक विशेषण",
+      "निश्चित संख्यावाचक विशेषण"
+    ],
+    "answer": 2,
+    "explanation": "'कुछ' विद्यार्थियों की ठीक संख्या नहीं बताता, केवल अनिश्चित संख्या का बोध कराता है - इसलिए यह अनिश्चित संख्यावाचक विशेषण है।",
+    "tags": [
+      "visheshan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q001",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "गद्यांश पढ़िए और प्रश्न का उत्तर दीजिए:\n\n\"आज के समय में मनुष्य ने विज्ञान और तकनीक के क्षेत्र में बहुत प्रगति कर ली है। मोबाइल, इंटरनेट और विभिन्न डिजिटल साधनों ने हमारे जीवन को सरल और सुविधाजनक बना दिया है। विशेष रूप से विद्यार्थियों के लिए इंटरनेट ज्ञान का विशाल स्रोत बन गया है। लेकिन तकनीक का सही उपयोग तभी लाभदायक है, जब उसके प्रयोग की सीमा निर्धारित हो। लगातार मोबाइल या कंप्यूटर पर समय बिताने से आँखों पर प्रभाव पड़ सकता है और पढ़ाई तथा खेल-कूद के लिए समय कम हो सकता है।\"\n\nगद्यांश के आधार पर तकनीक के संबंध में लेखक का मुख्य दृष्टिकोण क्या है?",
+    "options": [
+      "तकनीक उपयोगी है, परंतु उसका विवेकपूर्ण और सीमित प्रयोग आवश्यक है",
+      "तकनीक का प्रयोग केवल मनोरंजन के लिए किया जाना चाहिए",
+      "तकनीक का प्रयोग विद्यार्थियों के लिए पूरी तरह हानिकारक है",
+      "विद्यार्थियों को तकनीक का प्रयोग बिलकुल नहीं करना चाहिए"
+    ],
+    "answer": 0,
+    "explanation": "लेखक न तो तकनीक को पूरी तरह अस्वीकार करता है, न ही असीमित उपयोग की सलाह देता है - उसका दृष्टिकोण संतुलन और सीमित, विवेकपूर्ण उपयोग का है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q002",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "इसी गद्यांश के आधार पर बताइए: यदि कोई विद्यार्थी इंटरनेट का उपयोग पढ़ाई के बजाय अधिकतर मनोरंजन के लिए करता है, तो कौन-सा परिणाम संभव है?",
+    "options": [
+      "वह कम समय में अधिक पढ़ाई कर पाएगा",
+      "उसकी एकाग्रता और दिनचर्या प्रभावित हो सकती है",
+      "उसकी रचनात्मक क्षमता अपने-आप बढ़ जाएगी",
+      "उसके खेल-कूद के लिए अधिक समय उपलब्ध होगा"
+    ],
+    "answer": 1,
+    "explanation": "गद्यांश के अनुसार मनोरंजन में अत्यधिक समय व्यतीत करने से विद्यार्थी की एकाग्रता और दिनचर्या दोनों प्रभावित होती हैं।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q003",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "उसी गद्यांश में आए कथन 'तकनीक को अपना साधन बनाएँ, अपना स्वामी नहीं' से लेखक क्या समझाना चाहता है?",
+    "options": [
+      "तकनीक का उपयोग केवल मनोरंजन के लिए किया जाना चाहिए",
+      "तकनीक का उपयोग केवल विद्यालय में करना चाहिए",
+      "तकनीक का उपयोग आवश्यकता के अनुसार स्वयं के नियंत्रण में करना चाहिए",
+      "तकनीक से पूरी तरह दूरी बनाकर रखनी चाहिए"
+    ],
+    "answer": 2,
+    "explanation": "'साधन' का अर्थ है उपकरण जिसे हम नियंत्रित करें, 'स्वामी' का अर्थ है वह जो हम पर नियंत्रण रखे - लेखक तकनीक को नियंत्रण में रखने की बात कह रहा है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q004",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "गद्यांश के अनुसार विद्यार्थियों के लिए तकनीक के किस उपयोग को सबसे अधिक उचित माना गया है?",
+    "options": [
+      "हर समय मोबाइल पर मित्रों से बातचीत करना",
+      "देर रात तक मनोरंजन के कार्यक्रम देखना",
+      "बिना उद्देश्य के इंटरनेट पर समय बिताना",
+      "ज्ञान प्राप्त करने और रचनात्मक कार्यों के लिए उसका उपयोग करना"
+    ],
+    "answer": 3,
+    "explanation": "गद्यांश में विद्यार्थियों के लिए तकनीक का सबसे उपयुक्त उपयोग ज्ञानवर्धक सामग्री और रचनात्मक कार्यों के लिए बताया गया है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q005",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "कथन (A): तकनीक का उपयोग विद्यार्थियों के व्यक्तित्व-विकास में सहायक हो सकता है।\nकारण (R): तकनीक के माध्यम से विद्यार्थी ज्ञानवर्धक सामग्री प्राप्त करके अपनी रचनात्मकता विकसित कर सकते हैं।\nसही विकल्प चुनिए:",
+    "options": [
+      "कथन (A) और कारण (R) दोनों सही हैं, कारण (R) कथन (A) की सही व्याख्या करता है",
+      "कथन (A) और कारण (R) दोनों सही हैं, परंतु कारण (R) सही व्याख्या नहीं है",
+      "कथन (A) गलत है परंतु कारण (R) सही है",
+      "कथन (A) सही है परंतु कारण (R) गलत है"
+    ],
+    "answer": 0,
+    "explanation": "दोनों कथन सही हैं, और कारण यह सीधे स्पष्ट करता है कि तकनीक व्यक्तित्व-विकास में कैसे सहायक बनती है - इसलिए यह सही व्याख्या है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q006",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "गद्यांश पढ़िए और प्रश्न का उत्तर दीजिए:\n\n\"जल प्रकृति द्वारा मनुष्य को दिया गया अनमोल उपहार है। पृथ्वी पर जीवन का अस्तित्व जल के बिना संभव नहीं है। इसके बावजूद आज अनेक स्थानों पर लोग पानी का आवश्यकता से अधिक उपयोग करते हैं। जल की कमी केवल कम वर्षा होने से नहीं होती, बल्कि उसके अनुचित उपयोग और संरक्षण की कमी से भी होती है। यदि वर्षा के पानी को उचित ढंग से एकत्र किया जाए, तो भूजल का स्तर बढ़ाने में सहायता मिल सकती है। जल संरक्षण केवल सरकार या किसी संस्था की जिम्मेदारी नहीं है। प्रत्येक व्यक्ति को अपनी दैनिक आदतों में परिवर्तन करके इसमें योगदान देना चाहिए।\"\n\nगद्यांश के अनुसार जल-संकट को केवल प्राकृतिक समस्या मानना उचित क्यों नहीं होगा?",
+    "options": [
+      "क्योंकि जल केवल पेड़-पौधों के लिए आवश्यक है",
+      "क्योंकि मनुष्य के अनुचित उपयोग से भी जल की कमी बढ़ती है",
+      "क्योंकि वर्षा का जल किसी काम नहीं आता",
+      "क्योंकि पृथ्वी पर जल की मात्रा लगातार बढ़ रही है"
+    ],
+    "answer": 1,
+    "explanation": "गद्यांश स्पष्ट करता है कि जल-संकट केवल कम वर्षा से नहीं, बल्कि मनुष्य के अनुचित उपयोग और संरक्षण की कमी से भी बढ़ता है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q007",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "उसी गद्यांश के आधार पर बताइए: यदि किसी क्षेत्र में वर्षा पर्याप्त होती है, फिर भी वहाँ जल की कमी है, तो इसका संभावित कारण क्या हो सकता है?",
+    "options": [
+      "वहाँ पशु-पक्षी पानी का उपयोग नहीं करते",
+      "वहाँ पेड़-पौधों की संख्या अधिक है",
+      "वहाँ जल का उचित संरक्षण और प्रबंधन नहीं हो रहा है",
+      "वहाँ के लोग वर्षा को पसंद नहीं करते"
+    ],
+    "answer": 2,
+    "explanation": "गद्यांश के अनुसार पर्याप्त वर्षा होने पर भी यदि जल का सही संरक्षण और प्रबंधन न हो, तो जल संकट फिर भी बना रह सकता है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q008",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "गद्यांश की भावना के अनुसार जल संरक्षण को प्रभावी बनाने के लिए सबसे उपयुक्त कदम कौन-सा होगा?",
+    "options": [
+      "वर्षा होने पर पानी का उपयोग बंद कर देना",
+      "केवल गर्मियों में पानी बचाना",
+      "केवल सरकार से जल संरक्षण की अपेक्षा करना",
+      "दैनिक जीवन में छोटी-छोटी आदतों में सुधार करना"
+    ],
+    "answer": 3,
+    "explanation": "गद्यांश के अनुसार जल संरक्षण की जिम्मेदारी हर व्यक्ति की है, और इसकी शुरुआत अपनी दैनिक आदतों में छोटे-छोटे सुधार से होती है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q009",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "कथन (A): जल संरक्षण की जिम्मेदारी प्रत्येक व्यक्ति की नहीं है।\nकारण (R): दैनिक जीवन में किए गए छोटे-छोटे प्रयास भी पानी की बचत में योगदान दे सकते हैं।\nसही विकल्प चुनिए:",
+    "options": [
+      "कथन (A) गलत है, किंतु कारण (R) सही है",
+      "कथन (A) और कारण (R) दोनों सही हैं, कारण (R) कथन (A) की सही व्याख्या करता है",
+      "कथन (A) सही है, किंतु कारण (R) गलत है",
+      "कथन (A) और कारण (R) दोनों गलत हैं"
+    ],
+    "answer": 0,
+    "explanation": "गद्यांश के अनुसार जल संरक्षण हर व्यक्ति की जिम्मेदारी है, इसलिए कथन (A) गलत है। लेकिन कारण (R) - कि छोटे प्रयास भी बचत में सहायक होते हैं - स्वयं सत्य है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q010",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "पहले गद्यांश (तकनीक और विद्यार्थी) के अनुसार मोबाइल, इंटरनेट और डिजिटल साधनों ने हमारे जीवन को कैसा बना दिया है?",
+    "options": [
+      "धीमा और उबाऊ",
+      "सरल और सुविधाजनक",
+      "पूरी तरह असुरक्षित",
+      "कठिन और जटिल"
+    ],
+    "answer": 1,
+    "explanation": "गद्यांश के आरंभ में ही स्पष्ट कहा गया है कि इन साधनों ने जीवन को सरल और सुविधाजनक बना दिया है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q011",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "उसी गद्यांश के अनुसार लगातार मोबाइल या कंप्यूटर पर समय बिताने का क्या दुष्प्रभाव हो सकता है?",
+    "options": [
+      "शरीर स्वतः अधिक स्वस्थ हो जाता है",
+      "स्मरण शक्ति तुरंत बढ़ जाती है",
+      "आँखों पर प्रभाव पड़ सकता है और पढ़ाई-खेल के लिए समय कम हो सकता है",
+      "इसका कोई प्रभाव नहीं पड़ता"
+    ],
+    "answer": 2,
+    "explanation": "गद्यांश स्पष्ट रूप से बताता है कि अधिक समय बिताने से आँखों पर प्रभाव पड़ता है और पढ़ाई तथा खेल-कूद के लिए समय घट जाता है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-apathit-q012",
+    "subject": "Hindi",
+    "chapterId": "hindi-apathit",
+    "chapter": "अपठित गद्यांश",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "दूसरे गद्यांश (जल संरक्षण) के अनुसार पृथ्वी पर जीवन का अस्तित्व किसके बिना संभव नहीं है?",
+    "options": [
+      "वायु प्रदूषण के बिना",
+      "यातायात के साधनों के बिना",
+      "बिजली के बिना",
+      "जल के बिना"
+    ],
+    "answer": 3,
+    "explanation": "गद्यांश आरंभ में ही स्पष्ट करता है कि पृथ्वी पर जीवन का अस्तित्व जल के बिना संभव नहीं है।",
+    "tags": [
+      "apathit-gadyansh",
+      "school"
+    ]
+  },
+  {
     "id": "hindi-lekhan-q001",
     "subject": "Hindi",
     "chapterId": "hindi-lekhan",
@@ -8179,6 +11373,195 @@
     "explanation": "डायरी में लेखक अपने दिन की घटनाएँ और उन पर अपनी भावनाएँ प्रथम पुरुष में लिखता है, और तिथि अवश्य दी जाती है।",
     "tags": [
       "डायरी-लेखन"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q017",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "हिंदी में पत्रों को मुख्यतः कितने वर्गों में बाँटा गया है?",
+    "options": [
+      "तीन - प्रार्थना पत्र, कार्यालयी पत्र और व्यावसायिक पत्र",
+      "चार - निमंत्रण, बधाई, शिकायत और सूचना पत्र",
+      "पाँच - सभी प्रकार के पत्र अलग-अलग होते हैं",
+      "दो - औपचारिक पत्र और अनौपचारिक पत्र"
+    ],
+    "answer": 3,
+    "explanation": "पत्रों को मुख्यतः दो वर्गों में बाँटा जाता है - औपचारिक पत्र (जो अनजान व्यक्तियों/अधिकारियों को लिखे जाते हैं) और अनौपचारिक पत्र (जो परिवार व मित्रों को लिखे जाते हैं)।",
+    "tags": [
+      "patra-lekhan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q018",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "किसी सरकारी अधिकारी या विभाग को शिकायत या अनुरोध हेतु लिखा गया पत्र किस श्रेणी में आता है?",
+    "options": [
+      "औपचारिक पत्र - कार्यालयी पत्र",
+      "अनौपचारिक पत्र",
+      "पारिवारिक पत्र",
+      "व्यक्तिगत पत्र"
+    ],
+    "answer": 0,
+    "explanation": "सरकारी अधिकारी या विभाग को लिखे गए पत्र 'कार्यालयी पत्र' कहलाते हैं, जो औपचारिक पत्रों की एक श्रेणी है।",
+    "tags": [
+      "patra-lekhan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q019",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "परीक्षा भवन में औपचारिक पत्र लिखते समय अपने नाम के स्थान पर क्या लिखना चाहिए?",
+    "options": [
+      "कुछ भी न लिखना",
+      "क, ख, ग (या प्रश्न-पत्र में दिया गया नाम)",
+      "'अज्ञात' शब्द",
+      "अपना असली नाम"
+    ],
+    "answer": 1,
+    "explanation": "परीक्षा में गोपनीयता बनाए रखने के लिए वास्तविक नाम के स्थान पर क, ख, ग लिखा जाता है, जब तक कि प्रश्न-पत्र में कोई विशेष नाम न दिया गया हो।",
+    "tags": [
+      "patra-lekhan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q020",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "औपचारिक पत्र में 'विषय' पंक्ति का क्या उद्देश्य होता है?",
+    "options": [
+      "पत्र को अधिक लंबा बनाना",
+      "पाठक का अभिवादन करना",
+      "पत्र का मुख्य प्रयोजन संक्षेप में बताना",
+      "प्राप्तकर्ता का पता बताना"
+    ],
+    "answer": 2,
+    "explanation": "'विषय' पंक्ति पढ़ते ही पाठक जान जाता है कि पत्र किस बारे में है, इसलिए यह संक्षिप्त और स्पष्ट होनी चाहिए।",
+    "tags": [
+      "patra-lekhan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q021",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "विज्ञापन शब्द का क्या अर्थ है?",
+    "options": [
+      "समाचार-पत्र का एक भाग",
+      "एक प्रकार की कविता",
+      "पत्र का समापन वाक्य",
+      "विशिष्ट सूचना या विशेष सूचना"
+    ],
+    "answer": 3,
+    "explanation": "'वि' का अर्थ है विशिष्ट और 'ज्ञापन' का अर्थ है सूचना - इसलिए विज्ञापन का अर्थ है विशिष्ट या विशेष सूचना देना।",
+    "tags": [
+      "vigyapan-lekhan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q022",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "एक अच्छे विज्ञापन की भाषा कैसी होनी चाहिए?",
+    "options": [
+      "सरल, सहज और आकर्षक, कम शब्दों में प्रभावशाली",
+      "बिना किसी संपर्क सूचना के",
+      "पूरी तरह तकनीकी",
+      "कठिन और लंबी"
+    ],
+    "answer": 0,
+    "explanation": "विज्ञापन में कम शब्दों में अधिक प्रभावशाली बात कहनी चाहिए, ताकि वह लोगों को आकर्षित कर सके और आसानी से समझ आ सके।",
+    "tags": [
+      "vigyapan-lekhan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q023",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "विज्ञापन के अंत में सामान्यतः क्या अवश्य दिया जाना चाहिए?",
+    "options": [
+      "अभिवादन शब्द",
+      "संपर्क नंबर या फ़ोन नंबर",
+      "पत्र की तिथि",
+      "लेखक का जन्मदिन"
+    ],
+    "answer": 1,
+    "explanation": "विज्ञापन पढ़ने वाले व्यक्ति को जानकारी प्राप्त करने के लिए संपर्क सूत्र चाहिए होता है, इसलिए संपर्क नंबर या फ़ोन नंबर देना आवश्यक है।",
+    "tags": [
+      "vigyapan-lekhan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q024",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "एक अच्छे संवाद (डायलॉग) की क्या विशेषता होनी चाहिए?",
+    "options": [
+      "वह जितना कठिन हो उतना अच्छा होता है",
+      "उसका आरंभ और अंत नीरस होना चाहिए",
+      "वह स्वाभाविक, सरल भाषा में और प्रवाहपूर्ण होना चाहिए",
+      "उसमें कोई क्रम होने की आवश्यकता नहीं"
+    ],
+    "answer": 2,
+    "explanation": "जीवन जैसी स्वाभाविकता ही संवाद को सजीव, रोचक और मनोरंजक बनाती है - इसलिए भाषा सरल और प्रवाहपूर्ण होनी चाहिए।",
+    "tags": [
+      "samvad-lekhan",
+      "school"
+    ]
+  },
+  {
+    "id": "hindi-lekhan-q025",
+    "subject": "Hindi",
+    "chapterId": "hindi-lekhan",
+    "chapter": "रचनात्मक लेखन",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "संवाद लेखन में किस बात का विशेष ध्यान रखा जाता है?",
+    "options": [
+      "संवाद में कोई विराम-चिह्न नहीं होना चाहिए",
+      "संवाद केवल प्रश्नों के रूप में होना चाहिए",
+      "संवाद में हमेशा एक ही व्यक्ति बोलता रहे",
+      "संवाद देश, काल, व्यक्ति और विषय के अनुसार होना चाहिए"
+    ],
+    "answer": 3,
+    "explanation": "अच्छा संवाद वही है जो पात्रों, समय और परिस्थिति के अनुकूल हो - इसी से वह वास्तविक और विश्वसनीय लगता है।",
+    "tags": [
+      "samvad-lekhan",
+      "school"
     ]
   },
   {
@@ -9062,6 +12445,69 @@
     ]
   },
   {
+    "id": "german-fernsehen-q015",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What does \"die Quizshow\" mean?",
+    "options": [
+      "the quiz show",
+      "the documentary",
+      "the news",
+      "the weather report"
+    ],
+    "answer": 0,
+    "explanation": "'die Quizshow' is a television programme where contestants answer questions - the quiz show.",
+    "tags": [
+      "vocabulary",
+      "television"
+    ]
+  },
+  {
+    "id": "german-fernsehen-q016",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What does \"der Fernsehfan\" mean?",
+    "options": [
+      "the TV channel",
+      "the TV fan",
+      "the television set",
+      "the remote control"
+    ],
+    "answer": 1,
+    "explanation": "'der Fernsehfan' combines 'fernsehen' (television) and 'der Fan' (fan) - someone who loves watching television.",
+    "tags": [
+      "vocabulary",
+      "television"
+    ]
+  },
+  {
+    "id": "german-fernsehen-q017",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"Der Krimi ist aus\" mean?",
+    "options": [
+      "The crime show is on now",
+      "The crime show is boring",
+      "The crime show is over",
+      "The crime show is starting"
+    ],
+    "answer": 2,
+    "explanation": "'aus sein' means 'to be over / finished', so 'Der Krimi ist aus' means 'the crime show has finished.'",
+    "tags": [
+      "vocabulary",
+      "television"
+    ]
+  },
+  {
     "id": "german-uhr-q001",
     "subject": "German",
     "chapterId": "german-uhr",
@@ -9354,6 +12800,182 @@
     ]
   },
   {
+    "id": "german-uhr-q015",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Read the passage and answer the question below:\n\n\"Ich stehe jeden Tag um 6.30 Uhr auf. Ich frühstücke um 7 Uhr. Ich esse gern Brot mit Butter und Marmelade und trinke Milch. Um 7.30 Uhr gehe ich in die Schule. Meine Schule fängt um 8 Uhr an. Dienstags, mittwochs und donnerstags haben wir Deutsch Unterricht. Mathe haben wir jeden Tag, das finde ich langweilig. Um 9.10 Uhr haben wir eine kleine Pause und um 1.25 Uhr haben wir eine lange Pause. Ich komme um 4.30 Uhr nach Hause zurück. Um 6 Uhr gehe ich in den Tennisclub. Dann von 8 Uhr bis 9 Uhr mache ich meine Hausaufgaben. Ich esse zu Abend mit meiner Familie. Dann sehen wir zusammen fern. Ich schlafe um 10.30 Uhr. So sieht mein Tagesablauf aus.\"\n\nWhat time does the writer get up every day?",
+    "options": [
+      "6.30 Uhr",
+      "7.30 Uhr",
+      "8 Uhr",
+      "7 Uhr"
+    ],
+    "answer": 0,
+    "explanation": "The passage begins 'Ich stehe jeden Tag um 6.30 Uhr auf' - 'I get up every day at 6.30.'",
+    "tags": [
+      "reading",
+      "time",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q016",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Based on the same passage: what does the writer eat and drink for breakfast?",
+    "options": [
+      "Eggs and tea",
+      "Bread with butter and jam, and milk",
+      "Cereal and orange juice",
+      "Toast and coffee"
+    ],
+    "answer": 1,
+    "explanation": "'Ich esse gern Brot mit Butter und Marmelade und trinke Milch' - 'I like to eat bread with butter and jam and drink milk.'",
+    "tags": [
+      "reading",
+      "food",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q017",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Based on the same passage: what time does school start?",
+    "options": [
+      "9 Uhr",
+      "8.30 Uhr",
+      "8 Uhr",
+      "7.30 Uhr"
+    ],
+    "answer": 2,
+    "explanation": "'Meine Schule fängt um 8 Uhr an' - 'My school starts at 8 o'clock.' (Note: he leaves home at 7.30 but school itself starts at 8.)",
+    "tags": [
+      "reading",
+      "time",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q018",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Based on the same passage: on which days does the writer have German lessons?",
+    "options": [
+      "Monday, Wednesday and Friday",
+      "Wednesday, Thursday and Friday",
+      "Monday, Tuesday and Wednesday",
+      "Tuesday, Wednesday and Thursday"
+    ],
+    "answer": 3,
+    "explanation": "'Dienstags, mittwochs und donnerstags haben wir Deutsch Unterricht' - 'On Tuesdays, Wednesdays and Thursdays we have German lessons.'",
+    "tags": [
+      "reading",
+      "days",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q019",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Based on the same passage: which subject does the writer have every day and find boring?",
+    "options": [
+      "Maths",
+      "Sport",
+      "German",
+      "English"
+    ],
+    "answer": 0,
+    "explanation": "'Mathe haben wir jeden Tag, das finde ich langweilig' - 'We have Maths every day, I find that boring.'",
+    "tags": [
+      "reading",
+      "school-subjects",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q020",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Based on the same passage: what time does the writer get back home from school?",
+    "options": [
+      "5 Uhr",
+      "4.30 Uhr",
+      "4 Uhr",
+      "3.30 Uhr"
+    ],
+    "answer": 1,
+    "explanation": "'Ich komme um 4.30 Uhr nach Hause zurück' - 'I come back home at 4.30.'",
+    "tags": [
+      "reading",
+      "time",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q021",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Based on the same passage: what does the writer do at 6 o'clock in the evening?",
+    "options": [
+      "Watches television",
+      "Eats dinner",
+      "Goes to the tennis club",
+      "Does homework"
+    ],
+    "answer": 2,
+    "explanation": "'Um 6 Uhr gehe ich in den Tennisclub' - 'At 6 o'clock I go to the tennis club.' Homework comes later, from 8 to 9.",
+    "tags": [
+      "reading",
+      "activities",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q022",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Based on the same passage: what does the family do together after dinner, before the writer goes to sleep?",
+    "options": [
+      "They do homework together",
+      "They play tennis",
+      "They go for a walk",
+      "They watch television together"
+    ],
+    "answer": 3,
+    "explanation": "'Ich esse zu Abend mit meiner Familie. Dann sehen wir zusammen fern.' - 'I eat dinner with my family. Then we watch television together.' He then sleeps at 10.30.",
+    "tags": [
+      "reading",
+      "activities",
+      "daily-routine"
+    ]
+  },
+  {
     "id": "german-grammar-q001",
     "subject": "German",
     "chapterId": "german-grammar",
@@ -9641,6 +13263,93 @@
     "explanation": "'Und' means and, 'aber' means but, 'oder' means or, and 'denn' means because.",
     "tags": [
       "conjunctions"
+    ]
+  },
+  {
+    "id": "german-grammar-q015",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In the sentence \"Ich gehe ins Schwimmbad\", what is \"ins\" short for?",
+    "options": [
+      "in + die",
+      "an + das",
+      "in + der",
+      "in + das"
+    ],
+    "answer": 3,
+    "explanation": "'ins' is a contraction of 'in' + 'das', used because 'das Schwimmbad' is neuter and movement into a place takes the accusative, which matches the nominative for neuter nouns.",
+    "tags": [
+      "grammar",
+      "prepositions",
+      "cases"
+    ]
+  },
+  {
+    "id": "german-grammar-q016",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In \"Ich gehe in den Park\", why is \"den\" used instead of \"der\"?",
+    "options": [
+      "'Park' is masculine, and movement 'into' a place takes the accusative case",
+      "'Park' is plural",
+      "'in' always takes 'den' no matter what",
+      "'Park' is feminine"
+    ],
+    "answer": 0,
+    "explanation": "'der Park' is masculine. With verbs of movement, 'in' takes the accusative case, and the masculine accusative article is 'den'.",
+    "tags": [
+      "grammar",
+      "prepositions",
+      "cases"
+    ]
+  },
+  {
+    "id": "german-grammar-q017",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In \"Ich gehe in die Kirche\", why is \"die\" used for \"church\" here?",
+    "options": [
+      "'Kirche' is neuter",
+      "'Kirche' is feminine, and the feminine accusative article is also 'die'",
+      "'Kirche' is masculine",
+      "'die' is used only for plural nouns"
+    ],
+    "answer": 1,
+    "explanation": "'die Kirche' is feminine. Feminine nouns use 'die' in both the nominative and accusative case, so it stays 'die' even with a verb of movement.",
+    "tags": [
+      "grammar",
+      "prepositions",
+      "cases"
+    ]
+  },
+  {
+    "id": "german-grammar-q018",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the difference between \"Wohin gehst du?\" and \"Wo bist du?\"",
+    "options": [
+      "'Wohin' is past tense; 'wo' is present tense",
+      "They mean exactly the same thing",
+      "'Wohin' asks where you are going (movement); 'wo' asks where you currently are (location)",
+      "'Wohin' is used only for people; 'wo' is used only for places"
+    ],
+    "answer": 2,
+    "explanation": "'wohin' means 'to where' and asks about a destination, while 'wo' means 'where' and asks about a current location.",
+    "tags": [
+      "grammar",
+      "question-words"
     ]
   },
   {

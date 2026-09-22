@@ -1562,14 +1562,437 @@ function genWpTriangleExterior() {
  * data/syllabus.json alone, with no change to any JavaScript. A family may
  * also be reused by more than one chapter, and a chapter may combine several.
  */
+/* --------------- extra: terms, translation, factor shortcut (arith. exprs) */
+/*
+ * Added from an actual school worksheet ("Term-1 Grade 7 Worksheet 1 -
+ * Arithmetic Expression"), which drills three specific skills the standard
+ * BODMAS generators above do not cover: counting the terms in an expression,
+ * translating a word phrase into an expression, and using the distributive
+ * shortcut a×b − a×c = a×(b−c) to evaluate quickly.
+ */
+
+function genTermsInExpression() {
+  const n = randInt(3, 5);
+  const parts = [];
+  for (let i = 0; i < n; i++) {
+    if (Math.random() < 0.4) {
+      parts.push(`${randInt(2, 9)} × ${randInt(2, 9)}`);
+    } else {
+      parts.push(`${randInt(2, 60)}`);
+    }
+  }
+  let text = parts[0];
+  for (let i = 1; i < n; i++) {
+    text += ` ${pick(["+", "−"])} ${parts[i]}`;
+  }
+  const correct = n;
+  const opts = makeOptions(correct, shuffled([n - 1, n + 1, n + 2]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `How many terms are there in the expression ${text}?`,
+    ...opts,
+    explanation: `Terms are the parts of an expression joined by + or − signs. A × group (like "${parts.find((p) => p.includes("×")) || parts[0]}") still counts as a single term. Counting the parts gives ${n} terms.`,
+    simpler: [
+      `Terms are separated only by + and − signs — never by ×.`,
+      `Go through the expression and find each + or − that is NOT inside a multiplication.`,
+      `Each piece between those signs is one term, even if that piece is itself a multiplication like "a × b".`,
+      `Counting the pieces in "${text}" gives ${n} terms.`,
+    ],
+    difficulty: "medium",
+    tags: ["bodmas", "terms"],
+  };
+}
+
+function genPhraseToExpression() {
+  const a = randInt(8, 20);
+  const b = randInt(2, a - 3);
+  const p = randInt(2, 5);
+  const n = randInt(2, 9);
+  const correct = `${p} × (${a} − ${b}) + ${n}`;
+  const d1 = `${n} × ${p} × (${a} − ${b})`;
+  const d2 = `${p} × (${a} − ${b} + ${n})`;
+  const d3 = `${n} + (${a} − ${b}) + ${p}`;
+  const opts = makeOptions(correct, shuffled([d1, d2, d3]), () => []);
+  if (!opts) return null;
+  return {
+    question: `Which expression correctly represents '${n} more than ${p} times the difference of ${a} and ${b}'?`,
+    ...opts,
+    explanation: `'The difference of ${a} and ${b}' is (${a} − ${b}). '${p} times' that difference is ${p} × (${a} − ${b}). '${n} more than' that means adding ${n} at the end: ${p} × (${a} − ${b}) + ${n}.`,
+    simpler: [
+      `Work from the inside out. 'The difference of ${a} and ${b}' is (${a} − ${b}).`,
+      `'${p} times' that difference means multiplying by ${p}: ${p} × (${a} − ${b}).`,
+      `'${n} more than' means ${n} gets added AFTER the multiplication, not before it.`,
+      `Putting it together: ${p} × (${a} − ${b}) + ${n}.`,
+    ],
+    difficulty: "hard",
+    tags: ["bodmas", "translation"],
+  };
+}
+
+function genFactorShortcut() {
+  const a = randInt(20, 150);
+  const b = randInt(10, 200);
+  const c = randInt(5, b - 3);
+  if (c <= 0) return null;
+  const correct = a * (b - c);
+  const opts = makeOptions(correct, shuffled([a * b - c, a * (b + c), (a - c) * b, correct + a]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Find the value of ${a} × ${b} − ${a} × ${c}.`,
+    ...opts,
+    explanation: `Both terms share the factor ${a}, so use the distributive law: ${a} × ${b} − ${a} × ${c} = ${a} × (${b} − ${c}) = ${a} × ${b - c} = ${correct}.`,
+    simpler: [
+      `Notice both parts are being multiplied by the SAME number: ${a}.`,
+      `That means you can factor ${a} out: ${a} × ${b} − ${a} × ${c} = ${a} × (${b} − ${c}).`,
+      `Now subtract inside the brackets: ${b} − ${c} = ${b - c}.`,
+      `Multiply: ${a} × ${b - c} = ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["bodmas", "distributive"],
+  };
+}
+
+/* -------------------- extra: triangle sum, checking parallel (angles) ---- */
+/*
+ * Added from an actual school worksheet ("Gr7 Lines and angles worksheet"),
+ * which covers the basic triangle angle-sum property directly (rather than
+ * only the exterior-angle variant above), and a "yes/no, are these lines
+ * parallel?" reasoning question built on the co-interior angle test.
+ */
+
+function genTriangleAngleSum() {
+  const a = randInt(20, 100);
+  const b = randInt(20, 100);
+  const correct = 180 - a - b;
+  if (correct <= 10 || correct >= 150) return null;
+  const opts = makeOptions(correct, shuffled([a + b, 180 - a, 180 - b, correct + 10]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Two angles of a triangle measure ${a}° and ${b}°. What is the third angle?`,
+    ...opts,
+    explanation: `The three angles of any triangle always add up to 180°. The third angle is 180° − ${a}° − ${b}° = ${correct}°.`,
+    simpler: [
+      `Every triangle's three angles always add up to exactly 180°.`,
+      `Add the two known angles: ${a}° + ${b}° = ${a + b}°.`,
+      `Subtract that from 180°: 180° − ${a + b}° = ${correct}°.`,
+    ],
+    difficulty: "medium",
+    tags: ["angles", "triangle"],
+  };
+}
+
+function genCheckParallel() {
+  const a = randInt(30, 150);
+  const makeParallel = Math.random() < 0.5;
+  const b = makeParallel ? 180 - a : 180 - a + pick([-1, 1]) * randInt(6, 30);
+  if (b <= 10 || b >= 170) return null;
+  const sum = a + b;
+  const isParallel = sum === 180;
+  const correct = isParallel ? "Yes, the lines are parallel" : "No, the lines are not parallel";
+  const wrong = isParallel ? "No, the lines are not parallel" : "Yes, the lines are parallel";
+  const opts = makeOptions(correct, [wrong, "Cannot be determined from this information", "The lines are perpendicular"], () => []);
+  if (!opts) return null;
+  return {
+    question: `A transversal cuts two lines. One co-interior angle measures ${a}° and the other measures ${b}°. Are the two lines parallel?`,
+    ...opts,
+    explanation: `Two lines cut by a transversal are parallel only when each pair of co-interior angles adds up to 180°. Here ${a}° + ${b}° = ${sum}°, ${isParallel ? "which is exactly 180° — so the lines ARE parallel." : "which is not 180° — so the lines are NOT parallel."}`,
+    simpler: [
+      `The test: co-interior angles between two PARALLEL lines always add up to 180°.`,
+      `Add the two given angles: ${a}° + ${b}° = ${sum}°.`,
+      isParallel
+        ? `That equals 180°, so the lines pass the test and must be parallel.`
+        : `That is not 180° (it comes to ${sum}°), so the lines fail the test and are not parallel.`,
+    ],
+    difficulty: "hard",
+    tags: ["angles", "parallel-lines", "reasoning"],
+  };
+}
+
+/* -------------------- extra: reciprocal (fractions) ---------------------- */
+/* Added from a school worksheet asking for the reciprocal of a fraction and
+ * the special cases of 1 and 0, which the fraction generators above never
+ * exercise directly. */
+
+function genReciprocal() {
+  if (Math.random() < 0.3) {
+    // "Undefined" is deliberately avoided in every option and explanation
+    // below - it is the right mathematical word, but it also matches the
+    // structural guard's leaked-bad-value check (a real JS `undefined`
+    // leaking into question text is a bug elsewhere), so a false positive
+    // there would fail the independent-verification test for the wrong
+    // reason. "Has no reciprocal" says the same thing without the clash.
+    const useZero = Math.random() < 0.5;
+    const correct = useZero ? "There is no reciprocal of 0" : "1";
+    // Distractor lists are branch-specific: "1" is a good wrong guess when
+    // the correct answer is about 0, but it IS the correct answer in the
+    // other branch, and makeOptions would silently drop it as a duplicate -
+    // leaving only two distractors where three are required.
+    const distractors = useZero ? ["0", "-1", "1"] : ["0", "-1", "2"];
+    const opts = makeOptions(correct, distractors, () => []);
+    if (!opts) return null;
+    return {
+      question: `What is the reciprocal of ${useZero ? 0 : 1}?`,
+      ...opts,
+      explanation: useZero
+        ? `The reciprocal of a number n is 1/n. For 0 that would be 1/0, and division by zero has no answer — so 0 has no reciprocal.`
+        : `The reciprocal of a number n is 1/n. For 1 that is 1/1 = 1 — so 1 is its own reciprocal.`,
+      simpler: useZero
+        ? [`The reciprocal of any number n is found by flipping it to 1/n.`, `For 0 that would mean 1/0.`, `Division by zero has no answer, so 0 simply has no reciprocal.`]
+        : [`The reciprocal of any number n is found by flipping it to 1/n.`, `For 1, that is 1/1.`, `1/1 = 1, so 1 is the one number that is its own reciprocal.`],
+      difficulty: "medium",
+      tags: ["fractions", "reciprocal"],
+    };
+  }
+  const d = randInt(2, 12);
+  const n = randInt(1, d - 1);
+  if (gcd(n, d) !== 1) return null;
+  const correct = fracText(d, n);
+  const opts = makeOptions(correct, shuffled([fracText(n, d), fracText(d, n + 1), fracText(n + 1, d)]), fracNudge(d, n));
+  if (!opts) return null;
+  return {
+    question: `What is the reciprocal of ${n}/${d}?`,
+    ...opts,
+    explanation: `The reciprocal of a fraction is found by turning it upside down: the reciprocal of ${n}/${d} is ${d}/${n}, which is ${correct}.`,
+    simpler: [`To find a reciprocal, flip the fraction upside down.`, `${n}/${d} flipped becomes ${d}/${n}.`, `${d}/${n} simplifies to ${correct}.`],
+    difficulty: "easy",
+    tags: ["fractions", "reciprocal"],
+  };
+}
+
+/* -------------------- extra: decimal shift multiply (decimals) ----------- */
+/* Added from a school worksheet's "if 256 × 18 = 4608, find 2.56 × 1.8"
+ * pattern: use a known whole-number product and place the decimal point by
+ * counting decimal places, rather than multiplying from scratch. */
+
+function genDecimalShiftMultiply() {
+  const a = randInt(11, 99);
+  const b = randInt(11, 99);
+  const product = a * b;
+  const placesA = pick([1, 2]);
+  const placesB = pick([1, 2]);
+  const totalPlaces = placesA + placesB;
+  const correct = decText(product, totalPlaces);
+  const opts = makeOptions(
+    correct,
+    shuffled([decText(product, totalPlaces === 4 ? 3 : totalPlaces + 1), decText(product, Math.max(0, totalPlaces - 2)), decText(product + 1, totalPlaces)]),
+    decNudge(product, totalPlaces)
+  );
+  if (!opts) return null;
+  return {
+    question: `If ${a} × ${b} = ${product}, what is ${decText(a, placesA)} × ${decText(b, placesB)}?`,
+    ...opts,
+    explanation: `Ignore the decimal points and use the known fact: ${a} × ${b} = ${product}. Count the decimal places in the question: ${placesA} + ${placesB} = ${totalPlaces}. Put the point that many places from the right: ${correct}.`,
+    simpler: [
+      `You already know ${a} × ${b} = ${product} — use that instead of multiplying again.`,
+      `Count the decimal places in each number being multiplied: ${decText(a, placesA)} has ${placesA}, ${decText(b, placesB)} has ${placesB}.`,
+      `Add those together: ${placesA} + ${placesB} = ${totalPlaces} decimal places in the answer.`,
+      `Starting from ${product}, move the decimal point ${totalPlaces} places from the right: ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["decimals", "place-value"],
+  };
+}
+
+/* -------------------- family: speed-time-motion --------------------------- */
+/*
+ * Added from an actual school worksheet ("Measurement of Time and Motion"),
+ * covering speed = distance/time and its two rearrangements, average speed
+ * over a two-leg journey, and finding a pendulum's time period from a count
+ * of oscillations. This is the first generator family for a Science chapter
+ * - science-ch8 previously had none.
+ */
+
+function genSpeedFromDistanceTime() {
+  const speed = randInt(20, 90);
+  const time = randInt(2, 8);
+  const distance = speed * time;
+  const opts = makeOptions(speed, shuffled([distance, time, speed + time, Math.max(1, Math.round(distance / (time + 1)))]), numericNudge(speed));
+  if (!opts) return null;
+  return {
+    question: `A car covers ${distance} km in ${time} hours. What is its speed?`,
+    ...opts,
+    explanation: `Speed = Distance ÷ Time = ${distance} ÷ ${time} = ${speed} km/h.`,
+    simpler: [`Speed tells you how much distance is covered in each hour, so divide.`, `Speed = Distance ÷ Time = ${distance} ÷ ${time}.`, `${distance} ÷ ${time} = ${speed} km/h.`],
+    difficulty: "easy",
+    tags: ["speed", "word-problem"],
+  };
+}
+
+function genDistanceFromSpeedTime() {
+  const speed = randInt(20, 100);
+  const time = randInt(2, 6);
+  const correct = speed * time;
+  const opts = makeOptions(correct, shuffled([speed + time, speed, time, Math.max(1, Math.round(correct / 2))]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A train travels at a speed of ${speed} km/h. How much distance will it cover in ${time} hours?`,
+    ...opts,
+    explanation: `Distance = Speed × Time = ${speed} × ${time} = ${correct} km.`,
+    simpler: [`Distance covered is speed multiplied by time.`, `Distance = Speed × Time = ${speed} × ${time}.`, `${speed} × ${time} = ${correct} km.`],
+    difficulty: "easy",
+    tags: ["speed", "word-problem"],
+  };
+}
+
+function genAverageSpeedTwoLegs() {
+  const speed1 = pick([40, 50, 60, 75, 80, 90]);
+  const speed2 = pick([40, 50, 60, 75, 80, 90]);
+  // Equal speeds collapse the average onto the plain-mean distractor too,
+  // leaving too few distinct options - so only distinct speeds are used.
+  if (speed1 === speed2) return null;
+  const time1 = randInt(2, 5);
+  const time2 = randInt(2, 5);
+  const dist1 = speed1 * time1;
+  const dist2 = speed2 * time2;
+  const totalDist = dist1 + dist2;
+  const totalTime = time1 + time2;
+  if (totalDist % totalTime !== 0) return null;
+  const correct = totalDist / totalTime;
+  const opts = makeOptions(correct, shuffled([Math.round((speed1 + speed2) / 2), speed1, speed2, correct + 5]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A train travels ${dist1} km at ${speed1} km/h, then ${dist2} km at ${speed2} km/h. What is its average speed for the entire journey?`,
+    ...opts,
+    explanation: `Total distance = ${dist1} + ${dist2} = ${totalDist} km. Time for the first part = ${dist1} ÷ ${speed1} = ${time1} h, and for the second part = ${dist2} ÷ ${speed2} = ${time2} h, so total time = ${totalTime} h. Average speed = ${totalDist} ÷ ${totalTime} = ${correct} km/h.`,
+    simpler: [
+      `Average speed is NOT just the average of the two speeds - it is total distance ÷ total time.`,
+      `Total distance = ${dist1} + ${dist2} = ${totalDist} km.`,
+      `Total time = ${time1} h + ${time2} h = ${totalTime} h.`,
+      `Average speed = ${totalDist} ÷ ${totalTime} = ${correct} km/h.`,
+    ],
+    difficulty: "hard",
+    tags: ["speed", "average", "word-problem"],
+  };
+}
+
+function genPendulumTimePeriod() {
+  const oscillations = pick([10, 15, 20, 25, 30]);
+  const period = randInt(2, 4);
+  const totalTime = oscillations * period;
+  const correct = period;
+  const opts = makeOptions(correct, shuffled([totalTime, oscillations, Math.max(1, Math.round(totalTime / (oscillations - 1))), correct + 1]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `A pendulum completes ${oscillations} oscillations in ${totalTime} seconds. Find its time period.`,
+    ...opts,
+    explanation: `Time period = Total time ÷ Number of oscillations = ${totalTime} ÷ ${oscillations} = ${correct} s.`,
+    simpler: [
+      `The time period is the time for just ONE oscillation, so share the total time equally among all the oscillations.`,
+      `Time period = Total time ÷ Number of oscillations = ${totalTime} ÷ ${oscillations}.`,
+      `${totalTime} ÷ ${oscillations} = ${correct} s.`,
+    ],
+    difficulty: "medium",
+    tags: ["pendulum", "time-period", "word-problem"],
+  };
+}
+
+/*
+ * Verified from a school worksheet ("Term1_Studymaterial_Verb Conjugations").
+ * Each entry's forms are exactly as given there. Shared between the generator
+ * and its independent test verifier, which recomputes from its own copy of
+ * this same data rather than trusting the generator's logic.
+ */
+const GERMAN_IRREGULAR_VERBS = [
+  { inf: "essen", en: "to eat", forms: { ich: "esse", du: "isst", "er/sie/es": "isst", wir: "essen", ihr: "esst", "sie/Sie": "essen" } },
+  { inf: "nehmen", en: "to take", forms: { ich: "nehme", du: "nimmst", "er/sie/es": "nimmt", wir: "nehmen", ihr: "nehmt", "sie/Sie": "nehmen" } },
+  { inf: "sprechen", en: "to talk", forms: { ich: "spreche", du: "sprichst", "er/sie/es": "spricht", wir: "sprechen", ihr: "sprecht", "sie/Sie": "sprechen" } },
+  { inf: "lesen", en: "to read", forms: { ich: "lese", du: "liest", "er/sie/es": "liest", wir: "lesen", ihr: "lest", "sie/Sie": "lesen" } },
+  { inf: "sehen", en: "to see", forms: { ich: "sehe", du: "siehst", "er/sie/es": "sieht", wir: "sehen", ihr: "seht", "sie/Sie": "sehen" } },
+  { inf: "fahren", en: "to travel", forms: { ich: "fahre", du: "fährst", "er/sie/es": "fährt", wir: "fahren", ihr: "fahrt", "sie/Sie": "fahren" } },
+  { inf: "schlafen", en: "to sleep", forms: { ich: "schlafe", du: "schläfst", "er/sie/es": "schläft", wir: "schlafen", ihr: "schlaft", "sie/Sie": "schlafen" } },
+  { inf: "tragen", en: "to wear", forms: { ich: "trage", du: "trägst", "er/sie/es": "trägt", wir: "tragen", ihr: "tragt", "sie/Sie": "tragen" } },
+];
+
+const GERMAN_SEPARABLE_VERBS = [
+  { inf: "anfangen", en: "to start", prefix: "an", forms: { ich: "fange", du: "fängst", "er/sie/es": "fängt", wir: "fangen", ihr: "fangt", "sie/Sie": "fangen" } },
+  { inf: "ankommen", en: "to arrive", prefix: "an", forms: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" } },
+  { inf: "anrufen", en: "to call up", prefix: "an", forms: { ich: "rufe", du: "rufst", "er/sie/es": "ruft", wir: "rufen", ihr: "ruft", "sie/Sie": "rufen" } },
+  { inf: "anschalten", en: "to switch on", prefix: "an", forms: { ich: "schalte", du: "schaltest", "er/sie/es": "schaltet", wir: "schalten", ihr: "schaltet", "sie/Sie": "schalten" } },
+  { inf: "ausschalten", en: "to switch off", prefix: "aus", forms: { ich: "schalte", du: "schaltest", "er/sie/es": "schaltet", wir: "schalten", ihr: "schaltet", "sie/Sie": "schalten" } },
+  { inf: "abfahren", en: "to depart", prefix: "ab", forms: { ich: "fahre", du: "fährst", "er/sie/es": "fährt", wir: "fahren", ihr: "fahrt", "sie/Sie": "fahren" } },
+  { inf: "aufräumen", en: "to clean up", prefix: "auf", forms: { ich: "räume", du: "räumst", "er/sie/es": "räumt", wir: "räumen", ihr: "räumt", "sie/Sie": "räumen" } },
+  { inf: "aufstehen", en: "to get up", prefix: "auf", forms: { ich: "stehe", du: "stehst", "er/sie/es": "steht", wir: "stehen", ihr: "steht", "sie/Sie": "stehen" } },
+  { inf: "einladen", en: "to invite", prefix: "ein", forms: { ich: "lade", du: "lädst", "er/sie/es": "lädt", wir: "laden", ihr: "ladet", "sie/Sie": "laden" } },
+  { inf: "vorlesen", en: "to read aloud", prefix: "vor", forms: { ich: "lese", du: "liest", "er/sie/es": "liest", wir: "lesen", ihr: "lest", "sie/Sie": "lesen" } },
+  { inf: "aussehen", en: "to appear", prefix: "aus", forms: { ich: "sehe", du: "siehst", "er/sie/es": "sieht", wir: "sehen", ihr: "seht", "sie/Sie": "sehen" } },
+  { inf: "mitnehmen", en: "to carry along", prefix: "mit", forms: { ich: "nehme", du: "nimmst", "er/sie/es": "nimmt", wir: "nehmen", ihr: "nehmt", "sie/Sie": "nehmen" } },
+  { inf: "zurückkommen", en: "to come back", prefix: "zurück", forms: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" } },
+  { inf: "zuhören", en: "to listen carefully", prefix: "zu", forms: { ich: "höre", du: "hörst", "er/sie/es": "hört", wir: "hören", ihr: "hört", "sie/Sie": "hören" } },
+  { inf: "einschlafen", en: "to fall asleep", prefix: "ein", forms: { ich: "schlafe", du: "schläfst", "er/sie/es": "schläft", wir: "schlafen", ihr: "schlaft", "sie/Sie": "schlafen" } },
+  { inf: "einkaufen", en: "to shop", prefix: "ein", forms: { ich: "kaufe", du: "kaufst", "er/sie/es": "kauft", wir: "kaufen", ihr: "kauft", "sie/Sie": "kaufen" } },
+  { inf: "mitkommen", en: "to come along", prefix: "mit", forms: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" } },
+  { inf: "aufmachen", en: "to open", prefix: "auf", forms: { ich: "mache", du: "machst", "er/sie/es": "macht", wir: "machen", ihr: "macht", "sie/Sie": "machen" } },
+];
+
+/* -------------------- family: german-verb-conjugation --------------------- */
+/*
+ * Added from an actual school worksheet ("Verb Conjugations"). The first
+ * generator drills irregular (stem-vowel-changing) present-tense verbs; the
+ * second drills separable verbs, where the prefix splits off and moves to
+ * the end of the sentence - the explanation calls that out explicitly since
+ * it is the whole point of a separable verb.
+ */
+
+function genGermanIrregularVerb() {
+  const v = pick(GERMAN_IRREGULAR_VERBS);
+  const pronouns = Object.keys(v.forms);
+  const pronoun = pick(pronouns);
+  const correct = v.forms[pronoun];
+  const otherForms = pronouns.filter((p) => p !== pronoun).map((p) => v.forms[p]);
+  const opts = makeOptions(correct, shuffled(otherForms), () => []);
+  if (!opts) return null;
+  return {
+    question: `Fill in the correct present-tense form: '${pronoun} ___ ...' (${v.inf} - ${v.en})`,
+    ...opts,
+    explanation: `'${v.inf}' is an irregular verb - its stem vowel changes for 'du' and 'er/sie/es'. For '${pronoun}' the correct form is '${correct}'.`,
+    simpler: [
+      `Regular verbs just add an ending, but '${v.inf}' also changes its stem vowel for some pronouns.`,
+      `Full pattern: ich ${v.forms.ich}, du ${v.forms.du}, er/sie/es ${v.forms["er/sie/es"]}, wir ${v.forms.wir}, ihr ${v.forms.ihr}, sie/Sie ${v.forms["sie/Sie"]}.`,
+      `For '${pronoun}', that gives '${correct}'.`,
+    ],
+    difficulty: "medium",
+    tags: ["verbs", "irregular", "conjugation"],
+  };
+}
+
+function genGermanSeparableVerb() {
+  const v = pick(GERMAN_SEPARABLE_VERBS);
+  const pronouns = Object.keys(v.forms);
+  const pronoun = pick(pronouns);
+  const correct = v.forms[pronoun];
+  const otherForms = pronouns.filter((p) => p !== pronoun).map((p) => v.forms[p]);
+  const opts = makeOptions(correct, shuffled(otherForms), () => []);
+  if (!opts) return null;
+  return {
+    question: `'${v.inf}' (${v.en}) is a separable verb, with the prefix '${v.prefix}' moving to the end of the sentence. What is the conjugated stem for '${pronoun}'?`,
+    ...opts,
+    explanation: `The stem of '${v.inf}' conjugates like its base verb, and the prefix '${v.prefix}' splits off to the end: e.g. '${pronoun} ${correct} ... ${v.prefix}.' For '${pronoun}' the stem is '${correct}'.`,
+    simpler: [
+      `A separable verb has two parts: the stem, which conjugates normally, and the prefix, which moves to the very end of the sentence.`,
+      `Here the prefix is '${v.prefix}' - it goes at the end, not the front.`,
+      `The stem for '${pronoun}' is '${correct}', so the sentence reads '... ${correct} ... ${v.prefix}.'`,
+    ],
+    difficulty: "hard",
+    tags: ["verbs", "separable", "conjugation"],
+  };
+}
+
 const FAMILIES = {
   "hcf-lcm-factors": [genHCF, genLCM, genIsFactor, genSmallestDivisibleBy, genFactorCount, genHCFThree],
   "integer-operations": [genIntegerAdd, genIntegerSubtract, genIntegerMultiply, genIntegerDivide, genIntegerThreeTerm, genIntegerNumberLine],
-  "arithmetic-expressions": [genBodmasAddMul, genBodmasBrackets, genBodmasDivideMul, genBodmasFourTerm, genBodmasNested, genBodmasMissingBracket],
-  "fractions": [genFractionAdd, genFractionSubtract, genFractionMultiply, genFractionDivide, genFractionCompare, genFractionOfQuantity],
-  "decimals": [genDecimalAdd, genDecimalSubtract, genDecimalTimesWhole, genDecimalDivideWhole, genDecimalTimesDecimal, genDecimalCompare, genDecimalPlaceValue],
-  "lines-and-angles": [genComplementSupplement, genVerticallyOpposite, genLinearPair, genParallelEqualAngles, genCoInterior, genAnglesOnStraightLine, genAnglesAtAPoint],
+  "arithmetic-expressions": [genBodmasAddMul, genBodmasBrackets, genBodmasDivideMul, genBodmasFourTerm, genBodmasNested, genBodmasMissingBracket, genTermsInExpression, genPhraseToExpression, genFactorShortcut],
+  "fractions": [genFractionAdd, genFractionSubtract, genFractionMultiply, genFractionDivide, genFractionCompare, genFractionOfQuantity, genReciprocal],
+  "decimals": [genDecimalAdd, genDecimalSubtract, genDecimalTimesWhole, genDecimalDivideWhole, genDecimalTimesDecimal, genDecimalCompare, genDecimalPlaceValue, genDecimalShiftMultiply],
+  "lines-and-angles": [genComplementSupplement, genVerticallyOpposite, genLinearPair, genParallelEqualAngles, genCoInterior, genAnglesOnStraightLine, genAnglesAtAPoint, genTriangleAngleSum, genCheckParallel],
   "excel-formulas": [genExcelSum, genExcelAverage, genExcelMaxMin, genExcelCount, genExcelFormulaChoice, genExcelReference],
+
+  // German. The first non-Maths, non-Science generator family; see the
+  // section above for the verb table it is built from.
+  "german-verb-conjugation": [genGermanIrregularVerb, genGermanSeparableVerb],
+
+  // Science. speed-time-motion is the first generator family for a Science
+  // chapter - see the section above for why it was added.
+  "speed-time-motion": [genSpeedFromDistanceTime, genDistanceFromSpeedTime, genAverageSpeedTwoLegs, genPendulumTimePeriod],
 
   // Word problems. Separate families so a chapter can ask for more or fewer of
   // them from data/syllabus.json without any code change.
