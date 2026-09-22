@@ -1886,6 +1886,97 @@ function genPendulumTimePeriod() {
   };
 }
 
+/*
+ * Verified from a school worksheet ("Term1_Studymaterial_Verb Conjugations").
+ * Each entry's forms are exactly as given there. Shared between the generator
+ * and its independent test verifier, which recomputes from its own copy of
+ * this same data rather than trusting the generator's logic.
+ */
+const GERMAN_IRREGULAR_VERBS = [
+  { inf: "essen", en: "to eat", forms: { ich: "esse", du: "isst", "er/sie/es": "isst", wir: "essen", ihr: "esst", "sie/Sie": "essen" } },
+  { inf: "nehmen", en: "to take", forms: { ich: "nehme", du: "nimmst", "er/sie/es": "nimmt", wir: "nehmen", ihr: "nehmt", "sie/Sie": "nehmen" } },
+  { inf: "sprechen", en: "to talk", forms: { ich: "spreche", du: "sprichst", "er/sie/es": "spricht", wir: "sprechen", ihr: "sprecht", "sie/Sie": "sprechen" } },
+  { inf: "lesen", en: "to read", forms: { ich: "lese", du: "liest", "er/sie/es": "liest", wir: "lesen", ihr: "lest", "sie/Sie": "lesen" } },
+  { inf: "sehen", en: "to see", forms: { ich: "sehe", du: "siehst", "er/sie/es": "sieht", wir: "sehen", ihr: "seht", "sie/Sie": "sehen" } },
+  { inf: "fahren", en: "to travel", forms: { ich: "fahre", du: "fährst", "er/sie/es": "fährt", wir: "fahren", ihr: "fahrt", "sie/Sie": "fahren" } },
+  { inf: "schlafen", en: "to sleep", forms: { ich: "schlafe", du: "schläfst", "er/sie/es": "schläft", wir: "schlafen", ihr: "schlaft", "sie/Sie": "schlafen" } },
+  { inf: "tragen", en: "to wear", forms: { ich: "trage", du: "trägst", "er/sie/es": "trägt", wir: "tragen", ihr: "tragt", "sie/Sie": "tragen" } },
+];
+
+const GERMAN_SEPARABLE_VERBS = [
+  { inf: "anfangen", en: "to start", prefix: "an", forms: { ich: "fange", du: "fängst", "er/sie/es": "fängt", wir: "fangen", ihr: "fangt", "sie/Sie": "fangen" } },
+  { inf: "ankommen", en: "to arrive", prefix: "an", forms: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" } },
+  { inf: "anrufen", en: "to call up", prefix: "an", forms: { ich: "rufe", du: "rufst", "er/sie/es": "ruft", wir: "rufen", ihr: "ruft", "sie/Sie": "rufen" } },
+  { inf: "anschalten", en: "to switch on", prefix: "an", forms: { ich: "schalte", du: "schaltest", "er/sie/es": "schaltet", wir: "schalten", ihr: "schaltet", "sie/Sie": "schalten" } },
+  { inf: "ausschalten", en: "to switch off", prefix: "aus", forms: { ich: "schalte", du: "schaltest", "er/sie/es": "schaltet", wir: "schalten", ihr: "schaltet", "sie/Sie": "schalten" } },
+  { inf: "abfahren", en: "to depart", prefix: "ab", forms: { ich: "fahre", du: "fährst", "er/sie/es": "fährt", wir: "fahren", ihr: "fahrt", "sie/Sie": "fahren" } },
+  { inf: "aufräumen", en: "to clean up", prefix: "auf", forms: { ich: "räume", du: "räumst", "er/sie/es": "räumt", wir: "räumen", ihr: "räumt", "sie/Sie": "räumen" } },
+  { inf: "aufstehen", en: "to get up", prefix: "auf", forms: { ich: "stehe", du: "stehst", "er/sie/es": "steht", wir: "stehen", ihr: "steht", "sie/Sie": "stehen" } },
+  { inf: "einladen", en: "to invite", prefix: "ein", forms: { ich: "lade", du: "lädst", "er/sie/es": "lädt", wir: "laden", ihr: "ladet", "sie/Sie": "laden" } },
+  { inf: "vorlesen", en: "to read aloud", prefix: "vor", forms: { ich: "lese", du: "liest", "er/sie/es": "liest", wir: "lesen", ihr: "lest", "sie/Sie": "lesen" } },
+  { inf: "aussehen", en: "to appear", prefix: "aus", forms: { ich: "sehe", du: "siehst", "er/sie/es": "sieht", wir: "sehen", ihr: "seht", "sie/Sie": "sehen" } },
+  { inf: "mitnehmen", en: "to carry along", prefix: "mit", forms: { ich: "nehme", du: "nimmst", "er/sie/es": "nimmt", wir: "nehmen", ihr: "nehmt", "sie/Sie": "nehmen" } },
+  { inf: "zurückkommen", en: "to come back", prefix: "zurück", forms: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" } },
+  { inf: "zuhören", en: "to listen carefully", prefix: "zu", forms: { ich: "höre", du: "hörst", "er/sie/es": "hört", wir: "hören", ihr: "hört", "sie/Sie": "hören" } },
+  { inf: "einschlafen", en: "to fall asleep", prefix: "ein", forms: { ich: "schlafe", du: "schläfst", "er/sie/es": "schläft", wir: "schlafen", ihr: "schlaft", "sie/Sie": "schlafen" } },
+  { inf: "einkaufen", en: "to shop", prefix: "ein", forms: { ich: "kaufe", du: "kaufst", "er/sie/es": "kauft", wir: "kaufen", ihr: "kauft", "sie/Sie": "kaufen" } },
+  { inf: "mitkommen", en: "to come along", prefix: "mit", forms: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" } },
+  { inf: "aufmachen", en: "to open", prefix: "auf", forms: { ich: "mache", du: "machst", "er/sie/es": "macht", wir: "machen", ihr: "macht", "sie/Sie": "machen" } },
+];
+
+/* -------------------- family: german-verb-conjugation --------------------- */
+/*
+ * Added from an actual school worksheet ("Verb Conjugations"). The first
+ * generator drills irregular (stem-vowel-changing) present-tense verbs; the
+ * second drills separable verbs, where the prefix splits off and moves to
+ * the end of the sentence - the explanation calls that out explicitly since
+ * it is the whole point of a separable verb.
+ */
+
+function genGermanIrregularVerb() {
+  const v = pick(GERMAN_IRREGULAR_VERBS);
+  const pronouns = Object.keys(v.forms);
+  const pronoun = pick(pronouns);
+  const correct = v.forms[pronoun];
+  const otherForms = pronouns.filter((p) => p !== pronoun).map((p) => v.forms[p]);
+  const opts = makeOptions(correct, shuffled(otherForms), () => []);
+  if (!opts) return null;
+  return {
+    question: `Fill in the correct present-tense form: '${pronoun} ___ ...' (${v.inf} - ${v.en})`,
+    ...opts,
+    explanation: `'${v.inf}' is an irregular verb - its stem vowel changes for 'du' and 'er/sie/es'. For '${pronoun}' the correct form is '${correct}'.`,
+    simpler: [
+      `Regular verbs just add an ending, but '${v.inf}' also changes its stem vowel for some pronouns.`,
+      `Full pattern: ich ${v.forms.ich}, du ${v.forms.du}, er/sie/es ${v.forms["er/sie/es"]}, wir ${v.forms.wir}, ihr ${v.forms.ihr}, sie/Sie ${v.forms["sie/Sie"]}.`,
+      `For '${pronoun}', that gives '${correct}'.`,
+    ],
+    difficulty: "medium",
+    tags: ["verbs", "irregular", "conjugation"],
+  };
+}
+
+function genGermanSeparableVerb() {
+  const v = pick(GERMAN_SEPARABLE_VERBS);
+  const pronouns = Object.keys(v.forms);
+  const pronoun = pick(pronouns);
+  const correct = v.forms[pronoun];
+  const otherForms = pronouns.filter((p) => p !== pronoun).map((p) => v.forms[p]);
+  const opts = makeOptions(correct, shuffled(otherForms), () => []);
+  if (!opts) return null;
+  return {
+    question: `'${v.inf}' (${v.en}) is a separable verb, with the prefix '${v.prefix}' moving to the end of the sentence. What is the conjugated stem for '${pronoun}'?`,
+    ...opts,
+    explanation: `The stem of '${v.inf}' conjugates like its base verb, and the prefix '${v.prefix}' splits off to the end: e.g. '${pronoun} ${correct} ... ${v.prefix}.' For '${pronoun}' the stem is '${correct}'.`,
+    simpler: [
+      `A separable verb has two parts: the stem, which conjugates normally, and the prefix, which moves to the very end of the sentence.`,
+      `Here the prefix is '${v.prefix}' - it goes at the end, not the front.`,
+      `The stem for '${pronoun}' is '${correct}', so the sentence reads '... ${correct} ... ${v.prefix}.'`,
+    ],
+    difficulty: "hard",
+    tags: ["verbs", "separable", "conjugation"],
+  };
+}
+
 const FAMILIES = {
   "hcf-lcm-factors": [genHCF, genLCM, genIsFactor, genSmallestDivisibleBy, genFactorCount, genHCFThree],
   "integer-operations": [genIntegerAdd, genIntegerSubtract, genIntegerMultiply, genIntegerDivide, genIntegerThreeTerm, genIntegerNumberLine],
@@ -1894,6 +1985,10 @@ const FAMILIES = {
   "decimals": [genDecimalAdd, genDecimalSubtract, genDecimalTimesWhole, genDecimalDivideWhole, genDecimalTimesDecimal, genDecimalCompare, genDecimalPlaceValue, genDecimalShiftMultiply],
   "lines-and-angles": [genComplementSupplement, genVerticallyOpposite, genLinearPair, genParallelEqualAngles, genCoInterior, genAnglesOnStraightLine, genAnglesAtAPoint, genTriangleAngleSum, genCheckParallel],
   "excel-formulas": [genExcelSum, genExcelAverage, genExcelMaxMin, genExcelCount, genExcelFormulaChoice, genExcelReference],
+
+  // German. The first non-Maths, non-Science generator family; see the
+  // section above for the verb table it is built from.
+  "german-verb-conjugation": [genGermanIrregularVerb, genGermanSeparableVerb],
 
   // Science. speed-time-motion is the first generator family for a Science
   // chapter - see the section above for why it was added.

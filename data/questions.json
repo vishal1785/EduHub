@@ -12445,6 +12445,69 @@
     ]
   },
   {
+    "id": "german-fernsehen-q015",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What does \"die Quizshow\" mean?",
+    "options": [
+      "the quiz show",
+      "the documentary",
+      "the news",
+      "the weather report"
+    ],
+    "answer": 0,
+    "explanation": "'die Quizshow' is a television programme where contestants answer questions - the quiz show.",
+    "tags": [
+      "vocabulary",
+      "television"
+    ]
+  },
+  {
+    "id": "german-fernsehen-q016",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "What does \"der Fernsehfan\" mean?",
+    "options": [
+      "the TV channel",
+      "the TV fan",
+      "the television set",
+      "the remote control"
+    ],
+    "answer": 1,
+    "explanation": "'der Fernsehfan' combines 'fernsehen' (television) and 'der Fan' (fan) - someone who loves watching television.",
+    "tags": [
+      "vocabulary",
+      "television"
+    ]
+  },
+  {
+    "id": "german-fernsehen-q017",
+    "subject": "German",
+    "chapterId": "german-fernsehen",
+    "chapter": "Was gibt es im Fernsehen?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What does \"Der Krimi ist aus\" mean?",
+    "options": [
+      "The crime show is on now",
+      "The crime show is boring",
+      "The crime show is over",
+      "The crime show is starting"
+    ],
+    "answer": 2,
+    "explanation": "'aus sein' means 'to be over / finished', so 'Der Krimi ist aus' means 'the crime show has finished.'",
+    "tags": [
+      "vocabulary",
+      "television"
+    ]
+  },
+  {
     "id": "german-uhr-q001",
     "subject": "German",
     "chapterId": "german-uhr",
@@ -12737,6 +12800,182 @@
     ]
   },
   {
+    "id": "german-uhr-q015",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Read the passage and answer the question below:\n\n\"Ich stehe jeden Tag um 6.30 Uhr auf. Ich frühstücke um 7 Uhr. Ich esse gern Brot mit Butter und Marmelade und trinke Milch. Um 7.30 Uhr gehe ich in die Schule. Meine Schule fängt um 8 Uhr an. Dienstags, mittwochs und donnerstags haben wir Deutsch Unterricht. Mathe haben wir jeden Tag, das finde ich langweilig. Um 9.10 Uhr haben wir eine kleine Pause und um 1.25 Uhr haben wir eine lange Pause. Ich komme um 4.30 Uhr nach Hause zurück. Um 6 Uhr gehe ich in den Tennisclub. Dann von 8 Uhr bis 9 Uhr mache ich meine Hausaufgaben. Ich esse zu Abend mit meiner Familie. Dann sehen wir zusammen fern. Ich schlafe um 10.30 Uhr. So sieht mein Tagesablauf aus.\"\n\nWhat time does the writer get up every day?",
+    "options": [
+      "6.30 Uhr",
+      "7.30 Uhr",
+      "8 Uhr",
+      "7 Uhr"
+    ],
+    "answer": 0,
+    "explanation": "The passage begins 'Ich stehe jeden Tag um 6.30 Uhr auf' - 'I get up every day at 6.30.'",
+    "tags": [
+      "reading",
+      "time",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q016",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Based on the same passage: what does the writer eat and drink for breakfast?",
+    "options": [
+      "Eggs and tea",
+      "Bread with butter and jam, and milk",
+      "Cereal and orange juice",
+      "Toast and coffee"
+    ],
+    "answer": 1,
+    "explanation": "'Ich esse gern Brot mit Butter und Marmelade und trinke Milch' - 'I like to eat bread with butter and jam and drink milk.'",
+    "tags": [
+      "reading",
+      "food",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q017",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Based on the same passage: what time does school start?",
+    "options": [
+      "9 Uhr",
+      "8.30 Uhr",
+      "8 Uhr",
+      "7.30 Uhr"
+    ],
+    "answer": 2,
+    "explanation": "'Meine Schule fängt um 8 Uhr an' - 'My school starts at 8 o'clock.' (Note: he leaves home at 7.30 but school itself starts at 8.)",
+    "tags": [
+      "reading",
+      "time",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q018",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Based on the same passage: on which days does the writer have German lessons?",
+    "options": [
+      "Monday, Wednesday and Friday",
+      "Wednesday, Thursday and Friday",
+      "Monday, Tuesday and Wednesday",
+      "Tuesday, Wednesday and Thursday"
+    ],
+    "answer": 3,
+    "explanation": "'Dienstags, mittwochs und donnerstags haben wir Deutsch Unterricht' - 'On Tuesdays, Wednesdays and Thursdays we have German lessons.'",
+    "tags": [
+      "reading",
+      "days",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q019",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Based on the same passage: which subject does the writer have every day and find boring?",
+    "options": [
+      "Maths",
+      "Sport",
+      "German",
+      "English"
+    ],
+    "answer": 0,
+    "explanation": "'Mathe haben wir jeden Tag, das finde ich langweilig' - 'We have Maths every day, I find that boring.'",
+    "tags": [
+      "reading",
+      "school-subjects",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q020",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Based on the same passage: what time does the writer get back home from school?",
+    "options": [
+      "5 Uhr",
+      "4.30 Uhr",
+      "4 Uhr",
+      "3.30 Uhr"
+    ],
+    "answer": 1,
+    "explanation": "'Ich komme um 4.30 Uhr nach Hause zurück' - 'I come back home at 4.30.'",
+    "tags": [
+      "reading",
+      "time",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q021",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "Based on the same passage: what does the writer do at 6 o'clock in the evening?",
+    "options": [
+      "Watches television",
+      "Eats dinner",
+      "Goes to the tennis club",
+      "Does homework"
+    ],
+    "answer": 2,
+    "explanation": "'Um 6 Uhr gehe ich in den Tennisclub' - 'At 6 o'clock I go to the tennis club.' Homework comes later, from 8 to 9.",
+    "tags": [
+      "reading",
+      "activities",
+      "daily-routine"
+    ]
+  },
+  {
+    "id": "german-uhr-q022",
+    "subject": "German",
+    "chapterId": "german-uhr",
+    "chapter": "Um wie viel Uhr stehst du auf?",
+    "type": "mcq",
+    "difficulty": "easy",
+    "question": "Based on the same passage: what does the family do together after dinner, before the writer goes to sleep?",
+    "options": [
+      "They do homework together",
+      "They play tennis",
+      "They go for a walk",
+      "They watch television together"
+    ],
+    "answer": 3,
+    "explanation": "'Ich esse zu Abend mit meiner Familie. Dann sehen wir zusammen fern.' - 'I eat dinner with my family. Then we watch television together.' He then sleeps at 10.30.",
+    "tags": [
+      "reading",
+      "activities",
+      "daily-routine"
+    ]
+  },
+  {
     "id": "german-grammar-q001",
     "subject": "German",
     "chapterId": "german-grammar",
@@ -13024,6 +13263,93 @@
     "explanation": "'Und' means and, 'aber' means but, 'oder' means or, and 'denn' means because.",
     "tags": [
       "conjunctions"
+    ]
+  },
+  {
+    "id": "german-grammar-q015",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In the sentence \"Ich gehe ins Schwimmbad\", what is \"ins\" short for?",
+    "options": [
+      "in + die",
+      "an + das",
+      "in + der",
+      "in + das"
+    ],
+    "answer": 3,
+    "explanation": "'ins' is a contraction of 'in' + 'das', used because 'das Schwimmbad' is neuter and movement into a place takes the accusative, which matches the nominative for neuter nouns.",
+    "tags": [
+      "grammar",
+      "prepositions",
+      "cases"
+    ]
+  },
+  {
+    "id": "german-grammar-q016",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "hard",
+    "question": "In \"Ich gehe in den Park\", why is \"den\" used instead of \"der\"?",
+    "options": [
+      "'Park' is masculine, and movement 'into' a place takes the accusative case",
+      "'Park' is plural",
+      "'in' always takes 'den' no matter what",
+      "'Park' is feminine"
+    ],
+    "answer": 0,
+    "explanation": "'der Park' is masculine. With verbs of movement, 'in' takes the accusative case, and the masculine accusative article is 'den'.",
+    "tags": [
+      "grammar",
+      "prepositions",
+      "cases"
+    ]
+  },
+  {
+    "id": "german-grammar-q017",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "In \"Ich gehe in die Kirche\", why is \"die\" used for \"church\" here?",
+    "options": [
+      "'Kirche' is neuter",
+      "'Kirche' is feminine, and the feminine accusative article is also 'die'",
+      "'Kirche' is masculine",
+      "'die' is used only for plural nouns"
+    ],
+    "answer": 1,
+    "explanation": "'die Kirche' is feminine. Feminine nouns use 'die' in both the nominative and accusative case, so it stays 'die' even with a verb of movement.",
+    "tags": [
+      "grammar",
+      "prepositions",
+      "cases"
+    ]
+  },
+  {
+    "id": "german-grammar-q018",
+    "subject": "German",
+    "chapterId": "german-grammar",
+    "chapter": "Grammar",
+    "type": "mcq",
+    "difficulty": "medium",
+    "question": "What is the difference between \"Wohin gehst du?\" and \"Wo bist du?\"",
+    "options": [
+      "'Wohin' is past tense; 'wo' is present tense",
+      "They mean exactly the same thing",
+      "'Wohin' asks where you are going (movement); 'wo' asks where you currently are (location)",
+      "'Wohin' is used only for people; 'wo' is used only for places"
+    ],
+    "answer": 2,
+    "explanation": "'wohin' means 'to where' and asks about a destination, while 'wo' means 'where' and asks about a current location.",
+    "tags": [
+      "grammar",
+      "question-words"
     ]
   },
   {

@@ -1,6 +1,6 @@
 # Learn Splash
 
-**Version 4.0**
+**Version 4.1**
 
 A mobile-first, offline-capable practice app for Grade 7 CBSE - Maths, Science, SST,
 English, Hindi, German and ICT. Vanilla HTML/CSS/JS, no build step, no backend, no
@@ -246,7 +246,7 @@ There are two sources, chosen per chapter.
 
 ### 6a. Generated questions (fresh every time)
 
-Eight chapters produce **brand-new randomised questions on every quiz**, rather
+Nine chapters produce **brand-new randomised questions on every quiz**, rather
 than replaying a fixed list. These are the chapters where the correct answer can
 be *computed*, so it can be guaranteed correct without a textbook:
 
@@ -260,11 +260,19 @@ be *computed*, so it can be guaranteed correct without a textbook:
 | Maths 10 - Parallel and Intersecting Lines | `lines-and-angles` | complements, linear pairs, transversal angles |
 | ICT 2 - Calculations in Excel 2016 | `excel-formulas` | SUM / AVERAGE / MAX / MIN / COUNT, cell references |
 | Science 8 - Measurement of Time and Motion | `speed-time-motion` | speed = distance/time, average speed over two legs, pendulum time period |
+| German Grammar | `german-verb-conjugation` | irregular and separable verb conjugation, drilled across all six pronouns |
 
 `speed-time-motion` is the first generator family written for a Science
 chapter, added once a real school worksheet on time and motion showed how
 computable this topic actually is - the same reasoning that put Maths word
 problems into generators applies here too.
+
+`german-verb-conjugation` is the first non-Maths, non-Science generator
+family, built from a school worksheet listing 8 irregular and 18 separable
+verbs across all 6 pronouns. Unlike the numeric families, it draws from a
+fixed table rather than an unbounded range, so it has a hard ceiling of 156
+distinct questions (26 verbs x 6 pronouns) - still far more than the 14
+questions the chapter's static bank held before it existed.
 
 Each Maths chapter also opts into a **word-problem** family
 (`word-problems-hcf-lcm`, `word-problems-integers`, `word-problems-bodmas`,
@@ -294,8 +302,10 @@ Which chapters appear in this table is decided entirely by
 `data/syllabus.json`, not by any list inside `js/`.
 
 This is what fixed the "same four questions every time" problem: forty rebuilds
-of a single chapter produce **300-400 distinct questions**, and two quizzes taken
-back to back typically share none at all.
+of a single chapter produce **300-400 distinct questions** for the numeric
+families (the fixed-table `german-verb-conjugation` family tops out around
+its 156-question ceiling instead), and two quizzes taken back to back
+typically share none at all.
 
 All arithmetic in `generators.js` is done on **integers** - decimals are carried
 as scaled integers and only turned into text at the last moment - so
@@ -309,8 +319,8 @@ inventing one would be worse than having no question at all.
 
 ### 6b. The hand-written bank
 
-`data/questions.json` holds **732 questions**. 677 of them back the 37 chapters
-that have no generator; the remaining 55 sit in generated chapters as a fallback
+`data/questions.json` holds **747 questions**. 674 of them back the 36 chapters
+that have no generator; the remaining 73 sit in generated chapters as a fallback
 that is only used if generation ever fails. Every bank-backed chapter has at
 least 12 questions, so a 10-question quiz is never simply the whole bank in a
 different order.
@@ -341,6 +351,26 @@ the same false distractor the worksheet's own Reason line was built to catch.
 One assertion-reason pair, whose verified answer was "both statements are
 false", was left out entirely, since the app's four-option format has no
 combination that means that.
+
+The Hindi अपठित गद्यांश (`hindi-apathit`) questions follow the same
+none-of-the-wording-is-copied pattern, built from two unseen-passage
+worksheets: the passage text itself is reproduced verbatim (it has to be, for
+the comprehension questions to be answerable), but every question, option and
+explanation is freshly written from it.
+
+The German additions use two different sourcing rules depending on what the
+worksheet actually licensed. The verb-conjugation table (8 irregular + 18
+separable verbs) is a fixed set of grammatical facts, so it was turned into
+the `german-verb-conjugation` generator described above, plus a handful of
+hand-written vocabulary and preposition-case questions built from the same
+worksheet's other examples. The "Was gibt es im Fernsehen?" / "Um wie viel Uhr
+stehst du auf?" worksheet, by contrast, opens with an explicit warning that
+its sample answers are illustrative only ("Similar questions will be asked in
+the exam. NOT SAME") - so none of its specific example sentences were quizzed
+as facts, only its vocabulary and grammar patterns were reused. A separate
+worksheet, "Mein Tagesablauf", gives a fixed daily-routine passage rather than
+a variable example, so that one was used the same way as the Hindi passage:
+reproduced verbatim, with fresh comprehension questions built from its facts.
 
 ### 6c. Every chapter now has content
 
@@ -530,7 +560,7 @@ missing from that list is what let two versions drift apart in the first place.
 page's load event open until it reports back - without that, headless Chrome
 dumps the DOM while the app is still waiting on IndexedDB.)
 
-**`tests/verify.html` - 149 checks.**
+**`tests/verify.html` - 156 checks.**
 
 - `data/questions.json` is valid JSON with unique ids, four distinct options
   per question, an in-range answer index, a non-empty explanation, and a

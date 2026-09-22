@@ -257,7 +257,10 @@
       "id": "german-grammar",
       "number": null,
       "name": "Grammar",
-      "description": "Articles, pronouns and basic verb forms."
+      "description": "Articles, pronouns and basic verb forms.",
+      "generators": [
+        "german-verb-conjugation"
+      ]
     },
     {
       "id": "german-vocab",
