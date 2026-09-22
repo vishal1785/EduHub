@@ -1,6 +1,6 @@
 # Learn Splash
 
-**Version 3.0**
+**Version 4.0**
 
 A mobile-first, offline-capable practice app for Grade 7 CBSE - Maths, Science, SST,
 English, Hindi, German and ICT. Vanilla HTML/CSS/JS, no build step, no backend, no
