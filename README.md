@@ -297,6 +297,24 @@ available - concepts the original generators did not cover at all:
 | `decimals` | using a whole-number fact to place a decimal point | Gr7 Fractions & Decimals WS-2 |
 | `lines-and-angles` | the basic triangle angle-sum property | Gr7 Lines and Angles WS |
 | `lines-and-angles` | "are these two lines parallel?" reasoning | Gr7 Lines and Angles WS |
+| `word-problems-hcf-lcm` | LCM with a remainder ("leaves remainder r in each case") | Actual Term-1 mid-term paper |
+| `word-problems-hcf-lcm` | counting coincidences of a repeating event in a time window | Actual Term-1 mid-term paper |
+| `lines-and-angles` | splitting a straight angle in a given ratio | Actual Term-1 mid-term paper |
+| `lines-and-angles` | reflex angles | Actual Term-1 mid-term paper |
+| `fractions` | the reciprocal of a mixed number | Actual Term-1 mid-term paper |
+| `arithmetic-expressions` | the three-term distributive-law shortcut | Actual Term-1 mid-term paper |
+| `arithmetic-expressions` | three-deep nested grouping symbols (`()`, `{}`, `[]` together) | Actual Term-1 mid-term paper |
+
+That last batch of seven came from checking the app directly against a real
+mid-term paper (not a worksheet used to seed content, but an actual exam
+Mahaan sat) once his marks came back lower than expected. Most of the paper
+was already covered; these were the specific gaps. A few things on that
+paper still have no equivalent here on purpose: multi-line geometry figures
+that need an actual diagram ("find x, y and z", "show that AB is parallel to
+EF"), and the True/False, Assertion-Reason, Match-the-Following and
+multi-part case-study *formats* themselves, since the app is built around
+single 4-option MCQs throughout rather than replicating a worksheet's answer
+format question by question.
 
 Which chapters appear in this table is decided entirely by
 `data/syllabus.json`, not by any list inside `js/`.
