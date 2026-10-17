@@ -1886,6 +1886,206 @@ function genPendulumTimePeriod() {
   };
 }
 
+/* ---- extra: gaps found by comparing against a real Term-1 mid-term paper */
+/*
+ * Added after checking the app's coverage against Mahaan's actual Dhruv
+ * Global School Term-1 Maths mid-term paper. Most of the paper was already
+ * well covered by existing generators and word problems; these seven fill
+ * the specific skills that were not: LCM with a remainder, counting how
+ * many times a repeating event coincides in a given window, splitting a
+ * straight angle in a given ratio, reflex angles, the reciprocal of a mixed
+ * number, the three-term (rather than two-term) distributive-law shortcut,
+ * and three-deep nested grouping symbols (parentheses, braces, square
+ * brackets together). A true multi-line "find x, y, z" figure or a
+ * "show that AB is parallel to EF" proof still can't be replicated as a
+ * single MCQ without an actual diagram, so those stay uncovered on purpose.
+ */
+
+function genLcmRemainder() {
+  const a = pick([6, 8, 9, 10, 12, 14, 15]);
+  const b = pick([16, 18, 20, 21, 24, 25]);
+  const c = pick([28, 30, 32, 35, 36, 40]);
+  if (a === b || b === c || a === c) return null;
+  const base = lcm(lcm(a, b), c);
+  if (base > 1200) return null;
+  const r = randInt(1, Math.min(a, b, c) - 1);
+  const correct = base + r;
+  const opts = makeOptions(correct, shuffled([base, base - r, base + r * 2, a + b + c + r]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `What is the smallest number which, when divided by ${a}, ${b} and ${c}, leaves a remainder of ${r} in each case?`,
+    ...opts,
+    explanation: `A number that leaves the same remainder ${r} when divided by each of ${a}, ${b} and ${c} is ${r} more than a common multiple of all three. The smallest common multiple is LCM(${a}, ${b}, ${c}) = ${base}, so the smallest such number is ${base} + ${r} = ${correct}.`,
+    simpler: [
+      `First ignore the remainder and find a number all three divide exactly — that is the LCM.`,
+      `LCM(${a}, ${b}, ${c}) = ${base}.`,
+      `A number that is ${r} MORE than that will leave remainder ${r} when divided by each of them.`,
+      `Smallest such number = ${base} + ${r} = ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["lcm", "remainder", "word-problem"],
+  };
+}
+
+function genLcmRepeatCount() {
+  const a = pick([4, 5, 6, 8, 9, 10]);
+  const b = pick([12, 15, 16, 18, 20]);
+  const c = pick([20, 24, 25, 30]);
+  if (a === b || b === c || a === c) return null;
+  const L = lcm(lcm(a, b), c);
+  if (L > 300) return null;
+  const reps = randInt(2, 5);
+  const window = L * reps;
+  const correct = reps + 1;
+  const opts = makeOptions(correct, shuffled([reps, reps + 2, Math.max(1, reps - 1), Math.floor(window / Math.min(a, b, c)) + 1]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Three traffic signals change together at intervals of ${a}, ${b} and ${c} seconds, and they all change together at the start. How many times will they all change together during the next ${window} seconds, counting both the start and the end?`,
+    ...opts,
+    explanation: `They change together every LCM(${a}, ${b}, ${c}) = ${L} seconds. In ${window} seconds that happens at 0, ${L}, ${2 * L}, … up to ${window} seconds — ${window} ÷ ${L} = ${reps} intervals, which is ${reps + 1} coinciding moments once the very start is counted too.`,
+    simpler: [
+      `First find how often they ALL change together: LCM(${a}, ${b}, ${c}) = ${L} seconds.`,
+      `They coincide at 0s, ${L}s, ${2 * L}s, and so on.`,
+      `${window} ÷ ${L} = ${reps}, so there are ${reps} gaps of ${L}s inside the window.`,
+      `${reps} gaps means ${reps} + 1 = ${correct} moments, since the start itself counts as the first one.`,
+    ],
+    difficulty: "hard",
+    tags: ["lcm", "word-problem"],
+  };
+}
+
+function genAngleRatioStraightLine() {
+  const sumChoices = [3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24];
+  const sum = pick(sumChoices);
+  const m = randInt(1, sum - 1);
+  const n = sum - m;
+  if (m === n || gcd(m, n) !== 1) return null;
+  const totalHalfDeg = 360; // 180 degrees, held in half-degree units so a
+  // ratio like 7:5 can still land on a clean X.5 degree result.
+  const partHalfDeg = (totalHalfDeg * n) / sum;
+  if (!Number.isInteger(partHalfDeg)) return null;
+  const angleText = (h) => (h % 2 === 0 ? `${h / 2}°` : `${(h - 1) / 2}.5°`);
+  const correct = angleText(partHalfDeg);
+  const otherPartHalfDeg = totalHalfDeg - partHalfDeg;
+  const opts = makeOptions(
+    correct,
+    shuffled([angleText(otherPartHalfDeg), angleText(partHalfDeg + 10), angleText(Math.max(2, partHalfDeg - 10))]),
+    () => []
+  );
+  if (!opts) return null;
+  return {
+    question: `PQR is a straight line and ray QS splits ∠PQR so that ∠PQS : ∠SQR = ${m} : ${n}. What is the measure of ∠SQR?`,
+    ...opts,
+    explanation: `∠PQS and ∠SQR together make the straight angle ∠PQR = 180°, split in the ratio ${m}:${n}. So ∠SQR is ${n}/${m + n} of 180°, which is ${correct}.`,
+    simpler: [
+      `Since PQR is a straight line, ∠PQS + ∠SQR = 180° exactly.`,
+      `Splitting 180° in the ratio ${m}:${n} means dividing it into ${m + n} equal shares.`,
+      `One share is 180° ÷ ${m + n}.`,
+      `∠SQR gets ${n} of those shares, which comes to ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["angles", "ratio", "straight-line"],
+  };
+}
+
+function genReflexAngle() {
+  const a = randInt(20, 170);
+  const correct = 360 - a;
+  const opts = makeOptions(correct, shuffled([a, 180 - a, correct - 10, correct + 10]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `An angle measures ${a}°. What is the measure of its reflex angle?`,
+    ...opts,
+    explanation: `A reflex angle is what remains to complete a full turn of 360°. Reflex angle = 360° − ${a}° = ${correct}°.`,
+    simpler: [
+      `A full turn all the way around is 360°.`,
+      `The reflex angle is everything OUTSIDE the given angle, going the long way round.`,
+      `360° − ${a}° = ${correct}°.`,
+    ],
+    difficulty: "medium",
+    tags: ["angles", "reflex"],
+  };
+}
+
+function genReciprocalMixed() {
+  const whole = randInt(1, 5);
+  const d = randInt(2, 9);
+  const n = randInt(1, d - 1);
+  if (gcd(n, d) !== 1) return null;
+  const impNum = whole * d + n;
+  const correct = fracText(d, impNum);
+  const opts = makeOptions(
+    correct,
+    shuffled([fracText(impNum, d), fracText(d, impNum + 1), fracText(d, Math.max(1, impNum - 1))]),
+    fracNudge(d, impNum)
+  );
+  if (!opts) return null;
+  return {
+    question: `What is the reciprocal of ${whole} ${n}/${d}?`,
+    ...opts,
+    explanation: `First write the mixed number as an improper fraction: ${whole} ${n}/${d} = (${whole} × ${d} + ${n})/${d} = ${impNum}/${d}. The reciprocal of ${impNum}/${d} is ${d}/${impNum}, which is ${correct}.`,
+    simpler: [
+      `You can only flip a MIXED number once it is written as a single fraction.`,
+      `Convert first: ${whole} ${n}/${d} = ${impNum}/${d}.`,
+      `Now flip it upside down: ${impNum}/${d} becomes ${d}/${impNum}.`,
+      `${d}/${impNum} simplifies to ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["fractions", "reciprocal", "mixed-number"],
+  };
+}
+
+function genDistributiveThreeTerm() {
+  const a = pick([-1, 1]) * randInt(10, 95);
+  const p = randInt(15, 150);
+  const q = randInt(2, 60);
+  const r = randInt(2, 60);
+  const correct = a * (p - q + r);
+  const opts = makeOptions(correct, shuffled([a * (p + q + r), a * (p - q - r), -correct, a * p - q + r]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Find the value using the distributive property: ${signed(a)} × ${p} − ${signed(a)} × ${q} + ${signed(a)} × ${r}`,
+    ...opts,
+    explanation: `All three terms share the same factor, ${signed(a)}, so factor it out first: ${signed(a)} × (${p} − ${q} + ${r}). Work out the bracket: ${p} − ${q} + ${r} = ${p - q + r}. Then ${signed(a)} × ${p - q + r} = ${correct}.`,
+    simpler: [
+      `Look for the number that is repeated in every term — here it is ${a}.`,
+      `Pull it out the front: ${signed(a)} × (${p} − ${q} + ${r}).`,
+      `Do the bracket first: ${p} − ${q} + ${r} = ${p - q + r}.`,
+      `Multiply: ${signed(a)} × ${p - q + r} = ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["bodmas", "distributive", "integers"],
+  };
+}
+
+function genBodmasDeepNested() {
+  const s = randInt(10, 30);
+  const t = randInt(2, s - 2);
+  const inner = s - t;
+  const r = randInt(inner + 5, inner + 30);
+  const mid = r - inner;
+  const q = randInt(2, 20);
+  const outer = q + mid;
+  const p = randInt(outer + 5, outer + 40);
+  const correct = p - outer;
+  const opts = makeOptions(correct, shuffled([p - q - r, p - outer + 2 * t, p - mid, correct + s]), numericNudge(correct));
+  if (!opts) return null;
+  return {
+    question: `Simplify: ${p} − [${q} + {${r} − (${s} − ${t})}]`,
+    ...opts,
+    explanation: `Work from the innermost grouping symbol outward. Round brackets first: ${s} − ${t} = ${inner}. Then the braces: ${r} − ${inner} = ${mid}. Then the square brackets: ${q} + ${mid} = ${outer}. Finally: ${p} − ${outer} = ${correct}.`,
+    simpler: [
+      `With nested grouping symbols, always solve the INNERMOST one first.`,
+      `Round brackets: ${s} − ${t} = ${inner}.`,
+      `Now the braces around that: ${r} − ${inner} = ${mid}.`,
+      `Now the square brackets around that: ${q} + ${mid} = ${outer}.`,
+      `Last step: ${p} − ${outer} = ${correct}.`,
+    ],
+    difficulty: "hard",
+    tags: ["bodmas", "nested-brackets"],
+  };
+}
+
 /*
  * Verified from a school worksheet ("Term1_Studymaterial_Verb Conjugations").
  * Each entry's forms are exactly as given there. Shared between the generator
@@ -1980,10 +2180,10 @@ function genGermanSeparableVerb() {
 const FAMILIES = {
   "hcf-lcm-factors": [genHCF, genLCM, genIsFactor, genSmallestDivisibleBy, genFactorCount, genHCFThree],
   "integer-operations": [genIntegerAdd, genIntegerSubtract, genIntegerMultiply, genIntegerDivide, genIntegerThreeTerm, genIntegerNumberLine],
-  "arithmetic-expressions": [genBodmasAddMul, genBodmasBrackets, genBodmasDivideMul, genBodmasFourTerm, genBodmasNested, genBodmasMissingBracket, genTermsInExpression, genPhraseToExpression, genFactorShortcut],
-  "fractions": [genFractionAdd, genFractionSubtract, genFractionMultiply, genFractionDivide, genFractionCompare, genFractionOfQuantity, genReciprocal],
+  "arithmetic-expressions": [genBodmasAddMul, genBodmasBrackets, genBodmasDivideMul, genBodmasFourTerm, genBodmasNested, genBodmasMissingBracket, genTermsInExpression, genPhraseToExpression, genFactorShortcut, genDistributiveThreeTerm, genBodmasDeepNested],
+  "fractions": [genFractionAdd, genFractionSubtract, genFractionMultiply, genFractionDivide, genFractionCompare, genFractionOfQuantity, genReciprocal, genReciprocalMixed],
   "decimals": [genDecimalAdd, genDecimalSubtract, genDecimalTimesWhole, genDecimalDivideWhole, genDecimalTimesDecimal, genDecimalCompare, genDecimalPlaceValue, genDecimalShiftMultiply],
-  "lines-and-angles": [genComplementSupplement, genVerticallyOpposite, genLinearPair, genParallelEqualAngles, genCoInterior, genAnglesOnStraightLine, genAnglesAtAPoint, genTriangleAngleSum, genCheckParallel],
+  "lines-and-angles": [genComplementSupplement, genVerticallyOpposite, genLinearPair, genParallelEqualAngles, genCoInterior, genAnglesOnStraightLine, genAnglesAtAPoint, genTriangleAngleSum, genCheckParallel, genAngleRatioStraightLine, genReflexAngle],
   "excel-formulas": [genExcelSum, genExcelAverage, genExcelMaxMin, genExcelCount, genExcelFormulaChoice, genExcelReference],
 
   // German. The first non-Maths, non-Science generator family; see the
@@ -1996,7 +2196,7 @@ const FAMILIES = {
 
   // Word problems. Separate families so a chapter can ask for more or fewer of
   // them from data/syllabus.json without any code change.
-  "word-problems-hcf-lcm": [genWpBells, genWpStacks, genWpTrack, genWpContainer],
+  "word-problems-hcf-lcm": [genWpBells, genWpStacks, genWpTrack, genWpContainer, genLcmRemainder, genLcmRepeatCount],
   "word-problems-integers": [genWpTemperature, genWpSubmarine, genWpExamScore, genWpDiver],
   "word-problems-bodmas": [genWpShopping, genWpChange, genWpBoxes],
   "word-problems-fractions": [genWpClassFraction, genWpCups, genWpSalary],

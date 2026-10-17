@@ -150,8 +150,9 @@ function divisorsOf(n) { const o = []; for (let k = 1; k <= n; k++) if (n % k ==
 const NUM = "(-?\\d+(?:\\.\\d+)?)";
 
 function verifyArithmetic(q) {
-  // "Calculate: (-13) + 7", "Simplify: 3 + 4 × 5", "Add: 1.2 + 3.4", ...
-  const m = q.question.match(/^(?:Calculate|Simplify|Add|Subtract|Multiply|Divide):\s*(.+)$/);
+  // "Calculate: (-13) + 7", "Simplify: 3 + 4 × 5", "Add: 1.2 + 3.4",
+  // "Find the value using the distributive property: (-87) × 103 - ...", ...
+  const m = q.question.match(/^(?:Calculate|Simplify|Add|Subtract|Multiply|Divide|Find the value using the distributive property):\s*(.+)$/);
   if (!m) return null;
   let exprText = m[1];
 
@@ -159,6 +160,11 @@ function verifyArithmetic(q) {
   // precedence would misread it. Rewrite it into explicit brackets first.
   const fd = exprText.match(/^(\d+)\/(\d+)\s*÷\s*(\d+)\/(\d+)$/);
   if (fd) exprText = `(${fd[1]}/${fd[2]}) ÷ (${fd[3]}/${fd[4]})`;
+
+  // Braces and square brackets are just visual bracket variety for a nested
+  // expression (see genBodmasDeepNested) - mathematically identical to
+  // round brackets, so normalise them before handing off to the evaluator.
+  exprText = exprText.replace(/[{}[\]]/g, (c) => (c === "}" || c === "]" ? ")" : "("));
 
   const value = evalExpression(exprText);
   if (!value) return null;
@@ -252,6 +258,18 @@ function verifyAngles(q) {
   m = q.question.match(/Three of them measure (\d+)°, (\d+)° and (\d+)°\. What is the fourth angle\?$/);
   if (m) return Number(q.options[q.answer]) === 360 - +m[1] - +m[2] - +m[3];
 
+  m = q.question.match(/^An angle measures (\d+)°\. What is the measure of its reflex angle\?$/);
+  if (m) return Number(q.options[q.answer]) === 360 - +m[1];
+
+  m = q.question.match(/∠PQS : ∠SQR = (\d+) : (\d+)\. What is the measure of ∠SQR\?$/);
+  if (m) {
+    const [mm, nn] = [+m[1], +m[2]];
+    const partHalfDeg = (360 * nn) / (mm + nn);
+    if (!Number.isInteger(partHalfDeg)) return false;
+    const want = partHalfDeg % 2 === 0 ? `${partHalfDeg / 2}°` : `${(partHalfDeg - 1) / 2}.5°`;
+    return q.options[q.answer] === want;
+  }
+
   return null;
 }
 
@@ -330,6 +348,16 @@ function verifyWordHcfLcm(q) {
 
   m = q.question.match(/^Two tanks hold (\d+) litres and (\d+) litres of oil.*largest container/);
   if (m) return Number(marked(q)) === gcdN(+m[1], +m[2]);
+
+  m = q.question.match(/^What is the smallest number which, when divided by (\d+), (\d+) and (\d+), leaves a remainder of (\d+) in each case\?$/);
+  if (m) return Number(marked(q)) === lcmN(lcmN(+m[1], +m[2]), +m[3]) + +m[4];
+
+  m = q.question.match(/^Three traffic signals change together at intervals of (\d+), (\d+) and (\d+) seconds.*during the next (\d+) seconds/);
+  if (m) {
+    const L = lcmN(lcmN(+m[1], +m[2]), +m[3]);
+    const window = +m[4];
+    return Number(marked(q)) === Math.floor(window / L) + 1;
+  }
   return null;
 }
 
@@ -491,6 +519,14 @@ function verifyExtraReciprocal(q) {
     const got = parseRational(marked(q));
     if (!got) return false;
     return rEq(got, R(d, n));
+  }
+  m = q.question.match(/^What is the reciprocal of (\d+) (\d+)\/(\d+)\?$/);
+  if (m) {
+    const [whole, n, d] = [+m[1], +m[2], +m[3]];
+    const impNum = whole * d + n;
+    const got = parseRational(marked(q));
+    if (!got) return false;
+    return rEq(got, R(d, impNum));
   }
   return null;
 }
