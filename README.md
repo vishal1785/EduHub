@@ -1,6 +1,6 @@
 # Learn Splash
 
-**Version 4.1**
+**Version 4.2**
 
 A mobile-first, offline-capable practice app for Grade 7 CBSE - Maths, Science, SST,
 English, Hindi, German and ICT. Vanilla HTML/CSS/JS, no build step, no backend, no
@@ -626,13 +626,3 @@ read "no longer available" and this suite would fail.
 It also walks through the mock-versus-Quick-10 case in the real UI: answer three
 questions of the 47-question mock, leave, start a Quick 10, and check that Home
 still offers the mock and that resuming it lands back on question 4.
-
-### Not covered
-
-- Real-device testing on your son's phone, and the PWA install flow. Worth a
-  quick manual pass once it is deployed.
-- Visual/layout checking. The suites assert that screens render and contain the
-  right content, not that they look right.
-
-If anything looks or behaves unexpectedly once you try it, tell me what you
-see and I'll fix it.
